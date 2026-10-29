@@ -161,6 +161,15 @@ function reconcile(company, matches, presentIds, reason) {
 
 const jobType = (title, extra = '') => (INTERN_RE.test(`${title} ${extra}`) ? 'internship' : 'job');
 
+// "Pure tech": software, data, AI/ML, infra, security, QA, embedded, IT. Not sales, ops, HR,
+// marketing, PM/design, or non-software engineering (mechanical, electrical, manufacturing...).
+const TECH_POS_RE = /\b(software|engineer(?:ing|s)?|developer|dev|sde|swe|programmer|full[- ]?stack|front[- ]?end|back[- ]?end|web|mobile|ios|android|flutter|react|node(?:\.?js)?|python|java|golang|rust|c\+\+|typescript|devops|sre|site reliability|platform|infrastructure|infra|cloud|kubernetes|data (?:engineer|scientist|science|analyst|analytics|platform)|machine learning|ml|ai|llm|deep learning|computer vision|nlp|research (?:engineer|scientist)|applied scientist|security|cyber ?security|appsec|qa|quality assurance|sdet|test automation|automation engineer|embedded|firmware|database|dba|architect|tech(?:nical)? lead|cto|it (?:support|admin|engineer)|blockchain|smart contract|game developer|mts|technical staff)\b/i;
+const TECH_NEG_RE = /\b(sales|account (?:executive|manager)|business development|bdr|sdr|marketing|marketer|recruit\w*|talent|human resources|hr|people (?:ops|operations|partner)|finance|financial|accountant|accounting|legal|counsel|paralegal|customer (?:success|support|service|experience)|support (?:specialist|agent|associate)|office|executive assistant|copywriter|content|community|partnerships?|solutions? (?:engineer|consultant|architect)|sales engineer|pre-?sales|field (?:engineer|service)|mechanical|electrical|civil|chemical|manufacturing|production|process engineer|quality engineer|construction|technician|driver|warehouse|nurse|clinical|pharmac\w*|mri|medical|physician|teacher|tutor|product (?:manager|owner|designer|marketing)|program manager|project manager|scrum|designer|ux researcher|operations (?:manager|associate|lead)|bizops|chief of staff|growth (?:lead|manager))\b/i;
+function isTechRole(j) {
+  const text = /^multiple roles/i.test(j.title) ? `${j.title} ${j.snippet || ''}` : j.title;
+  return TECH_POS_RE.test(text) && !TECH_NEG_RE.test(j.title);
+}
+
 // ---------------------------------------------------------------- YC (founders + jobs)
 
 const SEASON = { winter: 1, spring: 2, summer: 3, fall: 4, autumn: 4 };
@@ -269,12 +278,16 @@ async function verifyYC() {
 // ---------------------------------------------------------------- Hacker News "Who is hiring?"
 
 const NON_COMPANY_DOMAINS = /(^|\.)(ycombinator\.com|greenhouse\.io|lever\.co|ashbyhq\.com|workable\.com|linkedin\.com|twitter\.com|x\.com|github\.com|google\.com|forms\.gle|notion\.site|wellfound\.com|angel\.co|calendly\.com|youtube\.com|medium\.com|bit\.ly|typeform\.com|breezy\.hr|recruitee\.com|bamboohr\.com|smartrecruiters\.com|workatastartup\.com|jobs\.gem\.com|rippling\.com|teamtailor\.com|personio\.\w+|youtu\.be|wikipedia\.org|archive\.(?:ph|org|is)|lnkd\.in|grnh\.se|dover\.com|trinethire\.com|applytojob\.com|factorialhr\.com|techcrunch\.com|mercurynews\.com|nytimes\.com|bloomberg\.com|reuters\.com|forbes\.com|substack\.com|\w+\.gov|nih\.gov|arxiv\.org|docs\.google\.com|loom\.com|vimeo\.com|web\.app|github\.io|ycombinator\.com|news\.ycombinator\.com|techjobfinder\.com|nordictechjobs\.com|weworkremotely\.com|remoteok\.com|indeed\.com|glassdoor\.com)$/i;
-const LOCATION_RE = /remote|on-?site|hybrid|india|bengaluru|bangalore|hyderabad|mumbai|pune|delhi|gurgaon|gurugram|noida|chennai|\b(usa?|us-?only|uk|eu|europe|canada|apac|emea|worldwide|global)\b|london|berlin|paris|amsterdam|new york|nyc|san francisco|\bsf\b|bay area|seattle|austin|boston|toronto|singapore|tokyo|sydney/i;
-const CITY_RE = /[A-Z][a-z]+,\s?[A-Z]{2}\b|\b[A-Z][a-z]+, [A-Z][a-z]+\b/;
-const isLocation = p => LOCATION_RE.test(p) || CITY_RE.test(p);
+// A header part is a location if it names a market or a work arrangement.
+const WORK_MODE_RE = /\b(remote|on-?site|hybrid|in[- ]person|in[- ]office|wfh)\b/i;
+const isLocation = p => marketsOf(p).length > 0 || WORK_MODE_RE.test(p);
 
 const EMPLOYMENT_RE = /^(full[- ]?time|part[- ]?time|contract(or)?|freelance|permanent|equity|visa|salary|\$|€|£|₹|\d+k|interns?(hips?)?$|ft|pt|onsite|remote)\b/i;
-const HN_ROLE_RE = /technical staff|\bmts\b|lead|head of|\bcto\b|\bvp\b|manager|director|founding|staff|principal|scientist|specialist|recruiter|marketing|sales|operations|writer|support/i;
+const HN_ROLE_RE = /technical staff|\bmts\b|lead|head of|\bcto\b|\bvp\b|manager|director|founding|staff|principal|scientist|specialist|recruiter|marketing|sales|operations|writer|support|designer|\bswe\b|positions|roles|bizops|technician|consultant/i;
+// Words that make a header part clearly a job title even if it also mentions a place.
+const STRONG_ROLE_RE = /engineer|developer|scientist|designer|manager|intern|\bswe\b|architect|researcher|analyst|recruiter|positions|roles/i;
+// Comments in the thread that aren't hiring posts (meta chatter, complaints, etc.).
+const NOT_A_POST_RE = /^(there used to|this role always|it'?s my duty|when you look|looking for a (commercial )?co-?founder|so people|i am |i'?m |i lead|anyone|is it just me|reminder|please|why|what|how|thanks|lol)|willing to relocate|^location:.*\bremote:/i;
 
 function boardFromUrl(url) {
   const m = /(?:boards|job-boards)(?:\.eu)?\.greenhouse\.io\/(?:embed\/job_board\?for=)?([\w-]+)/i.exec(url)
@@ -294,10 +307,19 @@ function parseHN(c) {
   const text = stripHtml(html);
   const parts = header.split(/\s*[|•·]\s*|\s+[–—-]{1,2}\s+/).map(s => s.trim()).filter(Boolean);
   if (!parts.length) return null;
-  let first = /^https?:\/\//i.test(parts[0]) && parts[1] ? parts[1] : parts[0];
-  let name = first.replace(/\s*\([^)]*\)\s*/g, ' ').replace(/^(hiring:?|we're hiring:?|company:)\s*/i, '').replace(/\s+location:.*$/i, '').trim();
-  if (name.length > 45) name = name.split(/\s+/).slice(0, 4).join(' ');
-  if (!name || name.length < 2) return null;
+  if (NOT_A_POST_RE.test(header)) return null;
+  // Free-form headers: "Company: X Location: …", "X is hiring …", "Hiring for multiple roles - X".
+  const labelled = /company:\s*(.+?)(?:\s+location:|\s*$)/i.exec(header)?.[1]
+    || /^(?:at\s+)?([A-Z][\w.&' -]{1,40}?)\s+(?:is|are)\s+hiring\b/.exec(header)?.[1]
+    || /hiring for (?:several|multiple) roles (?:at|-|–)\s*([A-Z][\w.&'-]*(?:\s+[A-Z][\w.&'-]*){0,3})/.exec(header)?.[1];
+  if (!labelled && parts.length < 2 && header.split(/\s+/).length > 8) return null;
+  const first = labelled || parts.find(p => !/^https?:\/\/|^location:|^backed by|^remote:?$/i.test(p)) || '';
+  let name = first.replace(/\s*\([^)]*\)\s*/g, ' ')
+    .replace(/^(?:hiring:?|we'?re hiring:?|at)\s+/i, '')
+    .replace(/\s+(?:is|are)\s+hiring.*$|\s+we'?re hiring.*$|\s+hiring\b.*$/i, '')
+    .replace(/\s*\[[^\]]*\]\s*/g, ' ')
+    .replace(/[\s,;:!.]+$/, '').trim();
+  if (!name || name.length < 2 || name.split(/\s+/).length > 6 || /^https?:/i.test(name)) return null;
   const links = [...html.matchAll(/href="([^"]+)"/gi)].map(m => decode(m[1]));
   const candidates = links.filter(u => domainOf(u) && !NON_COMPANY_DOMAINS.test(domainOf(u)));
   // Prefer a link whose domain contains the company's name; strip careers./jobs./app. subdomains.
@@ -308,9 +330,12 @@ function parseHN(c) {
   const deobf = text.replace(/\s*[[(]\s*at\s*[\])]\s*/gi, '@').replace(/\s*[[(]\s*dot\s*[\])]\s*/gi, '.');
   const emails = [...new Set((deobf.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/gi) || []).map(e => e.toLowerCase()))].slice(0, 3);
   const rest = parts.slice(1).filter(p => !/https?:\/\/|www\.|\.\w{2,4}\/?$/i.test(p));
-  const isMeta = p => isLocation(p) || EMPLOYMENT_RE.test(p);
-  const roles = rest.filter(p => (TECH_RE.test(p) || HN_ROLE_RE.test(p)) && !isMeta(p));
-  const location = rest.filter(p => isLocation(p) && p.length < 80).join(' · ');
+  const isMoney = p => /^[$€£₹]|\d+\s?k\b|base|equity|salary/i.test(p);
+  const isRole = p => !EMPLOYMENT_RE.test(p) && !isMoney(p) && p !== first &&
+    (STRONG_ROLE_RE.test(p) || ((TECH_RE.test(p) || HN_ROLE_RE.test(p)) && !isLocation(p)));
+  const roles = rest.filter(isRole);
+  const isMeta = p => !roles.includes(p) && (isLocation(p) || EMPLOYMENT_RE.test(p) || isMoney(p));
+  const location = rest.filter(p => !roles.includes(p) && isLocation(p) && p.length < 120).join(' · ');
   return {
     commentId: String(c.id),
     author: c.author,
@@ -339,9 +364,10 @@ async function processHN() {
     const r = await get(`https://hn.algolia.com/api/v1/items/${t.objectID}`, { json: true, timeout: 60000 });
     if (!r.ok) { sourceReport.hn = { ok: false, error: r.error || r.status }; continue; }
     const present = new Set();
+    const notPosts = new Set();
     for (const child of r.body.children || []) {
       const p = parseHN(child);
-      if (!p) continue;
+      if (!p) { if (child.text && child.author) notPosts.add(`hn:${child.id}`); continue; }
       seen++;
       const jobId = `hn:${p.commentId}`;
       const domain = domainOf(p.website);
@@ -359,6 +385,8 @@ async function processHN() {
         location: byId.get(id)?.location || p.location,
       });
       if (isNew) added++;
+      // HN-only companies take the latest post's name, so old misparses heal themselves.
+      if (c.source === 'hn' && (c.sources || []).every(x => x === 'hn') && c.name !== p.name) c.name = p.name;
       if (c.source === 'hn' && c.website !== p.website) {
         // HN-only companies: always trust the latest post's link (clears bad old picks).
         if (p.website) { c.website = p.website; c.domain = domainOf(p.website); } else { delete c.website; delete c.domain; }
@@ -387,6 +415,16 @@ async function processHN() {
         const key = `${b.ats}:${b.token}`;
         const known = config.ats.boards.some(x => `${x.ats}:${x.token}` === key) || state.boards.some(x => `${x.ats}:${x.token}` === key);
         if (!known) state.boards.push({ ...b, companyId: c.id, name: c.name, discovered: NOW, active: false });
+      }
+    }
+    // Comments that aren't hiring posts (chatter, job seekers) were never leads: drop, don't mark red.
+    for (const c of [...db.companies]) {
+      const before = c.jobs.length;
+      c.jobs = c.jobs.filter(j => !notPosts.has(j.id));
+      if (before && !c.jobs.length && c.source === 'hn') {
+        db.companies.splice(db.companies.indexOf(c), 1);
+        byId.delete(c.id);
+        db.events = db.events.filter(e => e.companyId !== c.id);
       }
     }
     for (const c of db.companies) {
@@ -443,7 +481,8 @@ async function processBoards() {
   await pool(boards, 6, async (b) => {
     const key = `${b.ats}:${b.token}`;
     const r = await fetchBoard(b);
-    const companyId = b.companyId || `ats:${key}`;
+    // Attach the board to a company we already track under the same website (e.g. a YC company).
+    const companyId = b.companyId || (b.website && byDomain.get(domainOf(b.website))) || `ats:${key}`;
     if (!r.ok) {
       if (r.status === 404) {
         gone++;
@@ -518,6 +557,25 @@ await processBoards();
 await processManual();
 await verifyYC();
 
+// Merge companies that turned out to be the same business (same website domain).
+const SOURCE_RANK = { yc: 0, manual: 1, greenhouse: 2, lever: 2, ashby: 2, hn: 3 };
+const byDom = new Map();
+for (const c of [...db.companies].sort((a, b) => (SOURCE_RANK[a.source] ?? 9) - (SOURCE_RANK[b.source] ?? 9) || a.firstSeen.localeCompare(b.firstSeen))) {
+  if (!c.domain) continue;
+  const keep = byDom.get(c.domain);
+  if (!keep) { byDom.set(c.domain, c); continue; }
+  for (const j of c.jobs) if (!keep.jobs.some(x => x.id === j.id)) keep.jobs.push(j);
+  for (const p of c.contacts) addContact(keep, p);
+  for (const src of c.sources || []) if (!keep.sources.includes(src)) keep.sources.push(src);
+  for (const [k, v] of Object.entries(c)) if (keep[k] == null && v != null) keep[k] = v;
+  if (c.channels) keep.channels = { ...c.channels, ...keep.channels, social: { ...c.channels.social, ...keep.channels?.social } };
+  if (c.firstSeen < keep.firstSeen) keep.firstSeen = c.firstSeen;
+  for (const b of state.boards) if (b.companyId === c.id) b.companyId = keep.id;
+  db.companies.splice(db.companies.indexOf(c), 1);
+  byId.delete(c.id);
+  prevStatus.delete(c.id);
+}
+
 // Drop companies added this run that ended up with no relevant roles at all.
 const empty = new Set(db.companies.filter(c => c.firstSeen === NOW && !c.jobs.length).map(c => c.id));
 if (empty.size) {
@@ -543,7 +601,11 @@ for (const c of db.companies) {
     event('company_reopened', c);
   }
   c.status = next;
-  for (const j of c.jobs) j.markets ??= marketsOf(j.location || c.location);
+  for (const j of c.jobs) {
+    j.markets ??= marketsOf(j.location || c.location);
+    j.tech = isTechRole(j);
+    if (/linkedin\.com\/jobs/i.test(`${j.url} ${j.applyUrl || ''}`)) j.via = 'linkedin';
+  }
   c.markets = companyMarkets(c);
   c.jobs.sort((a, b) => (a.status === 'open' ? 0 : 1) - (b.status === 'open' ? 0 : 1) || (a.type === 'internship' ? -1 : 0) - (b.type === 'internship' ? -1 : 0));
 }
@@ -582,4 +644,6 @@ db.meta = {
 await fs.mkdir(path.dirname(LEADS_FILE), { recursive: true });
 await fs.writeFile(LEADS_FILE, JSON.stringify(db));
 await fs.writeFile(STATE_FILE, JSON.stringify(state, null, 1));
+// Tiny file the open dashboards poll, so they only re-download leads.json when it changed.
+await fs.writeFile(path.join(ROOT, 'data/version.json'), JSON.stringify({ v: new Date().toISOString() }));
 console.log(JSON.stringify({ mode: MODE, today, totals: db.meta.totals, sources: sourceReport, seconds: db.meta.runSeconds }, null, 2));

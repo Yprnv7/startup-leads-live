@@ -360,4 +360,6 @@ for (const d of Object.keys(state.prospeo.credits)) if (Date.now() - Date.parse(
 
 await fs.writeFile(LEADS_FILE, JSON.stringify(db));
 await fs.writeFile(STATE_FILE, JSON.stringify(state, null, 1));
+// Tiny file the open dashboards poll, so they only re-download leads.json when it changed.
+await fs.writeFile(path.join(ROOT, 'data/version.json'), JSON.stringify({ v: new Date().toISOString() }));
 console.log(JSON.stringify({ report, totals: db.meta.totals }, null, 2));
