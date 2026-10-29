@@ -212,7 +212,7 @@
    "companyId": "hn:vola-dynamics",
    "name": "Vola Dynamics",
    "discovered": "2026-10-29T10:32:13.751Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "ashby",
@@ -220,7 +220,7 @@
    "companyId": "hn:middesk",
    "name": "Middesk",
    "discovered": "2026-10-29T10:32:13.751Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "ashby",
@@ -228,7 +228,7 @@
    "companyId": "hn:kraken-tech",
    "name": "Kraken Tech",
    "discovered": "2026-10-29T10:32:13.751Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "ashby",
@@ -236,7 +236,7 @@
    "companyId": "hn:overjoyed-to-partner-with",
    "name": "Overjoyed to partner with",
    "discovered": "2026-10-29T10:32:13.751Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "greenhouse",
@@ -244,7 +244,7 @@
    "companyId": "hn:mattermost",
    "name": "Mattermost",
    "discovered": "2026-10-29T10:32:13.751Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "ashby",
@@ -252,7 +252,7 @@
    "companyId": "hn:footprint",
    "name": "Footprint",
    "discovered": "2026-10-29T10:32:13.751Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "ashby",
@@ -260,7 +260,7 @@
    "companyId": "hn:tenki-cloud-by-luxor-tech",
    "name": "Tenki Cloud by Luxor Tech",
    "discovered": "2026-10-29T10:32:13.751Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "ashby",
@@ -268,7 +268,7 @@
    "companyId": "hn:sentilink",
    "name": "SentiLink",
    "discovered": "2026-10-29T10:32:13.751Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "ashby",
@@ -276,7 +276,7 @@
    "companyId": "hn:oscilar-com",
    "name": "Oscilar.com",
    "discovered": "2026-10-29T10:32:13.751Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "greenhouse",
@@ -284,7 +284,7 @@
    "companyId": "hn:manifest",
    "name": "Manifest",
    "discovered": "2026-10-29T10:32:13.751Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "ashby",
@@ -292,7 +292,7 @@
    "companyId": "hn:mastra",
    "name": "Mastra",
    "discovered": "2026-10-29T10:32:13.751Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "greenhouse",
@@ -300,7 +300,7 @@
    "companyId": "hn:coast",
    "name": "Coast",
    "discovered": "2026-10-29T10:32:13.751Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "ashby",
@@ -308,7 +308,7 @@
    "companyId": "hn:livekit",
    "name": "LiveKit",
    "discovered": "2026-10-29T10:32:13.751Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "ashby",
@@ -316,7 +316,7 @@
    "companyId": "hn:iceye",
    "name": "ICEYE",
    "discovered": "2026-10-29T10:32:13.751Z",
-   "active": false
+   "active": true
   }
  ],
  "boardNames": {},
