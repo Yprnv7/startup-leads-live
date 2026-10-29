@@ -138,6 +138,11 @@ select { border: 1px solid var(--border); background: var(--bg); padding: 7px 8p
 .find { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
 .find a { font-size: 12px; padding: 4px 8px; border: 1px solid var(--border); border-radius: 999px; }
 .badge.ta { background: var(--blue-soft); color: var(--blue); }
+.badge.mk { background: var(--green-soft); color: var(--green); }
+.mrow { display: flex; justify-content: space-between; width: 100%; border: 0; background: none; padding: 5px 0; cursor: pointer; font-size: 13px; color: var(--text); border-bottom: 1px solid var(--border); }
+.mrow:last-child { border-bottom: 0; }
+.mrow.on { color: var(--accent); font-weight: 650; }
+.mrow:hover { color: var(--accent); }
 .badge.pa { background: var(--amber-soft); color: var(--amber); }
 .badge.fo { background: var(--accent-soft); color: var(--accent); }
 
@@ -172,7 +177,7 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
 <header class="top">
   <div class="wrap">
     <div class="brand">
-      <h1>Startup Leads <span class="faint" style="font-weight:500">· Jobs, Internships &amp; Founder POCs</span></h1>
+      <h1>Startup Leads <span class="faint" style="font-weight:500">· MEA · SEA · Germany · UK · Australia</span></h1>
     </div>
     <span class="livepill" id="livepill" title="Live status"><span class="dot" id="livedot"></span><span id="livetext">Connecting…</span></span>
     <button class="btn" id="refreshBtn" title="Reload the latest data and re-check jobs live">↻ Check now</button>
@@ -199,10 +204,14 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
           <option value="closed">No longer hiring (red)</option>
           <option value="all">All statuses</option>
         </select>
-        <select id="region" aria-label="Region">
-          <option value="">All regions</option><option value="India">India</option><option value="Remote">Remote</option>
-          <option value="US">United States</option><option value="Europe">Europe / UK</option><option value="Other">Other</option>
+        <select id="region" aria-label="Market">
+          <option value="focus">★ Focus markets (MEA · SEA · DE · UK · AU)</option>
+          <option value="MEA">Middle East &amp; Africa</option><option value="SEA">Southeast Asia</option>
+          <option value="Germany">Germany</option><option value="UK">United Kingdom</option><option value="Australia">Australia &amp; NZ</option>
+          <option value="Europe">Rest of Europe</option><option value="India">India</option><option value="Remote">Remote (global)</option>
+          <option value="USA">United States</option><option value="">All markets</option>
         </select>
+        <label class="chk" title="Hide US-only companies and US-only roles"><input type="checkbox" id="hideUS"> Hide USA</label>
         <select id="source" aria-label="Source">
           <option value="">All sources</option><option value="yc">Y Combinator</option><option value="hn">HN Who's Hiring</option>
           <option value="greenhouse">Greenhouse</option><option value="lever">Lever</option><option value="ashby">Ashby</option><option value="manual">Manual / imported</option>
@@ -238,6 +247,10 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
         <div class="feed" id="feed"></div>
       </div>
       <div class="card">
+        <h3>Markets <span class="faint">hiring companies</span></h3>
+        <div id="markets"></div>
+      </div>
+      <div class="card">
         <h3>Data sources</h3>
         <div id="sources"></div>
       </div>
@@ -269,7 +282,7 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
   const liveClosed = new Map();     // jobId -> reason, from browser checks since the last dataset
   let lastLiveCheck = null, liveChecking = false;
   const contacted = new Set(store.get('leads.contacted', []));
-  const filters = Object.assign({ q: '', type: 'all', status: 'open', region: '', source: '', sort: 'new', contact: '', fNew: false, fUncontacted: false }, store.get('leads.filters', {}));
+  const filters = Object.assign({ q: '', type: 'all', status: 'open', region: 'focus', hideUS: true, source: '', sort: 'new', contact: '', fNew: false, fUncontacted: false }, store.get('leads.filters.v2', {}));
 
   // ------------------------------------------------------------ theme
   const theme = store.get('leads.theme', null);
@@ -297,31 +310,30 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
   const fmtDate = iso => iso ? new Date(iso).toLocaleDateString(undefined, { day: 'numeric', month: 'short' }) : '';
 
   // ------------------------------------------------------------ derived company state (dataset + live overlay)
+  const FOCUS = ['MEA', 'SEA', 'Germany', 'UK', 'Australia'];
+  const usOnly = m => !!m?.length && m.includes('USA') && m.every(x => x === 'USA' || x === 'Canada');
   function view(c) {
-    const jobs = c.jobs.map(j => liveClosed.has(j.id) && j.status === 'open'
+    const all = c.jobs.map(j => liveClosed.has(j.id) && j.status === 'open'
       ? { ...j, status: 'closed', closedAt: new Date().toISOString(), closedReason: liveClosed.get(j.id), live: true }
       : j);
+    const anyOpen = all.some(j => j.status === 'open');
+    // "Hide USA": drop roles that are US-only; drop the company if nothing outside the US is left.
+    const jobs = filters.hideUS ? all.filter(j => !usOnly(j.markets?.length ? j.markets : c.markets)) : all;
     const open = jobs.filter(j => j.status === 'open');
+    const hidden = filters.hideUS && ((all.length && !jobs.length) || (anyOpen && !open.length) || (!all.length && usOnly(c.markets)));
     return {
-      ...c, jobs,
+      ...c, jobs, hidden, hiddenUS: all.length - jobs.length,
       openJobs: open.length,
       openInternships: open.filter(j => j.type === 'internship').length,
-      status: open.length ? 'open' : 'closed',
-      closedNow: c.status === 'open' && !open.length,
+      status: anyOpen ? 'open' : 'closed',
+      closedNow: c.status === 'open' && !anyOpen,
     };
   }
+  const marketsOfC = c => c.markets || [];
+  const regionMatch = (c, r = filters.region) => !r || (r === 'focus' ? marketsOfC(c).some(m => FOCUS.includes(m)) : marketsOfC(c).includes(r));
+  // Rows in the selected market (and outside the US if hidden): what KPIs and the list start from.
+  const baseRows = () => data.companies.map(view).filter(c => !c.hidden && regionMatch(c));
 
-  const REGION_RE = {
-    India: /india|bengaluru|bangalore|hyderabad|mumbai|pune|delhi|gurgaon|gurugram|noida|chennai|kolkata|ahmedabad|jaipur|kochi/i,
-    Remote: /remote|anywhere|worldwide|distributed/i,
-    US: /\b(us|usa|united states|america)\b|san francisco|\bsf\b|new york|nyc|seattle|austin|boston|bay area|los angeles|chicago|denver|palo alto|mountain view|\b(CA|NY|WA|TX|MA|IL|CO)\b/,
-    Europe: /\b(uk|eu|europe|emea)\b|london|berlin|paris|amsterdam|dublin|munich|stockholm|zurich|madrid|lisbon|barcelona|germany|france|netherlands|ireland|spain|united kingdom/i,
-  };
-  function regionsOf(c) {
-    const text = [c.location, ...(c.regions || []), ...c.jobs.map(j => j.location)].filter(Boolean).join(' | ');
-    const out = Object.keys(REGION_RE).filter(r => REGION_RE[r].test(text));
-    return out.length ? out : ['Other'];
-  }
   const TEAM_OF = p => p.team || (p.source === 'HN' ? 'Talent & HR' : /founder|ceo|cto|chief/i.test(p.title || '') ? 'Founders & leadership' : 'Other');
   const TEAM_KEY = { ta: 'Talent & HR', pa: 'Partnerships & BD', fo: 'Founders & leadership' };
   const emailsOf = c => [...c.contacts.filter(p => p.email).map(p => p.email), ...(c.channels?.emails || []).map(e => e.email)];
@@ -338,7 +350,7 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
     if (!data) return [];
     const q = filters.q.trim().toLowerCase();
     const terms = q ? q.split(/\s+/) : [];
-    let rows = data.companies.map(view);
+    let rows = baseRows();
     rows = rows.filter(c => {
       if (filters.status !== 'all' && c.status !== filters.status) return false;
       if (filters.type !== 'all') {
@@ -346,7 +358,6 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
         const pool = filters.status === 'closed' ? c.jobs : c.jobs.filter(j => j.status === 'open');
         if (!pool.some(j => j.type === want)) return false;
       }
-      if (filters.region && !regionsOf(c).includes(filters.region)) return false;
       if (filters.source && !(c.sources || [c.source]).includes(filters.source)) return false;
       if (filters.fNew && !isToday(c.firstSeen)) return false;
       if (!contactMatch(c, filters.contact)) return false;
@@ -368,7 +379,7 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
 
   // ------------------------------------------------------------ rendering
   function kpis() {
-    const rows = data.companies.map(view);
+    const rows = baseRows();
     const open = rows.filter(c => c.status === 'open');
     const t = {
       companies: rows.length,
@@ -396,6 +407,7 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
   const initials = n => (n || '?').split(/\s+/).map(w => w[0]).join('').slice(0, 2).toUpperCase();
   const linkedInSearch = (c, role = 'founder') => `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(`${role} ${c.name}`)}`;
   const TEAM_BADGE = { 'Talent & HR': ['ta', 'TA / HR'], 'Partnerships & BD': ['pa', 'Partnerships'], 'Founders & leadership': ['fo', 'Founders'], 'Sales & growth': ['', 'Sales'], Other: ['', 'Other'] };
+  const MARKET_LABEL = { MEA: 'MEA', SEA: 'SEA', Germany: 'DE', UK: 'UK', Australia: 'AU/NZ' };
   const copyBtn = v => `<button class="copy" data-copy="${esc(v)}" title="Copy">⧉</button>`;
 
   function contactLinks(p) {
@@ -430,6 +442,7 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
           <div class="name"><span class="nm">${esc(c.name)}</span>
             ${isToday(c.firstSeen) ? '<span class="badge new">NEW</span>' : ''}
             ${c.batch ? `<span class="badge">YC ${esc(shortBatch(c.batch))}</span>` : ''}
+            ${marketsOfC(c).filter(m => FOCUS.includes(m)).map(m => `<span class="badge mk">${esc(MARKET_LABEL[m])}</span>`).join('')}
           </div>
           <div class="oneliner">${esc(c.oneLiner || c.jobs[0]?.title || '')}</div>
         </div>
@@ -484,7 +497,7 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
       c.linkedin && `<a href="${esc(c.linkedin)}" target="_blank" rel="noopener">Company LinkedIn</a>`,
     ].filter(Boolean).join('');
     return `<div class="co-body">
-      <div><h4>Roles (${c.openJobs} open${c.jobs.length > c.openJobs ? `, ${c.jobs.length - c.openJobs} closed` : ''})</h4>${jobs}</div>
+      <div><h4>Roles (${c.openJobs} open${c.jobs.length > c.openJobs ? `, ${c.jobs.length - c.openJobs} closed` : ''})</h4>${jobs}${c.hiddenUS ? `<div class="faint" style="font-size:12px;margin-top:6px">${c.hiddenUS} US-only role${c.hiddenUS === 1 ? '' : 's'} hidden — untick “Hide USA” to see them.</div>` : ''}</div>
       <div><h4>Points of contact (${c.contacts.length})</h4>${people}${company}
         <h4 style="margin-top:14px">Find more people on LinkedIn</h4><div class="find">${finds}</div>
         <div class="links">${links}</div>
@@ -509,11 +522,21 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
     $('#moreBtn').hidden = rows.length <= shown;
     $('#moreBtn').textContent = `Show more (${(rows.length - shown).toLocaleString()} left)`;
     const clear = $('#clearF');
-    if (clear) clear.onclick = () => { Object.assign(filters, { q: '', type: 'all', status: 'all', region: '', source: '', contact: '', fNew: false, fUncontacted: false }); syncControls(); render(); };
+    if (clear) clear.onclick = () => { Object.assign(filters, { q: '', type: 'all', status: 'all', region: '', source: '', contact: '', fNew: false, fUncontacted: false, hideUS: false }); syncControls(); render(); };
     renderSide();
   }
 
+  function renderMarkets() {
+    const rows = data.companies.map(view).filter(c => !c.hidden && c.status === 'open');
+    const list = [['focus', '★ Focus markets'], ['MEA', 'Middle East & Africa'], ['SEA', 'Southeast Asia'], ['Germany', 'Germany'], ['UK', 'United Kingdom'], ['Australia', 'Australia & NZ'], ['Europe', 'Rest of Europe'], ['India', 'India'], ['Remote', 'Remote (global)'], ['', 'All markets']];
+    $('#markets').innerHTML = list.map(([k, l]) => {
+      const n = rows.filter(c => regionMatch(c, k)).length;
+      return `<button class="mrow ${filters.region === k ? 'on' : ''}" data-region="${k}"><span>${l}</span><b>${n.toLocaleString()}</b></button>`;
+    }).join('') + `<div class="faint" style="font-size:11.5px;margin-top:6px">${filters.hideUS ? 'US-only companies and roles hidden.' : 'Including US companies.'}</div>`;
+  }
+
   function renderSide() {
+    renderMarkets();
     const mode = store.get('leads.feed', 'key');
     document.querySelectorAll('#feedSeg button').forEach(b => b.classList.toggle('on', b.dataset.v === mode));
     const icons = { company_added: '＋', company_closed: '✕', company_reopened: '↺', job_added: '·', job_closed: '−', job_reopened: '↺' };
@@ -690,7 +713,7 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
     const head = ['Company', 'Status', 'Website', 'Location', 'Open roles', 'Open internships', 'Role titles',
       'Talent / HR contacts', 'Partnerships / BD contacts', 'Founders & leadership', 'Other contacts',
       'All person emails', 'All person phones', 'Company emails', 'Company phones',
-      'Company LinkedIn', 'Company X / Twitter', 'Contact page', 'Careers page', 'Source', 'Batch', 'Added', 'Closed at', 'Contacted'];
+      'Company LinkedIn', 'Company X / Twitter', 'Contact page', 'Careers page', 'Markets', 'Source', 'Batch', 'Added', 'Closed at', 'Contacted'];
     const fmtP = p => [p.name, p.title && `(${p.title})`, p.email && `<${p.email}>`, p.phone, p.linkedin].filter(Boolean).join(' ');
     const team = (c, t) => c.contacts.filter(p => TEAM_OF(p) === t).map(fmtP).join(' | ');
     const cell = v => `"${String(v ?? '').replace(/"/g, '""')}"`;
@@ -706,7 +729,7 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
       (c.channels?.phones || []).map(x => x.phone).join(' | '),
       c.channels?.social?.linkedin || c.linkedin || '', c.channels?.social?.twitter || '',
       c.channels?.pages?.contact || '', c.channels?.pages?.careers || c.careersUrl || '',
-      sourceLabel(sourceOf(c)), c.batch, c.firstSeen?.slice(0, 10), c.closedAt?.slice(0, 10) || '', contacted.has(c.id) ? 'yes' : '',
+      marketsOfC(c).join(' | '), sourceLabel(sourceOf(c)), c.batch, c.firstSeen?.slice(0, 10), c.closedAt?.slice(0, 10) || '', contacted.has(c.id) ? 'yes' : '',
     ].map(cell).join(','));
     const blob = new Blob(['﻿' + [head.map(cell).join(','), ...lines].join('\n')], { type: 'text/csv' });
     const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: `startup-leads-${new Date().toISOString().slice(0, 10)}.csv` });
@@ -719,8 +742,8 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
     $('#q').value = filters.q;
     document.querySelectorAll('#typeSeg button').forEach(b => b.classList.toggle('on', b.dataset.v === filters.type));
     for (const k of ['status', 'region', 'source', 'sort', 'contact']) $('#' + k).value = filters[k];
-    for (const k of ['fNew', 'fUncontacted']) $('#' + k).checked = filters[k];
-    store.set('leads.filters', { ...filters, q: '' });
+    for (const k of ['fNew', 'fUncontacted', 'hideUS']) $('#' + k).checked = filters[k];
+    store.set('leads.filters.v2', { ...filters, q: '' });
   }
   const update = patch => { Object.assign(filters, patch); shown = PAGE; syncControls(); render(); };
 
@@ -728,9 +751,10 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
   $('#q').addEventListener('input', e => { clearTimeout(qTimer); qTimer = setTimeout(() => update({ q: e.target.value }), 150); });
   $('#typeSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (b) update({ type: b.dataset.v }); });
   for (const k of ['status', 'region', 'source', 'sort', 'contact']) $('#' + k).addEventListener('change', e => update({ [k]: e.target.value }));
-  for (const k of ['fNew', 'fUncontacted']) $('#' + k).addEventListener('change', e => update({ [k]: e.target.checked }));
+  for (const k of ['fNew', 'fUncontacted', 'hideUS']) $('#' + k).addEventListener('change', e => update({ [k]: e.target.checked }));
   $('#feedSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { store.set('leads.feed', b.dataset.v); renderSide(); } });
   $('#moreBtn').onclick = () => { shown += PAGE; render(); };
+  $('#markets').addEventListener('click', e => { const b = e.target.closest('[data-region]'); if (b) update({ region: b.dataset.region }); });
   $('#csvBtn').onclick = exportCSV;
   $('#refreshBtn').onclick = async () => { await load(true); await liveCheck(); };
   $('#kpis').addEventListener('click', e => {

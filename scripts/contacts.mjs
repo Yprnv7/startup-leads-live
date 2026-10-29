@@ -11,6 +11,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isFocus } from './markets.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const LEADS_FILE = path.join(ROOT, 'data/leads.json');
@@ -193,7 +194,7 @@ async function scanSites() {
   const limit = +(args['crawl-limit'] || cfg.websiteScansPerRun);
   const due = db.companies
     .filter(c => c.website && (!c.scan || Date.now() - Date.parse(c.scan.at) > cfg.rescanDays * DAY))
-    .sort((a, b) => (a.scan ? 1 : 0) - (b.scan ? 1 : 0) || (a.status === 'open' ? -1 : 1))
+    .sort((a, b) => (a.scan ? 1 : 0) - (b.scan ? 1 : 0) || isFocus(b.markets || []) - isFocus(a.markets || []) || (a.status === 'open' ? -1 : 1))
     .slice(0, limit);
   let ok = 0;
   const queue = [...due];
@@ -274,7 +275,7 @@ async function prospeoPeople() {
   // Find people at companies we haven't searched yet (search pages cost 1 credit each).
   const due = db.companies
     .filter(c => c.domain && !c.prospeoAt && !/(^|\.)(github\.io|notion\.site|vercel\.app|linkedin\.com)$/.test(c.domain))
-    .sort((a, b) => (a.status === 'open' ? 0 : 1) - (b.status === 'open' ? 0 : 1) || b.firstSeen.localeCompare(a.firstSeen))
+    .sort((a, b) => (a.status === 'open' ? 0 : 1) - (b.status === 'open' ? 0 : 1) || isFocus(b.markets || []) - isFocus(a.markets || []) || b.firstSeen.localeCompare(a.firstSeen))
     .slice(0, cfg.prospeoCompaniesPerRun);
   let people = 0, pages = 0;
   for (let i = 0; i < due.length && spent() < budget; i += 25) {

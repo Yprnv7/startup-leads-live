@@ -12,6 +12,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { marketsOf, companyMarkets, isFocus, isUsOnly, FOCUS } from './markets.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const LEADS_FILE = path.join(ROOT, 'data/leads.json');
@@ -127,6 +128,7 @@ function addContact(company, contact) {
 }
 
 function upsertJob(company, job) {
+  job.markets = marketsOf(job.location || company.location);
   let j = company.jobs.find(x => x.id === job.id);
   if (!j) {
     j = { ...job, firstSeen: NOW, status: 'open', closedAt: null };
@@ -228,6 +230,7 @@ async function discoverYC() {
   };
   const candidates = res.body
     .filter(c => c.status === 'Active' && !byId.has(`yc:${c.slug}`))
+    .filter(c => !config.yc.skipUsOnly || !isUsOnly((c.regions || []).map(r => ({ 'America / Canada': 'USA', 'United States of America': 'USA', Canada: 'Canada' })[r] || (/remote|unspecified/i.test(r) ? null : r)).filter(Boolean)))
     .filter(c => !(state.ycSkipped[c.slug] && Date.now() - Date.parse(state.ycSkipped[c.slug]) < 14 * DAY))
     .sort((a, b) => regionRank(a) - regionRank(b) || batchRank(b.batch) - batchRank(a.batch));
   let added = 0, fetched = 0;
@@ -465,7 +468,8 @@ async function processBoards() {
     const relevant = r.jobs
       .filter(j => TECH_RE.test(j.title))
       .map(j => ({ ...j, type: jobType(j.title, j.commitment) }))
-      .sort((x, y) => (y.type === 'internship') - (x.type === 'internship') || String(y.posted).localeCompare(String(x.posted)));
+      .map(j => ({ ...j, focus: isFocus(marketsOf(j.location)) }))
+      .sort((x, y) => (y.type === 'internship') - (x.type === 'internship') || (y.focus - x.focus) || String(y.posted).localeCompare(String(x.posted)));
     const tracked = new Set(c.jobs.map(j => j.id));
     let room = config.ats.maxJobsPerCompany - c.jobs.filter(j => j.board === key && j.status === 'open').length;
     for (const j of relevant) {
@@ -539,6 +543,8 @@ for (const c of db.companies) {
     event('company_reopened', c);
   }
   c.status = next;
+  for (const j of c.jobs) j.markets ??= marketsOf(j.location || c.location);
+  c.markets = companyMarkets(c);
   c.jobs.sort((a, b) => (a.status === 'open' ? 0 : 1) - (b.status === 'open' ? 0 : 1) || (a.type === 'internship' ? -1 : 0) - (b.type === 'internship' ? -1 : 0));
 }
 

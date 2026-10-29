@@ -5,11 +5,20 @@ It updates itself — nobody has to run anything.
 
 **Site:** https://yprnv7.github.io/startup-leads-live/
 
+## Focus markets
+
+The site is built around **Middle East & Africa, Southeast Asia, Germany, the UK and Australia / NZ**.
+
+- It opens on **★ Focus markets** with **Hide USA** on. Pick a single market from the dropdown or the *Markets* card, or choose *All markets*.
+- **Hide USA** removes US-only companies and also US-only roles inside global companies (for example a London company's San Francisco roles). Untick it to see everything.
+- Daily discovery checks focus-market YC startups first and skips US-only ones. The job boards cover 80+ startups across London, Berlin/Munich, Singapore/Jakarta, Dubai/Riyadh/Cairo/Lagos and Sydney/Melbourne (`config.json` → `ats.boards`). Focus-market roles are kept first when a board has more roles than the per-company cap.
+- Every company and role is tagged with its markets (`scripts/markets.mjs`).
+
 ## How it stays up to date
 
 | What | When | How |
 |---|---|---|
-| New companies added | Every day, 07:00 IST | YC companies that are hiring (India first, then remote), every new post in the monthly HN "Who is hiring?" thread, and company job boards (Greenhouse / Lever / Ashby) found in those posts |
+| New companies added | Every day, 07:00 IST | YC companies that are hiring (focus markets first, US-only skipped), every new post in the monthly HN "Who is hiring?" thread, and company job boards (Greenhouse / Lever / Ashby) found in those posts |
 | New HN posts picked up | Every 2 hours | Same HN thread, re-read |
 | Every tracked job re-verified | Every 2 hours (YC pages every 6 h) | Job still on the company's board? HN post still up and not "filled"? |
 | Live check in your browser | On page load + every 10 min | Greenhouse / Lever / Ashby / HN are checked directly from the page, so a closed role turns red without waiting for the server |
