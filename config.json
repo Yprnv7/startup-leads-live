@@ -1,0 +1,41 @@
+{
+  "repo": "Yprnv7/startup-leads-live",
+  "yc": {
+    "newCompaniesPerDay": 40,
+    "firstRunCompanies": 120,
+    "regionPriority": ["India", "Remote", "Fully Remote", "Partly Remote", "Southeast Asia", "America / Canada", "Europe"],
+    "reverifyHours": 6,
+    "requestDelayMs": 400
+  },
+  "hn": {
+    "maxPostAgeDays": 50
+  },
+  "ats": {
+    "maxJobsPerCompany": 30,
+    "newBoardsPerDay": 25,
+    "boards": [
+      { "ats": "greenhouse", "token": "groww", "name": "Groww", "location": "Bengaluru, India" },
+      { "ats": "greenhouse", "token": "slice", "name": "slice", "location": "Bengaluru, India" },
+      { "ats": "greenhouse", "token": "inmobi", "name": "InMobi", "location": "Bengaluru, India" },
+      { "ats": "greenhouse", "token": "druva", "name": "Druva", "location": "Pune, India" },
+      { "ats": "lever", "token": "cred", "name": "CRED", "location": "Bengaluru, India" },
+      { "ats": "lever", "token": "meesho", "name": "Meesho", "location": "Bengaluru, India" },
+      { "ats": "lever", "token": "fampay", "name": "FamPay", "location": "Bengaluru, India" },
+      { "ats": "lever", "token": "mindtickle", "name": "Mindtickle", "location": "Pune, India" },
+      { "ats": "ashby", "token": "atlan", "name": "Atlan", "location": "India / Remote" },
+      { "ats": "ashby", "token": "scaler", "name": "Scaler", "location": "Bengaluru, India" },
+      { "ats": "ashby", "token": "supabase", "name": "Supabase" },
+      { "ats": "ashby", "token": "linear", "name": "Linear" },
+      { "ats": "ashby", "token": "replit", "name": "Replit" },
+      { "ats": "ashby", "token": "notion", "name": "Notion" },
+      { "ats": "ashby", "token": "deel", "name": "Deel" },
+      { "ats": "ashby", "token": "plaid", "name": "Plaid" },
+      { "ats": "greenhouse", "token": "vercel", "name": "Vercel" },
+      { "ats": "greenhouse", "token": "figma", "name": "Figma" },
+      { "ats": "greenhouse", "token": "airtable", "name": "Airtable" },
+      { "ats": "greenhouse", "token": "brex", "name": "Brex" }
+    ]
+  },
+  "techRoleRegex": "engineer|developer|software|\\bsde\\b|data|machine learning|\\bml\\b|\\bai\\b|product|design|devops|\\bsre\\b|security|\\bqa\\b|test|front.?end|back.?end|full.?stack|mobile|android|ios|intern|analyst|research|scientist|architect|platform|infra|cloud|growth|founding",
+  "internRegex": "\\bintern(ship)?s?\\b|co-?op\\b|apprentice|trainee"
+}

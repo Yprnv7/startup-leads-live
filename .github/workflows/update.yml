@@ -1,0 +1,67 @@
+name: Update leads
+
+on:
+  schedule:
+    - cron: '30 1 * * *'   # daily discovery of new companies — 07:00 IST
+    - cron: '0 */2 * * *'  # re-verify every tracked job every 2 hours
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'discover = add new companies + verify; verify = liveness checks only'
+        type: choice
+        options: [verify, discover]
+        default: verify
+      force_yc:
+        description: 'Re-check every YC company page now'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: update-leads
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Pick mode
+        id: mode
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "mode=${{ inputs.mode }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "30 1 * * *" ]; then
+            echo "mode=discover" >> "$GITHUB_OUTPUT"
+          else
+            echo "mode=verify" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Fetch, discover and verify
+        run: node scripts/update.mjs --mode=${{ steps.mode.outputs.mode }} ${{ inputs.force_yc && '--force-yc' || '' }}
+
+      - name: Commit data
+        run: |
+          git config user.name "leads-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git commit -q -m "data: ${{ steps.mode.outputs.mode }} $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3; do git push && exit 0; git pull --rebase -q; done
+          exit 1
+
+  deploy:
+    needs: update
+    uses: ./.github/workflows/deploy.yml
+    permissions:
+      pages: write
+      id-token: write

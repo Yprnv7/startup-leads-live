@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Startup Leads Live</title>
+<meta name="description" content="Live tech startup jobs, internships and founder POCs — auto-updated daily, closed roles flagged in red.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f46e5'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='white' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='2' fill='white'/%3E%3C/svg%3E">
+<style>
+:root {
+  --bg: #f6f7fb; --panel: #ffffff; --panel-2: #f1f3f9; --text: #141826; --muted: #5d6478; --faint: #8b91a3;
+  --border: #e3e6ef; --accent: #4f46e5; --accent-soft: #eef0ff;
+  --green: #0f8a4c; --green-soft: #e3f6ec; --red: #d92d3a; --red-soft: #fdecee; --red-row: #fff5f6;
+  --amber: #b45309; --amber-soft: #fff4e0; --blue-soft: #e8f1ff; --blue: #1d5fd6;
+  --shadow: 0 1px 2px rgba(16,24,40,.05), 0 1px 3px rgba(16,24,40,.06);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1117; --panel: #161a23; --panel-2: #1d2230; --text: #e8eaf1; --muted: #a2a9bb; --faint: #737a8c;
+    --border: #2a3040; --accent: #8b85ff; --accent-soft: #232543;
+    --green: #3ccf86; --green-soft: #13301f; --red: #ff6470; --red-soft: #3a1418; --red-row: #241317;
+    --amber: #f2b45a; --amber-soft: #33260f; --blue-soft: #16243d; --blue: #7aa7ff;
+    --shadow: none; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1117; --panel: #161a23; --panel-2: #1d2230; --text: #e8eaf1; --muted: #a2a9bb; --faint: #737a8c;
+  --border: #2a3040; --accent: #8b85ff; --accent-soft: #232543;
+  --green: #3ccf86; --green-soft: #13301f; --red: #ff6470; --red-soft: #3a1418; --red-row: #241317;
+  --amber: #f2b45a; --amber-soft: #33260f; --blue-soft: #16243d; --blue: #7aa7ff;
+  --shadow: none; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--text); font: 14px/1.45 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+button, input, select { font: inherit; color: inherit; }
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 16px; }
+
+header.top { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+.top .wrap { display: flex; align-items: center; gap: 12px; padding-top: 12px; padding-bottom: 12px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 10px; margin-right: auto; min-width: 0; }
+.brand h1 { font-size: 17px; margin: 0; letter-spacing: -.01em; white-space: nowrap; }
+.livepill { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--muted); background: var(--panel); border: 1px solid var(--border); padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); position: relative; flex: none; }
+.dot::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid var(--green); opacity: 0; animation: ping 2s infinite; }
+.dot.warn { background: var(--amber); } .dot.warn::after { border-color: var(--amber); }
+.dot.busy { background: var(--accent); } .dot.busy::after { border-color: var(--accent); animation-duration: .9s; }
+@keyframes ping { 0% { transform: scale(.6); opacity: .8; } 100% { transform: scale(1.6); opacity: 0; } }
+.btn { border: 1px solid var(--border); background: var(--panel); padding: 7px 12px; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; box-shadow: var(--shadow); }
+.btn:hover { border-color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn:disabled { opacity: .6; cursor: progress; }
+.iconbtn { padding: 7px 9px; }
+
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 18px 0 14px; }
+.kpi { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; box-shadow: var(--shadow); cursor: pointer; text-align: left; }
+.kpi:hover { border-color: var(--accent); }
+.kpi .label { font-size: 12px; color: var(--muted); }
+.kpi .value { font-size: 24px; font-weight: 650; letter-spacing: -.02em; font-variant-numeric: tabular-nums; margin-top: 2px; }
+.kpi .sub { font-size: 12px; color: var(--faint); }
+.kpi.red .value { color: var(--red); } .kpi.green .value { color: var(--green); }
+
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 16px; align-items: start; padding-bottom: 40px; }
+@media (max-width: 1050px) { .layout { grid-template-columns: 1fr; } .side { order: 2; } }
+
+.toolbar { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 10px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; box-shadow: var(--shadow); }
+.search { flex: 1 1 240px; display: flex; align-items: center; gap: 8px; border: 1px solid var(--border); border-radius: 8px; padding: 0 10px; background: var(--bg); }
+.search input { border: 0; outline: 0; background: transparent; padding: 8px 0; width: 100%; }
+.seg { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.seg button { border: 0; background: transparent; padding: 7px 11px; cursor: pointer; color: var(--muted); }
+.seg button.on { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.seg button + button { border-left: 1px solid var(--border); }
+select { border: 1px solid var(--border); background: var(--bg); padding: 7px 8px; border-radius: 8px; max-width: 100%; }
+.chk { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); cursor: pointer; user-select: none; }
+.resultbar { display: flex; justify-content: space-between; align-items: center; margin: 12px 2px 8px; color: var(--muted); font-size: 13px; gap: 8px; flex-wrap: wrap; }
+
+.list { display: flex; flex-direction: column; gap: 8px; }
+.co { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); overflow: hidden; transition: background .6s, border-color .6s; }
+.co.closed { background: var(--red-row); border-color: color-mix(in srgb, var(--red) 45%, var(--border)); border-left: 4px solid var(--red); }
+.co.flash { animation: flash 1.6s ease 2; }
+@keyframes flash { 50% { box-shadow: 0 0 0 3px color-mix(in srgb, var(--red) 55%, transparent); } }
+.co-head { display: grid; grid-template-columns: 40px minmax(0, 2.2fr) minmax(0, 1.3fr) minmax(0, 1.6fr) auto; gap: 12px; align-items: center; padding: 12px 14px; cursor: pointer; }
+.co-head:hover { background: color-mix(in srgb, var(--panel-2) 60%, transparent); }
+.logo { width: 40px; height: 40px; border-radius: 9px; background: var(--panel-2); display: grid; place-items: center; font-weight: 700; color: var(--muted); overflow: hidden; border: 1px solid var(--border); }
+.logo img { width: 100%; height: 100%; object-fit: cover; }
+.co.closed .logo { filter: grayscale(1); opacity: .7; }
+.name { font-weight: 650; font-size: 15px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.co.closed .name .nm { color: var(--red); text-decoration: line-through; text-decoration-thickness: 1.5px; }
+.oneliner { color: var(--muted); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.meta { font-size: 12.5px; color: var(--muted); min-width: 0; }
+.meta div { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.badge { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 999px; background: var(--panel-2); color: var(--muted); white-space: nowrap; }
+.badge.new { background: var(--accent-soft); color: var(--accent); }
+.badge.intern { background: var(--blue-soft); color: var(--blue); }
+.badge.open { background: var(--green-soft); color: var(--green); }
+.badge.closed { background: var(--red-soft); color: var(--red); }
+.badge.warn { background: var(--amber-soft); color: var(--amber); }
+.status { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
+.contacts-mini { display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 12.5px; }
+.contacts-mini span { white-space: nowrap; }
+.contacted { font-size: 12px; color: var(--muted); display: inline-flex; gap: 5px; align-items: center; cursor: pointer; }
+.co-body { border-top: 1px solid var(--border); padding: 12px 14px 14px; display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 18px; }
+@media (max-width: 760px) {
+  .co-head { grid-template-columns: 40px minmax(0, 1fr) auto; }
+  .co-head .status { grid-column: 3; grid-row: 1; }
+  .co-head .meta.loc, .co-head .meta.people { grid-column: 2 / 4; }
+  .co-body { grid-template-columns: 1fr; }
+  .brand h1 { font-size: 15px; }
+  .brand h1 .faint { display: none; }
+  header.top { position: static; }
+  .side { top: 0; }
+}
+.co-body h4 { margin: 0 0 8px; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--faint); }
+.job { display: flex; gap: 10px; justify-content: space-between; align-items: flex-start; padding: 8px 0; border-bottom: 1px dashed var(--border); }
+.job:last-child { border-bottom: 0; }
+.job .t { font-weight: 550; }
+.job .s { font-size: 12.5px; color: var(--muted); }
+.job.closed .t { color: var(--red); text-decoration: line-through; }
+.job .why { color: var(--red); font-size: 12px; }
+.job .r { display: flex; gap: 6px; align-items: center; flex: none; flex-wrap: wrap; justify-content: flex-end; }
+.person { padding: 7px 0; border-bottom: 1px dashed var(--border); }
+.person:last-child { border-bottom: 0; }
+.person .pn { font-weight: 600; }
+.person .pt { font-size: 12.5px; color: var(--muted); }
+.links { display: flex; flex-wrap: wrap; gap: 6px 12px; font-size: 13px; margin-top: 10px; }
+.snippet { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+
+.side { position: sticky; top: 76px; display: flex; flex-direction: column; gap: 12px; }
+@media (max-width: 1050px) { .side { position: static; } }
+.card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; box-shadow: var(--shadow); }
+.card h3 { margin: 0 0 8px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
+.feed { max-height: 420px; overflow: auto; margin: 0 -4px; padding: 0 4px; }
+.ev { display: flex; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 12.5px; }
+.ev:last-child { border-bottom: 0; }
+.ev .ic { width: 18px; flex: none; text-align: center; }
+.ev .when { color: var(--faint); font-size: 11.5px; }
+.ev.closed b { color: var(--red); }
+.spark { display: flex; align-items: flex-end; gap: 3px; height: 54px; margin-top: 6px; }
+.spark div { flex: 1; background: var(--accent); border-radius: 2px 2px 0 0; min-height: 2px; opacity: .85; }
+.spark div.today { opacity: 1; background: var(--green); }
+.srcrow { display: flex; justify-content: space-between; font-size: 12.5px; padding: 4px 0; color: var(--muted); gap: 8px; }
+.srcrow b { color: var(--text); font-weight: 600; }
+.empty { text-align: center; padding: 40px 10px; color: var(--muted); background: var(--panel); border: 1px dashed var(--border); border-radius: 12px; }
+.more { margin: 12px auto 0; display: block; }
+.toasts { position: fixed; right: 16px; bottom: 16px; display: flex; flex-direction: column; gap: 8px; z-index: 50; max-width: min(380px, calc(100vw - 32px)); }
+.toast { background: var(--panel); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 10px; padding: 10px 12px; box-shadow: 0 8px 24px rgba(0,0,0,.18); font-size: 13px; animation: slide .25s ease; }
+.toast.red { border-left-color: var(--red); }
+.toast.green { border-left-color: var(--green); }
+@keyframes slide { from { transform: translateY(10px); opacity: 0; } }
+.muted { color: var(--muted); } .faint { color: var(--faint); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <h1>Startup Leads <span class="faint" style="font-weight:500">· Jobs, Internships &amp; Founder POCs</span></h1>
+    </div>
+    <span class="livepill" id="livepill" title="Live status"><span class="dot" id="livedot"></span><span id="livetext">Connecting…</span></span>
+    <button class="btn" id="refreshBtn" title="Reload the latest data and re-check jobs live">↻ Check now</button>
+    <button class="btn" id="csvBtn" title="Download the current filtered view as CSV">⬇ CSV</button>
+    <a class="btn" id="runLink" target="_blank" rel="noopener" title="Run the data updater on GitHub Actions">⚙ Updater</a>
+    <button class="btn iconbtn" id="themeBtn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="kpis" id="kpis" aria-label="Summary"></section>
+
+  <div class="layout">
+    <section>
+      <div class="toolbar" role="search">
+        <label class="search"><span class="faint">⌕</span><span class="sr">Search</span>
+          <input id="q" type="search" placeholder="Search company, role, founder, tech, location…" autocomplete="off">
+        </label>
+        <div class="seg" id="typeSeg">
+          <button data-v="all" class="on">All roles</button><button data-v="job">Jobs</button><button data-v="internship">Internships</button>
+        </div>
+        <select id="status" aria-label="Status">
+          <option value="open">Hiring now</option>
+          <option value="closed">No longer hiring (red)</option>
+          <option value="all">All statuses</option>
+        </select>
+        <select id="region" aria-label="Region">
+          <option value="">All regions</option><option value="India">India</option><option value="Remote">Remote</option>
+          <option value="US">United States</option><option value="Europe">Europe / UK</option><option value="Other">Other</option>
+        </select>
+        <select id="source" aria-label="Source">
+          <option value="">All sources</option><option value="yc">Y Combinator</option><option value="hn">HN Who's Hiring</option>
+          <option value="greenhouse">Greenhouse</option><option value="lever">Lever</option><option value="ashby">Ashby</option><option value="manual">Manual / imported</option>
+        </select>
+        <select id="sort" aria-label="Sort">
+          <option value="new">Newest first</option><option value="roles">Most open roles</option>
+          <option value="closedRecent">Recently closed</option><option value="name">Name A–Z</option>
+        </select>
+        <label class="chk"><input type="checkbox" id="fNew"> Added today</label>
+        <label class="chk"><input type="checkbox" id="fFounder"> Has founder POC</label>
+        <label class="chk"><input type="checkbox" id="fUncontacted"> Not contacted</label>
+      </div>
+      <div class="resultbar"><span id="resultCount"></span><span id="liveCheckInfo" class="faint"></span></div>
+      <div class="list" id="list"></div>
+      <button class="btn more" id="moreBtn" hidden>Show more</button>
+    </section>
+
+    <aside class="side">
+      <div class="card">
+        <h3>Daily additions <span class="faint" id="sparkLabel"></span></h3>
+        <div class="spark" id="spark" aria-label="Companies added per day"></div>
+        <div class="faint" style="font-size:11.5px;margin-top:4px">New companies per day (last 21 days)</div>
+      </div>
+      <div class="card">
+        <h3>Live activity <span class="faint" id="feedCount"></span></h3>
+        <div class="seg" id="feedSeg" style="margin-bottom:6px">
+          <button data-v="key" class="on">Companies</button><button data-v="closed">Closures</button><button data-v="all">Everything</button>
+        </div>
+        <div class="feed" id="feed"></div>
+      </div>
+      <div class="card">
+        <h3>Data sources</h3>
+        <div id="sources"></div>
+      </div>
+    </aside>
+  </div>
+</main>
+<footer class="wrap" id="footer"></footer>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script>
+(() => {
+  'use strict';
+  const DATA_URL = 'data/leads.json';
+  const POLL_MS = 2 * 60 * 1000;          // re-read the published dataset
+  const LIVE_CHECK_MS = 10 * 60 * 1000;   // browser-side re-verification of jobs
+  const PAGE = 60;
+
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
+  };
+
+  let data = null;
+  let lastGenerated = null;
+  let shown = PAGE;
+  const expanded = new Set();
+  const liveClosed = new Map();     // jobId -> reason, from browser checks since the last dataset
+  let lastLiveCheck = null, liveChecking = false;
+  const contacted = new Set(store.get('leads.contacted', []));
+  const filters = Object.assign({ q: '', type: 'all', status: 'open', region: '', source: '', sort: 'new', fNew: false, fFounder: false, fUncontacted: false }, store.get('leads.filters', {}));
+
+  // ------------------------------------------------------------ theme
+  const theme = store.get('leads.theme', null);
+  if (theme) document.documentElement.dataset.theme = theme;
+  $('#themeBtn').onclick = () => {
+    const dark = document.documentElement.dataset.theme
+      ? document.documentElement.dataset.theme === 'dark'
+      : matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.dataset.theme = dark ? 'light' : 'dark';
+    store.set('leads.theme', document.documentElement.dataset.theme);
+  };
+
+  // ------------------------------------------------------------ time helpers
+  const ago = iso => {
+    if (!iso) return '—';
+    const s = Math.max(0, (Date.now() - Date.parse(iso)) / 1000);
+    if (s < 60) return 'just now';
+    if (s < 3600) return `${Math.floor(s / 60)} min ago`;
+    if (s < 86400) return `${Math.floor(s / 3600)} h ago`;
+    const d = Math.floor(s / 86400);
+    return d === 1 ? 'yesterday' : `${d} days ago`;
+  };
+  const localDay = iso => new Date(iso).toLocaleDateString('en-CA');
+  const isToday = iso => iso && localDay(iso) === new Date().toLocaleDateString('en-CA');
+  const fmtDate = iso => iso ? new Date(iso).toLocaleDateString(undefined, { day: 'numeric', month: 'short' }) : '';
+
+  // ------------------------------------------------------------ derived company state (dataset + live overlay)
+  function view(c) {
+    const jobs = c.jobs.map(j => liveClosed.has(j.id) && j.status === 'open'
+      ? { ...j, status: 'closed', closedAt: new Date().toISOString(), closedReason: liveClosed.get(j.id), live: true }
+      : j);
+    const open = jobs.filter(j => j.status === 'open');
+    return {
+      ...c, jobs,
+      openJobs: open.length,
+      openInternships: open.filter(j => j.type === 'internship').length,
+      status: open.length ? 'open' : 'closed',
+      closedNow: c.status === 'open' && !open.length,
+    };
+  }
+
+  const REGION_RE = {
+    India: /india|bengaluru|bangalore|hyderabad|mumbai|pune|delhi|gurgaon|gurugram|noida|chennai|kolkata|ahmedabad|jaipur|kochi/i,
+    Remote: /remote|anywhere|worldwide|distributed/i,
+    US: /\b(us|usa|united states|america)\b|san francisco|\bsf\b|new york|nyc|seattle|austin|boston|bay area|los angeles|chicago|denver|palo alto|mountain view|\b(CA|NY|WA|TX|MA|IL|CO)\b/,
+    Europe: /\b(uk|eu|europe|emea)\b|london|berlin|paris|amsterdam|dublin|munich|stockholm|zurich|madrid|lisbon|barcelona|germany|france|netherlands|ireland|spain|united kingdom/i,
+  };
+  function regionsOf(c) {
+    const text = [c.location, ...(c.regions || []), ...c.jobs.map(j => j.location)].filter(Boolean).join(' | ');
+    const out = Object.keys(REGION_RE).filter(r => REGION_RE[r].test(text));
+    return out.length ? out : ['Other'];
+  }
+  const hasFounder = c => c.contacts.some(p => /founder|ceo|cto|co-?founder/i.test(p.title || '') || p.source === 'YC');
+  const sourceOf = c => c.source || (c.sources || [])[0];
+
+  function filtered() {
+    if (!data) return [];
+    const q = filters.q.trim().toLowerCase();
+    const terms = q ? q.split(/\s+/) : [];
+    let rows = data.companies.map(view);
+    rows = rows.filter(c => {
+      if (filters.status !== 'all' && c.status !== filters.status) return false;
+      if (filters.type !== 'all') {
+        const want = filters.type;
+        const pool = filters.status === 'closed' ? c.jobs : c.jobs.filter(j => j.status === 'open');
+        if (!pool.some(j => j.type === want)) return false;
+      }
+      if (filters.region && !regionsOf(c).includes(filters.region)) return false;
+      if (filters.source && !(c.sources || [c.source]).includes(filters.source)) return false;
+      if (filters.fNew && !isToday(c.firstSeen)) return false;
+      if (filters.fFounder && !hasFounder(c)) return false;
+      if (filters.fUncontacted && contacted.has(c.id)) return false;
+      if (terms.length) {
+        const hay = [c.name, c.oneLiner, c.location, c.batch, ...(c.tags || []), ...c.contacts.map(p => `${p.name} ${p.title} ${p.email || ''}`), ...c.jobs.map(j => `${j.title} ${j.location || ''} ${j.snippet || ''}`)].join(' ').toLowerCase();
+        if (!terms.every(t => hay.includes(t))) return false;
+      }
+      return true;
+    });
+    const by = {
+      new: (a, b) => b.firstSeen.localeCompare(a.firstSeen) || b.openJobs - a.openJobs,
+      roles: (a, b) => b.openJobs - a.openJobs || a.name.localeCompare(b.name),
+      closedRecent: (a, b) => String(b.closedAt || (b.closedNow ? '9' : '')).localeCompare(String(a.closedAt || (a.closedNow ? '9' : ''))),
+      name: (a, b) => a.name.localeCompare(b.name),
+    }[filters.sort];
+    return rows.sort(by);
+  }
+
+  // ------------------------------------------------------------ rendering
+  function kpis() {
+    const rows = data.companies.map(view);
+    const open = rows.filter(c => c.status === 'open');
+    const t = {
+      companies: rows.length,
+      open: open.length,
+      closed: rows.length - open.length,
+      jobs: rows.reduce((n, c) => n + c.openJobs, 0),
+      interns: rows.reduce((n, c) => n + c.openInternships, 0),
+      founders: rows.reduce((n, c) => n + c.contacts.length, 0),
+      addedToday: rows.filter(c => isToday(c.firstSeen)).length,
+      closedToday: rows.filter(c => c.status === 'closed' && (c.closedNow || isToday(c.closedAt))).length,
+    };
+    const tile = (label, value, sub, cls, act) => `<button class="kpi ${cls || ''}" data-act="${act || ''}"><div class="label">${label}</div><div class="value">${value.toLocaleString()}</div><div class="sub">${sub}</div></button>`;
+    $('#kpis').innerHTML = [
+      tile('Hiring now', t.open, `${t.companies.toLocaleString()} companies tracked`, 'green', 'open'),
+      tile('Open jobs', t.jobs, 'across hiring companies', '', 'jobs'),
+      tile('Internships', t.interns, 'open intern roles', '', 'interns'),
+      tile('Founder / POC contacts', t.founders, 'names, LinkedIn, emails', '', 'founders'),
+      tile('Added today', t.addedToday, 'new companies', '', 'today'),
+      tile('No longer hiring', t.closed, `${t.closedToday} closed today`, 'red', 'closed'),
+    ].join('');
+  }
+
+  const initials = n => (n || '?').split(/\s+/).map(w => w[0]).join('').slice(0, 2).toUpperCase();
+  const linkedInSearch = c => `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(`founder ${c.name}`)}`;
+
+  function contactLinks(p) {
+    const out = [];
+    if (p.linkedin) out.push(`<a href="${esc(p.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>`);
+    if (p.twitter) out.push(`<a href="${esc(p.twitter)}" target="_blank" rel="noopener">X</a>`);
+    if (p.email) out.push(`<a href="mailto:${esc(p.email)}">${esc(p.email)}</a>`);
+    if (p.hn) out.push(`<a href="${esc(p.hn)}" target="_blank" rel="noopener">HN profile</a>`);
+    return out.join(' · ');
+  }
+
+  function companyRow(c) {
+    const isOpen = expanded.has(c.id);
+    const roles = c.status === 'open'
+      ? `${c.openJobs} open role${c.openJobs === 1 ? '' : 's'}${c.openInternships ? ` · <span class="badge intern">${c.openInternships} intern</span>` : ''}`
+      : `<span style="color:var(--red)">0 open roles</span>`;
+    const closedCount = c.jobs.filter(j => j.status === 'closed').length;
+    const people = c.contacts.slice(0, 3).map(p => `<span>${p.linkedin ? `<a href="${esc(p.linkedin)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${esc(p.name)}</a>` : p.email ? `<a href="mailto:${esc(p.email)}" onclick="event.stopPropagation()">${esc(p.name)}</a>` : esc(p.name)}<span class="faint"> ${esc(shortTitle(p.title))}</span></span>`).join('');
+    const status = c.status === 'open'
+      ? `<span class="badge open">● Hiring</span>`
+      : `<span class="badge closed" title="${esc(c.closedNow ? 'Closed (live check)' : `Closed ${fmtDate(c.closedAt)}`)}">● No longer hiring</span>`;
+    return `<article class="co ${c.status === 'closed' ? 'closed' : ''}" data-id="${esc(c.id)}">
+      <div class="co-head" data-toggle="${esc(c.id)}" role="button" aria-expanded="${isOpen}" tabindex="0">
+        <div class="logo">${c.logo ? `<img src="${esc(c.logo)}" alt="" loading="lazy" onerror="this.remove()">` : ''}${c.logo ? '' : esc(initials(c.name))}</div>
+        <div style="min-width:0">
+          <div class="name"><span class="nm">${esc(c.name)}</span>
+            ${isToday(c.firstSeen) ? '<span class="badge new">NEW</span>' : ''}
+            ${c.batch ? `<span class="badge">YC ${esc(shortBatch(c.batch))}</span>` : ''}
+          </div>
+          <div class="oneliner">${esc(c.oneLiner || c.jobs[0]?.title || '')}</div>
+        </div>
+        <div class="meta loc"><div>📍 ${esc(c.location || c.jobs.find(j => j.location)?.location || '—')}</div><div>${roles}${closedCount && c.status === 'open' ? ` · <span style="color:var(--red)">${closedCount} closed</span>` : ''}</div></div>
+        <div class="meta people"><div class="contacts-mini">${people || `<a href="${linkedInSearch(c)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Find founders →</a>`}</div><div class="faint">Added ${fmtDate(c.firstSeen)} · ${esc(sourceLabel(sourceOf(c)))}</div></div>
+        <div class="status">${status}
+          <label class="contacted" onclick="event.stopPropagation()"><input type="checkbox" data-contacted="${esc(c.id)}" ${contacted.has(c.id) ? 'checked' : ''}> Contacted</label>
+        </div>
+      </div>
+      ${isOpen ? companyBody(c) : ''}
+    </article>`;
+  }
+
+  function companyBody(c) {
+    const jobs = c.jobs.map(j => `<div class="job ${j.status === 'closed' ? 'closed' : ''}">
+      <div style="min-width:0">
+        <div class="t">${esc(j.title)}</div>
+        <div class="s">${[j.location, j.salary, j.experience, j.postedAt ? `posted ${fmtDate(j.postedAt)}` : `seen ${fmtDate(j.firstSeen)}`].filter(Boolean).map(esc).join(' · ')}</div>
+        ${j.snippet ? `<div class="snippet">${esc(j.snippet)}</div>` : ''}
+        ${j.status === 'closed' ? `<div class="why">✕ ${esc(j.closedReason || 'No longer available')}${j.live ? ' (detected live)' : ` · ${fmtDate(j.closedAt)}`}</div>` : ''}
+      </div>
+      <div class="r">
+        ${j.type === 'internship' ? '<span class="badge intern">Internship</span>' : '<span class="badge">Job</span>'}
+        <span class="badge ${j.status === 'open' ? 'open' : 'closed'}">${j.status === 'open' ? 'Open' : 'Closed'}</span>
+        ${j.url ? `<a class="btn" href="${esc(j.url)}" target="_blank" rel="noopener">View</a>` : ''}
+        ${j.applyUrl && j.applyUrl !== j.url ? `<a class="btn" href="${esc(j.applyUrl)}" target="_blank" rel="noopener">Apply</a>` : ''}
+      </div>
+    </div>`).join('') || '<div class="muted">No roles on record.</div>';
+    const people = c.contacts.map(p => `<div class="person"><div class="pn">${esc(p.name)}</div><div class="pt">${esc(p.title || '')}${p.source ? ` · via ${esc(p.source)}` : ''}</div><div style="font-size:13px">${contactLinks(p)}</div></div>`).join('')
+      || '<div class="muted">No contact on record yet.</div>';
+    const links = [
+      c.website && `<a href="${esc(c.website)}" target="_blank" rel="noopener">Website</a>`,
+      c.profileUrl && `<a href="${esc(c.profileUrl)}" target="_blank" rel="noopener">YC profile</a>`,
+      c.careersUrl && `<a href="${esc(c.careersUrl)}" target="_blank" rel="noopener">Careers page</a>`,
+      c.linkedin && `<a href="${esc(c.linkedin)}" target="_blank" rel="noopener">Company LinkedIn</a>`,
+      `<a href="${linkedInSearch(c)}" target="_blank" rel="noopener">Search founders on LinkedIn</a>`,
+    ].filter(Boolean).join('');
+    return `<div class="co-body">
+      <div><h4>Roles (${c.openJobs} open${c.jobs.length > c.openJobs ? `, ${c.jobs.length - c.openJobs} closed` : ''})</h4>${jobs}</div>
+      <div><h4>Founders & POCs</h4>${people}<div class="links">${links}</div>
+        ${c.tags?.length ? `<div class="links">${c.tags.map(t => `<span class="badge">${esc(t)}</span>`).join('')}</div>` : ''}
+        <div class="faint" style="font-size:12px;margin-top:10px">${[c.teamSize && `Team ${c.teamSize}`, `First seen ${new Date(c.firstSeen).toLocaleString()}`].filter(Boolean).join(' · ')}</div>
+      </div>
+    </div>`;
+  }
+
+  const shortTitle = t => (t || '').replace(/Posted the HN hiring thread/, '(HN poster)').replace(/^(.{0,28}).*$/, (m, a) => (m.length > 28 ? a + '…' : m));
+  const shortBatch = b => { const m = /(Winter|Spring|Summer|Fall)\s+20(\d\d)/.exec(b || ''); return m ? `${m[1][0]}${m[2]}` : b; };
+  const sourceLabel = s => ({ yc: 'Y Combinator', hn: 'HN Who’s Hiring', greenhouse: 'Greenhouse', lever: 'Lever', ashby: 'Ashby', manual: 'Imported' }[s] || s || '');
+
+  function render() {
+    if (!data) return;
+    kpis();
+    const rows = filtered();
+    $('#resultCount').textContent = `${rows.length.toLocaleString()} compan${rows.length === 1 ? 'y' : 'ies'} · ${rows.reduce((n, c) => n + c.openJobs, 0).toLocaleString()} open roles`;
+    $('#list').innerHTML = rows.length
+      ? rows.slice(0, shown).map(companyRow).join('')
+      : `<div class="empty">No companies match these filters.<br><button class="btn" style="margin-top:10px" id="clearF">Clear filters</button></div>`;
+    $('#moreBtn').hidden = rows.length <= shown;
+    $('#moreBtn').textContent = `Show more (${(rows.length - shown).toLocaleString()} left)`;
+    const clear = $('#clearF');
+    if (clear) clear.onclick = () => { Object.assign(filters, { q: '', type: 'all', status: 'all', region: '', source: '', fNew: false, fFounder: false, fUncontacted: false }); syncControls(); render(); };
+    renderSide();
+  }
+
+  function renderSide() {
+    const mode = store.get('leads.feed', 'key');
+    document.querySelectorAll('#feedSeg button').forEach(b => b.classList.toggle('on', b.dataset.v === mode));
+    const icons = { company_added: '＋', company_closed: '✕', company_reopened: '↺', job_added: '·', job_closed: '−', job_reopened: '↺' };
+    const label = e => ({
+      company_added: `<b>${esc(e.company)}</b> added`,
+      company_closed: `<b>${esc(e.company)}</b> is no longer hiring`,
+      company_reopened: `<b>${esc(e.company)}</b> is hiring again`,
+      job_added: `${esc(e.company)}: new role <i>${esc(e.job)}</i>`,
+      job_closed: `${esc(e.company)}: <i>${esc(e.job)}</i> closed`,
+      job_reopened: `${esc(e.company)}: <i>${esc(e.job)}</i> reopened`,
+    }[e.type] || esc(e.type));
+    const live = [...liveClosed.entries()].map(([id, reason]) => {
+      const c = data.companies.find(x => x.jobs.some(j => j.id === id));
+      const j = c?.jobs.find(x => x.id === id);
+      return c && j.status === 'open' ? { t: lastLiveCheck, type: 'job_closed', company: c.name, companyId: c.id, job: j.title, live: true } : null;
+    }).filter(Boolean);
+    const events = [...live, ...data.events].filter(e =>
+      mode === 'all' ? true : mode === 'closed' ? /closed/.test(e.type) : /^company_/.test(e.type));
+    $('#feedCount').textContent = events.length ? `${events.length}` : '';
+    $('#feed').innerHTML = events.slice(0, 120).map(e => `<div class="ev ${/closed/.test(e.type) ? 'closed' : ''}"><span class="ic">${icons[e.type] || '•'}</span><div><div>${label(e)}${e.live ? ' <span class="badge closed">live</span>' : ''}</div>${e.reason ? `<div class="faint">${esc(e.reason)}</div>` : ''}<div class="when">${ago(e.t)}</div></div></div>`).join('') || '<div class="muted">No activity yet.</div>';
+
+    const days = [];
+    for (let i = 20; i >= 0; i--) days.push(new Date(Date.now() - i * 864e5).toISOString().slice(0, 10));
+    const hist = Object.fromEntries((data.history || []).map(h => [h.date, h]));
+    const max = Math.max(1, ...days.map(d => hist[d]?.companiesAdded || 0));
+    $('#spark').innerHTML = days.map((d, i) => `<div class="${i === days.length - 1 ? 'today' : ''}" style="height:${Math.round(((hist[d]?.companiesAdded || 0) / max) * 100)}%" title="${d}: ${hist[d]?.companiesAdded || 0} added, ${hist[d]?.companiesClosed || 0} closed"></div>`).join('');
+    const todayH = hist[new Date().toISOString().slice(0, 10)];
+    $('#sparkLabel').textContent = todayH ? `+${todayH.companiesAdded} today` : '';
+
+    const m = data.meta || {}, s = m.sources || {};
+    const row = (name, ok, detail) => `<div class="srcrow"><span>${ok === false ? '⚠' : '✓'} ${name}</span><b>${detail}</b></div>`;
+    $('#sources').innerHTML = [
+      row('Y Combinator', s.ycDiscover?.ok ?? s.ycVerify?.ok, `${data.companies.filter(c => c.id.startsWith('yc:')).length} cos`),
+      row('HN Who’s Hiring', s.hn?.ok, `${data.companies.filter(c => (c.sources || []).includes('hn')).length} cos`),
+      row('Greenhouse / Lever / Ashby', s.ats?.ok, `${s.ats?.boards ?? 0} boards`),
+      `<div class="srcrow"><span>Daily discovery</span><b>${ago(m.lastDiscoverAt)}</b></div>`,
+      `<div class="srcrow"><span>Server re-check</span><b>${ago(m.lastVerifyAt)}</b></div>`,
+      `<div class="srcrow"><span>YC re-check</span><b>${ago(m.lastYcVerifyAt)}</b></div>`,
+      `<div class="srcrow"><span>Browser live check</span><b>${lastLiveCheck ? ago(lastLiveCheck) : liveChecking ? 'running…' : '—'}</b></div>`,
+    ].join('');
+  }
+
+  function setLive(state, text) {
+    $('#livedot').className = 'dot ' + (state || '');
+    $('#livetext').textContent = text;
+  }
+  function liveText() {
+    if (!data) return;
+    const age = (Date.now() - Date.parse(data.meta.generatedAt)) / 3600e3;
+    setLive(liveChecking ? 'busy' : age > 6 ? 'warn' : '', liveChecking ? 'Checking jobs live…' : `Live · updated ${ago(data.meta.generatedAt)}`);
+    $('#liveCheckInfo').textContent = lastLiveCheck ? `Jobs re-verified in your browser ${ago(lastLiveCheck)} · ${liveClosed.size} closed since last update` : '';
+  }
+
+  function toast(html, kind) {
+    const el = document.createElement('div');
+    el.className = `toast ${kind || ''}`;
+    el.innerHTML = html;
+    $('#toasts').appendChild(el);
+    setTimeout(() => el.remove(), 9000);
+    while ($('#toasts').children.length > 4) $('#toasts').firstChild.remove();
+  }
+  function flash(id) {
+    const el = document.querySelector(`.co[data-id="${CSS.escape(id)}"]`);
+    if (el) { el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); }
+  }
+
+  // ------------------------------------------------------------ loading + polling
+  async function load(manual) {
+    try {
+      const res = await fetch(`${DATA_URL}?t=${Date.now()}`, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const next = await res.json();
+      if (next.meta.generatedAt === lastGenerated) { liveText(); return false; }
+      const before = data ? new Map(data.companies.map(c => [c.id, view(c).status])) : null;
+      data = next;
+      lastGenerated = next.meta.generatedAt;
+      // The dataset now reflects the server's verdicts; keep only live closures it hasn't caught yet.
+      for (const id of [...liveClosed.keys()]) {
+        const job = data.companies.flatMap(c => c.jobs).find(j => j.id === id);
+        if (!job || job.status === 'closed') liveClosed.delete(id);
+      }
+      if (before) {
+        const added = data.companies.filter(c => !before.has(c.id));
+        const closed = data.companies.filter(c => before.get(c.id) === 'open' && view(c).status === 'closed');
+        if (added.length) toast(`<b>${added.length} new compan${added.length === 1 ? 'y' : 'ies'}</b> added: ${added.slice(0, 4).map(c => esc(c.name)).join(', ')}${added.length > 4 ? '…' : ''}`, 'green');
+        closed.slice(0, 3).forEach(c => toast(`<b style="color:var(--red)">${esc(c.name)}</b> is no longer hiring`, 'red'));
+        render();
+        closed.forEach(c => flash(c.id));
+      } else render();
+      liveText();
+      if (manual) toast('Data reloaded.', '');
+      return true;
+    } catch (err) {
+      setLive('warn', `Offline · retrying (${err.message})`);
+      return false;
+    }
+  }
+
+  // ------------------------------------------------------------ browser-side live verification
+  // Greenhouse, Lever, Ashby and HN Algolia all allow cross-origin reads, so the page can
+  // confirm in real time that a posting still exists. (YC pages are re-checked by the server.)
+  async function fetchJSON(url) {
+    const r = await fetch(url, { cache: 'no-store' });
+    if (r.status === 404) return { gone: true };
+    if (!r.ok) throw new Error(r.status);
+    return r.json();
+  }
+  async function boardIds(board) {
+    const [ats, ...rest] = board.split(':');
+    const token = encodeURIComponent(rest.join(':'));
+    if (ats === 'greenhouse') { const d = await fetchJSON(`https://boards-api.greenhouse.io/v1/boards/${token}/jobs`); return d.gone ? d : new Set(d.jobs.map(j => String(j.id))); }
+    if (ats === 'lever') { const d = await fetchJSON(`https://api.lever.co/v0/postings/${token}?mode=json`); return d.gone ? d : new Set(d.map(j => j.id)); }
+    if (ats === 'ashby') { const d = await fetchJSON(`https://api.ashbyhq.com/posting-api/job-board/${token}`); return d.gone ? d : new Set((d.jobs || []).map(j => j.id)); }
+    return null;
+  }
+  const FILLED_RE = /\b(no longer hiring|positions? (?:(?:have|has) been |are |is )?filled|hiring (?:is )?(?:now )?closed|roles? (?:(?:is|are|has been|have been) )?filled)\b/i;
+
+  async function liveCheck() {
+    if (!data || liveChecking || document.hidden) return;
+    liveChecking = true; liveText(); renderSide();
+    $('#refreshBtn').disabled = true;
+    const newlyClosed = new Map();
+    try {
+      const boards = new Map();
+      const threads = new Map();
+      for (const c of data.companies) for (const j of c.jobs) {
+        if (j.status !== 'open' || liveClosed.has(j.id)) continue;
+        if (j.board) (boards.get(j.board) || boards.set(j.board, []).get(j.board)).push([c, j]);
+        else if (j.src === 'hn' && j.thread) (threads.get(j.thread) || threads.set(j.thread, []).get(j.thread)).push([c, j]);
+      }
+      const tasks = [...boards.entries()].map(([board, list]) => async () => {
+        try {
+          const ids = await boardIds(board);
+          if (!ids) return;
+          if (ids.gone) { list.forEach(([c, j]) => newlyClosed.set(j.id, [c, j, 'Job board removed'])); return; }
+          if (ids.size === 0 && list.length > 3) return; // treat an empty board as a glitch; the server double-checks
+          for (const [c, j] of list) if (!ids.has(j.id.split(':').slice(2).join(':'))) newlyClosed.set(j.id, [c, j, 'Removed from the company job board']);
+        } catch { /* network/CORS hiccup: never close on errors */ }
+      });
+      for (const [thread, list] of threads) tasks.push(async () => {
+        try {
+          const d = await fetchJSON(`https://hn.algolia.com/api/v1/items/${thread}`);
+          if (d.gone) return;
+          const kids = new Map((d.children || []).map(k => [String(k.id), k]));
+          for (const [c, j] of list) {
+            const k = kids.get(j.id.slice(3));
+            if (!k || !k.text || !k.author) newlyClosed.set(j.id, [c, j, 'HN post deleted']);
+            else if (FILLED_RE.test(k.text.replace(/<[^>]+>/g, ' ').slice(0, 400))) newlyClosed.set(j.id, [c, j, 'HN post updated: position filled']);
+          }
+        } catch {}
+      });
+      const queue = [...tasks];
+      await Promise.all(Array.from({ length: 5 }, async () => { while (queue.length) await queue.shift()(); }));
+
+      const before = new Map(data.companies.map(c => [c.id, view(c).status]));
+      for (const [id, [, , reason]] of newlyClosed) liveClosed.set(id, reason);
+      lastLiveCheck = new Date().toISOString();
+      const turnedRed = data.companies.filter(c => before.get(c.id) === 'open' && view(c).status === 'closed');
+      render();
+      turnedRed.forEach(c => flash(c.id));
+      turnedRed.slice(0, 3).forEach(c => toast(`<b style="color:var(--red)">${esc(c.name)}</b> just stopped hiring (live check)`, 'red'));
+      const jobOnly = newlyClosed.size - turnedRed.length;
+      if (jobOnly > 0 && !turnedRed.length) toast(`${newlyClosed.size} role${newlyClosed.size === 1 ? '' : 's'} closed since the last update — marked in red.`, 'red');
+    } finally {
+      liveChecking = false;
+      $('#refreshBtn').disabled = false;
+      liveText(); renderSide();
+    }
+  }
+
+  // ------------------------------------------------------------ CSV export
+  function exportCSV() {
+    const rows = filtered();
+    const head = ['Company', 'Status', 'Website', 'Location', 'Open roles', 'Open internships', 'Role titles', 'Founders / POCs', 'POC LinkedIn', 'POC emails', 'Source', 'Batch', 'Added', 'Closed at', 'Contacted'];
+    const cell = v => `"${String(v ?? '').replace(/"/g, '""')}"`;
+    const lines = rows.map(c => [
+      c.name, c.status === 'open' ? 'Hiring' : 'No longer hiring', c.website, c.location,
+      c.openJobs, c.openInternships,
+      c.jobs.filter(j => j.status === 'open').map(j => `${j.title}${j.type === 'internship' ? ' [Intern]' : ''} <${j.url}>`).join(' | '),
+      c.contacts.map(p => `${p.name} (${p.title || ''})`).join(' | '),
+      c.contacts.map(p => p.linkedin).filter(Boolean).join(' | '),
+      c.contacts.map(p => p.email).filter(Boolean).join(' | '),
+      sourceLabel(sourceOf(c)), c.batch, c.firstSeen?.slice(0, 10), c.closedAt?.slice(0, 10) || '', contacted.has(c.id) ? 'yes' : '',
+    ].map(cell).join(','));
+    const blob = new Blob(['﻿' + [head.map(cell).join(','), ...lines].join('\n')], { type: 'text/csv' });
+    const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: `startup-leads-${new Date().toISOString().slice(0, 10)}.csv` });
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  }
+
+  // ------------------------------------------------------------ controls
+  function syncControls() {
+    $('#q').value = filters.q;
+    document.querySelectorAll('#typeSeg button').forEach(b => b.classList.toggle('on', b.dataset.v === filters.type));
+    for (const k of ['status', 'region', 'source', 'sort']) $('#' + k).value = filters[k];
+    for (const k of ['fNew', 'fFounder', 'fUncontacted']) $('#' + k).checked = filters[k];
+    store.set('leads.filters', { ...filters, q: '' });
+  }
+  const update = patch => { Object.assign(filters, patch); shown = PAGE; syncControls(); render(); };
+
+  let qTimer;
+  $('#q').addEventListener('input', e => { clearTimeout(qTimer); qTimer = setTimeout(() => update({ q: e.target.value }), 150); });
+  $('#typeSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (b) update({ type: b.dataset.v }); });
+  for (const k of ['status', 'region', 'source', 'sort']) $('#' + k).addEventListener('change', e => update({ [k]: e.target.value }));
+  for (const k of ['fNew', 'fFounder', 'fUncontacted']) $('#' + k).addEventListener('change', e => update({ [k]: e.target.checked }));
+  $('#feedSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { store.set('leads.feed', b.dataset.v); renderSide(); } });
+  $('#moreBtn').onclick = () => { shown += PAGE; render(); };
+  $('#csvBtn').onclick = exportCSV;
+  $('#refreshBtn').onclick = async () => { await load(true); await liveCheck(); };
+  $('#kpis').addEventListener('click', e => {
+    const act = e.target.closest('.kpi')?.dataset.act;
+    const presets = {
+      open: { status: 'open', type: 'all', fNew: false }, jobs: { status: 'open', type: 'job' },
+      interns: { status: 'open', type: 'internship' }, founders: { fFounder: true },
+      today: { fNew: true, status: 'all' }, closed: { status: 'closed', type: 'all', sort: 'closedRecent', fNew: false },
+    };
+    if (presets[act]) update(presets[act]);
+  });
+  $('#list').addEventListener('change', e => {
+    const id = e.target.dataset.contacted;
+    if (!id) return;
+    e.target.checked ? contacted.add(id) : contacted.delete(id);
+    store.set('leads.contacted', [...contacted]);
+    if (filters.fUncontacted) render();
+  });
+  const toggle = el => {
+    const id = el.dataset.toggle;
+    expanded.has(id) ? expanded.delete(id) : expanded.add(id);
+    const c = data.companies.find(x => x.id === id);
+    el.closest('.co').outerHTML = companyRow(view(c));
+  };
+  $('#list').addEventListener('click', e => {
+    if (e.target.closest('a, input, label, button')) return;
+    const head = e.target.closest('[data-toggle]');
+    if (head) toggle(head);
+  });
+  $('#list').addEventListener('keydown', e => {
+    const head = e.target.closest('[data-toggle]');
+    if (head && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); toggle(head); }
+  });
+
+  // ------------------------------------------------------------ boot
+  syncControls();
+  (async () => {
+    await load(false);
+    if (data) {
+      const repo = data.meta.repo;
+      if (repo) {
+        $('#runLink').href = `https://github.com/${repo}/actions/workflows/update.yml`;
+        $('#footer').innerHTML = `Data refreshes automatically: new companies every morning (07:00 IST), every tracked job re-verified every 2 hours on the server, and open roles re-checked live in your browser every 10 minutes. “Contacted” ticks are saved on this device only. Source code &amp; updater: <a href="https://github.com/${esc(repo)}" target="_blank" rel="noopener">github.com/${esc(repo)}</a>.`;
+      }
+      liveCheck();
+    }
+  })();
+  setInterval(() => load(false), POLL_MS);
+  setInterval(liveCheck, LIVE_CHECK_MS);
+  setInterval(() => { liveText(); renderSide(); }, 30 * 1000);
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) {
+      load(false);
+      if (!lastLiveCheck || Date.now() - Date.parse(lastLiveCheck) > LIVE_CHECK_MS) liveCheck();
+    }
+  });
+})();
+</script>
+</body>
+</html>

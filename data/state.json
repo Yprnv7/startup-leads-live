@@ -1,0 +1,324 @@
+{
+ "ycSkipped": {
+  "bolna-ai": "2026-10-29T10:32:13.751Z",
+  "onefin": "2026-10-29T10:32:13.751Z",
+  "drip-capital": "2026-10-29T10:32:13.751Z",
+  "truthsystems": "2026-10-29T10:32:13.751Z"
+ },
+ "boards": [
+  {
+   "ats": "ashby",
+   "token": "checkly",
+   "companyId": "hn:checkly",
+   "name": "Checkly",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "thundercompute",
+   "companyId": "hn:thunder-compute",
+   "name": "Thunder Compute",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "smarkets",
+   "companyId": "hn:smarkets",
+   "name": "Smarkets",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "river",
+   "companyId": "hn:river",
+   "name": "River",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "lever",
+   "token": "shieldai",
+   "companyId": "hn:shield-ai",
+   "name": "Shield AI",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "Solace",
+   "companyId": "hn:solace-health",
+   "name": "Solace Health",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "duck-duck-go",
+   "companyId": "hn:duckduckgo",
+   "name": "DuckDuckGo",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "lever",
+   "token": "curai",
+   "companyId": "hn:curai",
+   "name": "Curai",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "sheerhealth",
+   "companyId": "hn:sheer-health",
+   "name": "Sheer Health",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "charge-robotics",
+   "companyId": "hn:charge-robotics",
+   "name": "Charge Robotics",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "tolmo",
+   "companyId": "hn:tolmo",
+   "name": "Tolmo",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "greenhouse",
+   "token": "blackcanyonconsulting",
+   "companyId": "hn:bcc",
+   "name": "BCC",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "greenhouse",
+   "token": "givedirectly",
+   "companyId": "hn:givedirectly",
+   "name": "GiveDirectly",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "growfig",
+   "companyId": "hn:fig",
+   "name": "Fig",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "greenhouse",
+   "token": "relativity",
+   "companyId": "hn:relativity-space",
+   "name": "Relativity Space",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "hiya",
+   "companyId": "hn:hiya",
+   "name": "Hiya",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "runway-ml",
+   "companyId": "hn:runway",
+   "name": "Runway",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "jupus",
+   "companyId": "hn:jupus",
+   "name": "JUPUS",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "proxima-fusion",
+   "companyId": "hn:proxima-fusion",
+   "name": "Proxima Fusion",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "rebar",
+   "companyId": "hn:rebar",
+   "name": "Rebar",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "somana.tech",
+   "companyId": "hn:somana",
+   "name": "Somana",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "prior-labs",
+   "companyId": "hn:prior-labs",
+   "name": "Prior Labs",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "greenhouse",
+   "token": "oklo",
+   "companyId": "hn:oklo",
+   "name": "Oklo",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "greenhouse",
+   "token": "k2spacecorporation",
+   "companyId": "hn:k2-space",
+   "name": "K2 Space",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "clickhouse",
+   "companyId": "hn:clickhouse",
+   "name": "ClickHouse",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "voladynamics",
+   "companyId": "hn:vola-dynamics",
+   "name": "Vola Dynamics",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": false
+  },
+  {
+   "ats": "ashby",
+   "token": "middesk",
+   "companyId": "hn:middesk",
+   "name": "Middesk",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": false
+  },
+  {
+   "ats": "ashby",
+   "token": "krakentech",
+   "companyId": "hn:kraken-tech",
+   "name": "Kraken Tech",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": false
+  },
+  {
+   "ats": "ashby",
+   "token": "menlo",
+   "companyId": "hn:overjoyed-to-partner-with",
+   "name": "Overjoyed to partner with",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": false
+  },
+  {
+   "ats": "greenhouse",
+   "token": "mattermost",
+   "companyId": "hn:mattermost",
+   "name": "Mattermost",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": false
+  },
+  {
+   "ats": "ashby",
+   "token": "footprint",
+   "companyId": "hn:footprint",
+   "name": "Footprint",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": false
+  },
+  {
+   "ats": "ashby",
+   "token": "luxor",
+   "companyId": "hn:tenki-cloud-by-luxor-tech",
+   "name": "Tenki Cloud by Luxor Tech",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": false
+  },
+  {
+   "ats": "ashby",
+   "token": "sentilink",
+   "companyId": "hn:sentilink",
+   "name": "SentiLink",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": false
+  },
+  {
+   "ats": "ashby",
+   "token": "oscilar",
+   "companyId": "hn:oscilar-com",
+   "name": "Oscilar.com",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": false
+  },
+  {
+   "ats": "greenhouse",
+   "token": "manifest",
+   "companyId": "hn:manifest",
+   "name": "Manifest",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": false
+  },
+  {
+   "ats": "ashby",
+   "token": "mastra",
+   "companyId": "hn:mastra",
+   "name": "Mastra",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": false
+  },
+  {
+   "ats": "greenhouse",
+   "token": "coast",
+   "companyId": "hn:coast",
+   "name": "Coast",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": false
+  },
+  {
+   "ats": "ashby",
+   "token": "livekit",
+   "companyId": "hn:livekit",
+   "name": "LiveKit",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": false
+  },
+  {
+   "ats": "ashby",
+   "token": "iceye",
+   "companyId": "hn:iceye",
+   "name": "ICEYE",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": false
+  }
+ ],
+ "boardNames": {},
+ "zeroMiss": {}
+}
