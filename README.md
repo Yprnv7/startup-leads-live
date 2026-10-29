@@ -17,6 +17,16 @@ It updates itself — nobody has to run anything.
 
 **Red = no longer hiring.** A company turns red the moment none of its tracked roles are still open; individual closed roles are struck through in red with the reason (removed from job board, HN post deleted, post says filled, link 404s). Jobs are only marked closed on positive evidence; a network error never closes anything.
 
+## Points of contact
+
+Every company gets every reachable contact, grouped by team:
+
+- **People:** Talent acquisition / recruiters / HR, partnerships / alliances / business development, founders and leadership. Each has a name, title, location, LinkedIn and verified work email where available. HN posters are included with their HN profile and the email from their post. People come from YC, HN and Prospeo.
+- **Company channels:** careers@ / hr@ / partnerships@ / hello@ / press@ emails, phone numbers, LinkedIn / X / Instagram / GitHub / YouTube / Crunchbase profiles, and the contact, careers, partner and team pages. These come from a scan of the company's own website, which re-runs every 30 days.
+- **One-click LinkedIn searches** for talent acquisition, recruiters, HR, partnerships, BD and founders at that company.
+
+Prospeo lookups need the repo secret `PROSPEO_API_KEY` and are capped at `contacts.prospeoDailyCredits` (250) credits a day. Talent and partnerships people get their emails revealed first. Without the key, everything else still runs.
+
 ## Using it
 
 - Filter by jobs / internships, region (India, Remote, US, Europe), source, "added today", "has founder POC".

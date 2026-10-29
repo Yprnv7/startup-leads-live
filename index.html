@@ -128,6 +128,18 @@ select { border: 1px solid var(--border); background: var(--bg); padding: 7px 8p
 .person .pt { font-size: 12.5px; color: var(--muted); }
 .links { display: flex; flex-wrap: wrap; gap: 6px 12px; font-size: 13px; margin-top: 10px; }
 .snippet { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+.teamhead { display: flex; align-items: center; gap: 6px; margin: 12px 0 2px; font-size: 12px; font-weight: 650; color: var(--muted); }
+.teamhead:first-of-type { margin-top: 0; }
+.person .cl { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: 2px; }
+.copy { border: 0; background: none; color: var(--faint); cursor: pointer; padding: 0 2px; font-size: 12px; }
+.copy:hover { color: var(--accent); }
+.chan { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; padding: 3px 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.find { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.find a { font-size: 12px; padding: 4px 8px; border: 1px solid var(--border); border-radius: 999px; }
+.badge.ta { background: var(--blue-soft); color: var(--blue); }
+.badge.pa { background: var(--amber-soft); color: var(--amber); }
+.badge.fo { background: var(--accent-soft); color: var(--accent); }
 
 .side { position: sticky; top: 76px; display: flex; flex-direction: column; gap: 12px; }
 @media (max-width: 1050px) { .side { position: static; } }
@@ -200,7 +212,11 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
           <option value="closedRecent">Recently closed</option><option value="name">Name A–Z</option>
         </select>
         <label class="chk"><input type="checkbox" id="fNew"> Added today</label>
-        <label class="chk"><input type="checkbox" id="fFounder"> Has founder POC</label>
+        <select id="contact" aria-label="Contact type">
+          <option value="">Any contacts</option><option value="ta">Has Talent / HR contact</option>
+          <option value="pa">Has Partnerships / BD contact</option><option value="fo">Has founder contact</option>
+          <option value="email">Has an email</option><option value="phone">Has a phone number</option>
+        </select>
         <label class="chk"><input type="checkbox" id="fUncontacted"> Not contacted</label>
       </div>
       <div class="resultbar"><span id="resultCount"></span><span id="liveCheckInfo" class="faint"></span></div>
@@ -253,7 +269,7 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
   const liveClosed = new Map();     // jobId -> reason, from browser checks since the last dataset
   let lastLiveCheck = null, liveChecking = false;
   const contacted = new Set(store.get('leads.contacted', []));
-  const filters = Object.assign({ q: '', type: 'all', status: 'open', region: '', source: '', sort: 'new', fNew: false, fFounder: false, fUncontacted: false }, store.get('leads.filters', {}));
+  const filters = Object.assign({ q: '', type: 'all', status: 'open', region: '', source: '', sort: 'new', contact: '', fNew: false, fUncontacted: false }, store.get('leads.filters', {}));
 
   // ------------------------------------------------------------ theme
   const theme = store.get('leads.theme', null);
@@ -306,7 +322,16 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
     const out = Object.keys(REGION_RE).filter(r => REGION_RE[r].test(text));
     return out.length ? out : ['Other'];
   }
-  const hasFounder = c => c.contacts.some(p => /founder|ceo|cto|co-?founder/i.test(p.title || '') || p.source === 'YC');
+  const TEAM_OF = p => p.team || (p.source === 'HN' ? 'Talent & HR' : /founder|ceo|cto|chief/i.test(p.title || '') ? 'Founders & leadership' : 'Other');
+  const TEAM_KEY = { ta: 'Talent & HR', pa: 'Partnerships & BD', fo: 'Founders & leadership' };
+  const emailsOf = c => [...c.contacts.filter(p => p.email).map(p => p.email), ...(c.channels?.emails || []).map(e => e.email)];
+  const phonesOf = c => [...c.contacts.filter(p => p.phone).map(p => p.phone), ...(c.channels?.phones || []).map(x => x.phone)];
+  function contactMatch(c, k) {
+    if (!k) return true;
+    if (k === 'email') return emailsOf(c).length > 0;
+    if (k === 'phone') return phonesOf(c).length > 0;
+    return c.contacts.some(p => TEAM_OF(p) === TEAM_KEY[k]) || (c.channels?.emails || []).some(e => e.team === TEAM_KEY[k]);
+  }
   const sourceOf = c => c.source || (c.sources || [])[0];
 
   function filtered() {
@@ -324,10 +349,10 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
       if (filters.region && !regionsOf(c).includes(filters.region)) return false;
       if (filters.source && !(c.sources || [c.source]).includes(filters.source)) return false;
       if (filters.fNew && !isToday(c.firstSeen)) return false;
-      if (filters.fFounder && !hasFounder(c)) return false;
+      if (!contactMatch(c, filters.contact)) return false;
       if (filters.fUncontacted && contacted.has(c.id)) return false;
       if (terms.length) {
-        const hay = [c.name, c.oneLiner, c.location, c.batch, ...(c.tags || []), ...c.contacts.map(p => `${p.name} ${p.title} ${p.email || ''}`), ...c.jobs.map(j => `${j.title} ${j.location || ''} ${j.snippet || ''}`)].join(' ').toLowerCase();
+        const hay = [c.name, c.oneLiner, c.location, c.batch, ...(c.tags || []), ...c.contacts.map(p => `${p.name} ${p.title} ${p.email || ''} ${p.phone || ''} ${p.team || ''}`), ...emailsOf(c), ...phonesOf(c), ...c.jobs.map(j => `${j.title} ${j.location || ''} ${j.snippet || ''}`)].join(' ').toLowerCase();
         if (!terms.every(t => hay.includes(t))) return false;
       }
       return true;
@@ -352,6 +377,8 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
       jobs: rows.reduce((n, c) => n + c.openJobs, 0),
       interns: rows.reduce((n, c) => n + c.openInternships, 0),
       founders: rows.reduce((n, c) => n + c.contacts.length, 0),
+      emails: rows.reduce((n, c) => n + emailsOf(c).length, 0),
+      phones: rows.reduce((n, c) => n + phonesOf(c).length, 0),
       addedToday: rows.filter(c => isToday(c.firstSeen)).length,
       closedToday: rows.filter(c => c.status === 'closed' && (c.closedNow || isToday(c.closedAt))).length,
     };
@@ -360,22 +387,25 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
       tile('Hiring now', t.open, `${t.companies.toLocaleString()} companies tracked`, 'green', 'open'),
       tile('Open jobs', t.jobs, 'across hiring companies', '', 'jobs'),
       tile('Internships', t.interns, 'open intern roles', '', 'interns'),
-      tile('Founder / POC contacts', t.founders, 'names, LinkedIn, emails', '', 'founders'),
+      tile('Points of contact', t.founders, `${t.emails.toLocaleString()} emails · ${t.phones.toLocaleString()} phones`, '', 'founders'),
       tile('Added today', t.addedToday, 'new companies', '', 'today'),
       tile('No longer hiring', t.closed, `${t.closedToday} closed today`, 'red', 'closed'),
     ].join('');
   }
 
   const initials = n => (n || '?').split(/\s+/).map(w => w[0]).join('').slice(0, 2).toUpperCase();
-  const linkedInSearch = c => `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(`founder ${c.name}`)}`;
+  const linkedInSearch = (c, role = 'founder') => `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(`${role} ${c.name}`)}`;
+  const TEAM_BADGE = { 'Talent & HR': ['ta', 'TA / HR'], 'Partnerships & BD': ['pa', 'Partnerships'], 'Founders & leadership': ['fo', 'Founders'], 'Sales & growth': ['', 'Sales'], Other: ['', 'Other'] };
+  const copyBtn = v => `<button class="copy" data-copy="${esc(v)}" title="Copy">⧉</button>`;
 
   function contactLinks(p) {
     const out = [];
     if (p.linkedin) out.push(`<a href="${esc(p.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>`);
     if (p.twitter) out.push(`<a href="${esc(p.twitter)}" target="_blank" rel="noopener">X</a>`);
-    if (p.email) out.push(`<a href="mailto:${esc(p.email)}">${esc(p.email)}</a>`);
+    if (p.email) out.push(`<span>✉ <a href="mailto:${esc(p.email)}">${esc(p.email)}</a>${copyBtn(p.email)}</span>`);
+    if (p.phone) out.push(`<span>☎ <a href="tel:${esc(p.phone.replace(/[^\d+]/g, ''))}">${esc(p.phone)}</a>${copyBtn(p.phone)}</span>`);
     if (p.hn) out.push(`<a href="${esc(p.hn)}" target="_blank" rel="noopener">HN profile</a>`);
-    return out.join(' · ');
+    return out.join('');
   }
 
   function companyRow(c) {
@@ -384,7 +414,12 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
       ? `${c.openJobs} open role${c.openJobs === 1 ? '' : 's'}${c.openInternships ? ` · <span class="badge intern">${c.openInternships} intern</span>` : ''}`
       : `<span style="color:var(--red)">0 open roles</span>`;
     const closedCount = c.jobs.filter(j => j.status === 'closed').length;
-    const people = c.contacts.slice(0, 3).map(p => `<span>${p.linkedin ? `<a href="${esc(p.linkedin)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${esc(p.name)}</a>` : p.email ? `<a href="mailto:${esc(p.email)}" onclick="event.stopPropagation()">${esc(p.name)}</a>` : esc(p.name)}<span class="faint"> ${esc(shortTitle(p.title))}</span></span>`).join('');
+    const teamCounts = {};
+    for (const p of c.contacts) teamCounts[TEAM_OF(p)] = (teamCounts[TEAM_OF(p)] || 0) + 1;
+    const chips = ['Talent & HR', 'Partnerships & BD', 'Founders & leadership'].filter(t => teamCounts[t])
+      .map(t => `<span class="badge ${TEAM_BADGE[t][0]}">${teamCounts[t]} ${TEAM_BADGE[t][1]}</span>`).join('');
+    const nE = emailsOf(c).length, nP = phonesOf(c).length;
+    const people = c.contacts.slice(0, 2).map(p => `<span>${p.linkedin ? `<a href="${esc(p.linkedin)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${esc(p.name)}</a>` : p.email ? `<a href="mailto:${esc(p.email)}" onclick="event.stopPropagation()">${esc(p.name)}</a>` : esc(p.name)}<span class="faint"> ${esc(shortTitle(p.title))}</span></span>`).join('');
     const status = c.status === 'open'
       ? `<span class="badge open">● Hiring</span>`
       : `<span class="badge closed" title="${esc(c.closedNow ? 'Closed (live check)' : `Closed ${fmtDate(c.closedAt)}`)}">● No longer hiring</span>`;
@@ -399,7 +434,9 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
           <div class="oneliner">${esc(c.oneLiner || c.jobs[0]?.title || '')}</div>
         </div>
         <div class="meta loc"><div>📍 ${esc(c.location || c.jobs.find(j => j.location)?.location || '—')}</div><div>${roles}${closedCount && c.status === 'open' ? ` · <span style="color:var(--red)">${closedCount} closed</span>` : ''}</div></div>
-        <div class="meta people"><div class="contacts-mini">${people || `<a href="${linkedInSearch(c)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Find founders →</a>`}</div><div class="faint">Added ${fmtDate(c.firstSeen)} · ${esc(sourceLabel(sourceOf(c)))}</div></div>
+        <div class="meta people"><div class="contacts-mini">${people || `<a href="${linkedInSearch(c)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Find founders →</a>`}</div>
+          <div class="chips" style="margin-top:3px">${chips}${nE ? `<span class="badge">✉ ${nE}</span>` : ''}${nP ? `<span class="badge">☎ ${nP}</span>` : ''}</div>
+          <div class="faint">Added ${fmtDate(c.firstSeen)} · ${esc(sourceLabel(sourceOf(c)))}</div></div>
         <div class="status">${status}
           <label class="contacted" onclick="event.stopPropagation()"><input type="checkbox" data-contacted="${esc(c.id)}" ${contacted.has(c.id) ? 'checked' : ''}> Contacted</label>
         </div>
@@ -423,18 +460,34 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
         ${j.applyUrl && j.applyUrl !== j.url ? `<a class="btn" href="${esc(j.applyUrl)}" target="_blank" rel="noopener">Apply</a>` : ''}
       </div>
     </div>`).join('') || '<div class="muted">No roles on record.</div>';
-    const people = c.contacts.map(p => `<div class="person"><div class="pn">${esc(p.name)}</div><div class="pt">${esc(p.title || '')}${p.source ? ` · via ${esc(p.source)}` : ''}</div><div style="font-size:13px">${contactLinks(p)}</div></div>`).join('')
-      || '<div class="muted">No contact on record yet.</div>';
+    const groups = {};
+    for (const p of c.contacts) (groups[TEAM_OF(p)] ||= []).push(p);
+    const people = Object.keys(TEAM_BADGE).filter(t => groups[t]).map(t => `<div class="teamhead"><span class="badge ${TEAM_BADGE[t][0]}">${esc(t)}</span><span class="faint">${groups[t].length}</span></div>` +
+      groups[t].map(p => `<div class="person"><div class="pn">${esc(p.name)}</div><div class="pt">${esc(p.title || '')}${p.location ? ` · ${esc(p.location)}` : ''}${p.source ? ` · via ${esc(p.source)}` : ''}</div><div class="cl">${contactLinks(p)}</div></div>`).join('')).join('')
+      || '<div class="muted">No named contact yet — use the LinkedIn searches below.</div>';
+    const ch = c.channels || {};
+    const chEmails = (ch.emails || []).map(e => `<div class="chan"><span>✉ <a href="mailto:${esc(e.email)}">${esc(e.email)}</a>${copyBtn(e.email)}</span><span class="badge">${esc(e.team)}</span></div>`).join('');
+    const chPhones = (ch.phones || []).map(x => `<div class="chan"><span>☎ <a href="tel:${esc(x.phone.replace(/[^\d+]/g, ''))}">${esc(x.phone)}</a>${copyBtn(x.phone)}</span><a class="faint" href="${esc(x.page)}" target="_blank" rel="noopener">source</a></div>`).join('');
+    const SOC = { linkedin: 'LinkedIn', twitter: 'X / Twitter', instagram: 'Instagram', facebook: 'Facebook', github: 'GitHub', youtube: 'YouTube', crunchbase: 'Crunchbase' };
+    const socials = Object.entries(ch.social || {}).filter(([k, v]) => SOC[k] && v).map(([k, v]) => `<a href="${esc(v)}" target="_blank" rel="noopener">${SOC[k]}</a>`).join('');
+    const PAGES = { contact: 'Contact page', careers: 'Careers page', partners: 'Partner page', team: 'Team / about', press: 'Press' };
+    const pages = Object.entries(ch.pages || {}).filter(([k]) => PAGES[k]).map(([k, v]) => `<a href="${esc(v)}" target="_blank" rel="noopener">${PAGES[k]}</a>`).join('');
+    const finds = [['talent acquisition', 'Talent acquisition'], ['recruiter', 'Recruiters'], ['HR', 'HR'], ['partnerships', 'Partnerships'], ['business development', 'Business development'], ['founder', 'Founders']]
+      .map(([q, l]) => `<a href="${linkedInSearch(c, q)}" target="_blank" rel="noopener">${l} ↗</a>`).join('');
+    const company = (chEmails || chPhones || socials || pages)
+      ? `<h4 style="margin-top:14px">Company channels</h4>${chEmails}${chPhones}${socials ? `<div class="links">${socials}</div>` : ''}${pages ? `<div class="links">${pages}</div>` : ''}`
+      : '';
     const links = [
       c.website && `<a href="${esc(c.website)}" target="_blank" rel="noopener">Website</a>`,
       c.profileUrl && `<a href="${esc(c.profileUrl)}" target="_blank" rel="noopener">YC profile</a>`,
       c.careersUrl && `<a href="${esc(c.careersUrl)}" target="_blank" rel="noopener">Careers page</a>`,
       c.linkedin && `<a href="${esc(c.linkedin)}" target="_blank" rel="noopener">Company LinkedIn</a>`,
-      `<a href="${linkedInSearch(c)}" target="_blank" rel="noopener">Search founders on LinkedIn</a>`,
     ].filter(Boolean).join('');
     return `<div class="co-body">
       <div><h4>Roles (${c.openJobs} open${c.jobs.length > c.openJobs ? `, ${c.jobs.length - c.openJobs} closed` : ''})</h4>${jobs}</div>
-      <div><h4>Founders & POCs</h4>${people}<div class="links">${links}</div>
+      <div><h4>Points of contact (${c.contacts.length})</h4>${people}${company}
+        <h4 style="margin-top:14px">Find more people on LinkedIn</h4><div class="find">${finds}</div>
+        <div class="links">${links}</div>
         ${c.tags?.length ? `<div class="links">${c.tags.map(t => `<span class="badge">${esc(t)}</span>`).join('')}</div>` : ''}
         <div class="faint" style="font-size:12px;margin-top:10px">${[c.teamSize && `Team ${c.teamSize}`, `First seen ${new Date(c.firstSeen).toLocaleString()}`].filter(Boolean).join(' · ')}</div>
       </div>
@@ -456,7 +509,7 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
     $('#moreBtn').hidden = rows.length <= shown;
     $('#moreBtn').textContent = `Show more (${(rows.length - shown).toLocaleString()} left)`;
     const clear = $('#clearF');
-    if (clear) clear.onclick = () => { Object.assign(filters, { q: '', type: 'all', status: 'all', region: '', source: '', fNew: false, fFounder: false, fUncontacted: false }); syncControls(); render(); };
+    if (clear) clear.onclick = () => { Object.assign(filters, { q: '', type: 'all', status: 'all', region: '', source: '', contact: '', fNew: false, fUncontacted: false }); syncControls(); render(); };
     renderSide();
   }
 
@@ -634,15 +687,25 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
   // ------------------------------------------------------------ CSV export
   function exportCSV() {
     const rows = filtered();
-    const head = ['Company', 'Status', 'Website', 'Location', 'Open roles', 'Open internships', 'Role titles', 'Founders / POCs', 'POC LinkedIn', 'POC emails', 'Source', 'Batch', 'Added', 'Closed at', 'Contacted'];
+    const head = ['Company', 'Status', 'Website', 'Location', 'Open roles', 'Open internships', 'Role titles',
+      'Talent / HR contacts', 'Partnerships / BD contacts', 'Founders & leadership', 'Other contacts',
+      'All person emails', 'All person phones', 'Company emails', 'Company phones',
+      'Company LinkedIn', 'Company X / Twitter', 'Contact page', 'Careers page', 'Source', 'Batch', 'Added', 'Closed at', 'Contacted'];
+    const fmtP = p => [p.name, p.title && `(${p.title})`, p.email && `<${p.email}>`, p.phone, p.linkedin].filter(Boolean).join(' ');
+    const team = (c, t) => c.contacts.filter(p => TEAM_OF(p) === t).map(fmtP).join(' | ');
     const cell = v => `"${String(v ?? '').replace(/"/g, '""')}"`;
     const lines = rows.map(c => [
       c.name, c.status === 'open' ? 'Hiring' : 'No longer hiring', c.website, c.location,
       c.openJobs, c.openInternships,
       c.jobs.filter(j => j.status === 'open').map(j => `${j.title}${j.type === 'internship' ? ' [Intern]' : ''} <${j.url}>`).join(' | '),
-      c.contacts.map(p => `${p.name} (${p.title || ''})`).join(' | '),
-      c.contacts.map(p => p.linkedin).filter(Boolean).join(' | '),
+      team(c, 'Talent & HR'), team(c, 'Partnerships & BD'), team(c, 'Founders & leadership'),
+      c.contacts.filter(p => !['Talent & HR', 'Partnerships & BD', 'Founders & leadership'].includes(TEAM_OF(p))).map(fmtP).join(' | '),
       c.contacts.map(p => p.email).filter(Boolean).join(' | '),
+      c.contacts.map(p => p.phone).filter(Boolean).join(' | '),
+      (c.channels?.emails || []).map(e => `${e.email} (${e.team})`).join(' | '),
+      (c.channels?.phones || []).map(x => x.phone).join(' | '),
+      c.channels?.social?.linkedin || c.linkedin || '', c.channels?.social?.twitter || '',
+      c.channels?.pages?.contact || '', c.channels?.pages?.careers || c.careersUrl || '',
       sourceLabel(sourceOf(c)), c.batch, c.firstSeen?.slice(0, 10), c.closedAt?.slice(0, 10) || '', contacted.has(c.id) ? 'yes' : '',
     ].map(cell).join(','));
     const blob = new Blob(['﻿' + [head.map(cell).join(','), ...lines].join('\n')], { type: 'text/csv' });
@@ -655,8 +718,8 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
   function syncControls() {
     $('#q').value = filters.q;
     document.querySelectorAll('#typeSeg button').forEach(b => b.classList.toggle('on', b.dataset.v === filters.type));
-    for (const k of ['status', 'region', 'source', 'sort']) $('#' + k).value = filters[k];
-    for (const k of ['fNew', 'fFounder', 'fUncontacted']) $('#' + k).checked = filters[k];
+    for (const k of ['status', 'region', 'source', 'sort', 'contact']) $('#' + k).value = filters[k];
+    for (const k of ['fNew', 'fUncontacted']) $('#' + k).checked = filters[k];
     store.set('leads.filters', { ...filters, q: '' });
   }
   const update = patch => { Object.assign(filters, patch); shown = PAGE; syncControls(); render(); };
@@ -664,8 +727,8 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
   let qTimer;
   $('#q').addEventListener('input', e => { clearTimeout(qTimer); qTimer = setTimeout(() => update({ q: e.target.value }), 150); });
   $('#typeSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (b) update({ type: b.dataset.v }); });
-  for (const k of ['status', 'region', 'source', 'sort']) $('#' + k).addEventListener('change', e => update({ [k]: e.target.value }));
-  for (const k of ['fNew', 'fFounder', 'fUncontacted']) $('#' + k).addEventListener('change', e => update({ [k]: e.target.checked }));
+  for (const k of ['status', 'region', 'source', 'sort', 'contact']) $('#' + k).addEventListener('change', e => update({ [k]: e.target.value }));
+  for (const k of ['fNew', 'fUncontacted']) $('#' + k).addEventListener('change', e => update({ [k]: e.target.checked }));
   $('#feedSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { store.set('leads.feed', b.dataset.v); renderSide(); } });
   $('#moreBtn').onclick = () => { shown += PAGE; render(); };
   $('#csvBtn').onclick = exportCSV;
@@ -674,7 +737,7 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
     const act = e.target.closest('.kpi')?.dataset.act;
     const presets = {
       open: { status: 'open', type: 'all', fNew: false }, jobs: { status: 'open', type: 'job' },
-      interns: { status: 'open', type: 'internship' }, founders: { fFounder: true },
+      interns: { status: 'open', type: 'internship' }, founders: { contact: 'email' },
       today: { fNew: true, status: 'all' }, closed: { status: 'closed', type: 'all', sort: 'closedRecent', fNew: false },
     };
     if (presets[act]) update(presets[act]);
@@ -693,6 +756,8 @@ footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
     el.closest('.co').outerHTML = companyRow(view(c));
   };
   $('#list').addEventListener('click', e => {
+    const cp = e.target.closest('[data-copy]');
+    if (cp) { navigator.clipboard?.writeText(cp.dataset.copy).then(() => toast(`Copied ${esc(cp.dataset.copy)}`, 'green'), () => {}); return; }
     if (e.target.closest('a, input, label, button')) return;
     const head = e.target.closest('[data-toggle]');
     if (head) toggle(head);

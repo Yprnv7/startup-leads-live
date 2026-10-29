@@ -197,6 +197,8 @@ function applyYC(slug, data, listing = {}) {
     linkedin: yc.linkedin_url,
     profileUrl: `https://www.ycombinator.com/companies/${slug}`,
   });
+  const social = Object.fromEntries(Object.entries({ linkedin: yc.linkedin_url, twitter: yc.twitter_url, facebook: yc.fb_url, github: yc.github_url, crunchbase: yc.cb_url }).filter(([, v]) => v));
+  c.channels = { ...c.channels, social: { ...c.channels?.social, ...social } };
   for (const f of yc.founders || []) {
     addContact(c, { name: f.full_name, title: f.title || 'Founder', linkedin: f.linkedin_url, twitter: f.twitter_url, source: 'YC' });
   }
@@ -263,7 +265,7 @@ async function verifyYC() {
 
 // ---------------------------------------------------------------- Hacker News "Who is hiring?"
 
-const NON_COMPANY_DOMAINS = /(^|\.)(ycombinator\.com|greenhouse\.io|lever\.co|ashbyhq\.com|workable\.com|linkedin\.com|twitter\.com|x\.com|github\.com|google\.com|forms\.gle|notion\.site|wellfound\.com|angel\.co|calendly\.com|youtube\.com|medium\.com|bit\.ly|typeform\.com|breezy\.hr|recruitee\.com|bamboohr\.com|smartrecruiters\.com|workatastartup\.com|jobs\.gem\.com|rippling\.com|teamtailor\.com|personio\.\w+)$/i;
+const NON_COMPANY_DOMAINS = /(^|\.)(ycombinator\.com|greenhouse\.io|lever\.co|ashbyhq\.com|workable\.com|linkedin\.com|twitter\.com|x\.com|github\.com|google\.com|forms\.gle|notion\.site|wellfound\.com|angel\.co|calendly\.com|youtube\.com|medium\.com|bit\.ly|typeform\.com|breezy\.hr|recruitee\.com|bamboohr\.com|smartrecruiters\.com|workatastartup\.com|jobs\.gem\.com|rippling\.com|teamtailor\.com|personio\.\w+|youtu\.be|wikipedia\.org|archive\.(?:ph|org|is)|lnkd\.in|grnh\.se|dover\.com|trinethire\.com|applytojob\.com|factorialhr\.com|techcrunch\.com|mercurynews\.com|nytimes\.com|bloomberg\.com|reuters\.com|forbes\.com|substack\.com|\w+\.gov|nih\.gov|arxiv\.org|docs\.google\.com|loom\.com|vimeo\.com|web\.app|github\.io|ycombinator\.com|news\.ycombinator\.com|techjobfinder\.com|nordictechjobs\.com|weworkremotely\.com|remoteok\.com|indeed\.com|glassdoor\.com)$/i;
 const LOCATION_RE = /remote|on-?site|hybrid|india|bengaluru|bangalore|hyderabad|mumbai|pune|delhi|gurgaon|gurugram|noida|chennai|\b(usa?|us-?only|uk|eu|europe|canada|apac|emea|worldwide|global)\b|london|berlin|paris|amsterdam|new york|nyc|san francisco|\bsf\b|bay area|seattle|austin|boston|toronto|singapore|tokyo|sydney/i;
 const CITY_RE = /[A-Z][a-z]+,\s?[A-Z]{2}\b|\b[A-Z][a-z]+, [A-Z][a-z]+\b/;
 const isLocation = p => LOCATION_RE.test(p) || CITY_RE.test(p);
@@ -289,11 +291,16 @@ function parseHN(c) {
   const text = stripHtml(html);
   const parts = header.split(/\s*[|•·]\s*|\s+[–—-]{1,2}\s+/).map(s => s.trim()).filter(Boolean);
   if (!parts.length) return null;
-  let name = parts[0].replace(/\s*\([^)]*\)\s*/g, ' ').replace(/^(hiring:?|we're hiring:?)\s*/i, '').trim();
+  let first = /^https?:\/\//i.test(parts[0]) && parts[1] ? parts[1] : parts[0];
+  let name = first.replace(/\s*\([^)]*\)\s*/g, ' ').replace(/^(hiring:?|we're hiring:?|company:)\s*/i, '').replace(/\s+location:.*$/i, '').trim();
   if (name.length > 45) name = name.split(/\s+/).slice(0, 4).join(' ');
   if (!name || name.length < 2) return null;
   const links = [...html.matchAll(/href="([^"]+)"/gi)].map(m => decode(m[1]));
-  const website = links.find(u => domainOf(u) && !NON_COMPANY_DOMAINS.test(domainOf(u)));
+  const candidates = links.filter(u => domainOf(u) && !NON_COMPANY_DOMAINS.test(domainOf(u)));
+  // Prefer a link whose domain contains the company's name; strip careers./jobs./app. subdomains.
+  const token = slugify(name).split('-').find(w => w.length >= 3) || '';
+  const picked = candidates.find(u => token && domainOf(u).replace(/[^a-z0-9]/g, '').includes(token)) || candidates[0];
+  const website = picked && `https://${domainOf(picked).replace(/^(?:careers|jobs|job|app|ats|apply|boards|join|hire|work)\./, '')}`;
   const boards = links.map(boardFromUrl).filter(Boolean);
   const deobf = text.replace(/\s*[[(]\s*at\s*[\])]\s*/gi, '@').replace(/\s*[[(]\s*dot\s*[\])]\s*/gi, '.');
   const emails = [...new Set((deobf.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/gi) || []).map(e => e.toLowerCase()))].slice(0, 3);
@@ -345,15 +352,28 @@ async function processHN() {
       }
       const c = upsertCompany(id, {
         name: byId.get(id)?.name || p.name, source: 'hn',
-        website: byId.get(id)?.website || p.website,
+        website: (byId.get(id)?.source !== 'hn' && byId.get(id)?.website) || p.website,
         location: byId.get(id)?.location || p.location,
       });
       if (isNew) added++;
+      if (c.source === 'hn' && c.website !== p.website) {
+        // HN-only companies: always trust the latest post's link (clears bad old picks).
+        if (p.website) { c.website = p.website; c.domain = domainOf(p.website); } else { delete c.website; delete c.domain; }
+        delete c.scan; delete c.prospeoAt;
+      }
       addContact(c, {
         name: p.author, title: 'Posted the HN hiring thread', email: p.emails[0],
         hn: `https://news.ycombinator.com/user?id=${p.author}`, source: 'HN',
       });
       for (const e of p.emails.slice(1)) addContact(c, { name: e, email: e, title: 'Contact email from HN post', source: 'HN' });
+      // If an earlier (mis)parse filed this post under another company, move it here.
+      for (const other of db.companies) {
+        if (other === c) continue;
+        const i = other.jobs.findIndex(j => j.id === jobId);
+        if (i < 0) continue;
+        other.jobs.splice(i, 1);
+        if (!other.jobs.length && other.source === 'hn') { db.companies.splice(db.companies.indexOf(other), 1); byId.delete(other.id); }
+      }
       upsertJob(c, {
         id: jobId, src: 'hn', thread: t.objectID, title: p.title, type: p.type,
         location: p.location, url: `https://news.ycombinator.com/item?id=${p.commentId}`,
@@ -437,7 +457,7 @@ async function processBoards() {
       if (meta.ok && meta.body.name) state.boardNames[key] = meta.body.name;
     }
     const name = byId.get(companyId)?.name || b.name || state.boardNames[key] || b.token.replace(/[-_]/g, ' ').replace(/\b\w/g, ch => ch.toUpperCase());
-    const c = upsertCompany(companyId, { name, source: b.ats, location: byId.get(companyId)?.location || b.location, careersUrl: careersUrl(b) });
+    const c = upsertCompany(companyId, { name, source: b.ats, website: byId.get(companyId)?.website || b.website, location: byId.get(companyId)?.location || b.location, careersUrl: careersUrl(b) });
     const present = new Set(r.jobs.map(j => `${b.ats}:${b.token}:${j.id}`));
     const prevOpen = c.jobs.filter(j => j.board === key && j.status === 'open').length;
     if (present.size === 0 && prevOpen > 3 && !state.zeroMiss[key]) { state.zeroMiss[key] = NOW; return; }

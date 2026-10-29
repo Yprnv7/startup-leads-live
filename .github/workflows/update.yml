@@ -49,6 +49,11 @@ jobs:
       - name: Fetch, discover and verify
         run: node scripts/update.mjs --mode=${{ steps.mode.outputs.mode }} ${{ inputs.force_yc && '--force-yc' || '' }}
 
+      - name: Find points of contact (website scan + Prospeo)
+        run: node scripts/contacts.mjs
+        env:
+          PROSPEO_API_KEY: ${{ secrets.PROSPEO_API_KEY }}
+
       - name: Commit data
         run: |
           git config user.name "leads-bot"
