@@ -564,7 +564,21 @@
     "Runway": "US headquarters",
     "Junction": "US headquarters (Prospeo)",
     "Oneleet": "US headquarters (Prospeo)",
-    "Enveritas": "US headquarters (Prospeo)"
+    "Enveritas": "US headquarters (Prospeo)",
+    "Lattice": "US headquarters",
+    "Lithic": "US headquarters",
+    "PlanetScale": "US headquarters",
+    "Expel": "US headquarters",
+    "Carrot": "US headquarters",
+    "Samsara": "US headquarters",
+    "Signifyd": "US headquarters",
+    "Upgrade": "US headquarters",
+    "Legion": "US headquarters"
   },
-  "wikidataLookupsPerRun": 60
+  "wikidataLookupsPerRun": 150,
+  "allowCompanies": {
+    "_note": "Company name -> reason. Overrides a wrong automatic US/India match.",
+    "Flow Traders": "Headquartered in Amsterdam",
+    "Capital on Tap": "Headquartered in London"
+  }
 }

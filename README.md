@@ -17,6 +17,22 @@
 
 Y Combinator (company pages: jobs and founders), HN "Who is hiring?", 60+ startup job boards on Greenhouse / Lever / Ashby (`config.json → ats.boards`, plus boards found in HN posts), [Jobicy](https://jobicy.com) (remote jobs by region) and [Arbeitnow](https://www.arbeitnow.com) (EU remote jobs).
 
+**Others** (one group in the Source filter), read through each site's official feed and credited on every role:
+- [Remotive](https://remotive.com): API, at most 4 checks a day as Remotive asks
+- [Remote OK](https://remoteok.com): API
+- [Working Nomads](https://www.workingnomads.com): API
+- [We Work Remotely](https://weworkremotely.com): RSS for the programming, full-stack, back-end, front-end and DevOps categories. Its "Headquarters" field is also used to drop US-based companies.
+- [NoDesk](https://nodesk.co): RSS
+- [Jobfound](https://jobfound.org): structured job pages from its remote listings, US and India listings skipped
+
+Remote.co refuses automated connections, so it isn't included.
+
+**LinkedIn** isn't scraped: its terms forbid automated collection and it blocks scrapers. Instead, the **Search on LinkedIn Jobs** button opens LinkedIn's own job search using the current filters (remote only, the selected country or region, track or search text, posted in the last 7 days). Every role and company also has LinkedIn links.
+
+**Country filter:** picking a country shows only roles that name that country. Region-wide and worldwide remote roles appear under the region buttons, not under a country.
+
+**RTI tracker:** the header button opens the RTI tracker.
+
 ## Contacts
 
 People come from YC founder lists, HN posters, and Prospeo (talent, partnerships and C-Suite people with verified emails). Company emails, HQ phone numbers and social profiles come from a scan of each company's own website. **No contact detail is ever guessed.** Where a person's direct phone isn't known, the card shows the company's HQ line, labelled "HQ line". Where no one is on record, it shows one-click LinkedIn searches for the CEO, CTO and founders.

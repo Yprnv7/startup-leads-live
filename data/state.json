@@ -1587,10 +1587,6 @@
    "reason": "US headquarters (Wikidata)",
    "at": "2026-10-30T05:54:08.673Z"
   },
-  "jobicy:capital-on-tap": {
-   "reason": "US headquarters (Wikidata)",
-   "at": "2026-10-30T05:54:08.673Z"
-  },
   "jobicy:clickup": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-10-30T05:54:08.673Z"
@@ -1711,10 +1707,6 @@
    "reason": "US headquarters (Wikidata)",
    "at": "2026-10-30T06:00:09.566Z"
   },
-  "hn:flow-traders": {
-   "reason": "US headquarters (Wikidata)",
-   "at": "2026-10-30T06:00:09.566Z"
-  },
   "yc:junction": {
    "reason": "US headquarters (Prospeo) (config)",
    "at": "2026-10-30T06:11:27.940Z"
@@ -1726,6 +1718,274 @@
   "hn:enveritas": {
    "reason": "US headquarters (Prospeo) (config)",
    "at": "2026-10-30T06:11:27.940Z"
+  },
+  "weworkremotely:sticker-mule": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:vercel": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:maven-clinic": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:lemon-io": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:abnormal": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:pagerduty": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:wrike": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:a-team": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:stripe": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:doximity": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:hex-technologies": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:salesloft": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:stockx": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:coinbase": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:vested-inc": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:oportun": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:mercury": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:celonis": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:reddit": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:clover-health": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:alloy": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:airbnb": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:mixpanel": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:sanctuary-computer": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:fivetran": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:storetasker": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:bitovi": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:squarespace": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:edconic": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:simpletiger": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:current": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:anthropic": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:keeper-security": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:zoominfo-technologies-llc": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:ping-identity": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:upstart": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:beyondtrust": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:discord": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:flexport": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:datadog": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:launchdarkly": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "remoteok:y": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "remoteok:plaid": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "remoteok:duckduckgo": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:duckduckgo": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:smartsheet": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "jobfound:gitlab": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "jobfound:dropbox": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "remoteok:ashby": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:jumio": {
+   "reason": "India office",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:databricks": {
+   "reason": "India office",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:affirm": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:33:31.922Z"
+  },
+  "weworkremotely:dremio": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:33:31.922Z"
+  },
+  "weworkremotely:netlify": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:33:31.922Z"
+  },
+  "jobfound:nvidia": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:33:31.922Z"
+  },
+  "weworkremotely:offerup": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:33:31.922Z"
+  },
+  "weworkremotely:toptal": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:33:31.922Z"
+  },
+  "weworkremotely:webflow": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:33:31.922Z"
+  },
+  "weworkremotely:carrot": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T07:34:30.814Z"
+  },
+  "weworkremotely:expel": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T07:34:30.814Z"
+  },
+  "weworkremotely:lattice": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T07:34:30.814Z"
+  },
+  "weworkremotely:legion": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T07:34:30.814Z"
+  },
+  "weworkremotely:lithic": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T07:34:30.814Z"
+  },
+  "weworkremotely:planetscale": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T07:34:30.814Z"
+  },
+  "weworkremotely:samsara": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T07:34:30.814Z"
+  },
+  "jobfound:signifyd": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T07:34:30.814Z"
+  },
+  "weworkremotely:upgrade": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T07:34:30.814Z"
   }
  },
  "arbeitnowAt": "2026-10-30T05:40:14.012Z",
@@ -1784,7 +2044,7 @@
   "Capital on Tap": {
    "at": "2026-10-30T05:54:08.673Z",
    "id": "Q113450263",
-   "us": true
+   "us": false
   },
   "ClickUp": {
    "at": "2026-10-30T05:54:08.673Z",
@@ -2504,7 +2764,7 @@
   "Flow Traders": {
    "at": "2026-10-30T06:00:09.566Z",
    "id": "Q21009903",
-   "us": true
+   "us": false
   },
   "Flowstate": {
    "at": "2026-10-30T06:00:09.566Z",
@@ -2560,6 +2820,444 @@
    "at": "2026-10-30T06:00:09.566Z",
    "id": null,
    "us": false
+  },
+  "Lemon.io": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": "Q130417871",
+   "us": false
+  },
+  "iMerit Technology": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Askable": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Mitre Media": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Coalition Technologies": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Credit Wellness, LLC": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Unio Digital": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "IAPWE": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Edconic": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "y": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": "Q866",
+   "us": true
+  },
+  "Huzzle": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Wagmo": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Klardaten": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Getlabs": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Onebrief": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "B2spin": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Aprio": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Aisles & Abroad": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "D2B": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Political Asylum Lawyers": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Plaid": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": "Q30610132",
+   "us": true
+  },
+  "DuckDuckGo": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": "Q98446892",
+   "us": true
+  },
+  "Penumbra": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Pavago": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "SupportYourApp": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Sothebyâs": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Rain": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Curtins": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Packmatic GmbH": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Yuno": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Apryse": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": "Q7118803",
+   "us": false
+  },
+  "Sanctuary Computer": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Self Bill Pro": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Yopeso Romania SRL": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Kodland": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "AlgaeCal": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Hippocratic AI": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Voltus": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Allego": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": "Q75560554",
+   "us": false
+  },
+  "Wrapbook": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Manila Recruitment": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Twoconnect": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Somnio Software": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Akicita Federal, LLC": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Utopia": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Ultimate Marketing": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Thyme Care": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "AO Garcia Agency": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Vytalize Health": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "BlueTuskr": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "QuickMail": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "SimSpace Corporation": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Midnite": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Hunt St": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "DEUNA": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "EDETEK": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Miaplaza": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Affirm": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q65085822",
+   "us": true
+  },
+  "Bjak": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q136756944",
+   "us": false
+  },
+  "Bybit": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q109424729",
+   "us": false
+  },
+  "Carrot": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Dremio": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q138685727",
+   "us": true
+  },
+  "Expel": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Growth Minded": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Lattice": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Legion": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Lithic": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Medify": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Netlify": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q56102498",
+   "us": true
+  },
+  "NVIDIA": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q182477",
+   "us": true
+  },
+  "OfferUp": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q88645435",
+   "us": true
+  },
+  "PlanetScale": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Proxify": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Proxify AB": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Ritual": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Samsara": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Signifyd": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Toggl": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q15113618",
+   "us": false
+  },
+  "Toptal": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q21462713",
+   "us": true
+  },
+  "Twikey": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Typeform": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q24910393",
+   "us": false
+  },
+  "Upgrade": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Upsun": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Vertex Marketing Group": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Webflow": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q20160951",
+   "us": true
+  },
+  "Yooli": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
   }
+ },
+ "othersAt": {
+  "remotive": "2026-10-30T07:31:58.129Z",
+  "remoteok": "2026-10-30T07:31:58.129Z",
+  "workingnomads": "2026-10-30T07:31:58.129Z",
+  "weworkremotely": "2026-10-30T07:31:58.129Z",
+  "nodesk": "2026-10-30T07:31:58.129Z",
+  "jobfound": "2026-10-30T07:31:58.129Z"
  }
 }

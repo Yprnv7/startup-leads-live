@@ -681,6 +681,138 @@ async function processArbeitnow() {
   sourceReport.arbeitnow = { ok: !failed, requests, remoteListings: seen.size, newCompanies: added };
 }
 
+// ---------------------------------------------------------------- "Others": remote job boards
+// Remotive, RemoteOK, Working Nomads, We Work Remotely, NoDesk and jobfound.org, read through their
+// official feeds (JSON API / RSS) or, for jobfound, its structured job pages. Each asks for a link
+// back and a source credit; listings keep their original URL and show "via <board>".
+
+const rssItems = xml => xml.split(/<item>/i).slice(1).map(x => {
+  const tag = t => decode((new RegExp(`<${t}>([\\s\\S]*?)</${t}>`, 'i').exec(x) || [])[1] || '').replace(/^<!\[CDATA\[|\]\]>$/g, '').trim();
+  return { title: tag('title'), link: tag('link'), pubDate: tag('pubDate'), region: tag('region'), country: tag('country'), description: tag('description') };
+});
+
+const OTHERS = {
+  remotive: {
+    label: 'Remotive', everyHours: 6, // Remotive asks for at most 4 requests a day
+    async fetch() {
+      const r = await get('https://remotive.com/api/remote-jobs', { json: true });
+      if (!r.ok) return null;
+      return (r.body.jobs || []).map(j => ({ id: j.id, company: j.company_name, title: j.title, location: j.candidate_required_location, url: j.url, postedAt: j.publication_date, logo: j.company_logo, internship: /intern/i.test(j.job_type || '') }));
+    },
+  },
+  remoteok: {
+    label: 'Remote OK', everyHours: 3,
+    async fetch() {
+      const r = await get('https://remoteok.com/api', { json: true });
+      if (!r.ok || !Array.isArray(r.body)) return null;
+      return r.body.slice(1).map(j => ({ id: j.id, company: j.company, title: j.position, location: j.location, url: j.url, postedAt: j.date, logo: j.company_logo || j.logo }));
+    },
+  },
+  workingnomads: {
+    label: 'Working Nomads', everyHours: 3,
+    async fetch() {
+      const r = await get('https://www.workingnomads.com/api/exposed_jobs/', { json: true });
+      if (!r.ok || !Array.isArray(r.body)) return null;
+      return r.body.filter(j => /development|administration|data|engineering/i.test(j.category_name || '')).map(j => ({ id: j.url, company: j.company_name, title: j.title, location: j.location, url: j.url, postedAt: j.pub_date }));
+    },
+  },
+  weworkremotely: {
+    label: 'We Work Remotely', everyHours: 3,
+    async fetch() {
+      const out = [];
+      for (const cat of ['remote-programming-jobs', 'remote-full-stack-programming-jobs', 'remote-back-end-programming-jobs', 'remote-front-end-programming-jobs', 'remote-devops-sysadmin-jobs']) {
+        const r = await get(`https://weworkremotely.com/categories/${cat}.rss`);
+        if (!r.ok) return null;
+        for (const it of rssItems(r.body)) {
+          const [company, ...rest] = it.title.split(': ');
+          const hq = /Headquarters:\s*<\/strong>\s*([^<]+)/i.exec(it.description)?.[1] || /Headquarters:\s*([^\n<]+)/i.exec(stripHtml(it.description))?.[1];
+          out.push({ id: it.link, company, title: rest.join(': ') || it.title, location: [it.region, it.country].filter(Boolean).join(' / '), url: it.link, postedAt: it.pubDate && new Date(it.pubDate).toISOString(), hq: hq && hq.trim() });
+        }
+        await sleep(300);
+      }
+      return out;
+    },
+  },
+  nodesk: {
+    label: 'NoDesk', everyHours: 3,
+    async fetch() {
+      const r = await get('https://nodesk.co/remote-jobs/index.xml');
+      if (!r.ok) return null;
+      return rssItems(r.body).map(it => {
+        const m = /^(.*)\s+at\s+(.+)$/.exec(it.title) || [null, it.title, ''];
+        // NoDesk's feed has no location field; use a "Remote (…)" / "Location: …" mention in the text if there is one.
+        const text = stripHtml(it.description).slice(0, 1500);
+        const loc = /(?:location|based in|remote)\s*[:(–-]\s*([^.\n)]{3,80})/i.exec(text)?.[1] || '';
+        return { id: it.link, company: m[2], title: m[1], location: loc, url: it.link, postedAt: it.pubDate && new Date(it.pubDate).toISOString() };
+      });
+    },
+  },
+  jobfound: {
+    label: 'Jobfound', everyHours: 6,
+    async fetch() {
+      const r = await get('https://jobfound.org/remote');
+      if (!r.ok) return null;
+      // Slugs end in the country ("...-remote-usa-29-october-2026"); skip US / India before fetching.
+      const links = [...new Set([...r.body.matchAll(/href="(\/job\/[^"]+)"/g)].map(m => m[1]))]
+        .filter(l => !/-(usa|india)-\d+-[a-z]+-\d{4}$/.test(l)).slice(0, 25);
+      const out = [];
+      for (const l of links) {
+        const page = await get(`https://jobfound.org${l}`, { retries: 1 });
+        await sleep(400);
+        if (!page.ok) continue;
+        for (const m of page.body.matchAll(/application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+          let d; try { d = JSON.parse(m[1]); } catch { continue; }
+          if (d['@type'] !== 'JobPosting') continue;
+          const req = [].concat(d.applicantLocationRequirements || []).map(x => x.name).filter(Boolean);
+          out.push({ id: d.url, company: d.hiringOrganization?.name, title: d.title, location: (req.length ? req.join(' / ') : 'Anywhere') + ' / Remote', url: d.url, postedAt: d.datePosted, internship: /intern/i.test(d.employmentType || '') });
+        }
+      }
+      return out;
+    },
+  },
+};
+
+async function processOthers() {
+  state.othersAt ??= {};
+  const byName = new Map(db.companies.map(c => [c.name.toLowerCase().replace(/[^a-z0-9]/g, ''), c.id]));
+  const report = {};
+  for (const [src, feed] of Object.entries(OTHERS)) {
+    if (state.othersAt[src] && Date.now() - Date.parse(state.othersAt[src]) < feed.everyHours * 3600e3 - 10 * 60e3) continue;
+    let items;
+    try { items = await feed.fetch(); } catch { items = null; }
+    if (!items) { report[src] = { ok: false }; continue; }
+    let kept = 0, added = 0, oldest = null;
+    const seen = new Set();
+    for (const it of items) {
+      const name = decode(it.company || '').trim();
+      if (!name || !it.title) continue;
+      const jobId = `${src}:${slugify(String(it.id))}`;
+      seen.add(jobId);
+      const t = Date.parse(it.postedAt);
+      if (t && (oldest === null || t < oldest)) oldest = t;
+      const id = byName.get(name.toLowerCase().replace(/[^a-z0-9]/g, '')) || `${src}:${slugify(name)}`;
+      if (isExcluded(id)) continue;
+      // A board that names a US headquarters (We Work Remotely does) rules the company out.
+      if (it.hq && placesOf(it.hq).includes('United States')) { exclude(id, `US headquarters (${feed.label})`); continue; }
+      const isNew = !byId.has(id);
+      const title = decode(it.title);
+      const c = upsertCompany(id, { name, source: src, location: byId.get(id)?.location || it.hq || undefined, logo: byId.get(id)?.logo || it.logo });
+      const job = upsertJob(c, {
+        id: jobId, src, via: src, title, type: it.internship ? 'internship' : jobType(title),
+        location: decode(it.location || ''), remoteFlag: true, url: it.url, postedAt: t ? new Date(t).toISOString() : undefined,
+      });
+      if (job) { kept++; if (isNew) added++; }
+    }
+    // Feeds list the newest jobs: a listing newer than the oldest one we saw must still be there if open.
+    if (oldest) for (const c of db.companies) for (const j of c.jobs) {
+      if (j.src === src && j.status === 'open' && !seen.has(j.id) && Date.parse(j.postedAt || j.firstSeen) > oldest) closeJob(c, j, `Removed from ${feed.label}`);
+    }
+    state.othersAt[src] = NOW;
+    report[src] = { ok: true, listings: items.length, inScope: kept, newCompanies: added };
+  }
+  sourceReport.others = report;
+}
+
 // ---------------------------------------------------------------- headquarters check (Wikidata)
 // Job feeds (Jobicy, Arbeitnow, HN) often don't say where a company is based. Wikidata does for
 // well-known companies; any company headquartered in the US is excluded. Results are cached.
@@ -719,7 +851,13 @@ async function checkHeadquarters() {
     } catch { continue; }
     await sleep(150);
   }
-  for (const c of db.companies) if (state.wikidata[c.name]?.us) { exclude(c.id, 'US headquarters (Wikidata)'); us++; }
+  // allowCompanies overrides a wrong automatic match (and lets a wrongly excluded company back in).
+  const allow = new Set(Object.keys(config.allowCompanies || {}).filter(n => n !== '_note'));
+  for (const name of allow) {
+    if (state.wikidata[name]) state.wikidata[name].us = false;
+    for (const id of Object.keys(state.excluded || {})) if (id.endsWith(':' + slugify(name)) && /US|India|Hires/.test(state.excluded[id].reason)) delete state.excluded[id];
+  }
+  for (const c of db.companies) if (state.wikidata[c.name]?.us && !allow.has(c.name)) { exclude(c.id, 'US headquarters (Wikidata)'); us++; }
   const manualList = config.excludeCompanies || {};
   for (const c of db.companies) if (manualList[c.name] && c.name !== '_note') exclude(c.id, manualList[c.name] + ' (config)');
   sourceReport.headquarters = { checked: due.length, usExcluded: us };
@@ -760,6 +898,7 @@ await processHN();
 await processBoards();
 await processJobicy();
 await processArbeitnow();
+await processOthers();
 await checkHeadquarters();
 await processManual();
 await verifyYC();

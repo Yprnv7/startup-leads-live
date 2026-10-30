@@ -20,7 +20,14 @@
     const TALENT_RE = /recruit|talent|human resources|\bhr\b|people/i;
     const PARTNER_RE = /partner(?:ship)?s?\b|alliance|business development/i;
     const STACK = ["Python", "TypeScript", "JavaScript", "Go", "Golang", "Rust", "Java", "Kotlin", "Swift", "Scala", "C++", "C#", "Ruby", "Elixir", "PHP", "Node.js", "React", "React Native", "Flutter", "Next.js", "Vue", "Django", "Rails", "PyTorch", "TensorFlow", "LLM", "Kubernetes", "AWS", "GCP", "Azure", "Terraform", "Postgres", "Kafka", "Spark", "dbt", "Snowflake", "Linux", "iOS", "Android", "Solidity", "Web3", "ROS", "CUDA"];
-    const SOURCE_LABEL = { yc: "Y Combinator", hn: "HN Who's Hiring", greenhouse: "Greenhouse", lever: "Lever", ashby: "Ashby", jobicy: "Jobicy", arbeitnow: "Arbeitnow", manual: "Manual" };
+    const SOURCE_LABEL = { yc: "Y Combinator", hn: "HN Who's Hiring", greenhouse: "Greenhouse", lever: "Lever", ashby: "Ashby", jobicy: "Jobicy", arbeitnow: "Arbeitnow", manual: "Manual",
+      remotive: "Remotive", remoteok: "Remote OK", workingnomads: "Working Nomads", weworkremotely: "We Work Remotely", nodesk: "NoDesk", jobfound: "Jobfound" };
+    const OTHERS = ["remotive", "remoteok", "workingnomads", "weworkremotely", "nodesk", "jobfound"];
+    const RTI_TRACKER_URL = "https://claude.ai/artifact/SietoRHgP9n98DEat8djV7";
+    // LinkedIn Jobs search terms per engineering track, and LinkedIn location names per region.
+    const TRACK_KEYWORDS = { "AI / ML & LLM Systems": "machine learning engineer", "Backend & Distributed Systems": "backend engineer", "Data & Quant Engineering": "data engineer",
+      "DevOps, Cloud & SRE": "devops engineer", "Full-Stack & Product Engineering": "full stack engineer", "Mobile & Autonomous Systems": "mobile engineer" };
+    const REGION_LINKEDIN = { Australia: "Australia", Europe: "European Union", MEA: "Middle East", "New Zealand": "New Zealand", SEA: "Southeast Asia", UK: "United Kingdom" };
 
     let raw = null;               // data/leads.json
     let leads = [];               // adapted companies
@@ -131,11 +138,8 @@
 
     // ------------------------------------------------------------------ filtering
     function roleCovers(role, { region, country }) {
-      if (country && country !== "ALL") {
-        if (role.places.includes(country)) return true;
-        const r = regionOfCountry(country);
-        return role.places.some(p => WIDE[p]?.includes(r));
-      }
+      // A country shows only roles that name that country (no region-wide or worldwide roles).
+      if (country && country !== "ALL") return role.places.includes(country);
       if (region && region !== "ALL") return role.regions.includes(region);
       return true;
     }
@@ -160,6 +164,7 @@
     }
     function sourceMatch(item) {
       if (activeSource === "ALL") return true;
+      if (activeSource === "others") return item.sources.some(s => OTHERS.includes(s));
       if (activeSource === "linkedin") return item.roles.some(r => r.via === "linkedin") || Boolean(item.linkedinPage) || item.contacts.some(p => p.linkedin);
       return item.sources.includes(activeSource);
     }
@@ -339,7 +344,7 @@
                         <span class="font-medium role-title">${escapeHtml(r.title)}</span>
                         <span class="text-[10px] font-mono-tabular px-1.5 py-0.5 rounded ${r.category === "Remote Internship" ? "badge-intern" : "badge-remote"}">${escapeHtml(r.category)}</span>
                       </div>
-                      <div class="text-[11px] font-mono-tabular text-[var(--ink-muted)]">${escapeHtml([r.remoteScope, r.track, r.salary, r.postedAt ? "posted " + fmtDate(r.postedAt) : "seen " + fmtDate(r.firstSeen)].filter(Boolean).join(" · "))}</div>
+                      <div class="text-[11px] font-mono-tabular text-[var(--ink-muted)]">${escapeHtml([r.remoteScope, r.track, r.salary, r.postedAt ? "posted " + fmtDate(r.postedAt) : "seen " + fmtDate(r.firstSeen), OTHERS.includes(r.src) || ["jobicy", "arbeitnow"].includes(r.src) ? "via " + SOURCE_LABEL[r.src] : ""].filter(Boolean).join(" · "))}</div>
                       ${r.status === "closed" ? `<div class="text-[11px] font-mono-tabular text-[var(--accent-crimson)]">Closed — ${escapeHtml(r.closedReason || "no longer listed")}</div>` : ""}
                     </div>
                     <div class="flex items-center gap-3 font-mono-tabular shrink-0">
@@ -435,6 +440,7 @@
       renderSidebars();
       document.querySelectorAll(".role-tab-btn").forEach(b => b.classList.toggle("seg-btn-active", b.dataset.roleTab === activeRoleTab));
       document.querySelectorAll(".region-pill-btn").forEach(b => b.classList.toggle("pill-btn-active", b.dataset.regionPill === activeRegion));
+      updateLinkedInButton();
     }
 
     function updateLiveLabel() {
@@ -548,6 +554,20 @@
         countdownSeconds = 3600;
         updateLiveLabel();
       }
+    }
+
+    // LinkedIn Jobs search for the current filters: remote only (f_WT=2), posted in the last week.
+    function linkedInJobsUrl() {
+      const kw = [searchQuery || TRACK_KEYWORDS[activeDiscipline] || "software engineer", activeRoleTab === "INTERN" ? "intern" : ""].filter(Boolean).join(" ");
+      const loc = activeCountry !== "ALL" ? activeCountry : REGION_LINKEDIN[activeRegion] || "Worldwide";
+      return `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(kw)}&location=${encodeURIComponent(loc)}&f_WT=2&f_TPR=r604800`;
+    }
+    function updateLinkedInButton() {
+      const a = $("linkedinJobsBtn");
+      if (!a) return;
+      a.href = linkedInJobsUrl();
+      const where = activeCountry !== "ALL" ? activeCountry : activeRegion !== "ALL" ? activeRegion : "all regions";
+      a.title = `Remote ${activeRoleTab === "INTERN" ? "internships" : "jobs"} on LinkedIn · ${where} · last 7 days`;
     }
 
     // ------------------------------------------------------------------ outreach drawer + CSV
@@ -694,6 +714,7 @@
       await load(true);
       if (raw) {
         $("updaterLink").href = `https://github.com/${raw.meta.repo}/actions/workflows/hourly_sync.yml`;
+        $("rtiTrackerBtn").href = RTI_TRACKER_URL;
         runLiveHourlyVerification(false);
       }
     });
