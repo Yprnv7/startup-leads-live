@@ -57,6 +57,8 @@ Companies whose Prospeo record puts the headquarters in the US are excluded auto
 3. `python3 tests/test_site_integrity.py`: if any rule is broken, nothing is committed or deployed.
 4. It commits `data/` and deploys to GitHub Pages.
 
+**Always running:** GitHub often skips scheduled runs, so `.github/workflows/ticker.yml` starts the hourly sync itself every hour. Each ticker run lasts about 6 hours and then starts the next one. Its own schedule only restarts it if it ever stops. The main site and the RTI tracker check for new data every minute.
+
 To force a run, open **Actions → Hourly sync → Run workflow** (needs write access).
 
 ## Run locally

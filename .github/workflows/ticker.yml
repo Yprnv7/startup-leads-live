@@ -1,0 +1,48 @@
+name: Hourly ticker
+
+# Keeps the data updating every hour, whatever GitHub's scheduler does.
+# Each run starts "Hourly sync" once an hour for ~5h40m, then starts the next ticker run,
+# so the chain never stops. The schedule below only restarts the chain if it ever breaks.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '13 */4 * * *'
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: ticker
+  cancel-in-progress: false
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - name: Skip if another ticker is already running
+        id: guard
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          others=$(gh run list -R "$GITHUB_REPOSITORY" --workflow ticker.yml --status in_progress --json databaseId \
+            -q "[.[] | select(.databaseId != ${{ github.run_id }})] | length")
+          echo "others=$others" >> "$GITHUB_OUTPUT"
+
+      - name: Start the hourly sync every hour
+        if: steps.guard.outputs.others == '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          end=$(( $(date +%s) + 340 * 60 ))
+          while [ "$(date +%s)" -lt "$end" ]; do
+            gh workflow run hourly_sync.yml -R "$GITHUB_REPOSITORY" -f mode=auto || echo "dispatch failed, retrying next hour"
+            sleep 3600
+          done
+
+      - name: Start the next ticker run
+        if: steps.guard.outputs.others == '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run ticker.yml -R "$GITHUB_REPOSITORY"
