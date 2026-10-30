@@ -3193,7 +3193,7 @@
    "2026-10-30": 5
   },
   "discoveryCredits": {
-   "2026-10-30": 29
+   "2026-10-30": 30
   }
  },
  "excluded": {
@@ -5232,6 +5232,58 @@
   "himalayas:akamai-technologies": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-10-30T13:33:44.379Z"
+  },
+  "remoteok:prenosis": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T15:08:08.877Z"
+  },
+  "remoteok:mirantis": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T15:08:08.877Z"
+  },
+  "remoteok:benchling": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T15:08:08.877Z"
+  },
+  "remoteok:freedompay": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T15:08:08.877Z"
+  },
+  "weworkremotely:toptal": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T15:08:08.877Z"
+  },
+  "weworkremotely:dremio": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T15:08:08.877Z"
+  },
+  "weworkremotely:webflow": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T15:08:08.877Z"
+  },
+  "weworkremotely:affirm": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T15:08:08.877Z"
+  },
+  "weworkremotely:netlify": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T15:08:08.877Z"
+  },
+  "weworkremotely:offerup": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T15:08:08.877Z"
+  },
+  "weworkremotely:duckduckgo": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T15:08:08.877Z"
+  },
+  "weworkremotely:smartsheet": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T15:08:08.877Z"
+  },
+  "nodesk:brex": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T15:08:08.877Z"
   }
  },
  "wikidata": {
@@ -8114,14 +8166,359 @@
    "at": "2026-10-30T13:33:44.379Z",
    "id": null,
    "us": false
+  },
+  "Apaleo": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "fino data services GmbH": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "IT Studio Rech GmbH": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "DIB Consulting GmbH": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Tarebase": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "TokPortal": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Ordio GmbH": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "LLEVERAGE": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": "Q136652762",
+   "us": false
+  },
+  "Strehlow Media GmbH": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "LA FAMILLE MAGHEN": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "QuickMail": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "SimSpace Corporation": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Midnite": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Hunt St": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "DEUNA": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "EDETEK": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Miaplaza": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Fuel50": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Tierarzt Plus Partner": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Spiralyze": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "RedMimicry": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Fortanix": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Leverage Live Local": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "SIHO Insurance Services": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Prenosis": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": "Q64142353",
+   "us": true
+  },
+  "Magic Eden": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Delinea": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Arango": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "ExtraHop": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Mirantis": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": "Q19903458",
+   "us": true
+  },
+  "Copenhagen Optimization": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "GiveWell": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "eClinical Solutions": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Libertex Group": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Thatchers Cider": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Benzinga": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "The AI Whistleblower Initiative": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Tessera Labs": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Transportation Partners & Logistics": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Salesforge": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Orca Bio": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Kruger NearShore LLC - Rekluti": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Harbor": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Engine": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Chaos": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Dreem Health": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Benchling": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": "Q63417942",
+   "us": true
+  },
+  "Legal Services NYC": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "HighLevel": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Physical Superintelligence": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "FreedomPay": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": "Q16993815",
+   "us": true
+  },
+  "TELUS Digital": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": "Q7697923",
+   "us": false
+  },
+  "Peroptyx": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Toptal": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": "Q21462713",
+   "us": true
+  },
+  "Dremio": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": "Q138685727",
+   "us": true
+  },
+  "Webflow": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": "Q20160951",
+   "us": true
+  },
+  "Affirm": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": "Q65085822",
+   "us": true
+  },
+  "Netlify": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": "Q56102498",
+   "us": true
+  },
+  "OfferUp": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": "Q88645435",
+   "us": true
+  },
+  "BDF EXPERTS": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Ignition, Inc.": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Aquifer": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Ramp": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Brex": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": "Q60741065",
+   "us": true
+  },
+  "Replit": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": null,
+   "us": false
+  },
+  "Revolut": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": "Q22908307",
+   "us": false
+  },
+  "Mistral AI": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": "Q119718658",
+   "us": false
+  },
+  "Cohere": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": "Q110363143",
+   "us": false
+  },
+  "Hugging Face": {
+   "at": "2026-10-30T15:08:08.877Z",
+   "id": "Q108943604",
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-10-30T11:34:43.762Z",
-  "remoteok": "2026-10-30T11:34:43.762Z",
-  "workingnomads": "2026-10-30T11:34:43.762Z",
-  "weworkremotely": "2026-10-30T11:34:43.762Z",
-  "nodesk": "2026-10-30T11:34:43.762Z",
+  "remoteok": "2026-10-30T15:08:08.877Z",
+  "workingnomads": "2026-10-30T15:08:08.877Z",
+  "weworkremotely": "2026-10-30T15:08:08.877Z",
+  "nodesk": "2026-10-30T15:08:08.877Z",
   "himalayas": "2026-10-30T13:33:44.379Z",
   "jobfound": "2026-10-30T11:34:43.762Z"
  },
@@ -8154,8 +8551,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-10-30T11:34:43.762Z",
- "arbeitnowAt": "2026-10-30T11:34:43.762Z",
+ "jobicyAt": "2026-10-30T15:08:08.877Z",
+ "arbeitnowAt": "2026-10-30T15:08:08.877Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
@@ -16173,7 +16570,9 @@
    "titles": [
     "Software Engineer Intern"
    ],
-   "at": "2026-10-30T13:33:44.379Z"
+   "at": "2026-10-30T13:33:44.379Z",
+   "lookedAt": "2026-10-30T15:08:07.186Z",
+   "result": "not confirmed"
   }
  }
 }
