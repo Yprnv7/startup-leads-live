@@ -332,7 +332,7 @@
  "zeroMiss": {},
  "prospeo": {
   "credits": {
-   "2026-10-30": 60
+   "2026-10-30": 68
   },
   "mobileCredits": {
    "2026-10-30": 136
@@ -2050,6 +2050,42 @@
   "nodesk:brex": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-10-30T07:56:44.705Z"
+  },
+  "jobicy:alma": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T08:00:53.433Z"
+  },
+  "weworkremotely:typeform": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T08:00:53.433Z"
+  },
+  "jobicy:algolia": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T08:00:53.433Z"
+  },
+  "jobicy:binance": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T08:00:53.433Z"
+  },
+  "remotive:lemon-io": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T08:00:53.433Z"
+  },
+  "weworkremotely:ritual": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T08:00:53.433Z"
+  },
+  "hn:albert": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T08:00:53.433Z"
+  },
+  "jobicy:veriff": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T08:00:53.433Z"
+  },
+  "hn:avision-gmbh": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T08:00:53.433Z"
   }
  },
  "wikidata": {
