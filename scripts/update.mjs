@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Discovers new startup jobs/internships + founder contacts and re-verifies every
-// tracked job. Runs on GitHub Actions; writes data/leads.json for the dashboard.
+// tracked job. Runs on GitHub Actions; writes data/internships.json for the site.
 //
 //   node scripts/update.mjs --mode=discover   # daily: add new companies, then verify
 //   node scripts/update.mjs --mode=verify     # frequent: liveness checks (+ new HN posts)
@@ -16,7 +16,7 @@ import { placesOf, remotePlaces, regionsOf, isFocusPlaces, REGION_OF, INDIA_RE, 
 import { teamOf, normLinkedIn } from './people.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const LEADS_FILE = path.join(ROOT, 'data/leads.json');
+const LEADS_FILE = path.join(ROOT, 'data/internships.json');
 const STATE_FILE = path.join(ROOT, 'data/state.json');
 const MANUAL_FILE = path.join(ROOT, 'data/manual.json');
 

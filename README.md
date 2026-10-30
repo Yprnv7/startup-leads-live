@@ -2,7 +2,9 @@
 
 **100% remote, pure-tech internships open in the UK, Germany, Australia, Singapore and the UAE, with HR / talent, founder, CTO, VP, director and head-of contacts and validated emails.** It updates itself every hour.
 
-**Site:** https://yprnv7.github.io/startup-leads-live/
+**Site:** https://yprnv7.github.io/startup-leads-live/ (reads `data/internships.json`)
+
+**RTI tracker:** https://yprnv7.github.io/startup-leads-live/rti/ is unchanged and keeps its previous data: remote tech jobs and internships in Australia, Europe, MEA, New Zealand, SEA and the UK (`data/leads.json`), built every hour by the site's previous pipeline in `scripts/rti/` (own settings in `scripts/rti/config.json`, own state in `data/rti-state.json`, tests in `tests/test_rti_data.py`).
 
 ## What's on the site (enforced in the data, checked by tests every hour)
 

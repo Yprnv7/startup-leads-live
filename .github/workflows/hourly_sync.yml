@@ -64,6 +64,19 @@ jobs:
       - name: Integrity tests (5 countries, remote tech internships only, no USA, validated emails)
         run: python3 tests/test_site_integrity.py
 
+      # RTI tracker data (data/leads.json): the site's previous pipeline, unchanged, so the tracker keeps
+      # showing remote tech jobs and internships in the six regions.
+      - name: RTI tracker data (remote tech jobs + internships, six regions)
+        run: node scripts/rti/update.mjs --mode=${{ steps.mode.outputs.mode }} ${{ inputs.force_yc && '--force-yc' || '' }}
+
+      - name: RTI tracker contacts
+        run: node scripts/rti/contacts.mjs
+        env:
+          PROSPEO_API_KEY: ${{ secrets.PROSPEO_API_KEY }}
+
+      - name: RTI tracker data tests
+        run: python3 tests/test_rti_data.py
+
       - name: Commit data
         run: |
           git config user.name "leads-bot"

@@ -57,7 +57,7 @@ def phone_ok(p):
 
 
 def main():
-    data = json.loads((ROOT / "data/leads.json").read_text())
+    data = json.loads((ROOT / "data/internships.json").read_text())
     html = (ROOT / "index.html").read_text()
     app = (ROOT / "app.js").read_text()
     workflow = (ROOT / ".github/workflows/hourly_sync.yml").read_text()
@@ -65,7 +65,7 @@ def main():
     raw_text = json.dumps(data)
 
     # 1. No USA anywhere
-    check('"United States"' not in raw_text and '"USA"' not in raw_text, "the string United States / USA appears in data/leads.json")
+    check('"United States"' not in raw_text and '"USA"' not in raw_text, "the string United States / USA appears in data/internships.json")
     check("Hide USA" not in html and "United States" not in html, "index.html still mentions Hide USA / United States")
     for c in companies:
         check((c.get("hq") or {}).get("countryCode") not in ("US", "IN"), f"{c['name']}: headquarters in {(c.get('hq') or {}).get('countryCode')}")

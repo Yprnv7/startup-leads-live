@@ -1,0 +1,4110 @@
+{
+ "ycSkipped": {
+  "bolna-ai": "2026-10-29T10:32:13.751Z",
+  "onefin": "2026-10-29T10:32:13.751Z",
+  "drip-capital": "2026-10-29T10:32:13.751Z",
+  "truthsystems": "2026-10-29T10:32:13.751Z",
+  "happl": "2026-10-29T11:30:16.008Z",
+  "minimum": "2026-10-29T11:30:16.008Z",
+  "carbonchain": "2026-10-29T11:30:16.008Z",
+  "langdock": "2026-10-29T11:30:16.008Z",
+  "voize": "2026-10-29T11:30:16.008Z",
+  "d-id": "2026-10-29T11:30:16.008Z",
+  "strong-compute": "2026-10-29T11:30:16.008Z",
+  "go1": "2026-10-29T11:30:16.008Z",
+  "cerrion": "2026-10-29T11:30:16.008Z"
+ },
+ "boards": [
+  {
+   "ats": "ashby",
+   "token": "checkly",
+   "companyId": "hn:checkly",
+   "name": "Checkly",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "thundercompute",
+   "companyId": "hn:thunder-compute",
+   "name": "Thunder Compute",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "smarkets",
+   "companyId": "hn:smarkets",
+   "name": "Smarkets",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "river",
+   "companyId": "hn:river",
+   "name": "River",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "lever",
+   "token": "shieldai",
+   "companyId": "hn:shield-ai",
+   "name": "Shield AI",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "Solace",
+   "companyId": "hn:solace-health",
+   "name": "Solace Health",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "duck-duck-go",
+   "companyId": "hn:duckduckgo",
+   "name": "DuckDuckGo",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "lever",
+   "token": "curai",
+   "companyId": "hn:curai",
+   "name": "Curai",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "sheerhealth",
+   "companyId": "hn:sheer-health",
+   "name": "Sheer Health",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "charge-robotics",
+   "companyId": "hn:charge-robotics",
+   "name": "Charge Robotics",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "tolmo",
+   "companyId": "hn:tolmo",
+   "name": "Tolmo",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "greenhouse",
+   "token": "blackcanyonconsulting",
+   "companyId": "hn:bcc",
+   "name": "BCC",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "greenhouse",
+   "token": "givedirectly",
+   "companyId": "hn:givedirectly",
+   "name": "GiveDirectly",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "growfig",
+   "companyId": "hn:fig",
+   "name": "Fig",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "greenhouse",
+   "token": "relativity",
+   "companyId": "hn:relativity-space",
+   "name": "Relativity Space",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "hiya",
+   "companyId": "hn:hiya",
+   "name": "Hiya",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "runway-ml",
+   "companyId": "hn:runway",
+   "name": "Runway",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "jupus",
+   "companyId": "hn:jupus",
+   "name": "JUPUS",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "proxima-fusion",
+   "companyId": "hn:proxima-fusion",
+   "name": "Proxima Fusion",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "rebar",
+   "companyId": "hn:rebar",
+   "name": "Rebar",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "somana.tech",
+   "companyId": "hn:somana",
+   "name": "Somana",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "prior-labs",
+   "companyId": "hn:prior-labs",
+   "name": "Prior Labs",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "greenhouse",
+   "token": "oklo",
+   "companyId": "hn:oklo",
+   "name": "Oklo",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "greenhouse",
+   "token": "k2spacecorporation",
+   "companyId": "hn:k2-space",
+   "name": "K2 Space",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "clickhouse",
+   "companyId": "hn:clickhouse",
+   "name": "ClickHouse",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "voladynamics",
+   "companyId": "hn:vola-dynamics",
+   "name": "Vola Dynamics",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "middesk",
+   "companyId": "hn:middesk",
+   "name": "Middesk",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "krakentech",
+   "companyId": "hn:kraken-tech",
+   "name": "Kraken Tech",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "menlo",
+   "companyId": "hn:overjoyed-to-partner-with",
+   "name": "Overjoyed to partner with",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "greenhouse",
+   "token": "mattermost",
+   "companyId": "hn:mattermost",
+   "name": "Mattermost",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "footprint",
+   "companyId": "hn:footprint",
+   "name": "Footprint",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "luxor",
+   "companyId": "hn:tenki-cloud-by-luxor-tech",
+   "name": "Tenki Cloud by Luxor Tech",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "sentilink",
+   "companyId": "hn:sentilink",
+   "name": "SentiLink",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "oscilar",
+   "companyId": "hn:oscilar-com",
+   "name": "Oscilar.com",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "greenhouse",
+   "token": "manifest",
+   "companyId": "hn:manifest",
+   "name": "Manifest",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "mastra",
+   "companyId": "hn:mastra",
+   "name": "Mastra",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "greenhouse",
+   "token": "coast",
+   "companyId": "hn:coast",
+   "name": "Coast",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "livekit",
+   "companyId": "hn:livekit",
+   "name": "LiveKit",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "iceye",
+   "companyId": "hn:iceye",
+   "name": "ICEYE",
+   "discovered": "2026-10-29T10:32:13.751Z",
+   "active": true
+  }
+ ],
+ "boardNames": {},
+ "zeroMiss": {},
+ "prospeo": {
+  "credits": {
+   "2026-10-30": 73
+  },
+  "mobileCredits": {
+   "2026-10-30": 136
+  }
+ },
+ "excluded": {
+  "ats:greenhouse:deliveroo": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "ats:ashby:elevenlabs": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "ats:greenhouse:tide": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "ats:greenhouse:celonis": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:xendit": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "ats:ashby:airwallex": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "ats:greenhouse:tamara": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "ats:greenhouse:moniepoint": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:checkly": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "ats:lever:nium": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:thunder-compute": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:river": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:duckduckgo": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:solace-health": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:curai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:sheer-health": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:charge-robotics": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:tolmo": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:fig": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:hiya": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:somana": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:rebar": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:prior-labs": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:clickhouse": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:k2-space": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:vola-dynamics": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:middesk": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:kraken-tech": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:oklo": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:mattermost": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:footprint": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:tenki-cloud-by-luxor-tech": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:oscilar-com": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:sentilink": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:manifest": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:mastra": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:coast": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:iceye": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:shield-ai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:sigmaos": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:baton": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:chronograph": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:coreweave": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:mozilla-thunderbird-thunderbolt": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:singlestore": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:archilabs": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:asha-health": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:azalea-robotics-corporation": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:careforce": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:cekura-ai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:claimsorted": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:clearly-ai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:closure": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:cloudglue": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:contrario": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:crustdata": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:dalus": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:dench-com": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:educato": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:elevate-2": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:firstwork": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:hamming-ai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:hud": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:keye": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:kilvin": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:laminar-com": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:leaping-ai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:lucid": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:mdhub": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:mem0": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:moonset-health": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:offstream": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:prohostai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:raycaster": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:saphira-ai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:silurian": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:substrate": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:tandem-2": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:taxgpt": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:toothy-ai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:unbound": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:videogen": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:10x-science": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:3gimbals": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:adentris": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:adialante": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:ai-x-healthcare-startup": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:algotest": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:algouniversity": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:allus-ai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:ambito": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:amboras": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:america-first-policy-institute": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:answerthis": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:anthropic": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:apollo-3": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:applyapply": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:arlo-industries": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:artificial-analysis": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:aseon-labs": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:aside": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:asimov": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "ats:ashby:atlan": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:autonomous-technologies-group": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:avent": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:beacon-ai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:better-stack": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:betterhalf": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:binks": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:breakfast-studio": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:brilliant-org": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:buoyant": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:businessonbot": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:cardboard": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:cashfree-payments": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:characterquilt": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:cisco-thousandeyes": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:city-detect": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:cityfurnish": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:clickpe": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:clinikally": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:close": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:codingal": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:column": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:comograph": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:coulomb-ai": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "ats:lever:cred": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:cumulus-labs": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:cvector": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:deepaware-ai-robotics-center-of-silicon-valley": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:depproof": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:diffusion": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:discord": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "ats:greenhouse:druva": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:early-stage-startup": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:eloquent-ai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:enerjazz": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:estuary": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:etc": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:exe-dev": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:experienceflyover-com": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:explorex": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:f2": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:factory": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:fampay": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:fastly": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:fazeshift": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:flick": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:fredrin": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:freeform": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:funnelstory": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:futo": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:gc-ai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:gosats": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:govstar": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:greenzie": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:gromo": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:groundcontrol": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "ats:greenhouse:groww": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:hedge": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:helloverify": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:hifi-labs": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:hillstar": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:hio": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:hospitable": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:hover": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:hrs-systems": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:hub": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:hyperspell": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:ignition-benefits": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:imt-care": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:infer": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:infinity": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:inflection-space-systems": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:infohawk": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:inito": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "ats:greenhouse:inmobi": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:ironledger-ai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:justpark": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:juxta": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:kaavio": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:kalam-labs": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:kelai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:ko-br": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:kodo": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:komodo-health": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:koyal": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:lab0": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:landeed": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:leena-ai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:limrun": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:lokker-com": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:manicule": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:matcha-fm": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:material-depot": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:maywood": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:mechanize": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "ats:lever:meesho": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:meetyogi-com": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:meritfirst": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "ats:lever:mindtickle": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:minicor": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:morphle-labs": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:morphoai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:moss": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:mspilot": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:namespace": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:neodocs": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:neuralframe": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:new-lantern": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "ats:ashby:notion": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:octane": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:octapulse": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:onechronos": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:onlook": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:ooak-data": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:opalite-health": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:opaxa": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:optifye-ai": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:pango": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:pangolin": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:paradedb": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:paradromics": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:paramark": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:pdt-partners": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:perry-street-software": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:pgdog": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:ploy": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:plutus": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:pocket": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:pond-ai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:postscript": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:primevault": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:privy-pro": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:procindex": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:propel-labs": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:prophet-town-llc": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:prox": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:quantum-minds": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:quobyte": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:radar-labs": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:ramain": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:razorpay": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:reacher": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:reactor": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:relevant-healthcare": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:revion": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:rhem-labs": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:rivia-ai": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:rocketsdr": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:salarybox": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:screenpipe": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:serpapi": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:shepherd": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:sidekick-labs": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:skydio": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "ats:greenhouse:slice": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:snout-https-snout-com": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:software-engineer": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:spade": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:sphinx-defense": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:spine": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:starbridge": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:stellar-science": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:stoke-space": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:sudowrite": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:sumble": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:sundream-studio": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:sunflower": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:superkalam": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:superset": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:surebright": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:swadesh": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:swingvision": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:tahoma-ai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:taiga": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:tangram-vision": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:tasklet-2": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:telekin": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:tempus-ai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:toolhouse-ai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:traceroot-ai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:trynearby": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:typify-dev": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:uplift-ai": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:vahan": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:veritus": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:vernius-systems-inc": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:vlm-run": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:voygr": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:weekday": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:wifi-dabba-inc": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:wipro-com": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:xpay": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "hn:yardstik": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:youshift": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:ziffyhomes": {
+   "reason": "India office",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "yc:zuddl": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:40:14.012Z"
+  },
+  "ats:greenhouse:xendit": {
+   "reason": "India office",
+   "at": "2026-10-30T05:45:48.504Z"
+  },
+  "hn:brain-corp": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:45:48.504Z"
+  },
+  "hn:seeq": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:45:48.504Z"
+  },
+  "hn:skies": {
+   "reason": "US headquarters",
+   "at": "2026-10-30T05:45:48.504Z"
+  },
+  "jobicy:chainguard": {
+   "reason": "Hires in the US",
+   "at": "2026-10-30T05:52:50.820Z"
+  },
+  "jobicy:testlio": {
+   "reason": "Hires in the US",
+   "at": "2026-10-30T05:52:50.820Z"
+  },
+  "jobicy:elevenlabs": {
+   "reason": "Hires in the US",
+   "at": "2026-10-30T05:52:50.820Z"
+  },
+  "jobicy:canonical": {
+   "reason": "Hires in the US",
+   "at": "2026-10-30T05:52:50.820Z"
+  },
+  "jobicy:revenuecat": {
+   "reason": "Hires in the US",
+   "at": "2026-10-30T05:52:50.820Z"
+  },
+  "jobicy:phantom": {
+   "reason": "Hires in the US",
+   "at": "2026-10-30T05:52:50.820Z"
+  },
+  "jobicy:dune": {
+   "reason": "Hires in the US",
+   "at": "2026-10-30T05:52:50.820Z"
+  },
+  "jobicy:nebius": {
+   "reason": "Hires in the US",
+   "at": "2026-10-30T05:52:50.820Z"
+  },
+  "jobicy:zapier": {
+   "reason": "Hires in the US",
+   "at": "2026-10-30T05:52:50.820Z"
+  },
+  "jobicy:quora": {
+   "reason": "Hires in the US",
+   "at": "2026-10-30T05:52:50.820Z"
+  },
+  "jobicy:alphasense": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T05:54:08.673Z"
+  },
+  "jobicy:clickup": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T05:54:08.673Z"
+  },
+  "jobicy:dropbox": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T05:54:08.673Z"
+  },
+  "jobicy:fanduel": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T05:54:08.673Z"
+  },
+  "jobicy:five9": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T05:54:08.673Z"
+  },
+  "jobicy:gitlab": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T05:54:08.673Z"
+  },
+  "jobicy:kraken": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T05:54:08.673Z"
+  },
+  "jobicy:mozilla": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T05:54:08.673Z"
+  },
+  "jobicy:ping-identity": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T05:54:08.673Z"
+  },
+  "jobicy:reddit": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T05:54:08.673Z"
+  },
+  "jobicy:sierra": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T05:54:08.673Z"
+  },
+  "jobicy:smartsheet": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T05:54:08.673Z"
+  },
+  "jobicy:tripadvisor": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T05:54:08.673Z"
+  },
+  "jobicy:twilio": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T05:54:08.673Z"
+  },
+  "jobicy:vonage": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T05:54:08.673Z"
+  },
+  "jobicy:wsp": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T05:55:43.867Z"
+  },
+  "hn:runway": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T05:55:43.867Z"
+  },
+  "hn:google": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T05:55:43.867Z"
+  },
+  "hn:workday": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T05:55:43.867Z"
+  },
+  "hn:qualcomm": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T05:55:43.867Z"
+  },
+  "hn:relativity-space": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T05:55:43.867Z"
+  },
+  "jobicy:ashby": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T05:55:43.867Z"
+  },
+  "jobicy:banyan-software": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T05:55:43.867Z"
+  },
+  "jobicy:bloomreach": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T05:55:43.867Z"
+  },
+  "jobicy:contentstack": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T05:55:43.867Z"
+  },
+  "jobicy:customer-io": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T05:55:43.867Z"
+  },
+  "jobicy:grafana-labs": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T05:55:43.867Z"
+  },
+  "hn:givedirectly": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T05:55:43.867Z"
+  },
+  "hn:livekit": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T05:55:43.867Z"
+  },
+  "hn:ripple": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T06:00:09.566Z"
+  },
+  "hn:rivian-automotive": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T06:00:09.566Z"
+  },
+  "yc:junction": {
+   "reason": "US headquarters (Prospeo) (config)",
+   "at": "2026-10-30T06:11:27.940Z"
+  },
+  "yc:oneleet": {
+   "reason": "US headquarters (Prospeo) (config)",
+   "at": "2026-10-30T06:11:27.940Z"
+  },
+  "hn:enveritas": {
+   "reason": "US headquarters (Prospeo) (config)",
+   "at": "2026-10-30T06:11:27.940Z"
+  },
+  "weworkremotely:sticker-mule": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:vercel": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:maven-clinic": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:lemon-io": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:abnormal": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:pagerduty": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:wrike": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:a-team": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:stripe": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:doximity": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:hex-technologies": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:salesloft": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:stockx": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:coinbase": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:vested-inc": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:oportun": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:mercury": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:celonis": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:reddit": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:clover-health": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:alloy": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:airbnb": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:mixpanel": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:sanctuary-computer": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:fivetran": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:storetasker": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:bitovi": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:squarespace": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:edconic": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:simpletiger": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:current": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:anthropic": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:keeper-security": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:zoominfo-technologies-llc": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:ping-identity": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:upstart": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:beyondtrust": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:discord": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:flexport": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:datadog": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:launchdarkly": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "remoteok:y": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "remoteok:plaid": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "remoteok:duckduckgo": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:duckduckgo": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:smartsheet": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "jobfound:gitlab": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "jobfound:dropbox": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "remoteok:ashby": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:jumio": {
+   "reason": "India office",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:databricks": {
+   "reason": "India office",
+   "at": "2026-10-30T07:31:58.129Z"
+  },
+  "weworkremotely:affirm": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:33:31.922Z"
+  },
+  "weworkremotely:dremio": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:33:31.922Z"
+  },
+  "weworkremotely:netlify": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:33:31.922Z"
+  },
+  "jobfound:nvidia": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:33:31.922Z"
+  },
+  "weworkremotely:offerup": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:33:31.922Z"
+  },
+  "weworkremotely:toptal": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:33:31.922Z"
+  },
+  "weworkremotely:webflow": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:33:31.922Z"
+  },
+  "weworkremotely:carrot": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T07:34:30.814Z"
+  },
+  "weworkremotely:expel": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T07:34:30.814Z"
+  },
+  "weworkremotely:lattice": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T07:34:30.814Z"
+  },
+  "weworkremotely:legion": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T07:34:30.814Z"
+  },
+  "weworkremotely:lithic": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T07:34:30.814Z"
+  },
+  "weworkremotely:planetscale": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T07:34:30.814Z"
+  },
+  "weworkremotely:samsara": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T07:34:30.814Z"
+  },
+  "jobfound:signifyd": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T07:34:30.814Z"
+  },
+  "weworkremotely:upgrade": {
+   "reason": "US headquarters (config)",
+   "at": "2026-10-30T07:34:30.814Z"
+  },
+  "yc:newscatcher": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T07:51:50.897Z"
+  },
+  "jobicy:givedirectly": {
+   "reason": "Hires in the US",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "workingnomads:lemon-io": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "arbeitnow:fivetran": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "jobicy:datadog": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "jobicy:akamai-technologies": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "arbeitnow:polara": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "arbeitnow:tanium": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "arbeitnow:gitlab": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "arbeitnow:transperfect": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "remoteok:prenosis": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "remoteok:mirantis": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "remoteok:benchling": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "remoteok:freedompay": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "nodesk:brex": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "jobicy:alma": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T08:00:53.433Z"
+  },
+  "weworkremotely:typeform": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T08:00:53.433Z"
+  },
+  "jobicy:algolia": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T08:00:53.433Z"
+  },
+  "jobicy:binance": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T08:00:53.433Z"
+  },
+  "remotive:lemon-io": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T08:00:53.433Z"
+  },
+  "weworkremotely:ritual": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T08:00:53.433Z"
+  },
+  "hn:albert": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T08:00:53.433Z"
+  },
+  "jobicy:veriff": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T08:00:53.433Z"
+  },
+  "hn:avision-gmbh": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T08:00:53.433Z"
+  },
+  "jobicy:gt": {
+   "reason": "Recruitment agency (posts for unnamed clients)",
+   "at": "2026-10-30T09:32:39.208Z"
+  },
+  "arbeitnow:swisspeak-partners-gmbh": {
+   "reason": "Recruitment agency (posts for unnamed clients)",
+   "at": "2026-10-30T09:32:39.208Z"
+  },
+  "workingnomads:proxify": {
+   "reason": "Staffing / talent marketplace (not a direct employer) (config)",
+   "at": "2026-10-30T09:32:39.208Z"
+  },
+  "remoteok:lemon-io": {
+   "reason": "Staffing / talent marketplace (not a direct employer) (config)",
+   "at": "2026-10-30T09:32:39.208Z"
+  },
+  "remoteok:sanctuary-computer": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T09:32:39.208Z"
+  },
+  "remoteok:edconic": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T09:32:39.208Z"
+  },
+  "weworkremotely:proxify-ab": {
+   "reason": "Staffing / talent marketplace (not a direct employer) (config)",
+   "at": "2026-10-30T09:32:39.208Z"
+  },
+  "remotive:unio-digital": {
+   "reason": "Staffing / talent marketplace (not a direct employer) (config)",
+   "at": "2026-10-30T09:32:39.208Z"
+  }
+ },
+ "wikidata": {
+  "0G": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Algolia": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q17150241",
+   "us": false
+  },
+  "AlphaSense": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q30297693",
+   "us": true
+  },
+  "Ashby": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Banyan Software": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Binance": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q51403327",
+   "us": false
+  },
+  "Blockvora": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Bloomreach": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Boardwise GmbH": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Bromcom Computers Plc": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Capital on Tap": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q113450263",
+   "us": false
+  },
+  "ClickUp": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q123524232",
+   "us": true
+  },
+  "Codat": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Contentstack": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Coopers Group AG": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Customer.io": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Customs Support Group": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Docplanner": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Dropbox": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q142539",
+   "us": true
+  },
+  "easybill GmbH": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Enode": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q140043944",
+   "us": false
+  },
+  "Exeon Analytics": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "FanDuel": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q7672185",
+   "us": true
+  },
+  "Five9": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q105602379",
+   "us": true
+  },
+  "GitLab": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q55589254",
+   "us": true
+  },
+  "Grafana Labs": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "GT": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "HappyOps": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Hirehire": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "hurra.com": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Interlead GmbH": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q123166316",
+   "us": false
+  },
+  "IQ Plus AG": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Kraken": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q22906202",
+   "us": true
+  },
+  "Lightly AG": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Luscii": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Makersite GmbH": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Masabi": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Maze": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Mozilla": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q169925",
+   "us": true
+  },
+  "Nexoya": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q138412099",
+   "us": false
+  },
+  "Payflows": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Ping Identity": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q85793376",
+   "us": true
+  },
+  "Reddit": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q1136",
+   "us": true
+  },
+  "Rockstardevelopers GmbH": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Saddleback Solutions": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Sierra": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q494614",
+   "us": true
+  },
+  "Smartsheet": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q7544153",
+   "us": true
+  },
+  "Stenon GmbH": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "SwissPeak Partners GmbH": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Tellent": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Tether Operations Limited": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "The Config Team": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Tripadvisor": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q1770710",
+   "us": true
+  },
+  "Twilio": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q7858039",
+   "us": true
+  },
+  "Veriff": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q65256461",
+   "us": false
+  },
+  "virtual7 GmbH": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Vonage": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q866972",
+   "us": true
+  },
+  "Who Gives A Crap": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q111945875",
+   "us": false
+  },
+  "WOO X": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": null,
+   "us": false
+  },
+  "Workwize": {
+   "at": "2026-10-30T05:54:08.673Z",
+   "id": "Q136795494",
+   "us": false
+  },
+  "WSP": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": "Q1333162",
+   "us": true
+  },
+  "All Gravy": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "ALBERT": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Applandeo": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Avision GmbH": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Axmed": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Datamint": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Elman": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Enveritas": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "eventfirst": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "General Intelligence Holdings": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "GiveDirectly": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "JUPUS": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "LiveKit": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Mainmatter": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Modash.io": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "NetBird": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "OpenSanctions": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": "Q122186942",
+   "us": false
+  },
+  "Pairio": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Purchasely": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Revieve Oy": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Runway": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": "Q123367593",
+   "us": true
+  },
+  "Strategy & Transformation Consulting": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Tether": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Vistulo": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "vvd": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "PrairieLearn": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Open Education Applications / Neon": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Planlab.ai": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "OpenRent": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": "Q22080492",
+   "us": false
+  },
+  "CareerJumpShip": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Flexibits": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Smarkets": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Arrangr": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "NeverBlink": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Trustworthy Technology": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Google": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": "Q95",
+   "us": true
+  },
+  "Descartes": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Hestus": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Uncountable": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Audio/Video Collaboration company, worldwide": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Rootly": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Tandem Health": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Trackerbot": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Innolitics": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "KSC Trading": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Cardog": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "MONUMENTAL": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Veo Technologies": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Albs": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Portswigger": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "RINSE": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Workday": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": "Q8034666",
+   "us": true
+  },
+  "Sourcegraph": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Qualcomm": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": "Q544847",
+   "us": true
+  },
+  "CABLE": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": "Q1024869",
+   "us": false
+  },
+  "FusionAuth": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "CoVar": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "BCC": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": null,
+   "us": false
+  },
+  "Relativity Space": {
+   "at": "2026-10-30T05:55:43.867Z",
+   "id": "Q54263821",
+   "us": true
+  },
+  "Wake Up Call Service": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "typesafe ai": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "lovable": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": "Q135998012",
+   "us": false
+  },
+  "Longshot Systems": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Metcor": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "neoshare": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Enclave": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "PlantingSpace": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "EggAI": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Search Atlas": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Flok Health": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Proxima Fusion": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": "Q123422387",
+   "us": false
+  },
+  "GROWTH HACKER": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Estee Lauder Companies": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "AREO": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Founding Engineer": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "ML6": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Small prop-trading firm": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Charly": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Tivly": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Role: UX/UI Designer (BAY AREA, CA": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "GetYourGuide": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": "Q16839994",
+   "us": false
+  },
+  "Ripple": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": "Q16904931",
+   "us": true
+  },
+  "Odoo": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": "Q16668106",
+   "us": false
+  },
+  "AssumeAI": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Rentman": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": "Q140312539",
+   "us": false
+  },
+  "G-Research": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "In-office 4 days": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "MaFi Games": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "telli": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Rivian Automotive": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": "Q7338847",
+   "us": true
+  },
+  "PostHog": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Coder": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Empower Pharmacy": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Flow Traders": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": "Q21009903",
+   "us": false
+  },
+  "Flowstate": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Cleverbase": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "ChainSecurity": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Ojin": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "StartupHakk": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "esumry.com": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Sendery": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Irash Tech": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Baserow": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": "Q107454027",
+   "us": false
+  },
+  "exLabora AI": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Treat Health": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Lemon.io": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": "Q130417871",
+   "us": false
+  },
+  "iMerit Technology": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Askable": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Mitre Media": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Coalition Technologies": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Credit Wellness, LLC": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Unio Digital": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "IAPWE": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Edconic": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "y": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": "Q866",
+   "us": true
+  },
+  "Huzzle": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Wagmo": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Klardaten": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Getlabs": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Onebrief": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "B2spin": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Aprio": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Aisles & Abroad": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "D2B": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Political Asylum Lawyers": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Plaid": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": "Q30610132",
+   "us": true
+  },
+  "DuckDuckGo": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": "Q98446892",
+   "us": true
+  },
+  "Penumbra": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Pavago": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "SupportYourApp": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Sothebyâs": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Rain": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Curtins": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Packmatic GmbH": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Yuno": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Apryse": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": "Q7118803",
+   "us": false
+  },
+  "Sanctuary Computer": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Self Bill Pro": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Yopeso Romania SRL": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Kodland": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "AlgaeCal": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Hippocratic AI": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Voltus": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Allego": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": "Q75560554",
+   "us": false
+  },
+  "Wrapbook": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Manila Recruitment": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Twoconnect": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Somnio Software": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Akicita Federal, LLC": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Utopia": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Ultimate Marketing": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Thyme Care": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "AO Garcia Agency": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Vytalize Health": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "BlueTuskr": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "QuickMail": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "SimSpace Corporation": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Midnite": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Hunt St": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "DEUNA": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "EDETEK": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Miaplaza": {
+   "at": "2026-10-30T07:31:58.129Z",
+   "id": null,
+   "us": false
+  },
+  "Affirm": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q65085822",
+   "us": true
+  },
+  "Bjak": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q136756944",
+   "us": false
+  },
+  "Bybit": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q109424729",
+   "us": false
+  },
+  "Carrot": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Dremio": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q138685727",
+   "us": true
+  },
+  "Expel": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Growth Minded": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Lattice": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Legion": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Lithic": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Medify": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Netlify": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q56102498",
+   "us": true
+  },
+  "NVIDIA": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q182477",
+   "us": true
+  },
+  "OfferUp": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q88645435",
+   "us": true
+  },
+  "PlanetScale": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Proxify": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Proxify AB": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Ritual": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Samsara": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Signifyd": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Toggl": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q15113618",
+   "us": false
+  },
+  "Toptal": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q21462713",
+   "us": true
+  },
+  "Twikey": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Typeform": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q24910393",
+   "us": false
+  },
+  "Upgrade": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Upsun": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Vertex Marketing Group": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Webflow": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": "Q20160951",
+   "us": true
+  },
+  "Yooli": {
+   "at": "2026-10-30T07:33:31.922Z",
+   "id": null,
+   "us": false
+  },
+  "Playson": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Welo Global": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Precision Medicine Group": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "TrustedHousesitters": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Acceleration Partners": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Akamai Technologies": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q415598",
+   "us": true
+  },
+  "Alma": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "ShopFully": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Datadog": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q16248637",
+   "us": true
+  },
+  "StackAdapt": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Swarmaero": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Spring Health": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Natuvion GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Evolve Digital GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Polara": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q141910468",
+   "us": true
+  },
+  "dataiku": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q24940442",
+   "us": false
+  },
+  "tanium": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q28222607",
+   "us": true
+  },
+  "GalleryLab GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "PVcase": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Global Reporting Initiative": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "innovIT AG": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Pont Connects e.K.": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "advacc  advanced accounting GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "StartSteps Digital Education GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Quantum Business Network UG (haftungsbeschränkt)": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Constructor": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Excelya": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "DEMV Systems Gmbh": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Claudius Wurth Agrarberatung": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Teaching Socials": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "FunnelCockpit": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "neoBIM GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Co-ship consult GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "finwyz GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "functionHR GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Hrmony GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Cartonplast Group GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Leads Power": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "EmailClub": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "PROXIMÉDIAS": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "LimeFlight": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Re7 Capital": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "VDK Groep B.V.": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Simplyright GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "aeroTELEGRAPH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "ANGEHEUERT GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "ATMET": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Mirtos Animal Project": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Strehlow Media GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Kevin Kehr": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Haut Ai": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q139823003",
+   "us": false
+  },
+  "Bundesverbraucherhilfe e.V.": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "AMALOCK": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Crowdsec": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q119526222",
+   "us": false
+  },
+  "LA FAMILLE MAGHEN": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Hanspeter Brunner Webdesign": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Sebotics": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "getolo GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "snipKI": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Gesundheit von Morgen GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Neolymp": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "GFN GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Paintgun": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "REP Revenue Excellence Partners": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Start To Finish Consulting GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Auralis Group": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Performance Marketing Agentur firststars GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "True North Partners LLP": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Intetics 2": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Livestorm": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "HUP Network": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "fino digital GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Neko Health": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Camunda": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Rootglobal": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "planetlabs": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "24-LOG GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Fivetran": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q109827378",
+   "us": true
+  },
+  "Project Blackbook": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "SyncVR Medical B.V. / GmbH / ApS / Ltd.": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Kizuna Personalberatung GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Templar Hausverwaltung GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "1ASOL GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Hopae": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "TransPerfect": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q7833640",
+   "us": true
+  },
+  "Landsiedel NLP Training": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Cannaleo Digital GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "BlickSolutions GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Clariness GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "veeamsoftware": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Homa Games": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Vio": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Fuel50": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Tierarzt Plus Partner": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Spiralyze": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "RedMimicry": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Fortanix": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Leverage Live Local": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "SIHO Insurance Services": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Prenosis": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q64142353",
+   "us": true
+  },
+  "Magic Eden": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Delinea": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Arango": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "ExtraHop": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Mirantis": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q19903458",
+   "us": true
+  },
+  "Copenhagen Optimization": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "GiveWell": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "eClinical Solutions": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Libertex Group": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Thatchers Cider": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Benzinga": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "The AI Whistleblower Initiative": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Tessera Labs": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Transportation Partners & Logistics": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Salesforge": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Orca Bio": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Kruger NearShore LLC - Rekluti": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Harbor": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Engine": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Chaos": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Dreem Health": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Benchling": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q63417942",
+   "us": true
+  },
+  "Legal Services NYC": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "HighLevel": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Physical Superintelligence": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "FreedomPay": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q16993815",
+   "us": true
+  },
+  "TELUS Digital": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q7697923",
+   "us": false
+  },
+  "Peroptyx": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "BDF EXPERTS": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Ignition, Inc.": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Aquifer": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Ramp": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Brex": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q60741065",
+   "us": true
+  },
+  "Replit": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Revolut": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q22908307",
+   "us": false
+  },
+  "Mistral AI": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q119718658",
+   "us": false
+  },
+  "Cohere": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q110363143",
+   "us": false
+  },
+  "Hugging Face": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q108943604",
+   "us": false
+  },
+  "micro1": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Advocate Health": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Expansion Americas": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "P1 Security": {
+   "at": "2026-10-30T09:32:39.208Z",
+   "id": null,
+   "us": false
+  },
+  "PAJ UG (haftungsbeschränkt)": {
+   "at": "2026-10-30T09:32:39.208Z",
+   "id": null,
+   "us": false
+  }
+ },
+ "othersAt": {
+  "remotive": "2026-10-30T07:31:58.129Z",
+  "remoteok": "2026-10-30T09:38:14.666Z",
+  "workingnomads": "2026-10-30T09:38:14.666Z",
+  "weworkremotely": "2026-10-30T09:38:14.666Z",
+  "nodesk": "2026-10-30T09:38:14.666Z",
+  "jobfound": "2026-10-30T09:38:14.666Z"
+ },
+ "jobicyAt": "2026-10-30T09:38:14.666Z",
+ "arbeitnowAt": "2026-10-30T09:38:14.666Z"
+}

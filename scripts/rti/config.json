@@ -1,0 +1,588 @@
+{
+  "repo": "Yprnv7/startup-leads-live",
+  "yc": {
+    "newCompaniesPerDay": 40,
+    "firstRunCompanies": 120,
+    "regionPriority": [
+      "United Kingdom",
+      "Germany",
+      "Southeast Asia",
+      "Singapore",
+      "Indonesia",
+      "Malaysia",
+      "Vietnam",
+      "Philippines",
+      "Thailand",
+      "Middle East and North Africa",
+      "United Arab Emirates",
+      "Saudi Arabia",
+      "Africa",
+      "Nigeria",
+      "Egypt",
+      "Kenya",
+      "South Africa",
+      "Jordan",
+      "Israel",
+      "Turkey",
+      "Australia",
+      "Oceania",
+      "India",
+      "Europe",
+      "Fully Remote",
+      "Remote",
+      "Partly Remote"
+    ],
+    "reverifyHours": 6,
+    "requestDelayMs": 400,
+    "skipUsOnly": true
+  },
+  "hn": {
+    "maxPostAgeDays": 50
+  },
+  "ats": {
+    "maxJobsPerCompany": 30,
+    "newBoardsPerDay": 25,
+    "boards": [
+      {
+        "ats": "greenhouse",
+        "token": "monzo",
+        "name": "Monzo",
+        "location": "London, UK",
+        "website": "https://monzo.com"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "deliveroo",
+        "name": "Deliveroo",
+        "location": "London, UK",
+        "website": "https://deliveroo.co.uk"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "gocardless",
+        "name": "GoCardless",
+        "location": "London, UK",
+        "website": "https://gocardless.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "lendable",
+        "name": "Lendable",
+        "location": "London, UK",
+        "website": "https://lendable.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "marshmallow",
+        "name": "Marshmallow",
+        "location": "London, UK",
+        "website": "https://marshmallow.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "multiverse",
+        "name": "Multiverse",
+        "location": "London, UK",
+        "website": "https://multiverse.io"
+      },
+      {
+        "ats": "ashby",
+        "token": "paddle",
+        "name": "Paddle",
+        "location": "London, UK",
+        "website": "https://paddle.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "synthesia",
+        "name": "Synthesia",
+        "location": "London, UK",
+        "website": "https://synthesia.io"
+      },
+      {
+        "ats": "ashby",
+        "token": "elevenlabs",
+        "name": "ElevenLabs",
+        "location": "London, UK",
+        "website": "https://elevenlabs.io"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "tide",
+        "name": "Tide",
+        "location": "London, UK",
+        "website": "https://tide.co"
+      },
+      {
+        "ats": "lever",
+        "token": "zopa",
+        "name": "Zopa",
+        "location": "London, UK",
+        "website": "https://zopa.com"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "truelayer",
+        "name": "TrueLayer",
+        "location": "London, UK",
+        "website": "https://truelayer.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "tractable",
+        "name": "Tractable",
+        "location": "London, UK",
+        "website": "https://tractable.ai"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "physicsx",
+        "name": "PhysicsX",
+        "location": "London, UK",
+        "website": "https://physicsx.ai"
+      },
+      {
+        "ats": "ashby",
+        "token": "wayve",
+        "name": "Wayve",
+        "location": "London, UK",
+        "website": "https://wayve.ai"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "cognism",
+        "name": "Cognism",
+        "location": "London, UK",
+        "website": "https://cognism.com"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "ebury",
+        "name": "Ebury",
+        "location": "London, UK",
+        "website": "https://ebury.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "faculty",
+        "name": "Faculty",
+        "location": "London, UK",
+        "website": "https://faculty.ai"
+      },
+      {
+        "ats": "ashby",
+        "token": "moneybox",
+        "name": "Moneybox",
+        "location": "London, UK",
+        "website": "https://moneyboxapp.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "motorway",
+        "name": "Motorway",
+        "location": "London, UK",
+        "website": "https://motorway.co.uk"
+      },
+      {
+        "ats": "ashby",
+        "token": "quantexa",
+        "name": "Quantexa",
+        "location": "London, UK",
+        "website": "https://quantexa.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "trading212",
+        "name": "Trading 212",
+        "location": "London, UK",
+        "website": "https://trading212.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "zilch",
+        "name": "Zilch",
+        "location": "London, UK",
+        "website": "https://zilch.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "beamery",
+        "name": "Beamery",
+        "location": "London, UK",
+        "website": "https://beamery.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "pleo",
+        "name": "Pleo",
+        "location": "London, UK / Copenhagen",
+        "website": "https://pleo.io"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "celonis",
+        "name": "Celonis",
+        "location": "Munich, Germany",
+        "website": "https://celonis.com"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "commercetools",
+        "name": "commercetools",
+        "location": "Munich, Germany",
+        "website": "https://commercetools.com"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "contentful",
+        "name": "Contentful",
+        "location": "Berlin, Germany",
+        "website": "https://contentful.com"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "getyourguide",
+        "name": "GetYourGuide",
+        "location": "Berlin, Germany",
+        "website": "https://getyourguide.com"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "helsing",
+        "name": "Helsing",
+        "location": "Munich, Germany",
+        "website": "https://helsing.ai"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "n26",
+        "name": "N26",
+        "location": "Berlin, Germany",
+        "website": "https://n26.com"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "raisin",
+        "name": "Raisin",
+        "location": "Berlin, Germany",
+        "website": "https://raisin.com"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "solarisbank",
+        "name": "Solaris",
+        "location": "Berlin, Germany",
+        "website": "https://solarisgroup.com"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "staffbase",
+        "name": "Staffbase",
+        "location": "Chemnitz, Germany",
+        "website": "https://staffbase.com"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "sumup",
+        "name": "SumUp",
+        "location": "Berlin, Germany",
+        "website": "https://sumup.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "enpal",
+        "name": "Enpal",
+        "location": "Berlin, Germany",
+        "website": "https://enpal.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "forto",
+        "name": "Forto",
+        "location": "Berlin, Germany",
+        "website": "https://forto.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "moss",
+        "name": "Moss",
+        "location": "Berlin, Germany",
+        "website": "https://getmoss.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "pliant",
+        "name": "Pliant",
+        "location": "Berlin, Germany",
+        "website": "https://getpliant.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "parloa",
+        "name": "Parloa",
+        "location": "Berlin, Germany",
+        "website": "https://parloa.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "alephalpha",
+        "name": "Aleph Alpha",
+        "location": "Heidelberg, Germany",
+        "website": "https://aleph-alpha.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "babbel",
+        "name": "Babbel",
+        "location": "Berlin, Germany",
+        "website": "https://babbel.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "deepl",
+        "name": "DeepL",
+        "location": "Cologne, Germany",
+        "website": "https://deepl.com"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "hellofresh",
+        "name": "HelloFresh",
+        "location": "Berlin, Germany",
+        "website": "https://hellofresh.com"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "ionos",
+        "name": "IONOS",
+        "location": "Karlsruhe, Germany",
+        "website": "https://ionos.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "qonto",
+        "name": "Qonto",
+        "location": "Paris / Berlin",
+        "website": "https://qonto.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "airwallex",
+        "name": "Airwallex",
+        "location": "Singapore / Melbourne",
+        "website": "https://airwallex.com"
+      },
+      {
+        "ats": "lever",
+        "token": "ninjavan",
+        "name": "Ninja Van",
+        "location": "Singapore",
+        "website": "https://ninjavan.co"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "xendit",
+        "name": "Xendit",
+        "location": "Jakarta, Indonesia",
+        "website": "https://xendit.co"
+      },
+      {
+        "ats": "lever",
+        "token": "nium",
+        "name": "Nium",
+        "location": "Singapore",
+        "website": "https://nium.com"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "thunes",
+        "name": "Thunes",
+        "location": "Singapore",
+        "website": "https://thunes.com"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "careem",
+        "name": "Careem",
+        "location": "Dubai, UAE",
+        "website": "https://careem.com"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "tamara",
+        "name": "Tamara",
+        "location": "Riyadh, Saudi Arabia",
+        "website": "https://tamara.co"
+      },
+      {
+        "ats": "ashby",
+        "token": "leantech",
+        "name": "Lean Technologies",
+        "location": "Riyadh, Saudi Arabia",
+        "website": "https://leantech.me"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "moniepoint",
+        "name": "Moniepoint",
+        "location": "Lagos, Nigeria",
+        "website": "https://moniepoint.com"
+      },
+      {
+        "ats": "ashby",
+        "token": "thndr",
+        "name": "Thndr",
+        "location": "Cairo, Egypt",
+        "website": "https://thndr.app"
+      },
+      {
+        "ats": "ashby",
+        "token": "ziina",
+        "name": "Ziina",
+        "location": "Dubai, UAE",
+        "website": "https://ziina.com"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "cultureamp",
+        "name": "Culture Amp",
+        "location": "Melbourne, Australia",
+        "website": "https://cultureamp.com"
+      },
+      {
+        "ats": "lever",
+        "token": "deputy",
+        "name": "Deputy",
+        "location": "Sydney, Australia",
+        "website": "https://deputy.com"
+      },
+      {
+        "ats": "lever",
+        "token": "immutable",
+        "name": "Immutable",
+        "location": "Sydney, Australia",
+        "website": "https://immutable.com"
+      },
+      {
+        "ats": "lever",
+        "token": "mable",
+        "name": "Mable",
+        "location": "Sydney, Australia",
+        "website": "https://mable.com.au"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "buildkite",
+        "name": "Buildkite",
+        "location": "Melbourne, Australia",
+        "website": "https://buildkite.com"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "eucalyptus",
+        "name": "Eucalyptus",
+        "location": "Sydney, Australia",
+        "website": "https://eucalyptus.vc"
+      },
+      {
+        "ats": "ashby",
+        "token": "xero",
+        "name": "Xero",
+        "location": "Wellington, NZ / Melbourne",
+        "website": "https://xero.com"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "prospa",
+        "name": "Prospa",
+        "location": "Sydney, Australia",
+        "website": "https://prospa.com"
+      },
+      {
+        "ats": "greenhouse",
+        "token": "octopusdeploy",
+        "name": "Octopus Deploy",
+        "location": "Brisbane, Australia",
+        "website": "https://octopus.com"
+      }
+    ]
+  },
+  "techRoleRegex": "engineer|developer|software|\\bsde\\b|data|machine learning|\\bml\\b|\\bai\\b|product|design|devops|\\bsre\\b|security|\\bqa\\b|test|front.?end|back.?end|full.?stack|mobile|android|ios|intern|analyst|research|scientist|architect|platform|infra|cloud|growth|founding",
+  "internRegex": "\\bintern(ship)?s?\\b|co-?op\\b|apprentice|trainee",
+  "contacts": {
+    "websiteScansPerRun": 150,
+    "rescanDays": 30,
+    "prospeoDailyCredits": 250,
+    "prospeoCompaniesPerRun": 150,
+    "peoplePerCompany": 6,
+    "prospeoMobileDailyCredits": 100,
+    "mobilesPerCompany": 2
+  },
+  "focusMarkets": [
+    "MEA",
+    "SEA",
+    "Germany",
+    "UK",
+    "Australia"
+  ],
+  "jobicy": {
+    "enabled": true,
+    "everyHours": 3,
+    "maxPages": 10,
+    "geos": [
+      "uk",
+      "germany",
+      "europe",
+      "emea",
+      "apac",
+      "australia",
+      "singapore",
+      "israel",
+      "anywhere"
+    ],
+    "industries": [
+      "engineering",
+      "data-science",
+      "admin"
+    ]
+  },
+  "arbeitnow": {
+    "enabled": true,
+    "everyHours": 3,
+    "maxPages": 8
+  },
+  "excludeCompanies": {
+    "_note": "Company name -> reason. Edit to exclude companies the automatic checks miss.",
+    "LiveKit": "US headquarters",
+    "Grafana Labs": "US headquarters",
+    "Customer.io": "US headquarters",
+    "Contentstack": "US headquarters",
+    "Ashby": "US headquarters",
+    "Bloomreach": "US headquarters",
+    "GiveDirectly": "US headquarters",
+    "Banyan Software": "US headquarters",
+    "Runway": "US headquarters",
+    "Junction": "US headquarters (Prospeo)",
+    "Oneleet": "US headquarters (Prospeo)",
+    "Enveritas": "US headquarters (Prospeo)",
+    "Lattice": "US headquarters",
+    "Lithic": "US headquarters",
+    "PlanetScale": "US headquarters",
+    "Expel": "US headquarters",
+    "Carrot": "US headquarters",
+    "Samsara": "US headquarters",
+    "Signifyd": "US headquarters",
+    "Upgrade": "US headquarters",
+    "Legion": "US headquarters",
+    "Proxify": "Staffing / talent marketplace (not a direct employer)",
+    "Proxify AB": "Staffing / talent marketplace (not a direct employer)",
+    "Lemon.io": "Staffing / talent marketplace (not a direct employer)",
+    "Unio Digital": "Staffing / talent marketplace (not a direct employer)"
+  },
+  "wikidataLookupsPerRun": 150,
+  "allowCompanies": {
+    "_note": "Company name -> reason. Overrides a wrong automatic US/India match.",
+    "Flow Traders": "Headquartered in Amsterdam",
+    "Capital on Tap": "Headquartered in London"
+  }
+}

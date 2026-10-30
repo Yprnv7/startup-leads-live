@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Builds the points of contact for each company in data/leads.json:
+// Builds the points of contact for each company in data/internships.json:
 //   1. Website scan (free): careers / HR mailboxes, phone numbers, social profiles and
 //      contact / careers pages from the company's own site.
 //   2. Prospeo company lookup (needs PROSPEO_API_KEY): headquarters country (US / India HQs are
@@ -22,7 +22,7 @@ import { isFocusPlaces, SCOPE_COUNTRIES } from './markets.mjs';
 import { teamOf, isTalentMailbox, normLinkedIn } from './people.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const LEADS_FILE = path.join(ROOT, 'data/leads.json');
+const LEADS_FILE = path.join(ROOT, 'data/internships.json');
 const STATE_FILE = path.join(ROOT, 'data/state.json');
 const config = JSON.parse(await fs.readFile(path.join(ROOT, 'config.json'), 'utf8'));
 const cfg = config.contacts;

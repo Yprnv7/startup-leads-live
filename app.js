@@ -7,7 +7,7 @@
 (() => {
   "use strict";
 
-  const DATA_URL = "data/leads.json";
+  const DATA_URL = "data/internships.json"; // the RTI tracker (rti/) reads data/leads.json
   const VERSION_URL = "data/version.json";
   const HOURLY_CRON = "0 * * * *";
   const STATUS_KEY = "startup_leads_contact_status_v6"; // same storage as before: contactKey -> status
