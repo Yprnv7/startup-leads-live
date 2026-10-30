@@ -1,16 +1,15 @@
-name: Update leads
+name: Hourly sync
 
 on:
   schedule:
-    - cron: '30 1 * * *'   # daily discovery of new companies — 07:00 IST
-    - cron: '0 */2 * * *'  # re-verify every tracked job every 2 hours
+    - cron: '0 * * * *'   # every hour, on the hour
   workflow_dispatch:
     inputs:
       mode:
-        description: 'discover = add new companies + verify; verify = liveness checks only'
+        description: 'auto = discover new companies at 01:00 UTC, verify otherwise'
         type: choice
-        options: [verify, discover]
-        default: verify
+        options: [auto, verify, discover]
+        default: auto
       force_yc:
         description: 'Re-check every YC company page now'
         type: boolean
@@ -26,9 +25,9 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  update:
+  sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -38,21 +37,22 @@ jobs:
       - name: Pick mode
         id: mode
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "mode=${{ inputs.mode }}" >> "$GITHUB_OUTPUT"
-          elif [ "${{ github.event.schedule }}" = "30 1 * * *" ]; then
-            echo "mode=discover" >> "$GITHUB_OUTPUT"
-          else
-            echo "mode=verify" >> "$GITHUB_OUTPUT"
+          mode="${{ inputs.mode || 'auto' }}"
+          if [ "$mode" = "auto" ]; then
+            if [ "$(date -u +%H)" = "01" ]; then mode=discover; else mode=verify; fi
           fi
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
 
-      - name: Fetch, discover and verify
+      - name: Fetch, discover and verify remote tech roles
         run: node scripts/update.mjs --mode=${{ steps.mode.outputs.mode }} ${{ inputs.force_yc && '--force-yc' || '' }}
 
-      - name: Find points of contact (website scan + Prospeo)
+      - name: Points of contact (website scan + Prospeo if configured)
         run: node scripts/contacts.mjs
         env:
           PROSPEO_API_KEY: ${{ secrets.PROSPEO_API_KEY }}
+
+      - name: Integrity tests (no USA, 100% remote, pure tech, A-Z countries)
+        run: python3 tests/test_site_integrity.py
 
       - name: Commit data
         run: |
@@ -65,7 +65,7 @@ jobs:
           exit 1
 
   deploy:
-    needs: update
+    needs: sync
     uses: ./.github/workflows/deploy.yml
     permissions:
       pages: write

@@ -12,7 +12,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { marketsOf, companyMarkets, isFocus, isUsOnly, FOCUS } from './markets.mjs';
+import { placesOf, remotePlaces, regionsOf, isFocusPlaces, inScopePlaces, remoteLabel, REGION_OF, SCOPE_REGIONS, INDIA_RE } from './markets.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const LEADS_FILE = path.join(ROOT, 'data/leads.json');
@@ -127,8 +127,44 @@ function addContact(company, contact) {
   else company.contacts.push(contact);
 }
 
+// Places a company is based in (HQ text + YC regions), used when a role just says "Remote".
+const companyContext = c => placesOf([c.location, ...(c.regions || [])].filter(Boolean).join(' ; ')).filter(p => !/-wide$/.test(p));
+
+// Site scope: tech roles, remote, workable from at least one country outside the US.
+const OFFICE_RE = /hybrid|in[- ]office|in[- ]person|on-?site (?:only|required)|\d+\s*(?:days?|x)\s*(?:a |per |\/)?\s*(?:week|wk)?\s*(?:in|at) (?:the )?office|office[- ]based|relocat(?:e|ion) (?:to|required)/i;
+function scopeOf(job, context) {
+  if (!isTechRole(job) || /^\s*test\b|do not apply|dummy/i.test(job.title)) return { ok: false };
+  // The job board itself says hybrid / on-site.
+  if (job.notRemote) return { ok: false };
+  // 100% remote only: any hybrid / in-office / relocation requirement disqualifies the role.
+  if (OFFICE_RE.test(`${job.location || ''} ${job.title}`)) return { ok: false };
+  const { remote, places } = remotePlaces(job.location, job.remoteFlag, context);
+  const scoped = inScopePlaces(places);
+  return { ok: remote && scoped.length > 0, places: scoped };
+}
+
+// Companies we never list: headquartered in the US, or with an office in India.
+function exclusionOf(c, rawLocations = []) {
+  if (placesOf(c.location || '').includes('United States')) return 'US headquarters';
+  if ((c.regions || []).some(r => /^(India|South Asia)$/.test(r)) || INDIA_RE.test(c.location || '') || rawLocations.some(l => INDIA_RE.test(l || ''))) return 'India office';
+  return null;
+}
+function exclude(id, reason) { state.excluded ??= {}; state.excluded[id] = { reason, at: NOW }; }
+const isExcluded = id => !!state.excluded?.[id];
+
 function upsertJob(company, job) {
-  job.markets = marketsOf(job.location || company.location);
+  const scope = scopeOf(job, companyContext(company));
+  if (!scope.ok) {
+    // Out of scope (US-only, on-site, or not a tech role): never stored.
+    company.jobs = company.jobs.filter(x => x.id !== job.id);
+    return null;
+  }
+  job.places = scope.places;
+  job.regions = regionsOf(scope.places);
+  job.remoteScope = remoteLabel(scope.places);
+  job.track = trackOf(job.title);
+  job.remote = true;
+  job.tech = true;
   let j = company.jobs.find(x => x.id === job.id);
   if (!j) {
     j = { ...job, firstSeen: NOW, status: 'open', closedAt: null };
@@ -143,6 +179,13 @@ function upsertJob(company, job) {
     event('job_reopened', company, j);
   }
   return j;
+}
+
+function removeCompany(c) {
+  const i = db.companies.indexOf(c);
+  if (i >= 0) db.companies.splice(i, 1);
+  byId.delete(c.id);
+  db.events = db.events.filter(e => e.companyId !== c.id);
 }
 
 function closeJob(company, job, reason) {
@@ -165,7 +208,19 @@ const jobType = (title, extra = '') => (INTERN_RE.test(`${title} ${extra}`) ? 'i
 // marketing, PM/design, or non-software engineering (mechanical, electrical, manufacturing...).
 const TECH_POS_RE = /\b(software|engineer(?:ing|s)?|developer|dev|sde|swe|programmer|full[- ]?stack|front[- ]?end|back[- ]?end|web|mobile|ios|android|flutter|react|node(?:\.?js)?|python|java|golang|rust|c\+\+|typescript|devops|sre|site reliability|platform|infrastructure|infra|cloud|kubernetes|data (?:engineer|scientist|science|analyst|analytics|platform)|machine learning|ml|ai|llm|deep learning|computer vision|nlp|research (?:engineer|scientist)|applied scientist|security|cyber ?security|appsec|qa|quality assurance|sdet|test automation|automation engineer|embedded|firmware|database|dba|architect|tech(?:nical)? lead|cto|it (?:support|admin|engineer)|blockchain|smart contract|game developer|mts|technical staff)\b/i;
 const TECH_NEG_RE = /\b(sales|account (?:executive|manager)|business development|bdr|sdr|marketing|marketer|recruit\w*|talent|human resources|hr|people (?:ops|operations|partner)|finance|financial|accountant|accounting|legal|counsel|paralegal|customer (?:success|support|service|experience)|support (?:specialist|agent|associate)|office|executive assistant|copywriter|content|community|partnerships?|solutions? (?:engineer|consultant|architect)|sales engineer|pre-?sales|field (?:engineer|service)|mechanical|electrical|civil|chemical|manufacturing|production|process engineer|quality engineer|construction|technician|driver|warehouse|nurse|clinical|pharmac\w*|mri|medical|physician|teacher|tutor|product (?:manager|owner|designer|marketing)|program manager|project manager|scrum|designer|ux researcher|operations (?:manager|associate|lead)|bizops|chief of staff|growth (?:lead|manager))\b/i;
+const TRACKS = [
+  ['AI / ML & LLM Systems', /\b(ai|ml|machine learning|llm|deep learning|computer vision|nlp|research (?:engineer|scientist)|applied scientist|mlops|genai|generative|data scientist|inference|perception)\b/i],
+  ['Mobile & Autonomous Systems', /mobile|\bios\b|android|flutter|react native|robotic|autonomy|autonomous|embedded|firmware|hardware software/i],
+  ['DevOps, Cloud & SRE', /devops|\bsre\b|site reliability|cloud|platform|infrastructure|\binfra\b|kubernetes|security|devsecops|network|reliability/i],
+  ['Data & Quant Engineering', /data (?:engineer|platform|infrastructure)|analytics engineer|quant|quantitative|database|\bdba\b|\betl\b|data/i],
+  ['Full-Stack & Product Engineering', /full[- ]?stack|front[- ]?end|frontend|\bweb\b|product engineer|\bui\b|react|typescript|design engineer/i],
+];
+const trackOf = title => (TRACKS.find(([, re]) => re.test(title)) || ['Backend & Distributed Systems'])[0];
+
+// Extra exclusions on top of TECH_NEG_RE: not engineering even if the title says "AI" or "engineer".
+const TECH_NEG2_RE = /trainer|annotat|label(?:l)?ing|\brater\b|evaluator|tutor|support engineer|technical support|it support|helpdesk|help desk|it admin|sysadmin|system administrator|solutions|implementation|customer engineer|deployment strategist|compliance|mlro|founder'?s associate|chief of staff|\bgtm\b|growth|operations|data analyst|business analyst|qa (?:analyst|tester)|manual (?:qa|test)|tester\b|werkstudent marketing|recruitment|sales/i;
 function isTechRole(j) {
+  if (TECH_NEG2_RE.test(j.title)) return false;
   const text = /^multiple roles/i.test(j.title) ? `${j.title} ${j.snippet || ''}` : j.title;
   return TECH_POS_RE.test(text) && !TECH_NEG_RE.test(j.title);
 }
@@ -233,15 +288,14 @@ async function discoverYC() {
   const limit = +(args['yc-limit'] || (firstRun ? config.yc.firstRunCompanies : config.yc.newCompaniesPerDay));
   const res = await get('https://yc-oss.github.io/api/companies/hiring.json', { json: true });
   if (!res.ok) { sourceReport.ycDiscover = { ok: false, error: res.error || res.status }; return; }
-  const regionRank = c => {
-    const ranks = (c.regions || []).map(r => config.yc.regionPriority.indexOf(r)).filter(i => i >= 0);
-    return ranks.length ? Math.min(...ranks) : 99;
-  };
+  const nonUS = c => placesOf((c.regions || []).join(' ; ')).filter(p => p !== 'United States' && p !== 'Canada');
+  const remoteFriendly = c => (c.regions || []).some(r => /fully remote/i.test(r));
+  const rank = c => (isFocusPlaces(nonUS(c)) ? 0 : nonUS(c).length ? 1 : remoteFriendly(c) ? 2 : 9);
   const candidates = res.body
-    .filter(c => c.status === 'Active' && !byId.has(`yc:${c.slug}`))
-    .filter(c => !config.yc.skipUsOnly || !isUsOnly((c.regions || []).map(r => ({ 'America / Canada': 'USA', 'United States of America': 'USA', Canada: 'Canada' })[r] || (/remote|unspecified/i.test(r) ? null : r)).filter(Boolean)))
+    .filter(c => c.status === 'Active' && !byId.has(`yc:${c.slug}`) && !isExcluded(`yc:${c.slug}`))
+    .filter(c => rank(c) < 9) // US-only companies are skipped entirely
     .filter(c => !(state.ycSkipped[c.slug] && Date.now() - Date.parse(state.ycSkipped[c.slug]) < 14 * DAY))
-    .sort((a, b) => regionRank(a) - regionRank(b) || batchRank(b.batch) - batchRank(a.batch));
+    .sort((a, b) => rank(a) - rank(b) || batchRank(b.batch) - batchRank(a.batch));
   let added = 0, fetched = 0;
   for (const listing of candidates) {
     if (added >= limit || fetched >= limit * 3) break;
@@ -249,7 +303,10 @@ async function discoverYC() {
     const data = await fetchYC(listing.slug);
     await sleep(config.yc.requestDelayMs);
     if (!data || data.gone || !data.jobs.length) { state.ycSkipped[listing.slug] = NOW; continue; }
-    applyYC(listing.slug, data, listing);
+    const why = exclusionOf({ location: data.company.location, regions: listing.regions }, data.jobs.map(j => j.location));
+    if (why) { exclude(`yc:${listing.slug}`, why); state.ycSkipped[listing.slug] = NOW; continue; }
+    const c = applyYC(listing.slug, data, listing);
+    if (!c.jobs.length) { removeCompany(c); today.companiesAdded--; state.ycSkipped[listing.slug] = NOW; continue; }
     added++;
   }
   sourceReport.ycDiscover = { ok: true, added, checked: fetched, pool: res.body.length };
@@ -280,7 +337,7 @@ async function verifyYC() {
 const NON_COMPANY_DOMAINS = /(^|\.)(ycombinator\.com|greenhouse\.io|lever\.co|ashbyhq\.com|workable\.com|linkedin\.com|twitter\.com|x\.com|github\.com|google\.com|forms\.gle|notion\.site|wellfound\.com|angel\.co|calendly\.com|youtube\.com|medium\.com|bit\.ly|typeform\.com|breezy\.hr|recruitee\.com|bamboohr\.com|smartrecruiters\.com|workatastartup\.com|jobs\.gem\.com|rippling\.com|teamtailor\.com|personio\.\w+|youtu\.be|wikipedia\.org|archive\.(?:ph|org|is)|lnkd\.in|grnh\.se|dover\.com|trinethire\.com|applytojob\.com|factorialhr\.com|techcrunch\.com|mercurynews\.com|nytimes\.com|bloomberg\.com|reuters\.com|forbes\.com|substack\.com|\w+\.gov|nih\.gov|arxiv\.org|docs\.google\.com|loom\.com|vimeo\.com|web\.app|github\.io|ycombinator\.com|news\.ycombinator\.com|techjobfinder\.com|nordictechjobs\.com|weworkremotely\.com|remoteok\.com|indeed\.com|glassdoor\.com)$/i;
 // A header part is a location if it names a market or a work arrangement.
 const WORK_MODE_RE = /\b(remote|on-?site|hybrid|in[- ]person|in[- ]office|wfh)\b/i;
-const isLocation = p => marketsOf(p).length > 0 || WORK_MODE_RE.test(p);
+const isLocation = p => placesOf(p).length > 0 || WORK_MODE_RE.test(p);
 
 const EMPLOYMENT_RE = /^(full[- ]?time|part[- ]?time|contract(or)?|freelance|permanent|equity|visa|salary|\$|€|£|₹|\d+k|interns?(hips?)?$|ft|pt|onsite|remote)\b/i;
 const HN_ROLE_RE = /technical staff|\bmts\b|lead|head of|\bcto\b|\bvp\b|manager|director|founding|staff|principal|scientist|specialist|recruiter|marketing|sales|operations|writer|support|designer|\bswe\b|positions|roles|bizops|technician|consultant/i;
@@ -372,6 +429,7 @@ async function processHN() {
       const jobId = `hn:${p.commentId}`;
       const domain = domainOf(p.website);
       const id = (domain && byDomain.get(domain)) || `hn:${slugify(p.name)}`;
+      if (isExcluded(id)) continue;
       const isNew = !byId.has(id);
       const existingJob = byId.get(id)?.jobs.find(j => j.id === jobId);
       if (p.closed) {
@@ -452,12 +510,12 @@ async function fetchBoard({ ats, token }) {
   if (ats === 'lever') {
     const r = await get(`https://api.lever.co/v0/postings/${enc}?mode=json`, { json: true });
     if (!r.ok || !Array.isArray(r.body)) return { ok: false, status: r.ok ? 404 : r.status };
-    return { ok: true, jobs: r.body.map(j => ({ id: j.id, title: j.text, url: j.hostedUrl, location: j.categories?.location, commitment: j.categories?.commitment, posted: new Date(j.createdAt).toISOString() })) };
+    return { ok: true, jobs: r.body.map(j => ({ id: j.id, title: j.text, url: j.hostedUrl, location: (j.categories?.allLocations?.length ? j.categories.allLocations.join(' / ') : j.categories?.location), remoteFlag: j.workplaceType === 'remote', notRemote: /hybrid|on-?site/i.test(j.workplaceType || ''), commitment: j.categories?.commitment, posted: new Date(j.createdAt).toISOString() })) };
   }
   if (ats === 'ashby') {
     const r = await get(`https://api.ashbyhq.com/posting-api/job-board/${enc}`, { json: true });
     if (!r.ok) return r;
-    return { ok: true, jobs: (r.body.jobs || []).map(j => ({ id: j.id, title: j.title, url: j.jobUrl, location: j.location || (j.isRemote ? 'Remote' : ''), commitment: j.employmentType, posted: j.publishedAt })) };
+    return { ok: true, jobs: (r.body.jobs || []).map(j => ({ id: j.id, title: j.title, url: j.jobUrl, location: [j.location, ...(j.secondaryLocations || []).map(x => x.location)].filter(Boolean).join(' / '), remoteFlag: j.workplaceType ? j.workplaceType === 'Remote' : !!j.isRemote, notRemote: /hybrid|onsite/i.test(j.workplaceType || ''), commitment: j.employmentType, posted: j.publishedAt })) };
   }
   return { ok: false, status: 0 };
 }
@@ -494,6 +552,9 @@ async function processBoards() {
       return;
     }
     ok++;
+    if (isExcluded(companyId)) return;
+    const why = exclusionOf({ location: b.location || byId.get(companyId)?.location, regions: byId.get(companyId)?.regions }, r.jobs.map(j => j.location));
+    if (why) { exclude(companyId, why); return; }
     if (b.ats === 'greenhouse' && !b.name && !state.boardNames[key]) {
       const meta = await get(`https://boards-api.greenhouse.io/v1/boards/${encodeURIComponent(b.token)}`, { json: true });
       if (meta.ok && meta.body.name) state.boardNames[key] = meta.body.name;
@@ -504,21 +565,164 @@ async function processBoards() {
     const prevOpen = c.jobs.filter(j => j.board === key && j.status === 'open').length;
     if (present.size === 0 && prevOpen > 3 && !state.zeroMiss[key]) { state.zeroMiss[key] = NOW; return; }
     delete state.zeroMiss[key];
-    const relevant = r.jobs
-      .filter(j => TECH_RE.test(j.title))
-      .map(j => ({ ...j, type: jobType(j.title, j.commitment) }))
-      .map(j => ({ ...j, focus: isFocus(marketsOf(j.location)) }))
+    const relevantAll = r.jobs
+      .map(j => ({ ...j, scope: scopeOf(j, companyContext(c)) }));
+    // Roles the board now marks hybrid / on-site (or that fell out of scope) are removed, not closed.
+    const outOfScope = new Set(relevantAll.filter(j => !j.scope.ok).map(j => `${key}:${j.id}`));
+    c.jobs = c.jobs.filter(j => !outOfScope.has(j.id));
+    const relevant = relevantAll
+      .filter(j => j.scope.ok)
+      .map(j => ({ ...j, type: jobType(j.title, j.commitment), focus: isFocusPlaces(j.scope.places) }))
       .sort((x, y) => (y.type === 'internship') - (x.type === 'internship') || (y.focus - x.focus) || String(y.posted).localeCompare(String(x.posted)));
     const tracked = new Set(c.jobs.map(j => j.id));
     let room = config.ats.maxJobsPerCompany - c.jobs.filter(j => j.board === key && j.status === 'open').length;
     for (const j of relevant) {
       const id = `${key}:${j.id}`;
       if (!tracked.has(id)) { if (room <= 0) continue; room--; }
-      upsertJob(c, { id, src: b.ats, board: key, title: j.title, type: j.type, location: j.location, url: j.url, postedAt: j.posted });
+      upsertJob(c, { id, src: b.ats, board: key, title: j.title, type: j.type, location: j.location, remoteFlag: j.remoteFlag, notRemote: j.notRemote, url: j.url, postedAt: j.posted });
     }
     reconcile(c, j => j.board === key, present, `Removed from ${b.ats} job board`);
   });
   sourceReport.ats = { ok: failed < boards.length / 2, boards: boards.length, fetched: ok, failed, gone, pendingDiscovered: state.boards.filter(b => !b.active && !b.dead).length };
+}
+
+// ---------------------------------------------------------------- Jobicy (remote tech jobs by region)
+// Free API; asks for a credit link and that apply buttons go to the job URL it provides.
+
+async function processJobicy() {
+  const cfgJ = config.jobicy;
+  if (!cfgJ?.enabled) return;
+  if (state.jobicyAt && Date.now() - Date.parse(state.jobicyAt) < cfgJ.everyHours * 3600e3 - 10 * 60e3) return;
+  const seen = new Map();
+  let complete = true, requests = 0;
+  for (const geo of cfgJ.geos) for (const industry of cfgJ.industries) {
+    let cursor = '';
+    for (let page = 0; page < cfgJ.maxPages; page++) {
+      const r = await get(`https://jobicy.com/api/v2/remote-jobs?count=100&geo=${geo}&industry=${industry}${cursor ? `&cursor=${encodeURIComponent(cursor)}` : ''}`, { json: true });
+      requests++;
+      if (!r.ok) { if (r.status !== 404) complete = false; break; }
+      for (const j of r.body.jobs || []) seen.set(String(j.id), j);
+      if (!r.body.hasMore) break;
+      cursor = r.body.nextCursor;
+      if (page === cfgJ.maxPages - 1) complete = false;
+      await sleep(300);
+    }
+  }
+  const byName = new Map(db.companies.map(c => [c.name.toLowerCase().replace(/[^a-z0-9]/g, ''), c.id]));
+  let added = 0;
+  for (const j of seen.values()) {
+    const name = decode(j.companyName || '').trim();
+    if (!name) continue;
+    const id = byName.get(name.toLowerCase().replace(/[^a-z0-9]/g, '')) || `jobicy:${slugify(name)}`;
+    if (isExcluded(id)) continue;
+    // Jobicy gives no headquarters. A company that also hires in the US is treated as US-based and dropped.
+    if (!byId.get(id)?.location && placesOf(decode(j.jobGeo || '')).includes('United States')) { exclude(id, 'Hires in the US'); continue; }
+    const isNew = !byId.has(id);
+    const c = upsertCompany(id, { name, source: 'jobicy', logo: byId.get(id)?.logo || j.companyLogo });
+    const title = decode(j.jobTitle);
+    const levelIntern = /intern/i.test(`${j.jobLevel} ${j.jobType}`);
+    const job = upsertJob(c, {
+      id: `jobicy:${j.id}`, src: 'jobicy', title, type: levelIntern ? 'internship' : jobType(title),
+      location: decode(j.jobGeo || 'Anywhere').replace(/,\s+/g, ' / '), remoteFlag: true,
+      url: j.url, snippet: clip(decode(j.jobExcerpt || ''), 280), postedAt: j.pubDate,
+    });
+    if (job && isNew) added++;
+  }
+  // Only when every feed was read to the end can a missing listing be called closed.
+  if (complete) for (const c of db.companies) reconcile(c, j => j.src === 'jobicy', new Set([...seen.keys()].map(k => `jobicy:${k}`)), 'Removed from Jobicy');
+  state.jobicyAt = NOW;
+  sourceReport.jobicy = { ok: complete, requests, listings: seen.size, newCompanies: added };
+}
+
+// ---------------------------------------------------------------- Arbeitnow (EU / DACH remote jobs)
+// Free API ("please link back"); newest first, 300 per page.
+
+async function processArbeitnow() {
+  const cfgA = config.arbeitnow;
+  if (!cfgA?.enabled) return;
+  if (state.arbeitnowAt && Date.now() - Date.parse(state.arbeitnowAt) < cfgA.everyHours * 3600e3 - 10 * 60e3) return;
+  const seen = new Map();
+  let oldest = null, requests = 0, failed = false;
+  for (let page = 1; page <= cfgA.maxPages; page++) {
+    const r = await get(`https://www.arbeitnow.com/api/job-board-api?page=${page}`, { json: true, timeout: 60000 });
+    requests++;
+    if (!r.ok) { failed = true; break; }
+    for (const j of r.body.data || []) {
+      const t = j.created_at * 1000;
+      if (oldest === null || t < oldest) oldest = t;
+      if (j.remote) seen.set(j.slug, j);
+    }
+    if (!r.body.links?.next) break;
+    await sleep(500);
+  }
+  const byName = new Map(db.companies.map(c => [c.name.toLowerCase().replace(/[^a-z0-9]/g, ''), c.id]));
+  let added = 0;
+  for (const j of seen.values()) {
+    const name = decode(j.company_name || '').trim();
+    if (!name) continue;
+    const id = byName.get(name.toLowerCase().replace(/[^a-z0-9]/g, '')) || `arbeitnow:${slugify(name)}`;
+    if (isExcluded(id)) continue;
+    const isNew = !byId.has(id);
+    // Arbeitnow is a German board: a bare "Remote job" means remote within Germany.
+    const loc = /^(remote( job)?|homeoffice)$/i.test((j.location || '').trim()) ? 'Remote (Germany)' : `${j.location} / Remote`;
+    const c = upsertCompany(id, { name, source: 'arbeitnow', location: byId.get(id)?.location || (placesOf(j.location).length ? j.location : 'Germany') });
+    const title = decode(j.title).replace(/\s*·\s*remote\s*$/i, '');
+    const job = upsertJob(c, {
+      id: `arbeitnow:${j.slug}`, src: 'arbeitnow', title, type: (j.job_types || []).some(t => /intern|praktikum|werkstudent/i.test(t)) ? 'internship' : jobType(title),
+      location: loc, remoteFlag: true, url: j.url, postedAt: new Date(j.created_at * 1000).toISOString(),
+    });
+    if (job && isNew) added++;
+  }
+  // Listings newer than the oldest one we paged through must still be there if they are open.
+  if (!failed && oldest) for (const c of db.companies) {
+    for (const j of c.jobs) if (j.src === 'arbeitnow' && j.status === 'open' && !seen.has(j.id.slice(10)) && Date.parse(j.postedAt) > oldest) closeJob(c, j, 'Removed from Arbeitnow');
+  }
+  state.arbeitnowAt = NOW;
+  sourceReport.arbeitnow = { ok: !failed, requests, remoteListings: seen.size, newCompanies: added };
+}
+
+// ---------------------------------------------------------------- headquarters check (Wikidata)
+// Job feeds (Jobicy, Arbeitnow, HN) often don't say where a company is based. Wikidata does for
+// well-known companies; any company headquartered in the US is excluded. Results are cached.
+
+const COMPANY_DESC_RE = /company|corporation|business|software|startup|platform|service|website|firm|enterprise|developer|exchange|brand|retailer|fintech|bank|provider|maker|manufacturer/i;
+async function wikidataCountries(name) {
+  const wd = async u => (await get(u, { json: true, retries: 1 })).body;
+  const s = await wd(`https://www.wikidata.org/w/api.php?action=wbsearchentities&search=${encodeURIComponent(name)}&language=en&type=item&limit=7&format=json`);
+  const norm = x => String(x || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  const hits = (s?.search || []).filter(x => COMPANY_DESC_RE.test(x.description || '') && (norm(x.label) === norm(name) || norm(x.label).startsWith(norm(name))));
+  for (const hit of hits.slice(0, 3)) {
+    const e = (await wd(`https://www.wikidata.org/wiki/Special:EntityData/${hit.id}.json`))?.entities?.[hit.id];
+    if (!e) continue;
+    const ids = (ent, p) => (ent.claims?.[p] || []).map(c => c.mainsnak.datavalue?.value?.id).filter(Boolean);
+    let countries = ids(e, 'P17');
+    if (!countries.length && ids(e, 'P159').length) {
+      const loc = ids(e, 'P159')[0];
+      const le = (await wd(`https://www.wikidata.org/wiki/Special:EntityData/${loc}.json`))?.entities?.[loc];
+      countries = le ? ids(le, 'P17') : [];
+    }
+    if (countries.length) return { id: hit.id, countries };
+  }
+  return null;
+}
+
+async function checkHeadquarters() {
+  state.wikidata ??= {};
+  const due = db.companies.filter(c => !['yc', 'greenhouse', 'lever', 'ashby', 'manual'].includes(c.source))
+    .filter(c => !state.wikidata[c.name] || Date.now() - Date.parse(state.wikidata[c.name].at) > 60 * DAY)
+    .slice(0, config.wikidataLookupsPerRun ?? 60);
+  let us = 0;
+  for (const c of due) {
+    try {
+      const r = await wikidataCountries(c.name);
+      state.wikidata[c.name] = { at: NOW, id: r?.id || null, us: !!r?.countries.includes('Q30') };
+    } catch { continue; }
+    await sleep(150);
+  }
+  for (const c of db.companies) if (state.wikidata[c.name]?.us) { exclude(c.id, 'US headquarters (Wikidata)'); us++; }
+  const manualList = config.excludeCompanies || {};
+  for (const c of db.companies) if (manualList[c.name] && c.name !== '_note') exclude(c.id, manualList[c.name] + ' (config)');
+  sourceReport.headquarters = { checked: due.length, usExcluded: us };
 }
 
 // ---------------------------------------------------------------- manual leads (data/manual.json)
@@ -537,8 +741,8 @@ async function processManual() {
     for (const contact of m.contacts || []) addContact(c, { ...contact, source: contact.source || 'Manual' });
     for (const mj of m.jobs || []) {
       const jobId = `manual:${slugify(m.name)}:${slugify(mj.url || mj.title)}`;
-      const job = upsertJob(c, { id: jobId, src: 'manual', title: mj.title, type: mj.type || jobType(mj.title), location: mj.location || m.location, url: mj.url });
-      if (!mj.url) continue;
+      const job = upsertJob(c, { id: jobId, src: 'manual', title: mj.title, type: mj.type || jobType(mj.title), location: mj.location || m.location, remoteFlag: !!mj.remote, url: mj.url });
+      if (!job || !mj.url) continue;
       const r = await get(mj.url, { retries: 1 });
       checked++;
       if (r.status === 404 || r.status === 410) closeJob(c, job, `Job link returns ${r.status}`);
@@ -554,8 +758,27 @@ const t0 = Date.now();
 if (MODE === 'discover') await discoverYC();
 await processHN();
 await processBoards();
+await processJobicy();
+await processArbeitnow();
+await checkHeadquarters();
 await processManual();
 await verifyYC();
+
+// Re-apply the scope to every stored role, so rule changes also clean up old data.
+for (const c of [...db.companies]) {
+  const why = isExcluded(c.id) ? state.excluded[c.id].reason : exclusionOf(c, c.jobs.map(j => j.location));
+  if (why) { exclude(c.id, why); removeCompany(c); prevStatus.delete(c.id); continue; }
+  for (const p of c.contacts) if (p.location && placesOf(p.location).includes('United States')) delete p.location;
+  c.regions = (c.regions || []).filter(r => !/america|united states/i.test(r));
+  for (const j of c.jobs) delete j.markets; // legacy field from before the six-region model
+  const ctx = companyContext(c);
+  c.jobs = c.jobs.filter(j => {
+    const s = scopeOf(j, ctx);
+    if (s.ok) { j.places = s.places; j.regions = regionsOf(s.places); j.remoteScope = remoteLabel(s.places); j.track = trackOf(j.title); j.remote = true; j.tech = true; }
+    return s.ok;
+  });
+  if (!c.jobs.length) { removeCompany(c); prevStatus.delete(c.id); }
+}
 
 // Merge companies that turned out to be the same business (same website domain).
 const SOURCE_RANK = { yc: 0, manual: 1, greenhouse: 2, lever: 2, ashby: 2, hn: 3 };
@@ -601,12 +824,16 @@ for (const c of db.companies) {
     event('company_reopened', c);
   }
   c.status = next;
-  for (const j of c.jobs) {
-    j.markets ??= marketsOf(j.location || c.location);
-    j.tech = isTechRole(j);
-    if (/linkedin\.com\/jobs/i.test(`${j.url} ${j.applyUrl || ''}`)) j.via = 'linkedin';
-  }
-  c.markets = companyMarkets(c);
+  for (const j of c.jobs) if (/linkedin\.com\/jobs/i.test(`${j.url} ${j.applyUrl || ''}`)) j.via = 'linkedin';
+  const placesFrom = c.jobs.some(j => j.status === 'open') ? c.jobs.filter(j => j.status === 'open') : c.jobs;
+  c.places = [...new Set(placesFrom.flatMap(j => j.places || []))];
+  c.markets = regionsOf(c.places);
+  // Primary country: the in-scope HQ country if known, else the country most of its remote roles name.
+  const hq = inScopePlaces(companyContext(c)).find(p => REGION_OF[p]);
+  const tally = {};
+  for (const j of placesFrom) for (const p of j.places || []) if (REGION_OF[p]) tally[p] = (tally[p] || 0) + 1;
+  c.country = hq || Object.entries(tally).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0] || null;
+  c.region = c.country ? REGION_OF[c.country] : (c.markets.length === SCOPE_REGIONS.length ? 'Global' : c.markets[0] || null);
   c.jobs.sort((a, b) => (a.status === 'open' ? 0 : 1) - (b.status === 'open' ? 0 : 1) || (a.type === 'internship' ? -1 : 0) - (b.type === 'internship' ? -1 : 0));
 }
 
@@ -616,6 +843,8 @@ for (const c of db.companies) c.jobs = c.jobs.filter(j => j.status === 'open' ||
 db.companies.sort((a, b) => b.firstSeen.localeCompare(a.firstSeen) || a.name.localeCompare(b.name));
 db.events = db.events.slice(0, 400);
 
+// Count only companies that survived this run's scope checks.
+today.companiesAdded = db.companies.filter(c => c.firstSeen === NOW).length;
 let h = db.history.find(x => x.date === TODAY);
 if (!h) { h = { date: TODAY, companiesAdded: 0, companiesClosed: 0, jobsAdded: 0, jobsClosed: 0 }; db.history.push(h); }
 for (const k of Object.keys(today)) h[k] += today[k];
@@ -629,6 +858,9 @@ db.meta = {
   [MODE === 'discover' ? 'lastDiscoverAt' : 'lastVerifyAt']: NOW,
   lastVerifyAt: NOW,
   repo: config.repo,
+  regionOf: Object.fromEntries(Object.entries(REGION_OF).filter(([, r]) => SCOPE_REGIONS.includes(r))),
+  regions: SCOPE_REGIONS,
+  countries: [...new Set(all.flatMap(c => c.jobs.flatMap(j => j.places || [])))].filter(p => SCOPE_REGIONS.includes(REGION_OF[p])).sort((a, b) => a.localeCompare(b, 'en')),
   runSeconds: Math.round((Date.now() - t0) / 1000),
   sources: sourceReport,
   totals: {

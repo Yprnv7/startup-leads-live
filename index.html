@@ -1,838 +1,509 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="light">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Startup Leads Live</title>
-<meta name="description" content="Live tech startup jobs, internships and founder POCs — auto-updated daily, closed roles flagged in red.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f46e5'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='white' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='2' fill='white'/%3E%3C/svg%3E">
-<style>
-:root {
-  --bg: #f6f7fb; --panel: #ffffff; --panel-2: #f1f3f9; --text: #141826; --muted: #5d6478; --faint: #8b91a3;
-  --border: #e3e6ef; --accent: #4f46e5; --accent-soft: #eef0ff;
-  --green: #0f8a4c; --green-soft: #e3f6ec; --red: #d92d3a; --red-soft: #fdecee; --red-row: #fff5f6;
-  --amber: #b45309; --amber-soft: #fff4e0; --blue-soft: #e8f1ff; --blue: #1d5fd6;
-  --shadow: 0 1px 2px rgba(16,24,40,.05), 0 1px 3px rgba(16,24,40,.06);
-  color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0e1117; --panel: #161a23; --panel-2: #1d2230; --text: #e8eaf1; --muted: #a2a9bb; --faint: #737a8c;
-    --border: #2a3040; --accent: #8b85ff; --accent-soft: #232543;
-    --green: #3ccf86; --green-soft: #13301f; --red: #ff6470; --red-soft: #3a1418; --red-row: #241317;
-    --amber: #f2b45a; --amber-soft: #33260f; --blue-soft: #16243d; --blue: #7aa7ff;
-    --shadow: none; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0e1117; --panel: #161a23; --panel-2: #1d2230; --text: #e8eaf1; --muted: #a2a9bb; --faint: #737a8c;
-  --border: #2a3040; --accent: #8b85ff; --accent-soft: #232543;
-  --green: #3ccf86; --green-soft: #13301f; --red: #ff6470; --red-soft: #3a1418; --red-row: #241317;
-  --amber: #f2b45a; --amber-soft: #33260f; --blue-soft: #16243d; --blue: #7aa7ff;
-  --shadow: none; color-scheme: dark;
-}
-* { box-sizing: border-box; }
-[hidden] { display: none !important; }
-html, body { margin: 0; }
-body { background: var(--bg); color: var(--text); font: 14px/1.45 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
-button, input, select { font: inherit; color: inherit; }
-.wrap { max-width: 1320px; margin: 0 auto; padding: 0 16px; }
-
-header.top { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
-.top .wrap { display: flex; align-items: center; gap: 12px; padding-top: 12px; padding-bottom: 12px; flex-wrap: wrap; }
-.brand { display: flex; align-items: center; gap: 10px; margin-right: auto; min-width: 0; }
-.brand h1 { font-size: 17px; margin: 0; letter-spacing: -.01em; white-space: nowrap; }
-.livepill { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--muted); background: var(--panel); border: 1px solid var(--border); padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
-.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); position: relative; flex: none; }
-.dot::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid var(--green); opacity: 0; animation: ping 2s infinite; }
-.dot.warn { background: var(--amber); } .dot.warn::after { border-color: var(--amber); }
-.dot.busy { background: var(--accent); } .dot.busy::after { border-color: var(--accent); animation-duration: .9s; }
-@keyframes ping { 0% { transform: scale(.6); opacity: .8; } 100% { transform: scale(1.6); opacity: 0; } }
-.btn { border: 1px solid var(--border); background: var(--panel); padding: 7px 12px; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; box-shadow: var(--shadow); }
-.btn:hover { border-color: var(--accent); }
-.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-.btn:disabled { opacity: .6; cursor: progress; }
-.iconbtn { padding: 7px 9px; }
-
-.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 18px 0 14px; }
-.kpi { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; box-shadow: var(--shadow); cursor: pointer; text-align: left; }
-.kpi:hover { border-color: var(--accent); }
-.kpi .label { font-size: 12px; color: var(--muted); }
-.kpi .value { font-size: 24px; font-weight: 650; letter-spacing: -.02em; font-variant-numeric: tabular-nums; margin-top: 2px; }
-.kpi .sub { font-size: 12px; color: var(--faint); }
-.kpi.red .value { color: var(--red); } .kpi.green .value { color: var(--green); }
-
-.layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 16px; align-items: start; padding-bottom: 40px; }
-@media (max-width: 1050px) { .layout { grid-template-columns: 1fr; } .side { order: 2; } }
-
-.toolbar { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 10px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; box-shadow: var(--shadow); }
-.search { flex: 1 1 240px; display: flex; align-items: center; gap: 8px; border: 1px solid var(--border); border-radius: 8px; padding: 0 10px; background: var(--bg); }
-.search input { border: 0; outline: 0; background: transparent; padding: 8px 0; width: 100%; }
-.seg { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-.seg button { border: 0; background: transparent; padding: 7px 11px; cursor: pointer; color: var(--muted); }
-.seg button.on { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
-.seg button + button { border-left: 1px solid var(--border); }
-select { border: 1px solid var(--border); background: var(--bg); padding: 7px 8px; border-radius: 8px; max-width: 100%; }
-.chk { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); cursor: pointer; user-select: none; }
-.resultbar { display: flex; justify-content: space-between; align-items: center; margin: 12px 2px 8px; color: var(--muted); font-size: 13px; gap: 8px; flex-wrap: wrap; }
-
-.list { display: flex; flex-direction: column; gap: 8px; }
-.co { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); overflow: hidden; transition: background .6s, border-color .6s; }
-.co.closed { background: var(--red-row); border-color: color-mix(in srgb, var(--red) 45%, var(--border)); border-left: 4px solid var(--red); }
-.co.flash { animation: flash 1.6s ease 2; }
-@keyframes flash { 50% { box-shadow: 0 0 0 3px color-mix(in srgb, var(--red) 55%, transparent); } }
-.co-head { display: grid; grid-template-columns: 40px minmax(0, 2.2fr) minmax(0, 1.3fr) minmax(0, 1.6fr) auto; gap: 12px; align-items: center; padding: 12px 14px; cursor: pointer; }
-.co-head:hover { background: color-mix(in srgb, var(--panel-2) 60%, transparent); }
-.logo { width: 40px; height: 40px; border-radius: 9px; background: var(--panel-2); display: grid; place-items: center; font-weight: 700; color: var(--muted); overflow: hidden; border: 1px solid var(--border); }
-.logo img { width: 100%; height: 100%; object-fit: cover; }
-.co.closed .logo { filter: grayscale(1); opacity: .7; }
-.name { font-weight: 650; font-size: 15px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
-.co.closed .name .nm { color: var(--red); text-decoration: line-through; text-decoration-thickness: 1.5px; }
-.oneliner { color: var(--muted); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.meta { font-size: 12.5px; color: var(--muted); min-width: 0; }
-.meta div { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.badge { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 999px; background: var(--panel-2); color: var(--muted); white-space: nowrap; }
-.badge.new { background: var(--accent-soft); color: var(--accent); }
-.badge.intern { background: var(--blue-soft); color: var(--blue); }
-.badge.open { background: var(--green-soft); color: var(--green); }
-.badge.closed { background: var(--red-soft); color: var(--red); }
-.badge.warn { background: var(--amber-soft); color: var(--amber); }
-.status { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
-.contacts-mini { display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 12.5px; }
-.contacts-mini span { white-space: nowrap; }
-.contacted { font-size: 12px; color: var(--muted); display: inline-flex; gap: 5px; align-items: center; cursor: pointer; }
-.co-body { border-top: 1px solid var(--border); padding: 12px 14px 14px; display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 18px; }
-@media (max-width: 760px) {
-  .co-head { grid-template-columns: 40px minmax(0, 1fr) auto; }
-  .co-head .status { grid-column: 3; grid-row: 1; }
-  .co-head .meta.loc, .co-head .meta.people { grid-column: 2 / 4; }
-  .co-body { grid-template-columns: 1fr; }
-  .brand h1 { font-size: 15px; }
-  .brand h1 .faint { display: none; }
-  header.top { position: static; }
-  .side { top: 0; }
-}
-.co-body h4 { margin: 0 0 8px; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--faint); }
-.job { display: flex; gap: 10px; justify-content: space-between; align-items: flex-start; padding: 8px 0; border-bottom: 1px dashed var(--border); }
-.job:last-child { border-bottom: 0; }
-.job .t { font-weight: 550; }
-.job .s { font-size: 12.5px; color: var(--muted); }
-.job.closed .t { color: var(--red); text-decoration: line-through; }
-.job .why { color: var(--red); font-size: 12px; }
-.job .r { display: flex; gap: 6px; align-items: center; flex: none; flex-wrap: wrap; justify-content: flex-end; }
-.person { padding: 7px 0; border-bottom: 1px dashed var(--border); }
-.person:last-child { border-bottom: 0; }
-.person .pn { font-weight: 600; }
-.person .pt { font-size: 12.5px; color: var(--muted); }
-.links { display: flex; flex-wrap: wrap; gap: 6px 12px; font-size: 13px; margin-top: 10px; }
-.snippet { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
-.teamhead { display: flex; align-items: center; gap: 6px; margin: 12px 0 2px; font-size: 12px; font-weight: 650; color: var(--muted); }
-.teamhead:first-of-type { margin-top: 0; }
-.person .cl { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: 2px; }
-.copy { border: 0; background: none; color: var(--faint); cursor: pointer; padding: 0 2px; font-size: 12px; }
-.copy:hover { color: var(--accent); }
-.chan { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; padding: 3px 0; }
-.chips { display: flex; flex-wrap: wrap; gap: 4px; }
-.find { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-.find a { font-size: 12px; padding: 4px 8px; border: 1px solid var(--border); border-radius: 999px; }
-.badge.ta { background: var(--blue-soft); color: var(--blue); }
-.badge.mk { background: var(--green-soft); color: var(--green); }
-.mrow { display: flex; justify-content: space-between; width: 100%; border: 0; background: none; padding: 5px 0; cursor: pointer; font-size: 13px; color: var(--text); border-bottom: 1px solid var(--border); }
-.mrow:last-child { border-bottom: 0; }
-.mrow.on { color: var(--accent); font-weight: 650; }
-.mrow:hover { color: var(--accent); }
-.badge.pa { background: var(--amber-soft); color: var(--amber); }
-.badge.fo { background: var(--accent-soft); color: var(--accent); }
-
-.side { position: sticky; top: 76px; display: flex; flex-direction: column; gap: 12px; }
-@media (max-width: 1050px) { .side { position: static; } }
-.card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; box-shadow: var(--shadow); }
-.card h3 { margin: 0 0 8px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
-.feed { max-height: 420px; overflow: auto; margin: 0 -4px; padding: 0 4px; }
-.ev { display: flex; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 12.5px; }
-.ev:last-child { border-bottom: 0; }
-.ev .ic { width: 18px; flex: none; text-align: center; }
-.ev .when { color: var(--faint); font-size: 11.5px; }
-.ev.closed b { color: var(--red); }
-.spark { display: flex; align-items: flex-end; gap: 3px; height: 54px; margin-top: 6px; }
-.spark div { flex: 1; background: var(--accent); border-radius: 2px 2px 0 0; min-height: 2px; opacity: .85; }
-.spark div.today { opacity: 1; background: var(--green); }
-.srcrow { display: flex; justify-content: space-between; font-size: 12.5px; padding: 4px 0; color: var(--muted); gap: 8px; }
-.srcrow b { color: var(--text); font-weight: 600; }
-.empty { text-align: center; padding: 40px 10px; color: var(--muted); background: var(--panel); border: 1px dashed var(--border); border-radius: 12px; }
-.more { margin: 12px auto 0; display: block; }
-.toasts { position: fixed; right: 16px; bottom: 16px; display: flex; flex-direction: column; gap: 8px; z-index: 50; max-width: min(380px, calc(100vw - 32px)); }
-.toast { background: var(--panel); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 10px; padding: 10px 12px; box-shadow: 0 8px 24px rgba(0,0,0,.18); font-size: 13px; animation: slide .25s ease; }
-.toast.red { border-left-color: var(--red); }
-.toast.green { border-left-color: var(--green); }
-@keyframes slide { from { transform: translateY(10px); opacity: 0; } }
-.muted { color: var(--muted); } .faint { color: var(--faint); }
-.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-footer { color: var(--faint); font-size: 12px; padding: 0 0 30px; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Startup Leads · Remote Tech &amp; Internships · Australia · Europe · MEA · New Zealand · SEA · UK</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-canvas: #F7F6F2;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #EFECE6;
+      --bg-hover: #F3F1EC;
+      --ink-primary: #141413;
+      --ink-secondary: #575652;
+      --ink-muted: #787670;
+      --border-hairline: #DFDDD6;
+      --border-strong: #141413;
+      --accent-emerald: #0D6E4F;
+      --accent-emerald-bg: #E6F4EE;
+      --accent-amber: #9A4A06;
+      --accent-amber-bg: #FEF3C7;
+      --accent-crimson: #B91C1C;
+      --accent-crimson-bg: #FDECEC;
+    }
+    html.dark {
+      --bg-canvas: #0D0F12;
+      --bg-surface: #15181E;
+      --bg-subtle: #1D212A;
+      --bg-hover: #212631;
+      --ink-primary: #F3F2EE;
+      --ink-secondary: #A6A8B1;
+      --ink-muted: #6E717C;
+      --border-hairline: #272B36;
+      --border-strong: #F3F2EE;
+      --accent-emerald: #34D399;
+      --accent-emerald-bg: rgba(16, 185, 129, 0.14);
+      --accent-amber: #FBBF24;
+      --accent-amber-bg: rgba(245, 158, 11, 0.15);
+      --accent-crimson: #F87171;
+      --accent-crimson-bg: rgba(248, 113, 113, 0.14);
+    }
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--ink-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      letter-spacing: -0.011em;
+      overflow-x: hidden;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+    .font-serif-editorial {
+      font-family: 'Instrument Serif', Georgia, serif;
+      letter-spacing: -0.015em;
+    }
+    .font-mono-tabular {
+      font-family: 'JetBrains Mono', monospace;
+      font-variant-numeric: tabular-nums;
+    }
+    .surface-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+    }
+    .surface-subtle {
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border-hairline);
+    }
+    .hairline-border {
+      border-color: var(--border-hairline);
+    }
+    .pill-btn {
+      border: 1px solid var(--border-hairline);
+      background-color: var(--bg-surface);
+      color: var(--ink-secondary);
+      transition: all 0.12s ease;
+    }
+    .pill-btn:hover {
+      background-color: var(--bg-hover);
+      color: var(--ink-primary);
+      border-color: var(--ink-secondary);
+    }
+    .pill-btn-active {
+      background-color: var(--ink-primary) !important;
+      color: var(--bg-surface) !important;
+      border-color: var(--ink-primary) !important;
+      font-weight: 600;
+    }
+    .seg-btn {
+      color: var(--ink-secondary);
+      transition: all 0.12s ease;
+    }
+    .seg-btn-active {
+      background-color: var(--bg-surface);
+      color: var(--ink-primary);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+      font-weight: 600;
+    }
+    .select-clean {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      color: var(--ink-primary);
+    }
+    .select-clean:focus {
+      outline: none;
+      border-color: var(--ink-primary);
+    }
+    .badge-remote {
+      background-color: var(--accent-emerald-bg);
+      color: var(--accent-emerald);
+    }
+    .badge-intern {
+      background-color: var(--accent-amber-bg);
+      color: var(--accent-amber);
+    }
+    .badge-closed { background-color: var(--accent-crimson-bg); color: var(--accent-crimson); }
+    .is-closed { border-color: var(--accent-crimson) !important; box-shadow: inset 3px 0 0 var(--accent-crimson); }
+    .is-closed .company-name { color: var(--accent-crimson); text-decoration: line-through; text-decoration-thickness: 1px; }
+    .role-closed .role-title { color: var(--accent-crimson); text-decoration: line-through; }
+    .pulse-live {
+      animation: pulseDot 2s infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+  </style>
 </head>
-<body>
-<header class="top">
-  <div class="wrap">
-    <div class="brand">
-      <h1>Startup Leads <span class="faint" style="font-weight:500">· MEA · SEA · Germany · UK · Australia</span></h1>
-    </div>
-    <span class="livepill" id="livepill" title="Live status"><span class="dot" id="livedot"></span><span id="livetext">Connecting…</span></span>
-    <button class="btn" id="refreshBtn" title="Reload the latest data and re-check jobs live">↻ Check now</button>
-    <button class="btn" id="csvBtn" title="Download the current filtered view as CSV">⬇ CSV</button>
-    <a class="btn" id="runLink" target="_blank" rel="noopener" title="Run the data updater on GitHub Actions">⚙ Updater</a>
-    <button class="btn iconbtn" id="themeBtn" title="Toggle theme" aria-label="Toggle theme">◐</button>
-  </div>
-</header>
+<body class="min-h-screen flex flex-col">
 
-<main class="wrap">
-  <section class="kpis" id="kpis" aria-label="Summary"></section>
-
-  <div class="layout">
-    <section>
-      <div class="toolbar" role="search">
-        <label class="search"><span class="faint">⌕</span><span class="sr">Search</span>
-          <input id="q" type="search" placeholder="Search company, role, founder, tech, location…" autocomplete="off">
-        </label>
-        <div class="seg" id="typeSeg">
-          <button data-v="all" class="on">All roles</button><button data-v="job">Jobs</button><button data-v="internship">Internships</button>
+  <!-- Top Editorial Masthead -->
+  <header class="sm:sticky top-0 z-30 surface-card border-b hairline-border backdrop-blur-md bg-opacity-95">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-2.5 h-2.5 rounded-full bg-emerald-600 pulse-live" title="Hourly Live Auto-Sync Active"></div>
+        <div>
+          <div class="flex flex-wrap items-baseline gap-2.5">
+            <span class="font-serif-editorial text-2xl sm:text-3xl tracking-tight">Startup Leads</span>
+            <span class="text-xs font-mono-tabular uppercase tracking-wider px-2 py-0.5 rounded surface-subtle">100% Remote · Pure Tech</span>
+          </div>
+          <p class="text-xs text-[#575652] dark:text-slate-400">
+            Australia · Europe · MEA · New Zealand · SEA · UK &nbsp;|&nbsp; <span class="font-mono-tabular font-medium">Zero USA · Zero On-Site</span>
+          </p>
         </div>
-        <select id="status" aria-label="Status">
-          <option value="open">Hiring now</option>
-          <option value="closed">No longer hiring (red)</option>
-          <option value="all">All statuses</option>
-        </select>
-        <select id="region" aria-label="Market">
-          <option value="focus">★ Focus markets (MEA · SEA · DE · UK · AU)</option>
-          <option value="MEA">Middle East &amp; Africa</option><option value="SEA">Southeast Asia</option>
-          <option value="Germany">Germany</option><option value="UK">United Kingdom</option><option value="Australia">Australia &amp; NZ</option>
-          <option value="Europe">Rest of Europe</option><option value="India">India</option><option value="Remote">Remote (global)</option>
-          <option value="USA">United States</option><option value="">All markets</option>
-        </select>
-        <label class="chk" title="Hide US-only companies and US-only roles"><input type="checkbox" id="hideUS"> Hide USA</label>
-        <label class="chk" title="Only software, data, AI/ML, DevOps/cloud, security, QA, embedded and IT roles"><input type="checkbox" id="techOnly"> Tech roles only</label>
-        <select id="source" aria-label="Source">
-          <option value="">All sources</option><option value="yc">Y Combinator</option><option value="hn">HN Who's Hiring</option>
-          <option value="greenhouse">Greenhouse</option><option value="lever">Lever</option><option value="ashby">Ashby</option><option value="manual">Manual / imported</option><option value="linkedin">LinkedIn (profiles &amp; job links)</option>
-        </select>
-        <select id="sort" aria-label="Sort">
-          <option value="new">Newest first</option><option value="roles">Most open roles</option>
-          <option value="closedRecent">Recently closed</option><option value="name">Name A–Z</option>
-        </select>
-        <label class="chk"><input type="checkbox" id="fNew"> Added today</label>
-        <select id="contact" aria-label="Contact type">
-          <option value="">Any contacts</option><option value="ta">Has Talent / HR contact</option>
-          <option value="pa">Has Partnerships / BD contact</option><option value="fo">Has founder contact</option>
-          <option value="email">Has an email</option><option value="phone">Has a phone number</option>
-        </select>
-        <label class="chk"><input type="checkbox" id="fUncontacted"> Not contacted</label>
       </div>
-      <div class="resultbar"><span id="resultCount"></span><span id="liveCheckInfo" class="faint"></span></div>
-      <div class="list" id="list"></div>
-      <button class="btn more" id="moreBtn" hidden>Show more</button>
+
+      <!-- Right Controls: Live Hourly Status, Check Now, CSV, Updater, Add Lead, Theme -->
+      <div class="flex flex-wrap items-center gap-2">
+        <div class="flex items-center gap-2 px-2.5 py-1.5 rounded-md surface-subtle text-xs font-mono-tabular">
+          <span id="liveSyncDot" class="inline-block w-2 h-2 rounded-full bg-emerald-600"></span>
+          <span id="liveStatusText">Live · Hourly sync</span>
+          <span class="opacity-40">|</span>
+          <span class="text-[11px]" title="Countdown to next automatic hourly refresh">Next: <strong id="hourlyCountdownLabel">59:59</strong></span>
+        </div>
+
+        <button id="checkNowBtn" type="button" class="pill-btn px-3 py-1.5 rounded-md text-xs font-mono-tabular font-medium">
+          Sync now ↻
+        </button>
+
+        <button id="exportCsvBtn" type="button" class="pill-btn px-3 py-1.5 rounded-md text-xs font-mono-tabular font-medium">
+          Export CSV ↓
+        </button>
+
+        <a id="updaterLink" href="https://github.com/Yprnv7/startup-leads-live/actions/workflows/hourly_sync.yml" target="_blank" rel="noopener noreferrer" class="pill-btn px-3 py-1.5 rounded-md text-xs font-mono-tabular font-medium" title="Hourly GitHub Actions run (0 * * * *)">
+          Hourly updater ↗
+        </a>
+
+        <button id="themeToggleBtn" type="button" class="pill-btn px-2.5 py-1.5 rounded-md text-xs font-mono-tabular" title="Toggle Light / Dark theme">
+          Dark / Light
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-[1400px] w-full mx-auto px-4 sm:px-6 py-6 flex-1 space-y-6">
+
+    <!-- Top KPI Ledger Bar (Clean 5-Column Typographic Grid) -->
+    <section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+      <div class="surface-card rounded-lg p-3.5 flex flex-col justify-between">
+        <span class="text-[11px] font-mono-tabular uppercase tracking-wider text-[#575652] dark:text-slate-400">Hiring Startups</span>
+        <div class="flex items-baseline justify-between mt-1">
+          <span id="kpiStartupsCount" class="font-serif-editorial text-3xl sm:text-4xl">—</span>
+          <span class="text-[11px] font-mono-tabular badge-remote px-1.5 py-0.5 rounded">100% Remote</span>
+        </div>
+        <span class="text-[11px] text-[#787670] mt-1">0 USA · 0 India offices</span>
+      </div>
+
+      <div class="surface-card rounded-lg p-3.5 flex flex-col justify-between">
+        <span class="text-[11px] font-mono-tabular uppercase tracking-wider text-[#575652] dark:text-slate-400">Pure Tech Roles</span>
+        <div class="flex items-baseline justify-between mt-1">
+          <span id="kpiTotalRolesCount" class="font-serif-editorial text-3xl sm:text-4xl">—</span>
+          <span class="text-[11px] font-mono-tabular text-[#575652]">0 On-Site</span>
+        </div>
+        <span class="text-[11px] text-[#787670] mt-1">SWE, AI/ML, Backend, Infra</span>
+      </div>
+
+      <div class="surface-card rounded-lg p-3.5 flex flex-col justify-between">
+        <span class="text-[11px] font-mono-tabular uppercase tracking-wider text-[#575652] dark:text-slate-400">Remote Internships</span>
+        <div class="flex items-baseline justify-between mt-1">
+          <span id="kpiInternshipsCount" class="font-serif-editorial text-3xl sm:text-4xl">—</span>
+          <span class="text-[11px] font-mono-tabular badge-intern px-1.5 py-0.5 rounded">Remote only</span>
+        </div>
+        <span class="text-[11px] text-[#787670] mt-1">Software, AI &amp; data internships</span>
+      </div>
+
+      <div class="surface-card rounded-lg p-3.5 flex flex-col justify-between">
+        <span class="text-[11px] font-mono-tabular uppercase tracking-wider text-[#575652] dark:text-slate-400">C-Suite Contacts</span>
+        <div class="flex items-baseline justify-between mt-1">
+          <span id="kpiPocsCount" class="font-serif-editorial text-3xl sm:text-4xl">—</span>
+          <span id="kpiPocBadge" class="text-[11px] font-mono-tabular text-[var(--accent-emerald)]">—</span>
+        </div>
+        <span id="kpiPocBreakdown" class="text-[11px] text-[#787670] mt-1">—</span>
+      </div>
+
+      <div class="surface-card rounded-lg p-3.5 flex flex-col justify-between col-span-2 sm:col-span-1">
+        <span class="text-[11px] font-mono-tabular uppercase tracking-wider text-[#575652] dark:text-slate-400">Countries (A → Z)</span>
+        <div class="flex items-baseline justify-between mt-1">
+          <span id="kpiCountriesCount" class="font-serif-editorial text-3xl sm:text-4xl">—</span>
+          <span class="text-[11px] font-mono-tabular px-1.5 py-0.5 rounded surface-subtle">6 Focus Regions</span>
+        </div>
+        <span class="text-[11px] text-[#787670] mt-1">AU · Europe · MEA · NZ · SEA · UK</span>
+      </div>
     </section>
 
-    <aside class="side">
-      <div class="card">
-        <h3>Daily additions <span class="faint" id="sparkLabel"></span></h3>
-        <div class="spark" id="spark" aria-label="Companies added per day"></div>
-        <div class="faint" style="font-size:11.5px;margin-top:4px">New companies per day (last 21 days)</div>
-      </div>
-      <div class="card">
-        <h3>Live activity <span class="faint" id="feedCount"></span></h3>
-        <div class="seg" id="feedSeg" style="margin-bottom:6px">
-          <button data-v="key" class="on">Companies</button><button data-v="closed">Closures</button><button data-v="all">Everything</button>
+    <!-- REDESIGNED, INTUITIVE 2-TIER FILTER BAR (Replaces the confusing 3-row filter mess) -->
+    <section class="surface-card rounded-xl p-4 sm:p-5 space-y-4 shadow-sm" aria-label="Filter Command Bar">
+      <!-- Tier 1: Role Type Segmented Control + 6 Focus Region Pills + Instant Search -->
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3.5 border-b hairline-border">
+        <!-- Segmented Role Type Switcher -->
+        <div class="inline-flex p-1 rounded-lg surface-subtle self-start">
+          <button type="button" data-role-tab="ALL" class="role-tab-btn seg-btn seg-btn-active px-3 py-1.5 rounded-md text-xs font-mono-tabular">
+            All Remote Tech (<span id="tabCountAll">—</span>)
+          </button>
+          <button type="button" data-role-tab="JOB" class="role-tab-btn seg-btn px-3 py-1.5 rounded-md text-xs font-mono-tabular">
+            Remote Jobs (<span id="tabCountJobs">—</span>)
+          </button>
+          <button type="button" data-role-tab="INTERN" class="role-tab-btn seg-btn px-3 py-1.5 rounded-md text-xs font-mono-tabular">
+            Remote Internships (<span id="tabCountInterns">—</span>)
+          </button>
         </div>
-        <div class="feed" id="feed"></div>
+
+        <!-- 6 Focus Region Pills (Strictly Alphabetical: Australia, Europe, MEA, New Zealand, SEA, UK) -->
+        <div class="flex flex-wrap items-center gap-1.5" id="regionPillsContainer">
+          <span class="text-[11px] font-mono-tabular uppercase tracking-wider text-[#787670] mr-1">Region:</span>
+          <button type="button" data-region-pill="ALL" class="region-pill-btn pill-btn pill-btn-active px-2.5 py-1 rounded-md text-xs font-mono-tabular">
+            All 6 Regions
+          </button>
+          <button type="button" data-region-pill="Australia" class="region-pill-btn pill-btn px-2.5 py-1 rounded-md text-xs font-mono-tabular">
+            Australia
+          </button>
+          <button type="button" data-region-pill="Europe" class="region-pill-btn pill-btn px-2.5 py-1 rounded-md text-xs font-mono-tabular">
+            Europe
+          </button>
+          <button type="button" data-region-pill="MEA" class="region-pill-btn pill-btn px-2.5 py-1 rounded-md text-xs font-mono-tabular">
+            MEA
+          </button>
+          <button type="button" data-region-pill="New Zealand" class="region-pill-btn pill-btn px-2.5 py-1 rounded-md text-xs font-mono-tabular">
+            New Zealand
+          </button>
+          <button type="button" data-region-pill="SEA" class="region-pill-btn pill-btn px-2.5 py-1 rounded-md text-xs font-mono-tabular">
+            SEA
+          </button>
+          <button type="button" data-region-pill="UK" class="region-pill-btn pill-btn px-2.5 py-1 rounded-md text-xs font-mono-tabular">
+            UK
+          </button>
+        </div>
+
+        <!-- Instant Search Input -->
+        <div class="relative w-full lg:w-72">
+          <input
+            id="searchFilterInput"
+            type="text"
+            placeholder="Search startup, stack, role, CEO/CTO   ( / )"
+            class="w-full select-clean rounded-lg pl-3 pr-8 py-1.5 text-xs font-mono-tabular"
+          />
+          <button id="clearSearchBtn" type="button" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-[#787670] hover:text-black">✕</button>
+        </div>
       </div>
-      <div class="card">
-        <h3>Markets <span class="faint">hiring companies</span></h3>
-        <div id="markets"></div>
+
+      <!-- Tier 2: 4 Clean Aligned Dropdowns (Alphabetical Country A-Z, Pure Tech Discipline, C-Suite Filter, Sort) + Reset -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 items-end">
+        <div>
+          <label for="countrySelectAlpha" class="block text-[11px] font-mono-tabular uppercase tracking-wider text-[#575652] dark:text-slate-400 mb-1">
+            Country (A → Z)
+          </label>
+          <select id="countrySelectAlpha" class="w-full select-clean rounded-lg px-2.5 py-1.5 text-xs font-mono-tabular">
+            <option value="ALL">All Countries (A → Z)</option>
+            <!-- Populated strictly A-Z in JS -->
+          </select>
+        </div>
+
+        <div>
+          <label for="disciplineSelect" class="block text-[11px] font-mono-tabular uppercase tracking-wider text-[#575652] dark:text-slate-400 mb-1">
+            Engineering track
+          </label>
+          <select id="disciplineSelect" class="w-full select-clean rounded-lg px-2.5 py-1.5 text-xs font-mono-tabular">
+            <option value="ALL">All pure tech tracks</option>
+            <option value="AI / ML & LLM Systems">AI / ML &amp; LLM Systems</option>
+            <option value="Backend & Distributed Systems">Backend &amp; Distributed Systems</option>
+            <option value="Data & Quant Engineering">Data &amp; Quant Engineering</option>
+            <option value="DevOps, Cloud & SRE">DevOps, Cloud &amp; SRE</option>
+            <option value="Full-Stack & Product Engineering">Full-Stack &amp; Product Engineering</option>
+            <option value="Mobile & Autonomous Systems">Mobile &amp; Autonomous Systems</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="cSuiteFilterSelect" class="block text-[11px] font-mono-tabular uppercase tracking-wider text-[#575652] dark:text-slate-400 mb-1">
+            C-Suite &amp; Contact Filter
+          </label>
+          <select id="cSuiteFilterSelect" class="w-full select-clean rounded-lg px-2.5 py-1.5 text-xs font-mono-tabular">
+            <option value="ALL">All contacts</option>
+            <option value="CSUITE_DIRECT">C-Suite with email + phone + LinkedIn</option>
+            <option value="HAS_EMAIL">Has an email</option>
+            <option value="HAS_PHONE">Has a phone number</option>
+            <option value="HAS_LINKEDIN">Has LinkedIn</option>
+            <option value="UNCONTACTED">Not contacted yet</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="sourceSelect" class="block text-[11px] font-mono-tabular uppercase tracking-wider text-[#575652] dark:text-slate-400 mb-1">
+            Source
+          </label>
+          <select id="sourceSelect" class="w-full select-clean rounded-lg px-2.5 py-1.5 text-xs font-mono-tabular">
+            <option value="ALL">All sources</option>
+            <option value="ashby">Ashby</option>
+            <option value="arbeitnow">Arbeitnow</option>
+            <option value="greenhouse">Greenhouse</option>
+            <option value="hn">HN Who's Hiring</option>
+            <option value="jobicy">Jobicy</option>
+            <option value="lever">Lever</option>
+            <option value="linkedin">LinkedIn (profiles &amp; job links)</option>
+            <option value="yc">Y Combinator</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="sortOrderSelect" class="block text-[11px] font-mono-tabular uppercase tracking-wider text-[#575652] dark:text-slate-400 mb-1">
+            Sort by
+          </label>
+          <select id="sortOrderSelect" class="w-full select-clean rounded-lg px-2.5 py-1.5 text-xs font-mono-tabular">
+            <option value="COUNTRY_AZ">Country (A → Z)</option>
+            <option value="NEWEST_HOURLY">Newest first</option>
+            <option value="COMPANY_AZ">Company name (A → Z)</option>
+            <option value="MOST_ROLES">Most open remote roles</option>
+          </select>
+        </div>
+
       </div>
-      <div class="card">
-        <h3>Data sources</h3>
-        <div id="sources"></div>
-      </div>
-    </aside>
-  </div>
-</main>
-<footer class="wrap" id="footer"></footer>
-<div class="toasts" id="toasts" aria-live="polite"></div>
-
-<script>
-(() => {
-  'use strict';
-  const DATA_URL = 'data/leads.json';
-  const POLL_MS = 60 * 1000;              // check data/version.json (tiny); re-download only on change
-  const LIVE_CHECK_MS = 10 * 60 * 1000;   // browser-side re-verification of jobs
-  const PAGE = 60;
-
-  const $ = s => document.querySelector(s);
-  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const store = {
-    get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } },
-    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
-  };
-
-  let data = null;
-  let lastGenerated = null;
-  let shown = PAGE;
-  const expanded = new Set();
-  const liveClosed = new Map();     // jobId -> reason, from browser checks since the last dataset
-  let lastLiveCheck = null, liveChecking = false;
-  const contacted = new Set(store.get('leads.contacted', []));
-  const filters = Object.assign({ q: '', type: 'all', status: 'open', region: 'focus', hideUS: true, techOnly: true, source: '', sort: 'new', contact: '', fNew: false, fUncontacted: false }, store.get('leads.filters.v2', {}));
-
-  // ------------------------------------------------------------ theme
-  const theme = store.get('leads.theme', null);
-  if (theme) document.documentElement.dataset.theme = theme;
-  $('#themeBtn').onclick = () => {
-    const dark = document.documentElement.dataset.theme
-      ? document.documentElement.dataset.theme === 'dark'
-      : matchMedia('(prefers-color-scheme: dark)').matches;
-    document.documentElement.dataset.theme = dark ? 'light' : 'dark';
-    store.set('leads.theme', document.documentElement.dataset.theme);
-  };
-
-  // ------------------------------------------------------------ time helpers
-  const ago = iso => {
-    if (!iso) return '—';
-    const s = Math.max(0, (Date.now() - Date.parse(iso)) / 1000);
-    if (s < 60) return 'just now';
-    if (s < 3600) return `${Math.floor(s / 60)} min ago`;
-    if (s < 86400) return `${Math.floor(s / 3600)} h ago`;
-    const d = Math.floor(s / 86400);
-    return d === 1 ? 'yesterday' : `${d} days ago`;
-  };
-  const localDay = iso => new Date(iso).toLocaleDateString('en-CA');
-  const isToday = iso => iso && localDay(iso) === new Date().toLocaleDateString('en-CA');
-  const fmtDate = iso => iso ? new Date(iso).toLocaleDateString(undefined, { day: 'numeric', month: 'short' }) : '';
-
-  // ------------------------------------------------------------ derived company state (dataset + live overlay)
-  const FOCUS = ['MEA', 'SEA', 'Germany', 'UK', 'Australia'];
-  // Server tags j.tech; this fallback covers roles from an older dataset.
-  const TECH_FALLBACK = /engineer|developer|software|data (?:engineer|scien|analy)|machine learning|\bml\b|\bai\b|devops|sre|security|qa\b|sdet|firmware|embedded|architect|full.?stack|front.?end|back.?end|mobile|ios|android|cloud|platform|infra/i;
-  const TECH_FALLBACK_NEG = /sales|marketing|recruit|talent|account exec|business development|product manager|designer|mechanical|electrical|solutions engineer|customer/i;
-  const isTech = j => typeof j.tech === 'boolean' ? j.tech : TECH_FALLBACK.test(j.title) && !TECH_FALLBACK_NEG.test(j.title);
-  const usOnly = m => !!m?.length && m.includes('USA') && m.every(x => x === 'USA' || x === 'Canada');
-  function view(c) {
-    const all = c.jobs.map(j => liveClosed.has(j.id) && j.status === 'open'
-      ? { ...j, status: 'closed', closedAt: new Date().toISOString(), closedReason: liveClosed.get(j.id), live: true }
-      : j);
-    const anyOpen = all.some(j => j.status === 'open');
-    // "Hide USA": drop roles that are US-only; drop the company if nothing outside the US is left.
-    const keepJob = j => (!filters.hideUS || !usOnly(j.markets?.length ? j.markets : c.markets)) && (!filters.techOnly || isTech(j));
-    const jobs = all.filter(keepJob);
-    const open = jobs.filter(j => j.status === 'open');
-    const filtering = filters.hideUS || filters.techOnly;
-    const hidden = filtering && ((all.length && !jobs.length) || (anyOpen && !open.length) || (filters.hideUS && !all.length && usOnly(c.markets)));
-    return {
-      ...c, jobs, hidden, hiddenRoles: all.length - jobs.length,
-      openJobs: open.length,
-      openInternships: open.filter(j => j.type === 'internship').length,
-      status: anyOpen ? 'open' : 'closed',
-      closedNow: c.status === 'open' && !anyOpen,
-    };
-  }
-  const marketsOfC = c => c.markets || [];
-  const regionMatch = (c, r = filters.region) => !r || (r === 'focus' ? marketsOfC(c).some(m => FOCUS.includes(m)) : marketsOfC(c).includes(r));
-  // Rows in the selected market (and outside the US if hidden): what KPIs and the list start from.
-  const baseRows = () => data.companies.map(view).filter(c => !c.hidden && regionMatch(c));
-
-  const TEAM_OF = p => p.team || (p.source === 'HN' ? 'Talent & HR' : /founder|ceo|cto|chief/i.test(p.title || '') ? 'Founders & leadership' : 'Other');
-  const TEAM_KEY = { ta: 'Talent & HR', pa: 'Partnerships & BD', fo: 'Founders & leadership' };
-  const emailsOf = c => [...c.contacts.filter(p => p.email).map(p => p.email), ...(c.channels?.emails || []).map(e => e.email)];
-  const phonesOf = c => [...c.contacts.filter(p => p.phone).map(p => p.phone), ...(c.channels?.phones || []).map(x => x.phone)];
-  function contactMatch(c, k) {
-    if (!k) return true;
-    if (k === 'email') return emailsOf(c).length > 0;
-    if (k === 'phone') return phonesOf(c).length > 0;
-    return c.contacts.some(p => TEAM_OF(p) === TEAM_KEY[k]) || (c.channels?.emails || []).some(e => e.team === TEAM_KEY[k]);
-  }
-  // LinkedIn has no public jobs API, so "LinkedIn" means: a role links to a LinkedIn job post,
-  // or the company has a LinkedIn page / contacts with LinkedIn profiles.
-  const onLinkedIn = c => c.jobs.some(j => j.via === 'linkedin') || !!(c.linkedin || c.channels?.social?.linkedin) || c.contacts.some(p => p.linkedin);
-  const sourceOf = c => c.source || (c.sources || [])[0];
-
-  function filtered() {
-    if (!data) return [];
-    const q = filters.q.trim().toLowerCase();
-    const terms = q ? q.split(/\s+/) : [];
-    let rows = baseRows();
-    rows = rows.filter(c => {
-      if (filters.status !== 'all' && c.status !== filters.status) return false;
-      if (filters.type !== 'all') {
-        const want = filters.type;
-        const pool = filters.status === 'closed' ? c.jobs : c.jobs.filter(j => j.status === 'open');
-        if (!pool.some(j => j.type === want)) return false;
-      }
-      if (filters.source === 'linkedin' ? !onLinkedIn(c) : filters.source && !(c.sources || [c.source]).includes(filters.source)) return false;
-      if (filters.fNew && !isToday(c.firstSeen)) return false;
-      if (!contactMatch(c, filters.contact)) return false;
-      if (filters.fUncontacted && contacted.has(c.id)) return false;
-      if (terms.length) {
-        const hay = [c.name, c.oneLiner, c.location, c.batch, ...(c.tags || []), ...c.contacts.map(p => `${p.name} ${p.title} ${p.email || ''} ${p.phone || ''} ${p.team || ''}`), ...emailsOf(c), ...phonesOf(c), ...c.jobs.map(j => `${j.title} ${j.location || ''} ${j.snippet || ''}`)].join(' ').toLowerCase();
-        if (!terms.every(t => hay.includes(t))) return false;
-      }
-      return true;
-    });
-    const by = {
-      new: (a, b) => b.firstSeen.localeCompare(a.firstSeen) || b.openJobs - a.openJobs,
-      roles: (a, b) => b.openJobs - a.openJobs || a.name.localeCompare(b.name),
-      closedRecent: (a, b) => String(b.closedAt || (b.closedNow ? '9' : '')).localeCompare(String(a.closedAt || (a.closedNow ? '9' : ''))),
-      name: (a, b) => a.name.localeCompare(b.name),
-    }[filters.sort];
-    return rows.sort(by);
-  }
-
-  // ------------------------------------------------------------ rendering
-  function kpis() {
-    const rows = baseRows();
-    const open = rows.filter(c => c.status === 'open');
-    const t = {
-      companies: rows.length,
-      open: open.length,
-      closed: rows.length - open.length,
-      jobs: rows.reduce((n, c) => n + c.openJobs, 0),
-      interns: rows.reduce((n, c) => n + c.openInternships, 0),
-      founders: rows.reduce((n, c) => n + c.contacts.length, 0),
-      emails: rows.reduce((n, c) => n + emailsOf(c).length, 0),
-      phones: rows.reduce((n, c) => n + phonesOf(c).length, 0),
-      addedToday: rows.filter(c => isToday(c.firstSeen)).length,
-      closedToday: rows.filter(c => c.status === 'closed' && (c.closedNow || isToday(c.closedAt))).length,
-    };
-    const tile = (label, value, sub, cls, act) => `<button class="kpi ${cls || ''}" data-act="${act || ''}"><div class="label">${label}</div><div class="value">${value.toLocaleString()}</div><div class="sub">${sub}</div></button>`;
-    $('#kpis').innerHTML = [
-      tile('Hiring now', t.open, `${t.companies.toLocaleString()} companies tracked`, 'green', 'open'),
-      tile(filters.techOnly ? 'Open tech roles' : 'Open jobs', t.jobs, 'across hiring companies', '', 'jobs'),
-      tile('Internships', t.interns, 'open intern roles', '', 'interns'),
-      tile('Points of contact', t.founders, `${t.emails.toLocaleString()} emails · ${t.phones.toLocaleString()} phones`, '', 'founders'),
-      tile('Added today', t.addedToday, 'new companies', '', 'today'),
-      tile('No longer hiring', t.closed, `${t.closedToday} closed today`, 'red', 'closed'),
-    ].join('');
-  }
-
-  const initials = n => (n || '?').split(/\s+/).map(w => w[0]).join('').slice(0, 2).toUpperCase();
-  const linkedInSearch = (c, role = 'founder') => `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(`${role} ${c.name}`)}`;
-  const TEAM_BADGE = { 'Talent & HR': ['ta', 'TA / HR'], 'Partnerships & BD': ['pa', 'Partnerships'], 'Founders & leadership': ['fo', 'Founders'], 'Sales & growth': ['', 'Sales'], Other: ['', 'Other'] };
-  const MARKET_LABEL = { MEA: 'MEA', SEA: 'SEA', Germany: 'DE', UK: 'UK', Australia: 'AU/NZ' };
-  const copyBtn = v => `<button class="copy" data-copy="${esc(v)}" title="Copy">⧉</button>`;
-
-  function contactLinks(p) {
-    const out = [];
-    if (p.linkedin) out.push(`<a href="${esc(p.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>`);
-    if (p.twitter) out.push(`<a href="${esc(p.twitter)}" target="_blank" rel="noopener">X</a>`);
-    if (p.email) out.push(`<span>✉ <a href="mailto:${esc(p.email)}">${esc(p.email)}</a>${copyBtn(p.email)}</span>`);
-    if (p.phone) out.push(`<span>☎ <a href="tel:${esc(p.phone.replace(/[^\d+]/g, ''))}">${esc(p.phone)}</a>${copyBtn(p.phone)}</span>`);
-    if (p.hn) out.push(`<a href="${esc(p.hn)}" target="_blank" rel="noopener">HN profile</a>`);
-    return out.join('');
-  }
-
-  function companyRow(c) {
-    const isOpen = expanded.has(c.id);
-    const roles = c.status === 'open'
-      ? `${c.openJobs} open role${c.openJobs === 1 ? '' : 's'}${c.openInternships ? ` · <span class="badge intern">${c.openInternships} intern</span>` : ''}`
-      : `<span style="color:var(--red)">0 open roles</span>`;
-    const closedCount = c.jobs.filter(j => j.status === 'closed').length;
-    const teamCounts = {};
-    for (const p of c.contacts) teamCounts[TEAM_OF(p)] = (teamCounts[TEAM_OF(p)] || 0) + 1;
-    const chips = ['Talent & HR', 'Partnerships & BD', 'Founders & leadership'].filter(t => teamCounts[t])
-      .map(t => `<span class="badge ${TEAM_BADGE[t][0]}">${teamCounts[t]} ${TEAM_BADGE[t][1]}</span>`).join('');
-    const nE = emailsOf(c).length, nP = phonesOf(c).length;
-    const people = c.contacts.slice(0, 2).map(p => `<span>${p.linkedin ? `<a href="${esc(p.linkedin)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${esc(p.name)}</a>` : p.email ? `<a href="mailto:${esc(p.email)}" onclick="event.stopPropagation()">${esc(p.name)}</a>` : esc(p.name)}<span class="faint"> ${esc(shortTitle(p.title))}</span></span>`).join('');
-    const status = c.status === 'open'
-      ? `<span class="badge open">● Hiring</span>`
-      : `<span class="badge closed" title="${esc(c.closedNow ? 'Closed (live check)' : `Closed ${fmtDate(c.closedAt)}`)}">● No longer hiring</span>`;
-    return `<article class="co ${c.status === 'closed' ? 'closed' : ''}" data-id="${esc(c.id)}">
-      <div class="co-head" data-toggle="${esc(c.id)}" role="button" aria-expanded="${isOpen}" tabindex="0">
-        <div class="logo">${c.logo ? `<img src="${esc(c.logo)}" alt="" loading="lazy" onerror="this.remove()">` : ''}${c.logo ? '' : esc(initials(c.name))}</div>
-        <div style="min-width:0">
-          <div class="name"><span class="nm">${esc(c.name)}</span>
-            ${isToday(c.firstSeen) ? '<span class="badge new">NEW</span>' : ''}
-            ${c.batch ? `<span class="badge">YC ${esc(shortBatch(c.batch))}</span>` : ''}
-            ${marketsOfC(c).filter(m => FOCUS.includes(m)).map(m => `<span class="badge mk">${esc(MARKET_LABEL[m])}</span>`).join('')}
+      <div class="flex flex-wrap items-center justify-between gap-2 -mt-1">
+          <div class="text-xs font-mono-tabular text-[var(--ink-secondary)]">
+            <strong id="activeFilterCountLabel" class="text-[var(--ink-primary)]">—</strong> startups ·
+            <strong id="activeRolesCountLabel" class="text-[var(--ink-primary)]">—</strong> open remote roles<span id="closedCountLabel" class="text-[var(--accent-crimson)]"></span>
           </div>
-          <div class="oneliner">${esc(c.oneLiner || c.jobs[0]?.title || '')}</div>
+          <button id="resetAllFiltersBtn" type="button" class="invisible pill-btn px-3 py-1.5 rounded-lg text-xs font-mono-tabular font-medium">
+            Reset filters
+          </button>
+      </div>
+
+      <!-- View Switcher Sub-Bar (Startup Cards vs C-Suite Master Table) -->
+      <div class="pt-2 border-t hairline-border flex flex-wrap items-center justify-between gap-2 text-xs font-mono-tabular">
+        <div class="flex items-center gap-2">
+          <span class="text-[#787670]">View Mode:</span>
+          <button type="button" data-view-mode="CARDS" class="view-mode-btn pill-btn pill-btn-active px-2.5 py-1 rounded">
+            Startup &amp; C-Suite Cards
+          </button>
+          <button type="button" data-view-mode="TABLE" class="view-mode-btn pill-btn px-2.5 py-1 rounded">
+            C-Suite Executive Directory Table
+          </button>
         </div>
-        <div class="meta loc"><div>📍 ${esc(c.location || c.jobs.find(j => j.location)?.location || '—')}</div><div>${roles}${closedCount && c.status === 'open' ? ` · <span style="color:var(--red)">${closedCount} closed</span>` : ''}</div></div>
-        <div class="meta people"><div class="contacts-mini">${people || `<a href="${linkedInSearch(c)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Find founders →</a>`}</div>
-          <div class="chips" style="margin-top:3px">${chips}${nE ? `<span class="badge">✉ ${nE}</span>` : ''}${nP ? `<span class="badge">☎ ${nP}</span>` : ''}</div>
-          <div class="faint">Added ${fmtDate(c.firstSeen)} · ${esc(sourceLabel(sourceOf(c)))}</div></div>
-        <div class="status">${status}
-          <label class="contacted" onclick="event.stopPropagation()"><input type="checkbox" data-contacted="${esc(c.id)}" ${contacted.has(c.id) ? 'checked' : ''}> Contacted</label>
+        <div class="text-[11px] text-[#787670]">
+          Strict policy active: <span class="text-emerald-700 dark:text-emerald-400 font-medium">100% Remote Only · Pure Tech Only · USA Excluded · Countries Sorted A–Z</span>
         </div>
       </div>
-      ${isOpen ? companyBody(c) : ''}
-    </article>`;
-  }
+    </section>
 
-  function companyBody(c) {
-    const jobs = c.jobs.map(j => `<div class="job ${j.status === 'closed' ? 'closed' : ''}">
-      <div style="min-width:0">
-        <div class="t">${esc(j.title)}</div>
-        <div class="s">${[j.location, j.salary, j.experience, j.postedAt ? `posted ${fmtDate(j.postedAt)}` : `seen ${fmtDate(j.firstSeen)}`].filter(Boolean).map(esc).join(' · ')}</div>
-        ${j.snippet ? `<div class="snippet">${esc(j.snippet)}</div>` : ''}
-        ${j.status === 'closed' ? `<div class="why">✕ ${esc(j.closedReason || 'No longer available')}${j.live ? ' (detected live)' : ` · ${fmtDate(j.closedAt)}`}</div>` : ''}
+    <!-- 2-Column Content Layout (Left: Main Feed ~70% | Right: Live Hourly & Alphabetical Country Sidebar ~30%) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+      <!-- Left Column: Startup Cards or C-Suite Directory Table (8 cols) -->
+      <div class="lg:col-span-8 space-y-4">
+        <div id="cardsFeedContainer" class="space-y-4">
+          <div class="surface-card rounded-xl p-10 text-center text-xs font-mono-tabular text-[var(--ink-muted)]">Loading live remote roles…</div>
+        </div>
+        <button id="showMoreBtn" type="button" class="hidden w-full pill-btn rounded-lg py-2 text-xs font-mono-tabular font-medium">Show more</button>
+
+        <div id="cSuiteTableContainer" class="hidden surface-card rounded-xl overflow-hidden">
+          <div class="p-4 border-b hairline-border flex items-center justify-between">
+            <div>
+              <h2 class="font-serif-editorial text-2xl">C-Suite &amp; decision-maker directory</h2>
+              <p class="text-xs text-[#575652]">Every named contact: email, phone (direct where known, otherwise the company's HQ line) and LinkedIn</p>
+            </div>
+            <button id="exportCSuiteCsvBtn" type="button" class="pill-btn px-3 py-1.5 rounded text-xs font-mono-tabular">
+              Export C-Suite CSV ↓
+            </button>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr class="surface-subtle font-mono-tabular text-[11px] uppercase text-[#575652] border-b hairline-border">
+                  <th class="py-2.5 px-3">Country (A–Z)</th>
+                  <th class="py-2.5 px-3">Startup &amp; Remote Roles</th>
+                  <th class="py-2.5 px-3">C-Suite Executive</th>
+                  <th class="py-2.5 px-3">Direct Email ID</th>
+                  <th class="py-2.5 px-3">Phone (direct / HQ)</th>
+                  <th class="py-2.5 px-3">LinkedIn &amp; Status</th>
+                </tr>
+              </thead>
+              <tbody id="cSuiteTableBody" class="divide-y hairline-border font-mono-tabular">
+                <!-- Populated dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-      <div class="r">
-        ${j.type === 'internship' ? '<span class="badge intern">Internship</span>' : '<span class="badge">Job</span>'}
-        ${j.via === 'linkedin' ? '<span class="badge">LinkedIn</span>' : ''}
-        <span class="badge ${j.status === 'open' ? 'open' : 'closed'}">${j.status === 'open' ? 'Open' : 'Closed'}</span>
-        ${j.url ? `<a class="btn" href="${esc(j.url)}" target="_blank" rel="noopener">View</a>` : ''}
-        ${j.applyUrl && j.applyUrl !== j.url ? `<a class="btn" href="${esc(j.applyUrl)}" target="_blank" rel="noopener">Apply</a>` : ''}
+
+      <!-- Right Sidebar: Countries (A-Z), Focus Regions & Hourly Live Verification Log (4 cols) -->
+      <aside class="lg:col-span-4 space-y-5 lg:sticky lg:top-20">
+
+        <!-- Widget 1: Countries Breakdown (Strictly Alphabetical A -> Z, Zero USA) -->
+        <div class="surface-card rounded-xl p-4 space-y-3">
+          <div class="flex items-center justify-between border-b hairline-border pb-2.5">
+            <div>
+              <h3 class="font-serif-editorial text-xl">Countries (A → Z)</h3>
+              <p class="text-[11px] text-[#787670]">Click any country to filter · USA permanently excluded</p>
+            </div>
+            <span class="text-[11px] font-mono-tabular px-2 py-0.5 rounded surface-subtle">A–Z</span>
+          </div>
+          <div id="sidebarCountriesAlphaList" class="space-y-1.5 text-xs font-mono-tabular">
+            <!-- Populated strictly alphabetically -->
+          </div>
+        </div>
+
+        <!-- Widget 2: 6 Focus Macro-Regions -->
+        <div class="surface-card rounded-xl p-4 space-y-3">
+          <div class="flex items-center justify-between border-b hairline-border pb-2.5">
+            <h3 class="font-serif-editorial text-xl">Focus Regions</h3>
+            <span class="text-[11px] font-mono-tabular text-emerald-700 dark:text-emerald-400">100% Remote</span>
+          </div>
+          <div id="sidebarRegionsList" class="grid grid-cols-2 gap-2 text-xs font-mono-tabular">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Widget 3: Hourly Live Activity & Verification Log -->
+        <div class="surface-card rounded-xl p-4 space-y-3">
+          <div class="flex items-center justify-between border-b hairline-border pb-2.5">
+            <div>
+              <h3 class="font-serif-editorial text-xl">Live activity</h3>
+              <p id="lastHourlyCheckNote" class="text-[11px] text-[#787670]">Re-verified in browser · Cron: 0 * * * *</p>
+            </div>
+            <button id="sidebarSyncBtn" type="button" class="pill-btn px-2 py-1 rounded text-[11px] font-mono-tabular">
+              Sync now
+            </button>
+          </div>
+          <div id="hourlyActivityFeed" class="space-y-2 max-h-72 overflow-y-auto pr-1 text-xs font-mono-tabular">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </main>
+
+  <!-- C-Suite Outreach & Full Role Dossier Modal -->
+  <div id="outreachModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
+    <div class="surface-card rounded-xl max-w-2xl w-full p-6 space-y-4 my-8 shadow-2xl">
+      <div class="flex items-start justify-between gap-3 border-b hairline-border pb-3">
+        <div>
+          <span id="modalCompanyBadge" class="text-xs font-mono-tabular uppercase px-2 py-0.5 rounded surface-subtle"></span>
+          <h3 id="modalTitle" class="font-serif-editorial text-3xl mt-1">C-Suite outreach</h3>
+        </div>
+        <button id="closeOutreachModalBtn" type="button" class="pill-btn px-2.5 py-1 rounded text-xs font-mono-tabular">Close ✕</button>
       </div>
-    </div>`).join('') || '<div class="muted">No roles on record.</div>';
-    const groups = {};
-    for (const p of c.contacts) (groups[TEAM_OF(p)] ||= []).push(p);
-    const people = Object.keys(TEAM_BADGE).filter(t => groups[t]).map(t => `<div class="teamhead"><span class="badge ${TEAM_BADGE[t][0]}">${esc(t)}</span><span class="faint">${groups[t].length}</span></div>` +
-      groups[t].map(p => `<div class="person"><div class="pn">${esc(p.name)}</div><div class="pt">${esc(p.title || '')}${p.location ? ` · ${esc(p.location)}` : ''}${p.source ? ` · via ${esc(p.source)}` : ''}</div><div class="cl">${contactLinks(p)}</div></div>`).join('')).join('')
-      || '<div class="muted">No named contact yet — use the LinkedIn searches below.</div>';
-    const ch = c.channels || {};
-    const chEmails = (ch.emails || []).map(e => `<div class="chan"><span>✉ <a href="mailto:${esc(e.email)}">${esc(e.email)}</a>${copyBtn(e.email)}</span><span class="badge">${esc(e.team)}</span></div>`).join('');
-    const chPhones = (ch.phones || []).map(x => `<div class="chan"><span>☎ <a href="tel:${esc(x.phone.replace(/[^\d+]/g, ''))}">${esc(x.phone)}</a>${copyBtn(x.phone)}</span><a class="faint" href="${esc(x.page)}" target="_blank" rel="noopener">source</a></div>`).join('');
-    const SOC = { linkedin: 'LinkedIn', twitter: 'X / Twitter', instagram: 'Instagram', facebook: 'Facebook', github: 'GitHub', youtube: 'YouTube', crunchbase: 'Crunchbase' };
-    const socials = Object.entries(ch.social || {}).filter(([k, v]) => SOC[k] && v).map(([k, v]) => `<a href="${esc(v)}" target="_blank" rel="noopener">${SOC[k]}</a>`).join('');
-    const PAGES = { contact: 'Contact page', careers: 'Careers page', partners: 'Partner page', team: 'Team / about', press: 'Press' };
-    const pages = Object.entries(ch.pages || {}).filter(([k]) => PAGES[k]).map(([k, v]) => `<a href="${esc(v)}" target="_blank" rel="noopener">${PAGES[k]}</a>`).join('');
-    const liLoc = { MEA: 'Middle East', SEA: 'Southeast Asia', Germany: 'Germany', UK: 'United Kingdom', Australia: 'Australia' }[filters.region] || '';
-    const liJobs = `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(c.name)}${liLoc ? `&location=${encodeURIComponent(liLoc)}` : ''}`;
-    const finds = [['talent acquisition', 'Talent acquisition'], ['recruiter', 'Recruiters'], ['HR', 'HR'], ['partnerships', 'Partnerships'], ['business development', 'Business development'], ['founder', 'Founders']]
-      .map(([q, l]) => `<a href="${linkedInSearch(c, q)}" target="_blank" rel="noopener">${l} ↗</a>`).join('');
-    const company = (chEmails || chPhones || socials || pages)
-      ? `<h4 style="margin-top:14px">Company channels</h4>${chEmails}${chPhones}${socials ? `<div class="links">${socials}</div>` : ''}${pages ? `<div class="links">${pages}</div>` : ''}`
-      : '';
-    const links = [
-      c.website && `<a href="${esc(c.website)}" target="_blank" rel="noopener">Website</a>`,
-      c.profileUrl && `<a href="${esc(c.profileUrl)}" target="_blank" rel="noopener">YC profile</a>`,
-      c.careersUrl && `<a href="${esc(c.careersUrl)}" target="_blank" rel="noopener">Careers page</a>`,
-      c.linkedin && `<a href="${esc(c.linkedin)}" target="_blank" rel="noopener">Company LinkedIn</a>`,
-    ].filter(Boolean).join('');
-    return `<div class="co-body">
-      <div><h4>Roles (${c.openJobs} open${c.jobs.length > c.openJobs ? `, ${c.jobs.length - c.openJobs} closed` : ''})</h4>${jobs}${c.hiddenRoles ? `<div class="faint" style="font-size:12px;margin-top:6px">${c.hiddenRoles} role${c.hiddenRoles === 1 ? '' : 's'} hidden by ${[filters.hideUS && '“Hide USA”', filters.techOnly && '“Tech roles only”'].filter(Boolean).join(' / ')} — untick to see ${c.hiddenRoles === 1 ? 'it' : 'them'}.</div>` : ''}</div>
-      <div><h4>Points of contact (${c.contacts.length})</h4>${people}${company}
-        <h4 style="margin-top:14px">Find more on LinkedIn</h4><div class="find"><a href="${liJobs}" target="_blank" rel="noopener"><b>LinkedIn jobs ↗</b></a>${finds}</div>
-        <div class="links">${links}</div>
-        ${c.tags?.length ? `<div class="links">${c.tags.map(t => `<span class="badge">${esc(t)}</span>`).join('')}</div>` : ''}
-        <div class="faint" style="font-size:12px;margin-top:10px">${[c.teamSize && `Team ${c.teamSize}`, `First seen ${new Date(c.firstSeen).toLocaleString()}`].filter(Boolean).join(' · ')}</div>
+
+      <div id="modalContactsList" class="space-y-2"></div>
+
+      <div class="space-y-1.5">
+        <div class="flex items-center justify-between text-xs font-mono-tabular">
+          <span class="uppercase text-[#575652]">Pitch (editable)</span>
+          <div class="flex items-center gap-2">
+            <button id="copyPitchBtn" type="button" class="pill-btn px-2.5 py-1 rounded font-semibold">Copy text</button>
+            <a id="mailtoPitchLink" href="mailto:" class="pill-btn-active px-3 py-1 rounded">Open in mail app ↗</a>
+          </div>
+        </div>
+        <textarea id="modalPitchTextarea" rows="11" class="w-full select-clean rounded-lg p-3 text-xs font-mono-tabular leading-relaxed"></textarea>
       </div>
-    </div>`;
-  }
+    </div>
+  </div>
 
-  const shortTitle = t => (t || '').replace(/Posted the HN hiring thread/, '(HN poster)').replace(/^(.{0,28}).*$/, (m, a) => (m.length > 28 ? a + '…' : m));
-  const shortBatch = b => { const m = /(Winter|Spring|Summer|Fall)\s+20(\d\d)/.exec(b || ''); return m ? `${m[1][0]}${m[2]}` : b; };
-  const sourceLabel = s => ({ yc: 'Y Combinator', hn: 'HN Who’s Hiring', greenhouse: 'Greenhouse', lever: 'Lever', ashby: 'Ashby', manual: 'Imported' }[s] || s || '');
+  <!-- Toast Notification -->
+  <div id="toastBanner" class="fixed bottom-5 right-5 z-50 hidden surface-card border border-black dark:border-white px-4 py-2.5 rounded-lg text-xs font-mono-tabular shadow-lg">
+    <span id="toastText">Copied to clipboard</span>
+  </div>
 
-  function render() {
-    if (!data) return;
-    kpis();
-    const rows = filtered();
-    $('#resultCount').textContent = `${rows.length.toLocaleString()} compan${rows.length === 1 ? 'y' : 'ies'} · ${rows.reduce((n, c) => n + c.openJobs, 0).toLocaleString()} open roles`;
-    $('#list').innerHTML = rows.length
-      ? rows.slice(0, shown).map(companyRow).join('')
-      : `<div class="empty">No companies match these filters.<br><button class="btn" style="margin-top:10px" id="clearF">Clear filters</button></div>`;
-    $('#moreBtn').hidden = rows.length <= shown;
-    $('#moreBtn').textContent = `Show more (${(rows.length - shown).toLocaleString()} left)`;
-    const clear = $('#clearF');
-    if (clear) clear.onclick = () => { Object.assign(filters, { q: '', type: 'all', status: 'all', region: '', source: '', contact: '', fNew: false, fUncontacted: false, hideUS: false, techOnly: false }); syncControls(); render(); };
-    renderSide();
-  }
+  <!-- Footer -->
+  <footer class="border-t hairline-border py-6 px-4 sm:px-6 mt-12 text-xs font-mono-tabular text-[#787670]">
+    <div class="max-w-[1400px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div>Startup Leads · 100% Remote Pure-Tech Jobs &amp; Internships · Australia · Europe · MEA · New Zealand · SEA · UK</div>
+      <div>Updated hourly (0 * * * *) · Sources: Y Combinator, HN Who's Hiring, Greenhouse, Lever, Ashby, <a class="underline" href="https://jobicy.com" target="_blank" rel="noopener noreferrer">Jobicy</a>, <a class="underline" href="https://www.arbeitnow.com" target="_blank" rel="noopener noreferrer">Arbeitnow</a></div>
+    </div>
+  </footer>
 
-  function renderMarkets() {
-    const rows = data.companies.map(view).filter(c => !c.hidden && c.status === 'open');
-    const list = [['focus', '★ Focus markets'], ['MEA', 'Middle East & Africa'], ['SEA', 'Southeast Asia'], ['Germany', 'Germany'], ['UK', 'United Kingdom'], ['Australia', 'Australia & NZ'], ['Europe', 'Rest of Europe'], ['India', 'India'], ['Remote', 'Remote (global)'], ['', 'All markets']];
-    $('#markets').innerHTML = list.map(([k, l]) => {
-      const n = rows.filter(c => regionMatch(c, k)).length;
-      return `<button class="mrow ${filters.region === k ? 'on' : ''}" data-region="${k}"><span>${l}</span><b>${n.toLocaleString()}</b></button>`;
-    }).join('') + `<div class="faint" style="font-size:11.5px;margin-top:6px">${[filters.hideUS ? 'US-only roles hidden' : 'Including the US', filters.techOnly ? 'tech roles only' : 'all role types'].join(' · ')}.</div>`;
-  }
-
-  function renderSide() {
-    renderMarkets();
-    const mode = store.get('leads.feed', 'key');
-    document.querySelectorAll('#feedSeg button').forEach(b => b.classList.toggle('on', b.dataset.v === mode));
-    const icons = { company_added: '＋', company_closed: '✕', company_reopened: '↺', job_added: '·', job_closed: '−', job_reopened: '↺' };
-    const label = e => ({
-      company_added: `<b>${esc(e.company)}</b> added`,
-      company_closed: `<b>${esc(e.company)}</b> is no longer hiring`,
-      company_reopened: `<b>${esc(e.company)}</b> is hiring again`,
-      job_added: `${esc(e.company)}: new role <i>${esc(e.job)}</i>`,
-      job_closed: `${esc(e.company)}: <i>${esc(e.job)}</i> closed`,
-      job_reopened: `${esc(e.company)}: <i>${esc(e.job)}</i> reopened`,
-    }[e.type] || esc(e.type));
-    const live = [...liveClosed.entries()].map(([id, reason]) => {
-      const c = data.companies.find(x => x.jobs.some(j => j.id === id));
-      const j = c?.jobs.find(x => x.id === id);
-      return c && j.status === 'open' ? { t: lastLiveCheck, type: 'job_closed', company: c.name, companyId: c.id, job: j.title, live: true } : null;
-    }).filter(Boolean);
-    const events = [...live, ...data.events].filter(e =>
-      mode === 'all' ? true : mode === 'closed' ? /closed/.test(e.type) : /^company_/.test(e.type));
-    $('#feedCount').textContent = events.length ? `${events.length}` : '';
-    $('#feed').innerHTML = events.slice(0, 120).map(e => `<div class="ev ${/closed/.test(e.type) ? 'closed' : ''}"><span class="ic">${icons[e.type] || '•'}</span><div><div>${label(e)}${e.live ? ' <span class="badge closed">live</span>' : ''}</div>${e.reason ? `<div class="faint">${esc(e.reason)}</div>` : ''}<div class="when">${ago(e.t)}</div></div></div>`).join('') || '<div class="muted">No activity yet.</div>';
-
-    const days = [];
-    for (let i = 20; i >= 0; i--) days.push(new Date(Date.now() - i * 864e5).toISOString().slice(0, 10));
-    const hist = Object.fromEntries((data.history || []).map(h => [h.date, h]));
-    const max = Math.max(1, ...days.map(d => hist[d]?.companiesAdded || 0));
-    $('#spark').innerHTML = days.map((d, i) => `<div class="${i === days.length - 1 ? 'today' : ''}" style="height:${Math.round(((hist[d]?.companiesAdded || 0) / max) * 100)}%" title="${d}: ${hist[d]?.companiesAdded || 0} added, ${hist[d]?.companiesClosed || 0} closed"></div>`).join('');
-    const todayH = hist[new Date().toISOString().slice(0, 10)];
-    $('#sparkLabel').textContent = todayH ? `+${todayH.companiesAdded} today` : '';
-
-    const m = data.meta || {}, s = m.sources || {};
-    const row = (name, ok, detail) => `<div class="srcrow"><span>${ok === false ? '⚠' : '✓'} ${name}</span><b>${detail}</b></div>`;
-    $('#sources').innerHTML = [
-      row('Y Combinator', s.ycDiscover?.ok ?? s.ycVerify?.ok, `${data.companies.filter(c => c.id.startsWith('yc:')).length} cos`),
-      row('HN Who’s Hiring', s.hn?.ok, `${data.companies.filter(c => (c.sources || []).includes('hn')).length} cos`),
-      row('Greenhouse / Lever / Ashby', s.ats?.ok, `${s.ats?.boards ?? 0} boards`),
-      `<div class="srcrow"><span>Daily discovery</span><b>${ago(m.lastDiscoverAt)}</b></div>`,
-      `<div class="srcrow"><span>Server re-check</span><b>${ago(m.lastVerifyAt)}</b></div>`,
-      `<div class="srcrow"><span>YC re-check</span><b>${ago(m.lastYcVerifyAt)}</b></div>`,
-      `<div class="srcrow"><span>Browser live check</span><b>${lastLiveCheck ? ago(lastLiveCheck) : liveChecking ? 'running…' : '—'}</b></div>`,
-    ].join('');
-  }
-
-  function setLive(state, text) {
-    $('#livedot').className = 'dot ' + (state || '');
-    $('#livetext').textContent = text;
-  }
-  function liveText() {
-    if (!data) return;
-    const age = (Date.now() - Date.parse(data.meta.generatedAt)) / 3600e3;
-    setLive(liveChecking ? 'busy' : age > 6 ? 'warn' : '', liveChecking ? 'Checking jobs live…' : `Live · updated ${ago(data.meta.generatedAt)}`);
-    $('#liveCheckInfo').textContent = lastLiveCheck ? `Jobs re-verified in your browser ${ago(lastLiveCheck)} · ${liveClosed.size} closed since last update` : '';
-  }
-
-  function toast(html, kind) {
-    const el = document.createElement('div');
-    el.className = `toast ${kind || ''}`;
-    el.innerHTML = html;
-    $('#toasts').appendChild(el);
-    setTimeout(() => el.remove(), 9000);
-    while ($('#toasts').children.length > 4) $('#toasts').firstChild.remove();
-  }
-  function flash(id) {
-    const el = document.querySelector(`.co[data-id="${CSS.escape(id)}"]`);
-    if (el) { el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); }
-  }
-
-  // ------------------------------------------------------------ loading + polling
-  let lastVersion = null;
-  async function load(manual) {
-    try {
-      const vr = await fetch(`data/version.json?t=${Date.now()}`, { cache: 'no-store' }).catch(() => null);
-      const version = vr?.ok ? (await vr.json()).v : null;
-      if (data && version && version === lastVersion) { liveText(); return false; }
-      const res = await fetch(`${DATA_URL}?t=${Date.now()}`, { cache: 'no-store' });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const next = await res.json();
-      lastVersion = version;
-      const stamp = `${next.meta.generatedAt}|${next.meta.lastContactsAt || ''}`;
-      if (stamp === lastGenerated) { liveText(); return false; }
-      const before = data ? new Map(data.companies.map(c => [c.id, view(c).status])) : null;
-      data = next;
-      lastGenerated = stamp;
-      // The dataset now reflects the server's verdicts; keep only live closures it hasn't caught yet.
-      for (const id of [...liveClosed.keys()]) {
-        const job = data.companies.flatMap(c => c.jobs).find(j => j.id === id);
-        if (!job || job.status === 'closed') liveClosed.delete(id);
-      }
-      if (before) {
-        const added = data.companies.filter(c => !before.has(c.id));
-        const closed = data.companies.filter(c => before.get(c.id) === 'open' && view(c).status === 'closed');
-        if (added.length) toast(`<b>${added.length} new compan${added.length === 1 ? 'y' : 'ies'}</b> added: ${added.slice(0, 4).map(c => esc(c.name)).join(', ')}${added.length > 4 ? '…' : ''}`, 'green');
-        closed.slice(0, 3).forEach(c => toast(`<b style="color:var(--red)">${esc(c.name)}</b> is no longer hiring`, 'red'));
-        render();
-        closed.forEach(c => flash(c.id));
-      } else render();
-      liveText();
-      if (manual) toast('Data reloaded.', '');
-      return true;
-    } catch (err) {
-      setLive('warn', `Offline · retrying (${err.message})`);
-      return false;
-    }
-  }
-
-  // ------------------------------------------------------------ browser-side live verification
-  // Greenhouse, Lever, Ashby and HN Algolia all allow cross-origin reads, so the page can
-  // confirm in real time that a posting still exists. (YC pages are re-checked by the server.)
-  async function fetchJSON(url) {
-    const r = await fetch(url, { cache: 'no-store' });
-    if (r.status === 404) return { gone: true };
-    if (!r.ok) throw new Error(r.status);
-    return r.json();
-  }
-  async function boardIds(board) {
-    const [ats, ...rest] = board.split(':');
-    const token = encodeURIComponent(rest.join(':'));
-    if (ats === 'greenhouse') { const d = await fetchJSON(`https://boards-api.greenhouse.io/v1/boards/${token}/jobs`); return d.gone ? d : new Set(d.jobs.map(j => String(j.id))); }
-    if (ats === 'lever') { const d = await fetchJSON(`https://api.lever.co/v0/postings/${token}?mode=json`); return d.gone ? d : new Set(d.map(j => j.id)); }
-    if (ats === 'ashby') { const d = await fetchJSON(`https://api.ashbyhq.com/posting-api/job-board/${token}`); return d.gone ? d : new Set((d.jobs || []).map(j => j.id)); }
-    return null;
-  }
-  const FILLED_RE = /\b(no longer hiring|positions? (?:(?:have|has) been |are |is )?filled|hiring (?:is )?(?:now )?closed|roles? (?:(?:is|are|has been|have been) )?filled)\b/i;
-
-  async function liveCheck() {
-    if (!data || liveChecking || document.hidden) return;
-    liveChecking = true; liveText(); renderSide();
-    $('#refreshBtn').disabled = true;
-    const newlyClosed = new Map();
-    try {
-      const boards = new Map();
-      const threads = new Map();
-      for (const c of data.companies) for (const j of c.jobs) {
-        if (j.status !== 'open' || liveClosed.has(j.id)) continue;
-        if (j.board) (boards.get(j.board) || boards.set(j.board, []).get(j.board)).push([c, j]);
-        else if (j.src === 'hn' && j.thread) (threads.get(j.thread) || threads.set(j.thread, []).get(j.thread)).push([c, j]);
-      }
-      const tasks = [...boards.entries()].map(([board, list]) => async () => {
-        try {
-          const ids = await boardIds(board);
-          if (!ids) return;
-          if (ids.gone) { list.forEach(([c, j]) => newlyClosed.set(j.id, [c, j, 'Job board removed'])); return; }
-          if (ids.size === 0 && list.length > 3) return; // treat an empty board as a glitch; the server double-checks
-          for (const [c, j] of list) if (!ids.has(j.id.split(':').slice(2).join(':'))) newlyClosed.set(j.id, [c, j, 'Removed from the company job board']);
-        } catch { /* network/CORS hiccup: never close on errors */ }
-      });
-      for (const [thread, list] of threads) tasks.push(async () => {
-        try {
-          const d = await fetchJSON(`https://hn.algolia.com/api/v1/items/${thread}`);
-          if (d.gone) return;
-          const kids = new Map((d.children || []).map(k => [String(k.id), k]));
-          for (const [c, j] of list) {
-            const k = kids.get(j.id.slice(3));
-            if (!k || !k.text || !k.author) newlyClosed.set(j.id, [c, j, 'HN post deleted']);
-            else if (FILLED_RE.test(k.text.replace(/<[^>]+>/g, ' ').slice(0, 400))) newlyClosed.set(j.id, [c, j, 'HN post updated: position filled']);
-          }
-        } catch {}
-      });
-      const queue = [...tasks];
-      await Promise.all(Array.from({ length: 5 }, async () => { while (queue.length) await queue.shift()(); }));
-
-      const before = new Map(data.companies.map(c => [c.id, view(c).status]));
-      for (const [id, [, , reason]] of newlyClosed) liveClosed.set(id, reason);
-      lastLiveCheck = new Date().toISOString();
-      const turnedRed = data.companies.filter(c => before.get(c.id) === 'open' && view(c).status === 'closed');
-      render();
-      turnedRed.forEach(c => flash(c.id));
-      turnedRed.slice(0, 3).forEach(c => toast(`<b style="color:var(--red)">${esc(c.name)}</b> just stopped hiring (live check)`, 'red'));
-      const jobOnly = newlyClosed.size - turnedRed.length;
-      if (jobOnly > 0 && !turnedRed.length) toast(`${newlyClosed.size} role${newlyClosed.size === 1 ? '' : 's'} closed since the last update — marked in red.`, 'red');
-    } finally {
-      liveChecking = false;
-      $('#refreshBtn').disabled = false;
-      liveText(); renderSide();
-    }
-  }
-
-  // ------------------------------------------------------------ CSV export
-  function exportCSV() {
-    const rows = filtered();
-    const head = ['Company', 'Status', 'Website', 'Location', 'Open roles', 'Open internships', 'Role titles',
-      'Talent / HR contacts', 'Partnerships / BD contacts', 'Founders & leadership', 'Other contacts',
-      'All person emails', 'All person phones', 'Company emails', 'Company phones',
-      'Company LinkedIn', 'Company X / Twitter', 'Contact page', 'Careers page', 'Markets', 'Source', 'Batch', 'Added', 'Closed at', 'Contacted'];
-    const fmtP = p => [p.name, p.title && `(${p.title})`, p.email && `<${p.email}>`, p.phone, p.linkedin].filter(Boolean).join(' ');
-    const team = (c, t) => c.contacts.filter(p => TEAM_OF(p) === t).map(fmtP).join(' | ');
-    const cell = v => `"${String(v ?? '').replace(/"/g, '""')}"`;
-    const lines = rows.map(c => [
-      c.name, c.status === 'open' ? 'Hiring' : 'No longer hiring', c.website, c.location,
-      c.openJobs, c.openInternships,
-      c.jobs.filter(j => j.status === 'open').map(j => `${j.title}${j.type === 'internship' ? ' [Intern]' : ''} <${j.url}>`).join(' | '),
-      team(c, 'Talent & HR'), team(c, 'Partnerships & BD'), team(c, 'Founders & leadership'),
-      c.contacts.filter(p => !['Talent & HR', 'Partnerships & BD', 'Founders & leadership'].includes(TEAM_OF(p))).map(fmtP).join(' | '),
-      c.contacts.map(p => p.email).filter(Boolean).join(' | '),
-      c.contacts.map(p => p.phone).filter(Boolean).join(' | '),
-      (c.channels?.emails || []).map(e => `${e.email} (${e.team})`).join(' | '),
-      (c.channels?.phones || []).map(x => x.phone).join(' | '),
-      c.channels?.social?.linkedin || c.linkedin || '', c.channels?.social?.twitter || '',
-      c.channels?.pages?.contact || '', c.channels?.pages?.careers || c.careersUrl || '',
-      marketsOfC(c).join(' | '), sourceLabel(sourceOf(c)), c.batch, c.firstSeen?.slice(0, 10), c.closedAt?.slice(0, 10) || '', contacted.has(c.id) ? 'yes' : '',
-    ].map(cell).join(','));
-    const blob = new Blob(['﻿' + [head.map(cell).join(','), ...lines].join('\n')], { type: 'text/csv' });
-    const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: `startup-leads-${new Date().toISOString().slice(0, 10)}.csv` });
-    document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
-  }
-
-  // ------------------------------------------------------------ controls
-  function syncControls() {
-    $('#q').value = filters.q;
-    document.querySelectorAll('#typeSeg button').forEach(b => b.classList.toggle('on', b.dataset.v === filters.type));
-    for (const k of ['status', 'region', 'source', 'sort', 'contact']) $('#' + k).value = filters[k];
-    for (const k of ['fNew', 'fUncontacted', 'hideUS', 'techOnly']) $('#' + k).checked = filters[k];
-    store.set('leads.filters.v2', { ...filters, q: '' });
-  }
-  const update = patch => { Object.assign(filters, patch); shown = PAGE; syncControls(); render(); };
-
-  let qTimer;
-  $('#q').addEventListener('input', e => { clearTimeout(qTimer); qTimer = setTimeout(() => update({ q: e.target.value }), 150); });
-  $('#typeSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (b) update({ type: b.dataset.v }); });
-  for (const k of ['status', 'region', 'source', 'sort', 'contact']) $('#' + k).addEventListener('change', e => update({ [k]: e.target.value }));
-  for (const k of ['fNew', 'fUncontacted', 'hideUS', 'techOnly']) $('#' + k).addEventListener('change', e => update({ [k]: e.target.checked }));
-  $('#feedSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { store.set('leads.feed', b.dataset.v); renderSide(); } });
-  $('#moreBtn').onclick = () => { shown += PAGE; render(); };
-  $('#markets').addEventListener('click', e => { const b = e.target.closest('[data-region]'); if (b) update({ region: b.dataset.region }); });
-  $('#csvBtn').onclick = exportCSV;
-  $('#refreshBtn').onclick = async () => { await load(true); await liveCheck(); };
-  $('#kpis').addEventListener('click', e => {
-    const act = e.target.closest('.kpi')?.dataset.act;
-    const presets = {
-      open: { status: 'open', type: 'all', fNew: false }, jobs: { status: 'open', type: 'job' },
-      interns: { status: 'open', type: 'internship' }, founders: { contact: 'email' },
-      today: { fNew: true, status: 'all' }, closed: { status: 'closed', type: 'all', sort: 'closedRecent', fNew: false },
-    };
-    if (presets[act]) update(presets[act]);
-  });
-  $('#list').addEventListener('change', e => {
-    const id = e.target.dataset.contacted;
-    if (!id) return;
-    e.target.checked ? contacted.add(id) : contacted.delete(id);
-    store.set('leads.contacted', [...contacted]);
-    if (filters.fUncontacted) render();
-  });
-  const toggle = el => {
-    const id = el.dataset.toggle;
-    expanded.has(id) ? expanded.delete(id) : expanded.add(id);
-    const c = data.companies.find(x => x.id === id);
-    el.closest('.co').outerHTML = companyRow(view(c));
-  };
-  $('#list').addEventListener('click', e => {
-    const cp = e.target.closest('[data-copy]');
-    if (cp) { navigator.clipboard?.writeText(cp.dataset.copy).then(() => toast(`Copied ${esc(cp.dataset.copy)}`, 'green'), () => {}); return; }
-    if (e.target.closest('a, input, label, button')) return;
-    const head = e.target.closest('[data-toggle]');
-    if (head) toggle(head);
-  });
-  $('#list').addEventListener('keydown', e => {
-    const head = e.target.closest('[data-toggle]');
-    if (head && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); toggle(head); }
-  });
-
-  // ------------------------------------------------------------ boot
-  syncControls();
-  (async () => {
-    await load(false);
-    if (data) {
-      const repo = data.meta.repo;
-      if (repo) {
-        $('#runLink').href = `https://github.com/${repo}/actions/workflows/update.yml`;
-        $('#footer').innerHTML = `Data refreshes automatically: new companies every morning (07:00 IST), every tracked job re-verified every 2 hours on the server, and open roles re-checked live in your browser every 10 minutes. “Contacted” ticks are saved on this device only. Source code &amp; updater: <a href="https://github.com/${esc(repo)}" target="_blank" rel="noopener">github.com/${esc(repo)}</a>.`;
-      }
-      liveCheck();
-    }
-  })();
-  setInterval(() => load(false), POLL_MS);
-  setInterval(liveCheck, LIVE_CHECK_MS);
-  setInterval(() => { liveText(); renderSide(); }, 30 * 1000);
-  document.addEventListener('visibilitychange', () => {
-    if (!document.hidden) {
-      load(false);
-      if (!lastLiveCheck || Date.now() - Date.parse(lastLiveCheck) > LIVE_CHECK_MS) liveCheck();
-    }
-  });
-})();
-</script>
+    <script src="app.js"></script>
 </body>
 </html>

@@ -45,136 +45,6 @@
     "boards": [
       {
         "ats": "greenhouse",
-        "token": "groww",
-        "name": "Groww",
-        "location": "Bengaluru, India",
-        "website": "https://groww.in"
-      },
-      {
-        "ats": "greenhouse",
-        "token": "slice",
-        "name": "slice",
-        "location": "Bengaluru, India",
-        "website": "https://sliceit.com"
-      },
-      {
-        "ats": "greenhouse",
-        "token": "inmobi",
-        "name": "InMobi",
-        "location": "Bengaluru, India",
-        "website": "https://inmobi.com"
-      },
-      {
-        "ats": "greenhouse",
-        "token": "druva",
-        "name": "Druva",
-        "location": "Pune, India",
-        "website": "https://druva.com"
-      },
-      {
-        "ats": "lever",
-        "token": "cred",
-        "name": "CRED",
-        "location": "Bengaluru, India",
-        "website": "https://cred.club"
-      },
-      {
-        "ats": "lever",
-        "token": "meesho",
-        "name": "Meesho",
-        "location": "Bengaluru, India",
-        "website": "https://meesho.com"
-      },
-      {
-        "ats": "lever",
-        "token": "fampay",
-        "name": "FamPay",
-        "location": "Bengaluru, India",
-        "website": "https://fampay.in"
-      },
-      {
-        "ats": "lever",
-        "token": "mindtickle",
-        "name": "Mindtickle",
-        "location": "Pune, India",
-        "website": "https://mindtickle.com"
-      },
-      {
-        "ats": "ashby",
-        "token": "atlan",
-        "name": "Atlan",
-        "location": "India / Remote",
-        "website": "https://atlan.com"
-      },
-      {
-        "ats": "ashby",
-        "token": "scaler",
-        "name": "Scaler",
-        "location": "Bengaluru, India",
-        "website": "https://scaler.com"
-      },
-      {
-        "ats": "ashby",
-        "token": "supabase",
-        "name": "Supabase",
-        "website": "https://supabase.com"
-      },
-      {
-        "ats": "ashby",
-        "token": "linear",
-        "name": "Linear",
-        "website": "https://linear.app"
-      },
-      {
-        "ats": "ashby",
-        "token": "replit",
-        "name": "Replit",
-        "website": "https://replit.com"
-      },
-      {
-        "ats": "ashby",
-        "token": "notion",
-        "name": "Notion",
-        "website": "https://notion.so"
-      },
-      {
-        "ats": "ashby",
-        "token": "deel",
-        "name": "Deel",
-        "website": "https://deel.com"
-      },
-      {
-        "ats": "ashby",
-        "token": "plaid",
-        "name": "Plaid",
-        "website": "https://plaid.com"
-      },
-      {
-        "ats": "greenhouse",
-        "token": "vercel",
-        "name": "Vercel",
-        "website": "https://vercel.com"
-      },
-      {
-        "ats": "greenhouse",
-        "token": "figma",
-        "name": "Figma",
-        "website": "https://figma.com"
-      },
-      {
-        "ats": "greenhouse",
-        "token": "airtable",
-        "name": "Airtable",
-        "website": "https://airtable.com"
-      },
-      {
-        "ats": "greenhouse",
-        "token": "brex",
-        "name": "Brex",
-        "website": "https://brex.com"
-      },
-      {
-        "ats": "greenhouse",
         "token": "monzo",
         "name": "Monzo",
         "location": "London, UK",
@@ -560,13 +430,6 @@
       },
       {
         "ats": "ashby",
-        "token": "andela",
-        "name": "Andela",
-        "location": "Lagos, Nigeria / Remote",
-        "website": "https://andela.com"
-      },
-      {
-        "ats": "ashby",
         "token": "thndr",
         "name": "Thndr",
         "location": "Cairo, Egypt",
@@ -659,5 +522,44 @@
     "Germany",
     "UK",
     "Australia"
-  ]
+  ],
+  "jobicy": {
+    "enabled": true,
+    "everyHours": 3,
+    "maxPages": 10,
+    "geos": [
+      "uk",
+      "germany",
+      "europe",
+      "emea",
+      "apac",
+      "australia",
+      "singapore",
+      "israel",
+      "anywhere"
+    ],
+    "industries": [
+      "engineering",
+      "data-science",
+      "admin"
+    ]
+  },
+  "arbeitnow": {
+    "enabled": true,
+    "everyHours": 3,
+    "maxPages": 8
+  },
+  "excludeCompanies": {
+    "_note": "Company name -> reason. Edit to exclude companies the automatic checks miss.",
+    "LiveKit": "US headquarters",
+    "Grafana Labs": "US headquarters",
+    "Customer.io": "US headquarters",
+    "Contentstack": "US headquarters",
+    "Ashby": "US headquarters",
+    "Bloomreach": "US headquarters",
+    "GiveDirectly": "US headquarters",
+    "Banyan Software": "US headquarters",
+    "Runway": "US headquarters"
+  },
+  "wikidataLookupsPerRun": 60
 }

@@ -1,75 +1,46 @@
 # Startup Leads Live
 
-Live dashboard of tech startup **jobs, internships and founder / POC contacts** for outreach.
-It updates itself — nobody has to run anything.
+**100% remote, pure-tech jobs and internships at startups in Australia, Europe, MEA, New Zealand, SEA and the UK, with founder and C-Suite contacts.** It updates itself every hour.
 
 **Site:** https://yprnv7.github.io/startup-leads-live/
 
-## Focus markets
+## What's on the site (enforced in the data, checked by tests every hour)
 
-The site is built around **Middle East & Africa, Southeast Asia, Germany, the UK and Australia / NZ**.
+- **100% remote only.** A role must be remote by its job board's own flag (Ashby `workplaceType: Remote`, Lever `workplaceType: remote`) or by its stated location. Anything hybrid, in-office, "X days in office" or requiring relocation is dropped.
+- **Pure tech only.** Software (backend, frontend, full-stack, systems), AI/ML/LLM, data and quant, DevOps/SRE/cloud/platform, security, mobile, robotics/embedded, and tech internships. Sales, GTM, marketing, recruiting, HR, legal, compliance, ops, PM, design, support and non-software engineering are dropped.
+- **Six regions, no USA.** Each role must be workable from Australia, Europe, MEA, New Zealand, SEA or the UK. US-only roles are dropped. Companies are excluded if they are **headquartered in the US** (from the company's location, YC data, or Wikidata), **hire in the US** (job-feed companies with no known HQ), or are on the `excludeCompanies` list in `config.json`.
+- **No India offices.** A company is excluded if its location, YC regions or any of its job locations name an Indian city.
+- **Countries A → Z** everywhere, using `localeCompare('en')`.
+- **Closed roles turn red.** The server re-checks every role hourly. Open pages also re-check Greenhouse, Lever, Ashby and HN roles directly every 60 minutes (countdown in the header, plus a **Sync now** button). A removed role is struck through in crimson with the reason, and a company with no open roles left turns red.
 
-- It opens on **★ Focus markets** with **Hide USA** on. Pick a single market from the dropdown or the *Markets* card, or choose *All markets*.
-- **Hide USA** removes US-only companies and also US-only roles inside global companies (for example a London company's San Francisco roles). Untick it to see everything.
-- Daily discovery checks focus-market YC startups first and skips US-only ones. The job boards cover 80+ startups across London, Berlin/Munich, Singapore/Jakarta, Dubai/Riyadh/Cairo/Lagos and Sydney/Melbourne (`config.json` → `ats.boards`). Focus-market roles are kept first when a board has more roles than the per-company cap.
-- Every company and role is tagged with its markets (`scripts/markets.mjs`).
-- **Tech roles only** (on by default) keeps software, data, AI/ML, DevOps/cloud, security, QA, embedded and IT roles. It drops sales, marketing, HR, ops, product/project management, design and non-software engineering. Each role is classified by `isTechRole` in `scripts/update.mjs`.
-- **Sources → LinkedIn** shows companies with a LinkedIn page, contacts with LinkedIn profiles, or roles that link to a LinkedIn job post. LinkedIn has no public jobs API and its terms forbid automated scraping, so LinkedIn job listings aren't pulled automatically. Instead every company has a **LinkedIn jobs ↗** button that opens LinkedIn's own job search for it.
+## Sources
 
-## How it stays up to date
+Y Combinator (company pages: jobs and founders), HN "Who is hiring?", 60+ startup job boards on Greenhouse / Lever / Ashby (`config.json → ats.boards`, plus boards found in HN posts), [Jobicy](https://jobicy.com) (remote jobs by region) and [Arbeitnow](https://www.arbeitnow.com) (EU remote jobs).
 
-| What | When | How |
-|---|---|---|
-| New companies added | Every day, 07:00 IST | YC companies that are hiring (focus markets first, US-only skipped), every new post in the monthly HN "Who is hiring?" thread, and company job boards (Greenhouse / Lever / Ashby) found in those posts |
-| New HN posts picked up | Every 2 hours | Same HN thread, re-read |
-| Every tracked job re-verified | Every 2 hours (YC pages every 6 h) | Job still on the company's board? HN post still up and not "filled"? |
-| Live check in your browser | On page load + every 10 min | Greenhouse / Lever / Ashby / HN are checked directly from the page, so a closed role turns red without waiting for the server |
-| Page refresh | Every 2 min | The open page reloads the dataset quietly and pops a toast for new or closed companies |
+## Contacts
 
-**Red = no longer hiring.** A company turns red the moment none of its tracked roles are still open; individual closed roles are struck through in red with the reason (removed from job board, HN post deleted, post says filled, link 404s). Jobs are only marked closed on positive evidence; a network error never closes anything.
+People come from YC founder lists, HN posters, and Prospeo (talent, partnerships and C-Suite people with verified emails). Company emails, HQ phone numbers and social profiles come from a scan of each company's own website. **No contact detail is ever guessed.** Where a person's direct phone isn't known, the card shows the company's HQ line, labelled "HQ line". Where no one is on record, it shows one-click LinkedIn searches for the CEO, CTO and founders.
 
-## Points of contact
+Prospeo lookups for new companies need the repo secret `PROSPEO_API_KEY` and are capped at 250 credits a day (`config.json → contacts.prospeoDailyCredits`).
 
-Every company gets every reachable contact, grouped by team:
+## Schedule
 
-- **People:** Talent acquisition / recruiters / HR, partnerships / alliances / business development, founders and leadership. Each has a name, title, location, LinkedIn and verified work email where available. HN posters are included with their HN profile and the email from their post. People come from YC, HN and Prospeo.
-- **Company channels:** careers@ / hr@ / partnerships@ / hello@ / press@ emails, phone numbers, LinkedIn / X / Instagram / GitHub / YouTube / Crunchbase profiles, and the contact, careers, partner and team pages. These come from a scan of the company's own website, which re-runs every 30 days.
-- **One-click LinkedIn searches** for talent acquisition, recruiters, HR, partnerships, BD and founders at that company.
+`.github/workflows/hourly_sync.yml` runs every hour (`0 * * * *`):
 
-Prospeo lookups need the repo secret `PROSPEO_API_KEY` and are capped at `contacts.prospeoDailyCredits` (250) credits a day. Talent and partnerships people get their emails revealed first. Without the key, everything else still runs.
+1. `node scripts/update.mjs`: at 01:00 UTC it discovers new YC startups; every hour it re-reads every source, verifies every role, and applies the rules above.
+2. `node scripts/contacts.mjs`: website contact scan, plus Prospeo if configured.
+3. `python3 tests/test_site_integrity.py`: if any rule is broken, nothing is committed or deployed.
+4. It commits `data/` and deploys to GitHub Pages.
 
-## Using it
-
-- Filter by jobs / internships, region (India, Remote, US, Europe), source, "added today", "has founder POC".
-- Click a company to see every role, founders (LinkedIn / X / email / HN), website, YC profile and careers page.
-- **Contacted** ticks are saved in your own browser only.
-- **⬇ CSV** exports exactly what you're looking at (for sheets / CRMs).
-- **⚙ Updater** → *Run workflow* forces an update now (needs write access to the repo).
-
-## Adding your own leads
-
-Add companies to `data/manual.json`. Their job links are checked every run: a 404/410 or a page that says the job is closed turns them red.
-
-```json
-[
-  {
-    "name": "Acme AI",
-    "website": "https://acme.ai",
-    "location": "Bengaluru, India",
-    "oneLiner": "AI copilots for logistics",
-    "contacts": [{ "name": "Priya Sharma", "title": "Co-founder & CEO", "linkedin": "https://www.linkedin.com/in/...", "email": "priya@acme.ai" }],
-    "jobs": [{ "title": "SDE Intern", "type": "internship", "url": "https://jobs.lever.co/acme/..." }]
-  }
-]
-```
-
-## Tuning
-
-`config.json`: companies added per day (`yc.newCompaniesPerDay`), region priority, seed job boards, which role titles count as tech roles.
+To force a run, open **Actions → Hourly sync → Run workflow** (needs write access).
 
 ## Run locally
 
 ```bash
-node scripts/update.mjs --mode=discover   # Node 20+, no dependencies
-python3 -m http.server 8000               # then open http://localhost:8000
+node scripts/update.mjs --mode=verify
+node scripts/contacts.mjs
+python3 tests/test_site_integrity.py
+python3 -m http.server 8000
 ```
+
+Then open http://localhost:8000.
