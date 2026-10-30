@@ -2989,6 +2989,153 @@
    "domain": "netactive.de",
    "readAt": "2026-10-30T12:09:40.825Z",
    "hits": 0
+  },
+  {
+   "ats": "workable",
+   "token": "rapid-pioneers",
+   "name": "Rapid Pioneers Group",
+   "website": "https://rapid-pioneers.com",
+   "location": "Berlin, Germany",
+   "discovered": "2026-10-30T12:33:34.969Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "rapid-pioneers.com"
+  },
+  {
+   "ats": "personio",
+   "token": "studibuch-gmbh",
+   "name": "Studibuch",
+   "website": "https://studibuch.de",
+   "location": "Stuttgart, Germany",
+   "discovered": "2026-10-30T12:33:34.969Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "studibuch.de",
+   "readAt": "2026-10-30T12:34:19.226Z",
+   "hits": 0
+  },
+  {
+   "ats": "smartrecruiters",
+   "token": "synava",
+   "name": "synava",
+   "website": "https://synava.com",
+   "location": "Karlsruhe, Germany",
+   "discovered": "2026-10-30T12:33:34.969Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "synava.com",
+   "readAt": "2026-10-30T12:34:19.226Z",
+   "hits": 0
+  },
+  {
+   "ats": "workable",
+   "token": "cosoft",
+   "name": "cosoft computer consulting gmbh",
+   "website": "https://cosoft.de",
+   "location": "Coesfeld, Germany",
+   "discovered": "2026-10-30T12:33:34.969Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "cosoft.de"
+  },
+  {
+   "ats": "workable",
+   "token": "lisa",
+   "name": "LISA | digital Shopfloor Management by Frisch Solutions",
+   "website": "https://frisch-solutions.com",
+   "location": "Marburg an der Lahn, Germany",
+   "discovered": "2026-10-30T12:33:34.969Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "frisch-solutions.com"
+  },
+  {
+   "ats": "personio",
+   "token": "klauke-enterprises",
+   "name": "Klauke Enterprises",
+   "website": "https://klauke-enterprises.com",
+   "location": "Meschede, Germany",
+   "discovered": "2026-10-30T12:33:34.969Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "klauke-enterprises.com",
+   "readAt": "2026-10-30T12:34:19.226Z",
+   "hits": 0
+  },
+  {
+   "ats": "personio",
+   "token": "sonia",
+   "name": "Sonia",
+   "website": "https://sonia.so",
+   "location": "Hamburg, Germany",
+   "discovered": "2026-10-30T12:33:34.969Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "sonia.so",
+   "readAt": "2026-10-30T12:34:19.226Z",
+   "hits": 0
+  },
+  {
+   "ats": "personio",
+   "token": "edubites-gmbh",
+   "name": "eduBITES",
+   "website": "https://edubites.com",
+   "location": "Berlin, Germany",
+   "discovered": "2026-10-30T12:33:34.969Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "edubites.com",
+   "dead": "2026-10-30T12:34:19.226Z"
+  },
+  {
+   "ats": "workable",
+   "token": "lovey",
+   "name": "Lovey",
+   "website": "https://lovey.com",
+   "location": "United Kingdom",
+   "discovered": "2026-10-30T12:33:34.969Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "lovey.com"
+  },
+  {
+   "ats": "recruitee",
+   "token": "patsnap",
+   "name": "Patsnap",
+   "website": "https://patsnap.com",
+   "location": "Newton, Singapore",
+   "discovered": "2026-10-30T12:33:34.969Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "patsnap.com",
+   "readAt": "2026-10-30T12:34:19.226Z",
+   "hits": 0
+  },
+  {
+   "ats": "ashby",
+   "token": "holidu",
+   "name": "Holidu",
+   "website": "https://holidu.com",
+   "location": "Munich, Germany",
+   "discovered": "2026-10-30T12:33:34.969Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "holidu.com",
+   "readAt": "2026-10-30T12:34:19.226Z",
+   "hits": 0
+  },
+  {
+   "ats": "recruitee",
+   "token": "kevinkehr",
+   "name": "Kevin Kehr",
+   "website": "https://recruitee.com",
+   "location": "Germany",
+   "discovered": "2026-10-30T12:33:34.969Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "recruitee.com",
+   "readAt": "2026-10-30T12:34:19.226Z",
+   "hits": 0
   }
  ],
  "boardNames": {},
@@ -7011,6 +7158,31 @@
   },
   "netactive": {
    "at": "2026-10-30T12:09:40.825Z",
+   "id": null,
+   "us": false
+  },
+  "Studibuch": {
+   "at": "2026-10-30T12:34:19.226Z",
+   "id": null,
+   "us": false
+  },
+  "synava": {
+   "at": "2026-10-30T12:34:19.226Z",
+   "id": null,
+   "us": false
+  },
+  "Sonia": {
+   "at": "2026-10-30T12:34:19.226Z",
+   "id": null,
+   "us": false
+  },
+  "Klauke Enterprises": {
+   "at": "2026-10-30T12:34:19.226Z",
+   "id": null,
+   "us": false
+  },
+  "Patsnap": {
+   "at": "2026-10-30T12:34:19.226Z",
    "id": null,
    "us": false
   }
@@ -14296,7 +14468,12 @@
     "city": "Berlin",
     "linkedin": "https://www.linkedin.com/company/rapid-pioneers-group",
     "prospeoId": "cccce88c8abc1f178a9650dc",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "via": "matched board name",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": [
+     "workable:rapid-pioneers"
+    ]
    },
    "leeroo.com": {
     "name": "Leeroo",
@@ -14305,7 +14482,9 @@
     "city": "London",
     "linkedin": "https://www.linkedin.com/company/leeroo",
     "prospeoId": "cccc5f5928d29169e3e4966a",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "tekkr.io": {
     "name": "Tekkr",
@@ -14314,7 +14493,9 @@
     "city": "Berlin",
     "linkedin": "https://www.linkedin.com/company/tekkr-io",
     "prospeoId": "cccce38a5b9796bef7e19207",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "artificient.de": {
     "name": "Artificient Mobility Intelligence",
@@ -14323,7 +14504,9 @@
     "city": "Aachen",
     "linkedin": "https://www.linkedin.com/company/artificient-mobility-intelligence",
     "prospeoId": "cccc2a71c932169d9d638371",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "tenmedia.de": {
     "name": "TenMedia",
@@ -14332,7 +14515,9 @@
     "city": "Berlin",
     "linkedin": "https://www.linkedin.com/company/tenmediaberlin",
     "prospeoId": "cccc13e9c1f375721d03c2dc",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "nubibase.de": {
     "name": "nubibase",
@@ -14341,7 +14526,9 @@
     "city": "Schweinfurt",
     "linkedin": "https://www.linkedin.com/company/nubibase",
     "prospeoId": "ccccbca6acbc187c32dc3e8f",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "appadaptive.de": {
     "name": "AppAdaptive",
@@ -14350,7 +14537,9 @@
     "city": "Ravensburg",
     "linkedin": "https://www.linkedin.com/company/appadaptive",
     "prospeoId": "cccc47cd533f52eaa8111bb2",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "studibuch.de": {
     "name": "Studibuch",
@@ -14359,7 +14548,12 @@
     "city": "Stuttgart",
     "linkedin": "https://www.linkedin.com/company/studibuch-gmbh",
     "prospeoId": "cccc773c0674ac0a95eb22a6",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "via": "website",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": [
+     "personio:studibuch-gmbh"
+    ]
    },
    "synava.com": {
     "name": "synava",
@@ -14368,7 +14562,12 @@
     "city": "Karlsruhe",
     "linkedin": "https://www.linkedin.com/company/synava-gmbh",
     "prospeoId": "cccc244ab479e7195072d14e",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "via": "matched board name",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": [
+     "smartrecruiters:synava"
+    ]
    },
    "fixfirst.io": {
     "name": "FixFirst - Make Repair Happen",
@@ -14377,7 +14576,9 @@
     "city": "Berlin",
     "linkedin": "https://www.linkedin.com/company/fixfirst",
     "prospeoId": "ccccc22039aa151bbb9cb3bb",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "thermotune.com": {
     "name": "ThermoTune",
@@ -14385,7 +14586,9 @@
     "country": "Singapore",
     "linkedin": "https://www.linkedin.com/company/thermotune",
     "prospeoId": "cccce5efa559f8dd69c95c86",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "detoxi.info": {
     "name": "detoxi Health",
@@ -14394,7 +14597,9 @@
     "city": "Berlin",
     "linkedin": "https://www.linkedin.com/company/detoxi-health",
     "prospeoId": "cccc558453ba56313143edb8",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "decorami.de": {
     "name": "DECORAMI",
@@ -14403,7 +14608,9 @@
     "city": "Neu-Isenburg",
     "linkedin": "https://www.linkedin.com/company/decoramide",
     "prospeoId": "cccc27d6721139ca71c55de2",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "aveo-solutions.com": {
     "name": "AVEO Solutions",
@@ -14412,7 +14619,9 @@
     "city": "Königsbrunn",
     "linkedin": "https://www.linkedin.com/company/aveo-solutions-gmbh",
     "prospeoId": "ccccf9058a55735d5b9d990e",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "softwarestack.de": {
     "name": "SoftwareStack",
@@ -14421,7 +14630,9 @@
     "city": "Villingen-Schwenningen",
     "linkedin": "https://www.linkedin.com/company/softwarestack",
     "prospeoId": "ccccc9d7f84001c8046e88f3",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "scio.xyz": {
     "name": "Scio Labs",
@@ -14430,7 +14641,9 @@
     "city": "Potsdam",
     "linkedin": "https://www.linkedin.com/company/scio-xyz",
     "prospeoId": "ccccd8bd9886f656307ea985",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "neuralmobi.com": {
     "name": "NeuralMobi",
@@ -14438,7 +14651,9 @@
     "country": "United Kingdom",
     "linkedin": "https://www.linkedin.com/company/neuralmobi",
     "prospeoId": "cccc9d88f677bf60944cb150",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "doings.de": {
     "name": "Doings",
@@ -14447,7 +14662,9 @@
     "city": "Berlin",
     "linkedin": "https://www.linkedin.com/company/doings-berlin",
     "prospeoId": "cccc12af1372ae5cb71fafec",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "manchesterdigital.com": {
     "name": "Manchester Digital",
@@ -14456,7 +14673,9 @@
     "city": "Manchester",
     "linkedin": "https://www.linkedin.com/company/manchester-digital",
     "prospeoId": "cccc80486a955d4b0bc7e6be",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "medipulse.de": {
     "name": "MediPulse",
@@ -14465,7 +14684,9 @@
     "city": "Munich",
     "linkedin": "https://www.linkedin.com/company/medipulsede",
     "prospeoId": "cccc3d0d89d866511f6208b5",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "cosoft.de": {
     "name": "cosoft computer consulting gmbh",
@@ -14474,7 +14695,12 @@
     "city": "Coesfeld",
     "linkedin": "https://www.linkedin.com/company/cosoft.de",
     "prospeoId": "cccc1ccbad11980212e749dc",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "via": "matched board name",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": [
+     "workable:cosoft"
+    ]
    },
    "psytastic.de": {
     "name": "Psytastic",
@@ -14483,7 +14709,9 @@
     "city": "Würzburg",
     "linkedin": "https://www.linkedin.com/company/psytastic",
     "prospeoId": "cccc38996a695bbb78396ddf",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "paceways.com": {
     "name": "Paceways",
@@ -14492,7 +14720,9 @@
     "city": "Dachau",
     "linkedin": "https://www.linkedin.com/company/unvyl-gmbh",
     "prospeoId": "cccc3890797a42f41c10bd00",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "abstract3d.com": {
     "name": "Abstract",
@@ -14501,7 +14731,9 @@
     "city": "Stuttgart",
     "linkedin": "https://www.linkedin.com/company/abstract3d",
     "prospeoId": "ccccb545acbb8e967967917c",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "fr3n.fan": {
     "name": "fr3n",
@@ -14510,7 +14742,9 @@
     "city": "Münster",
     "linkedin": "https://www.linkedin.com/company/fr3n",
     "prospeoId": "cccc3668efee6ce244d0bd86",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "editorial-hub.de": {
     "name": "Editorial Hub",
@@ -14519,7 +14753,9 @@
     "city": "Frankfurt",
     "linkedin": "https://www.linkedin.com/company/editorial-hub",
     "prospeoId": "cccc65daac45b539c7ea7fdb",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "moneten.app": {
     "name": "moneten",
@@ -14528,7 +14764,9 @@
     "city": "Hamburg",
     "linkedin": "https://www.linkedin.com/company/moneten",
     "prospeoId": "ccccfeecd6ffac2dcd7cf856",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "frisch-solutions.com": {
     "name": "LISA | digital Shopfloor Management by Frisch Solutions",
@@ -14537,7 +14775,12 @@
     "city": "Marburg an der Lahn",
     "linkedin": "https://www.linkedin.com/company/frisch-solutions",
     "prospeoId": "cccca0476ce6a9b329cacec5",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "via": "matched board name",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": [
+     "workable:lisa"
+    ]
    },
    "fioro.ai": {
     "name": "Fioro",
@@ -14546,7 +14789,9 @@
     "city": "Munich",
     "linkedin": "https://www.linkedin.com/company/fioro-ai",
     "prospeoId": "cccce37ae5c72c28af63d656",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "vennie.tech": {
     "name": "Vennie",
@@ -14555,7 +14800,9 @@
     "city": "Berlin",
     "linkedin": "https://www.linkedin.com/company/vennie",
     "prospeoId": "ccccba0ee66160c3df47315d",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "eos-karriere.de": {
     "name": "EOS Karriere",
@@ -14564,7 +14811,9 @@
     "city": "Hamburg",
     "linkedin": "https://www.linkedin.com/company/eos-karriere",
     "prospeoId": "cccc2aa71fa2c3bc086a605a",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "hydizo.com": {
     "name": "Hydizo Global Solutions Private Limited",
@@ -14573,7 +14822,9 @@
     "city": "London",
     "linkedin": "https://www.linkedin.com/company/hydizo",
     "prospeoId": "cccc2ed17e87cb1e9d6ed0fb",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "sachsen.de": {
     "name": "Leitstelle für Informationstechnologie der sächsischen Justiz (LIT)",
@@ -14582,7 +14833,9 @@
     "city": "Dresden",
     "linkedin": "https://www.linkedin.com/company/leitstelle-für-informationstechnologie-der-sächsischen-justiz-lit",
     "prospeoId": "cccc6a64db4b6edcccd541b2",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "eventbro.io": {
     "name": "eventbro",
@@ -14590,7 +14843,9 @@
     "country": "Germany",
     "linkedin": "https://www.linkedin.com/company/eventbro-io",
     "prospeoId": "ccccf16ab6a7500030df6532",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "fieber-it.com": {
     "name": "Fieber IT",
@@ -14599,7 +14854,9 @@
     "city": "Rimpar",
     "linkedin": "https://www.linkedin.com/company/fieber-it",
     "prospeoId": "cccc7d9ea6bf46b2f1af9e09",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "cloudkultur.de": {
     "name": "CloudKultur",
@@ -14608,7 +14865,9 @@
     "city": "Berlin",
     "linkedin": "https://www.linkedin.com/company/cloudkultur",
     "prospeoId": "cccc5a86848a7913a93e3366",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "mavericktech.ltd": {
     "name": "Maverick Tech",
@@ -14617,7 +14876,9 @@
     "city": "Cambridge",
     "linkedin": "https://www.linkedin.com/company/maverick-tech-ltd",
     "prospeoId": "cccc6e56b51c36ea805778b3",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "masedo.de": {
     "name": "masedo IT-Systemhaus",
@@ -14626,7 +14887,9 @@
     "city": "Dortmund",
     "linkedin": "https://www.linkedin.com/company/masedoit",
     "prospeoId": "cccc3dce9c1ccde8c859fd6a",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "v-lab.one": {
     "name": "V-Lab One",
@@ -14635,7 +14898,9 @@
     "city": "Berlin",
     "linkedin": "https://www.linkedin.com/company/v-lab-one",
     "prospeoId": "cccc75c6c218cfee061bd7b3",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "rm.com": {
     "name": "RM Technology",
@@ -14643,7 +14908,9 @@
     "country": "United Kingdom",
     "linkedin": "https://www.linkedin.com/company/technology-rm",
     "prospeoId": "cccc6a78f7a1a3d61884a552",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "klauke-enterprises.com": {
     "name": "Klauke Enterprises",
@@ -14652,7 +14919,12 @@
     "city": "Meschede",
     "linkedin": "https://www.linkedin.com/company/klauke-enterprises",
     "prospeoId": "cccc109acddfac8259c93855",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "via": "website",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": [
+     "personio:klauke-enterprises"
+    ]
    },
    "wiedergruen.com": {
     "name": "Wiedergrün Engineering",
@@ -14661,7 +14933,9 @@
     "city": "Frankfurt",
     "linkedin": "https://www.linkedin.com/company/wiedergruen",
     "prospeoId": "cccc73aba9040ad7a5ec3920",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "empitee.de": {
     "name": "empITee",
@@ -14670,7 +14944,9 @@
     "city": "Hattersheim",
     "linkedin": "https://www.linkedin.com/company/empitee",
     "prospeoId": "ccccedcdc091be14105de32f",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "place2charge.com": {
     "name": "place2charge",
@@ -14679,7 +14955,9 @@
     "city": "Karlsruhe",
     "linkedin": "https://www.linkedin.com/company/place2charge",
     "prospeoId": "cccc70f5d26f5de514cae6ab",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "u-glow.de": {
     "name": "Prelytics",
@@ -14688,7 +14966,9 @@
     "city": "Mülheim an der Ruhr",
     "linkedin": "https://www.linkedin.com/company/prelytics",
     "prospeoId": "cccc8813b6bcb89b687027aa",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "superclean.sg": {
     "name": "SuperClean SG",
@@ -14696,7 +14976,9 @@
     "country": "Singapore",
     "linkedin": "https://www.linkedin.com/company/superclean-singapore",
     "prospeoId": "ccccf53f0c4373b161f866d8",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "truffletech.com": {
     "name": "Truffle Technologies",
@@ -14705,7 +14987,9 @@
     "city": "Novena",
     "linkedin": "https://www.linkedin.com/company/truffletech",
     "prospeoId": "cccc0e7073321328bd9b7087",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "northbridgeconsulting.com": {
     "name": "Northbridge Consulting",
@@ -14714,7 +14998,9 @@
     "city": "Melbourne",
     "linkedin": "https://www.linkedin.com/company/northbridge-consulting",
     "prospeoId": "cccc45d778725352542b521a",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "writsys.com": {
     "name": "WRITSYS UG (haftungsbeschränkt)",
@@ -14723,7 +15009,9 @@
     "city": "Leverkusen",
     "linkedin": "https://www.linkedin.com/company/writsys",
     "prospeoId": "ccccc0036584b0af1160ebdb",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "bangor.ac.uk": {
     "name": "School of Computer Science and Engineering, Bangor University",
@@ -14732,7 +15020,9 @@
     "city": "Bangor",
     "linkedin": "https://www.linkedin.com/company/bangorcse",
     "prospeoId": "cccc1498b247ce1f980edd34",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "strot.net": {
     "name": "StrotEd",
@@ -14740,7 +15030,9 @@
     "country": "United Kingdom",
     "linkedin": "https://www.linkedin.com/company/strot-net",
     "prospeoId": "cccc30e9c8b7b8dc4ca3a2af",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "weto.de": {
     "name": "Weto",
@@ -14749,7 +15041,9 @@
     "city": "Tittling",
     "linkedin": "https://www.linkedin.com/company/weto-ag",
     "prospeoId": "cccc59dbf22f1fe975483ae0",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "shapemate.eu": {
     "name": "Shapemate",
@@ -14758,7 +15052,9 @@
     "city": "Cologne",
     "linkedin": "https://www.linkedin.com/company/shapemate",
     "prospeoId": "cccc82b0202b5280ed6915cf",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "sonia.so": {
     "name": "Sonia",
@@ -14767,7 +15063,12 @@
     "city": "Hamburg",
     "linkedin": "https://www.linkedin.com/company/soniasolutions",
     "prospeoId": "cccca5ed5d8474967eeef2be",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "via": "website",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": [
+     "personio:sonia"
+    ]
    },
    "edubites.com": {
     "name": "eduBITES",
@@ -14776,7 +15077,12 @@
     "city": "Berlin",
     "linkedin": "https://www.linkedin.com/company/edubites",
     "prospeoId": "ccccdfb1de753e3a6b64a62e",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "via": "website",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": [
+     "personio:edubites-gmbh"
+    ]
    },
    "aralects.com": {
     "name": "Aralects",
@@ -14784,7 +15090,9 @@
     "country": "United Arab Emirates",
     "linkedin": "https://www.linkedin.com/company/aralects",
     "prospeoId": "cccc15910bec08b98638ed2a",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "pinelabs.com": {
     "name": "Pine Labs Singapore",
@@ -14792,7 +15100,9 @@
     "country": "Singapore",
     "linkedin": "https://www.linkedin.com/company/pinelabs-sg",
     "prospeoId": "cccc479ada6cc995e7680e57",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "doctario.de": {
     "name": "Doctario",
@@ -14800,7 +15110,9 @@
     "country": "Germany",
     "linkedin": "https://www.linkedin.com/company/doctario",
     "prospeoId": "cccc321cad1f71c67e65b542",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "raisin.com": {
     "name": "Raisin",
@@ -14809,7 +15121,12 @@
     "city": "Berlin",
     "linkedin": "https://www.linkedin.com/company/join-raisin",
     "prospeoId": "cccc42af9e1934f3c0c8fbfb",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "via": "website",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": [
+     "greenhouse:raisin"
+    ]
    },
    "2c2p.com": {
     "name": "2C2P",
@@ -14818,7 +15135,9 @@
     "city": "Downtown Core",
     "linkedin": "https://www.linkedin.com/company/2c2p",
     "prospeoId": "cccc5e9f56f94a136666e7a4",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "vocalbeats.ai": {
     "name": "Vocalbeats.AI",
@@ -14826,7 +15145,9 @@
     "country": "Singapore",
     "linkedin": "https://www.linkedin.com/company/vocalbeats_ai",
     "prospeoId": "ccccd30085f37c479d84f1e4",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "threatbook.io": {
     "name": "ThreatBook",
@@ -14834,7 +15155,9 @@
     "country": "Singapore",
     "linkedin": "https://www.linkedin.com/company/threatbook",
     "prospeoId": "cccc56b0e3a5ee5287aaf9b8",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "m-daq.com": {
     "name": "M-DAQ Global",
@@ -14843,7 +15166,9 @@
     "city": "Toa Payoh",
     "linkedin": "https://www.linkedin.com/company/m-daq",
     "prospeoId": "ccccff9e53eaeb9c6bdd5843",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "recruitee.com": {
     "name": "Kevin Kehr",
@@ -14851,7 +15176,12 @@
     "country": "Germany",
     "linkedin": "https://www.linkedin.com/company/kevin-kehr",
     "prospeoId": "cccc97251f47ffe44152bb8b",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "via": "matched board name",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": [
+     "recruitee:kevinkehr"
+    ]
    },
    "holidu.com": {
     "name": "Holidu",
@@ -14860,7 +15190,12 @@
     "city": "Munich",
     "linkedin": "https://www.linkedin.com/company/holidu",
     "prospeoId": "cccc5b68b578c5c47c1b18f3",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "via": "matched board name",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": [
+     "ashby:holidu"
+    ]
    },
    "lovey.com": {
     "name": "Lovey",
@@ -14868,7 +15203,12 @@
     "country": "United Kingdom",
     "linkedin": "https://www.linkedin.com/company/loveyltd",
     "prospeoId": "cccc5fd6662472f56c8ac53a",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "via": "website",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": [
+     "workable:lovey"
+    ]
    },
    "smartpension.co.uk": {
     "name": "Smart Pension",
@@ -14877,7 +15217,9 @@
     "city": "London",
     "linkedin": "https://www.linkedin.com/company/smart-pension",
     "prospeoId": "cccc417749036bbecccd3a3b",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": []
    },
    "patsnap.com": {
     "name": "Patsnap",
@@ -14886,7 +15228,12 @@
     "city": "Newton",
     "linkedin": "https://www.linkedin.com/company/patsnap",
     "prospeoId": "cccc31700ecca29cec6cf882",
-    "foundAt": "2026-10-30T12:04:00.745Z"
+    "foundAt": "2026-10-30T12:04:00.745Z",
+    "via": "website",
+    "checkedAt": "2026-10-30T12:33:34.969Z",
+    "boards": [
+     "recruitee:patsnap"
+    ]
    }
   }
  },
