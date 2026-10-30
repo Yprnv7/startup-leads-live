@@ -246,7 +246,8 @@ function handleSearchResults(results, { resolve = companyForResult, strict = fal
     const title = p.current_job_title || p.headline;
     if (!p.full_name || teamOf(title) === 'Other' || (strict && !STRICT_CSUITE_RE.test(p.current_job_title || ''))) continue;
     const revealed = p.email?.revealed && p.email?.email && !p.email.email.includes('*') ? p.email.email.toLowerCase() : undefined;
-    const loc = p.location ? [p.location.city, p.location.country].filter(Boolean).join(', ') : undefined;
+    // Site rule: no US data anywhere, so a US-based person's location isn't stored.
+    const loc = p.location && p.location.country_code !== 'US' && !/united states/i.test(p.location.country || '') ? [p.location.city, p.location.country].filter(Boolean).join(', ') : undefined;
     addPerson(c, {
       name: p.full_name, title, team: teamOf(title),
       linkedin: p.linkedin_url, location: loc, source: 'Prospeo', personId: p.person_id,
@@ -442,8 +443,9 @@ if (!args['skip-scan']) await scanSites();
 if (API_KEY) { await prospeoPeople(); await prospeoMobiles(); }
 else report.prospeo = { skipped: 'PROSPEO_API_KEY not set' };
 
-// Founders from YC / HN keep their team label too.
+// Founders from YC / HN keep their team label too. US locations are never kept (site rule).
 for (const c of db.companies) {
+  for (const p of c.contacts || []) if (p.location && /united states|\busa\b/i.test(p.location)) delete p.location;
   for (const p of c.contacts || []) p.team ??= p.source === 'HN' ? 'Talent & HR' : teamOf(p.title);
   const rank = p => (p.email ? 0 : 2) + (p.linkedin ? 0 : 1);
   c.contacts?.sort((a, b) => TEAM_PRIORITY[a.team] - TEAM_PRIORITY[b.team] || rank(a) - rank(b));
