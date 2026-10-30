@@ -332,7 +332,7 @@
  "zeroMiss": {},
  "prospeo": {
   "credits": {
-   "2026-10-30": 90
+   "2026-10-30": 91
   },
   "mobileCredits": {
    "2026-10-30": 136
@@ -2126,6 +2126,10 @@
   "jobicy:welo-global": {
    "reason": "Hires in the US",
    "at": "2026-10-30T18:03:14.751Z"
+  },
+  "nodesk:nylas": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T23:56:31.051Z"
   }
  },
  "wikidata": {
@@ -4258,16 +4262,56 @@
    "at": "2026-10-30T21:01:15.874Z",
    "id": "Q116873326",
    "us": false
+  },
+  "BringLiesel GmbH": {
+   "at": "2026-10-30T23:56:31.051Z",
+   "id": null,
+   "us": false
+  },
+  "Amadeus": {
+   "at": "2026-10-30T23:56:31.051Z",
+   "id": "Q696061",
+   "us": false
+  },
+  "Rocket.chat": {
+   "at": "2026-10-30T23:56:31.051Z",
+   "id": null,
+   "us": false
+  },
+  "Duolingo": {
+   "at": "2026-10-30T23:56:31.051Z",
+   "id": null,
+   "us": false
+  },
+  "B12": {
+   "at": "2026-10-30T23:56:31.051Z",
+   "id": null,
+   "us": false
+  },
+  "DonorsChoose": {
+   "at": "2026-10-30T23:56:31.051Z",
+   "id": null,
+   "us": false
+  },
+  "Nylas": {
+   "at": "2026-10-30T23:56:31.051Z",
+   "id": "Q134079864",
+   "us": true
+  },
+  "Ably": {
+   "at": "2026-10-30T23:56:31.051Z",
+   "id": "Q139764920",
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-10-30T19:58:15.391Z",
-  "remoteok": "2026-10-30T21:01:15.874Z",
-  "workingnomads": "2026-10-30T21:01:15.874Z",
-  "weworkremotely": "2026-10-30T21:01:15.874Z",
-  "nodesk": "2026-10-30T21:01:15.874Z",
-  "jobfound": "2026-10-30T18:03:14.751Z"
+  "remoteok": "2026-10-30T23:56:31.051Z",
+  "workingnomads": "2026-10-30T23:56:31.051Z",
+  "weworkremotely": "2026-10-30T23:56:31.051Z",
+  "nodesk": "2026-10-30T23:56:31.051Z",
+  "jobfound": "2026-10-30T23:56:31.051Z"
  },
- "jobicyAt": "2026-10-30T21:01:15.874Z",
- "arbeitnowAt": "2026-10-30T21:01:15.874Z"
+ "jobicyAt": "2026-10-30T23:56:31.051Z",
+ "arbeitnowAt": "2026-10-30T23:56:31.051Z"
 }
