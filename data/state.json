@@ -1713,6 +1713,18 @@
   "hn:flow-traders": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-10-30T06:00:09.566Z"
+  },
+  "yc:junction": {
+   "reason": "US headquarters (Prospeo) (config)",
+   "at": "2026-10-30T06:11:27.940Z"
+  },
+  "yc:oneleet": {
+   "reason": "US headquarters (Prospeo) (config)",
+   "at": "2026-10-30T06:11:27.940Z"
+  },
+  "hn:enveritas": {
+   "reason": "US headquarters (Prospeo) (config)",
+   "at": "2026-10-30T06:11:27.940Z"
   }
  },
  "arbeitnowAt": "2026-10-30T05:40:14.012Z",

@@ -559,7 +559,10 @@
     "Bloomreach": "US headquarters",
     "GiveDirectly": "US headquarters",
     "Banyan Software": "US headquarters",
-    "Runway": "US headquarters"
+    "Runway": "US headquarters",
+    "Junction": "US headquarters (Prospeo)",
+    "Oneleet": "US headquarters (Prospeo)",
+    "Enveritas": "US headquarters (Prospeo)"
   },
   "wikidataLookupsPerRun": 60
 }
