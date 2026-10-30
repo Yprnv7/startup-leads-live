@@ -710,6 +710,9 @@
         if (activeCSuiteFilter === "UNCONTACTED") refreshAll();
       });
 
+      // Deep link from the RTI tracker: ?q=<company> pre-fills the search.
+      const deepQ = new URLSearchParams(location.search).get("q");
+      if (deepQ) { searchInput.value = deepQ; searchQuery = deepQ; clearBtn.classList.remove("hidden"); }
       await load(true);
       if (raw) {
         $("updaterLink").href = `https://github.com/${raw.meta.repo}/actions/workflows/hourly_sync.yml`;

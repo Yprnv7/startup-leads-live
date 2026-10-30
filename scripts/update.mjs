@@ -23,7 +23,7 @@ const args = Object.fromEntries(process.argv.slice(2).map(a => {
   const [k, v] = a.replace(/^--/, '').split('=');
   return [k, v ?? true];
 }));
-const MODE = args.mode === 'discover' ? 'discover' : 'verify';
+let MODE = args.mode === 'discover' ? 'discover' : 'verify';
 
 const config = JSON.parse(await fs.readFile(path.join(ROOT, 'config.json'), 'utf8'));
 const TECH_RE = new RegExp(config.techRoleRegex, 'i');
@@ -44,6 +44,8 @@ const db = await readJSON(LEADS_FILE, { meta: {}, companies: [], events: [], his
 const state = await readJSON(STATE_FILE, { ycSkipped: {}, boards: [], boardNames: {}, zeroMiss: {} });
 const manual = await readJSON(MANUAL_FILE, []);
 const firstRun = db.companies.length === 0;
+// Several runs can land in the 01:00 UTC hour (backup schedules): discover at most once per 20 h.
+if (MODE === 'discover' && !args.force && db.meta.lastDiscoverAt && Date.now() - Date.parse(db.meta.lastDiscoverAt) < 20 * 3600e3) MODE = 'verify';
 
 const byId = new Map(db.companies.map(c => [c.id, c]));
 const byDomain = new Map();
@@ -140,7 +142,9 @@ function scopeOf(job, context) {
   if (OFFICE_RE.test(`${job.location || ''} ${job.title}`)) return { ok: false };
   const { remote, places } = remotePlaces(job.location, job.remoteFlag, context);
   const scoped = inScopePlaces(places);
-  return { ok: remote && scoped.length > 0, places: scoped };
+  // For the RTI tracker: does the posting itself name India (e.g. "Remote (SG; ID; IN)")?
+  const openToIndia = places.includes('India');
+  return { ok: remote && scoped.length > 0, places: scoped, openToIndia };
 }
 
 // Companies we never list: headquartered in the US, or with an office in India.
@@ -162,6 +166,7 @@ function upsertJob(company, job) {
   job.places = scope.places;
   job.regions = regionsOf(scope.places);
   job.remoteScope = remoteLabel(scope.places);
+  job.openToIndia = scope.openToIndia;
   job.track = trackOf(job.title);
   job.remote = true;
   job.tech = true;
@@ -913,7 +918,7 @@ for (const c of [...db.companies]) {
   const ctx = companyContext(c);
   c.jobs = c.jobs.filter(j => {
     const s = scopeOf(j, ctx);
-    if (s.ok) { j.places = s.places; j.regions = regionsOf(s.places); j.remoteScope = remoteLabel(s.places); j.track = trackOf(j.title); j.remote = true; j.tech = true; }
+    if (s.ok) { j.places = s.places; j.regions = regionsOf(s.places); j.remoteScope = remoteLabel(s.places); j.openToIndia = s.openToIndia; j.track = trackOf(j.title); j.remote = true; j.tech = true; }
     return s.ok;
   });
   if (!c.jobs.length) { removeCompany(c); prevStatus.delete(c.id); }
@@ -1002,6 +1007,20 @@ db.meta = {
   countries: [...new Set(all.flatMap(c => c.jobs.flatMap(j => j.places || [])))].filter(p => SCOPE_REGIONS.includes(REGION_OF[p])).sort((a, b) => a.localeCompare(b, 'en')),
   runSeconds: Math.round((Date.now() - t0) / 1000),
   sources: sourceReport,
+  // Last result per source, kept across runs (sources run on different schedules).
+  sourceStats: (() => {
+    const stats = { ...(db.meta.sourceStats || {}) };
+    const put = (key, ok, read, note) => { stats[key] = { at: NOW, ok, read, note }; };
+    const r = sourceReport;
+    if (r.ycDiscover) put('yc', r.ycDiscover.ok, r.ycDiscover.checked || 0, `${r.ycDiscover.added || 0} new startups`);
+    else if (r.ycVerify) put('yc', r.ycVerify.ok, r.ycVerify.checked || 0, 'Re-checked YC pages');
+    if (r.hn) put('hn', r.hn.ok, r.hn.posts || 0, (r.hn.threads || []).join(', '));
+    if (r.ats) put('ats', r.ats.ok, r.ats.fetched || 0, `${r.ats.boards} company job boards`);
+    if (r.jobicy) put('jobicy', r.jobicy.ok, r.jobicy.listings || 0, '');
+    if (r.arbeitnow) put('arbeitnow', r.arbeitnow.ok, r.arbeitnow.remoteListings || 0, 'remote listings');
+    for (const [k, v] of Object.entries(r.others || {})) put(k, v.ok, v.listings || 0, '');
+    return stats;
+  })(),
   totals: {
     companies: all.length,
     openCompanies: all.filter(c => c.status === 'open').length,

@@ -3,6 +3,10 @@ name: Hourly sync
 on:
   schedule:
     - cron: '0 * * * *'   # every hour, on the hour
+    # GitHub often delays or drops runs scheduled exactly on the hour; these back-ups make sure
+    # roles are re-checked at least hourly. Runs never overlap (see concurrency below).
+    - cron: '23 * * * *'
+    - cron: '47 * * * *'
   workflow_dispatch:
     inputs:
       mode:

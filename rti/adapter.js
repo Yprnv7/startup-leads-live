@@ -20,8 +20,10 @@
   const listeners = new Set();
   const notify = () => listeners.forEach(fn => { try { fn(); } catch (e) {} });
 
+  // Who can apply: postings that name India first, then worldwide, then the regions they name.
   function access(job) {
     const p = job.places || [];
+    if (job.openToIndia) return "india";
     if (p.includes("Worldwide")) return "world";
     const label = (job.remoteScope || "").replace(/^100% Remote \(|\)$/g, "");
     return label ? `region:${label.replace(/\//g, " / ")} only` : "region:Remote, country not stated";
@@ -32,14 +34,15 @@
     for (const c of data.companies) {
       const open = c.jobs.filter(j => j.status === "open");
       const region = REGION_CODE[c.region] || REGION_CODE[(c.markets || [])[0]] || "GL";
-      const people = (c.contacts || []).filter(p => p.email || p.phone || p.linkedin).slice(0, 4)
-        .map(p => [p.name, p.title, p.email, p.phone].filter(Boolean).join(" · ")).join("\n");
+      const contacts = (c.contacts || []).map(p => ({ name: p.name, title: p.title || "", email: p.email || "", phone: p.phone || "", linkedin: p.linkedin || "", team: p.team || "" }));
       companies.push({
         id: c.id, name: c.name, website: c.website || "", linkedin: c.linkedin || c.channels?.social?.linkedin || "",
         region, country: c.country || "", location: c.location || c.country || "", headcount: c.teamSize ? String(c.teamSize) : "",
         companyType: "tech", check: "clear",
         checkNote: "No India office found: company location, YC regions and every job location were checked by the hourly updater.",
-        status: open.length ? "New" : "Not a fit", notes: people ? `Contacts on Startup Leads:\n${people}` : "",
+        status: open.length ? "New" : "Not a fit", notes: "",
+        contacts, hqPhone: c.channels?.phones?.[0]?.phone || "", companyEmails: (c.channels?.emails || []).map(e => e.email),
+        openRoles: open.map(j => j.title),
         firstSeen: (c.firstSeen || "").slice(0, 10), source: SOURCE_LABEL[c.source] || c.source, websiteCheck: c.website ? "verified" : undefined,
       });
       for (const j of open) {
@@ -63,14 +66,27 @@
     return []; // news, freelance: not collected by Startup Leads
   };
 
+  // Sources tab: the last result of every source (they run hourly or every 3-6 hours) and how many
+  // of its open roles are on the site right now.
   function jobRun(meta) {
+    const stats = meta.sourceStats || {};
+    const keptBy = {};
+    for (const sig of base.signals) keptBy[sig.source] = (keptBy[sig.source] || 0) + 1;
+    const label = k => (k === "ats" ? "Company job boards" : SOURCE_LABEL[k] || k);
     const sources = {};
-    const s = meta.sources || {};
-    if (s.hn) sources["HN Who's Hiring"] = { status: s.hn.ok ? "ok" : "failed", read: s.hn.posts || 0, kept: 0 };
-    if (s.ats) sources["Company job boards"] = { status: s.ats.ok ? "ok" : "failed", read: s.ats.fetched || 0, kept: 0, note: `${s.ats.boards} boards` };
-    if (s.jobicy) sources.Jobicy = { status: s.jobicy.ok ? "ok" : "failed", read: s.jobicy.listings || 0, kept: 0 };
-    if (s.arbeitnow) sources.Arbeitnow = { status: s.arbeitnow.ok ? "ok" : "failed", read: s.arbeitnow.remoteListings || 0, kept: 0 };
-    for (const [k, v] of Object.entries(s.others || {})) sources[SOURCE_LABEL[k] || k] = { status: v.ok ? (v.inScope ? "ok" : "empty") : "failed", read: v.listings || 0, kept: v.inScope || 0 };
+    for (const [k, v] of Object.entries(stats)) {
+      const when = v.at ? new Date(v.at).toLocaleString(undefined, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }) : "";
+      // "Failed" only when nothing could be read; a partly read feed still counts.
+      const status = kept => (v.read ? (kept ? "ok" : "empty") : v.ok ? "empty" : "failed");
+      const note = [v.note, !v.ok && v.read ? "partly read" : "", when && `last read ${when}`].filter(Boolean).join(" · ");
+      if (k === "ats") {
+        // One row per job-board platform, so "Saved postings" matches each role's source.
+        for (const l of ["Greenhouse", "Lever", "Ashby"]) sources[l] = { status: status(keptBy[l] || 0), read: keptBy[l] || 0, kept: keptBy[l] || 0, note: `part of ${v.read || 0} startup job boards · last read ${when}` };
+        continue;
+      }
+      const kept = keptBy[label(k)] || 0;
+      sources[label(k)] = { status: status(kept), read: v.read || 0, kept, note };
+    }
     return { id: "latest", at: meta.generatedAt, sources };
   }
 

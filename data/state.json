@@ -1994,10 +1994,64 @@
   "yc:newscatcher": {
    "reason": "US headquarters (Prospeo)",
    "at": "2026-10-30T07:51:50.897Z"
+  },
+  "jobicy:givedirectly": {
+   "reason": "Hires in the US",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "workingnomads:lemon-io": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "arbeitnow:fivetran": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "jobicy:datadog": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "jobicy:akamai-technologies": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "arbeitnow:polara": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "arbeitnow:tanium": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "arbeitnow:gitlab": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "arbeitnow:transperfect": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "remoteok:prenosis": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "remoteok:mirantis": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "remoteok:benchling": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "remoteok:freedompay": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
+  },
+  "nodesk:brex": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T07:56:44.705Z"
   }
  },
- "arbeitnowAt": "2026-10-30T05:40:14.012Z",
- "jobicyAt": "2026-10-30T05:52:50.820Z",
  "wikidata": {
   "0G": {
    "at": "2026-10-30T05:54:08.673Z",
@@ -2954,7 +3008,7 @@
    "id": null,
    "us": false
   },
-  "Sotheby\u00e2\u0080\u0099s": {
+  "Sothebyâs": {
    "at": "2026-10-30T07:31:58.129Z",
    "id": null,
    "us": false
@@ -3258,14 +3312,721 @@
    "at": "2026-10-30T07:33:31.922Z",
    "id": null,
    "us": false
+  },
+  "Playson": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Welo Global": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Precision Medicine Group": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "TrustedHousesitters": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Acceleration Partners": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Akamai Technologies": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q415598",
+   "us": true
+  },
+  "Alma": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "ShopFully": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Datadog": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q16248637",
+   "us": true
+  },
+  "StackAdapt": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Swarmaero": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Spring Health": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Natuvion GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Evolve Digital GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Polara": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q141910468",
+   "us": true
+  },
+  "dataiku": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q24940442",
+   "us": false
+  },
+  "tanium": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q28222607",
+   "us": true
+  },
+  "GalleryLab GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "PVcase": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Global Reporting Initiative": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "innovIT AG": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Pont Connects e.K.": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "advacc  advanced accounting GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "StartSteps Digital Education GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Quantum Business Network UG (haftungsbeschränkt)": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Constructor": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Excelya": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "DEMV Systems Gmbh": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Claudius Wurth Agrarberatung": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Teaching Socials": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "FunnelCockpit": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "neoBIM GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Co-ship consult GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "finwyz GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "functionHR GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Hrmony GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Cartonplast Group GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Leads Power": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "EmailClub": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "PROXIMÉDIAS": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "LimeFlight": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Re7 Capital": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "VDK Groep B.V.": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Simplyright GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "aeroTELEGRAPH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "ANGEHEUERT GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "ATMET": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Mirtos Animal Project": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Strehlow Media GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Kevin Kehr": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Haut Ai": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q139823003",
+   "us": false
+  },
+  "Bundesverbraucherhilfe e.V.": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "AMALOCK": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Crowdsec": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q119526222",
+   "us": false
+  },
+  "LA FAMILLE MAGHEN": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Hanspeter Brunner Webdesign": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Sebotics": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "getolo GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "snipKI": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Gesundheit von Morgen GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Neolymp": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "GFN GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Paintgun": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "REP Revenue Excellence Partners": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Start To Finish Consulting GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Auralis Group": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Performance Marketing Agentur firststars GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "True North Partners LLP": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Intetics 2": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Livestorm": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "HUP Network": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "fino digital GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Neko Health": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Camunda": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Rootglobal": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "planetlabs": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "24-LOG GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Fivetran": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q109827378",
+   "us": true
+  },
+  "Project Blackbook": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "SyncVR Medical B.V. / GmbH / ApS / Ltd.": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Kizuna Personalberatung GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Templar Hausverwaltung GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "1ASOL GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Hopae": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "TransPerfect": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q7833640",
+   "us": true
+  },
+  "Landsiedel NLP Training": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Cannaleo Digital GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "BlickSolutions GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Clariness GmbH": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "veeamsoftware": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Homa Games": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Vio": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Fuel50": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Tierarzt Plus Partner": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Spiralyze": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "RedMimicry": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Fortanix": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Leverage Live Local": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "SIHO Insurance Services": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Prenosis": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q64142353",
+   "us": true
+  },
+  "Magic Eden": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Delinea": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Arango": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "ExtraHop": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Mirantis": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q19903458",
+   "us": true
+  },
+  "Copenhagen Optimization": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "GiveWell": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "eClinical Solutions": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Libertex Group": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Thatchers Cider": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Benzinga": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "The AI Whistleblower Initiative": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Tessera Labs": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Transportation Partners & Logistics": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Salesforge": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Orca Bio": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Kruger NearShore LLC - Rekluti": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Harbor": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Engine": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Chaos": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Dreem Health": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Benchling": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q63417942",
+   "us": true
+  },
+  "Legal Services NYC": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "HighLevel": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Physical Superintelligence": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "FreedomPay": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q16993815",
+   "us": true
+  },
+  "TELUS Digital": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q7697923",
+   "us": false
+  },
+  "Peroptyx": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "BDF EXPERTS": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Ignition, Inc.": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Aquifer": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Ramp": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Brex": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q60741065",
+   "us": true
+  },
+  "Replit": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Revolut": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q22908307",
+   "us": false
+  },
+  "Mistral AI": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q119718658",
+   "us": false
+  },
+  "Cohere": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q110363143",
+   "us": false
+  },
+  "Hugging Face": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": "Q108943604",
+   "us": false
+  },
+  "micro1": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Advocate Health": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
+  },
+  "Expansion Americas": {
+   "at": "2026-10-30T07:56:44.705Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-10-30T07:31:58.129Z",
-  "remoteok": "2026-10-30T07:31:58.129Z",
-  "workingnomads": "2026-10-30T07:31:58.129Z",
-  "weworkremotely": "2026-10-30T07:31:58.129Z",
-  "nodesk": "2026-10-30T07:31:58.129Z",
-  "jobfound": "2026-10-30T07:31:58.129Z"
- }
+  "remoteok": "2026-10-30T07:56:44.705Z",
+  "workingnomads": "2026-10-30T07:56:44.705Z",
+  "weworkremotely": "2026-10-30T07:56:44.705Z",
+  "nodesk": "2026-10-30T07:56:44.705Z",
+  "jobfound": "2026-10-30T07:56:44.705Z"
+ },
+ "jobicyAt": "2026-10-30T07:56:44.705Z",
+ "arbeitnowAt": "2026-10-30T07:56:44.705Z"
 }

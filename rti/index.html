@@ -143,8 +143,6 @@ footer{padding-block:20px 40px;color:var(--muted);font-size:12px}
     <div class="seg" role="group" aria-label="View">
       <button type="button" data-view="companies" aria-pressed="true">Companies</button>
       <button type="button" data-view="feed" aria-pressed="false">Signal feed</button>
-      <button type="button" data-view="news" aria-pressed="false">News</button>
-      <button type="button" data-view="freelance" aria-pressed="false">Freelance</button>
       <button type="button" data-view="sources" aria-pressed="false">Sources</button>
     </div>
     <select id="fSignal" aria-label="Signal type"><option value="">All signals</option></select>
@@ -218,7 +216,7 @@ footer{padding-block:20px 40px;color:var(--muted);font-size:12px}
 <div class="toast" id="toast" hidden></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<script src="adapter.js"></script>
+<script src="adapter.js?v=2026103003"></script>
 <script>
 // Startup Leads regions (no US): Australia, Europe, MEA, New Zealand, SEA, UK, plus roles open worldwide.
 const REGIONS=[["ALL","All"],["AU","Australia"],["EU","Europe"],["ME","MEA"],["NZ","New Zealand"],["SG","SEA"],["UK","UK"],["GL","Global remote"]];
@@ -266,12 +264,13 @@ $("exportBtn").addEventListener("click",async()=>{
   const scopeTag={"0":"added-"+dayAgo(0),"1":"added-"+dayAgo(1),"7":"added-last-7-days"}[scope];
   if(!list.length){toast(scope==="all"?"No companies match the current filters.":"No companies added in that period match the current filters.");return}
   const regionName=Object.fromEntries(REGIONS);
-  const head=["Company","Website","Website verified?","LinkedIn","Region","Location (State, Country)","Company type","Headcount","India office","India-office evidence","Status","Signal types","Latest signal","Latest signal date","Latest signal link","First seen","Notes"];
-  const rows=list.map(c=>{const s=c._sigs[0]||{};return[c.name,c.website||"",WS_LABEL[c.websiteCheck]||(c.website?"Not checked yet":"No website"),c.linkedin||"",regionName[c.region]||c.region||"",c.location||c.country||"",({tech:"Tech","non-tech":"Non-tech (hiring tech roles)"})[ctypeOf(c)]||"Not checked yet",c.headcount||"",(CHECK[c.check||"pending"]||CHECK.pending)[1],c.checkNote||"",c.status||"New",[...new Set(c._sigs.map(x=>x.type))].join(", "),s.summary||"",s.date||"",s.url||"",c.firstSeen||"",c.notes||""]});
+  const head=["Company","Website","Website verified?","LinkedIn","Region","Location (State, Country)","Company type","Headcount","India office","India-office evidence","Status","Signal types","Latest signal","Latest signal date","Latest signal link","First seen","Notes","Open remote roles","C-Suite contacts","Other contacts","Contact emails","Contact phones"];
+  const fmtP=p=>[p.name,p.title&&`(${p.title})`,p.email,p.phone,p.linkedin].filter(Boolean).join(" ");
+  const rows=list.map(c=>{const s=c._sigs[0]||{};return[c.name,c.website||"",WS_LABEL[c.websiteCheck]||(c.website?"Not checked yet":"No website"),c.linkedin||"",regionName[c.region]||c.region||"",c.location||c.country||"",({tech:"Tech","non-tech":"Non-tech (hiring tech roles)"})[ctypeOf(c)]||"Not checked yet",c.headcount||"",(CHECK[c.check||"pending"]||CHECK.pending)[1],c.checkNote||"",c.status||"New",[...new Set(c._sigs.map(x=>x.type))].join(", "),s.summary||"",s.date||"",s.url||"",c.firstSeen||"",c.notes||"",(c.openRoles||[]).join(" | "),sortedContacts(c).filter(p=>CSUITE.test(p.title)).map(fmtP).join(" | "),sortedContacts(c).filter(p=>!CSUITE.test(p.title)).map(fmtP).join(" | "),[...(c.contacts||[]).map(p=>p.email),...(c.companyEmails||[])].filter(Boolean).join(" | "),[...(c.contacts||[]).map(p=>p.phone),c.hqPhone].filter(Boolean).join(" | ")]});
   const tag=(S.region==="ALL"?"All":regionName[S.region]||S.region).replace(/\s+/g,"-");
   const fname=scopeTag?`RTI-Tracker-${tag}-${scopeTag}`:`RTI-Tracker-${tag}-${today()}`;
   let file,name;
-  if(window.XLSX){const ws=XLSX.utils.aoa_to_sheet([head,...rows]);ws["!cols"]=[28,26,40,12,28,12,14,50,12,22,60,14,40,12,40].map(w=>({wch:w}));ws["!autofilter"]={ref:XLSX.utils.encode_range({s:{r:0,c:0},e:{r:rows.length,c:head.length-1}})};const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,"Companies");file=XLSX.write(wb,{type:"array",bookType:"xlsx"});name=fname+".xlsx"}
+  if(window.XLSX){const ws=XLSX.utils.aoa_to_sheet([head,...rows]);ws["!cols"]=[28,26,16,30,12,28,14,12,14,50,12,22,60,14,40,12,40,50,60,60,40,30].map(w=>({wch:w}));ws["!autofilter"]={ref:XLSX.utils.encode_range({s:{r:0,c:0},e:{r:rows.length,c:head.length-1}})};const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,"Companies");file=XLSX.write(wb,{type:"array",bookType:"xlsx"});name=fname+".xlsx"}
   else{const q=v=>`"${String(v).replace(/"/g,'""')}"`;file="﻿"+[head,...rows].map(r=>r.map(q).join(",")).join("\r\n");name=fname+".csv"}
   const dl=window.claude?await claude.use("downloads"):null;
   if(!dl){toast("Downloads don't work in this view. Open the tracker on claude.ai in a browser (not a preview, incognito or shared link) and try again.");return}
@@ -429,7 +428,9 @@ async function renderDrawer(){
       <dt>India office</dt><dd><span class="pill ${pc}">${pl}</span> ${S.canWrite?`<select id="dCheck" aria-label="Change India-office result"><option value="">Change to…</option><option value="clear">None found</option><option value="verify">To verify</option><option value="india">India office</option></select>`:""}<div class="note" style="margin-top:4px">${esc(c.checkNote||"")}</div></dd>
       <dt>Status</dt><dd><select id="dStatus" ${S.canWrite?"":"disabled"}>${STATUSES.map(s=>`<option ${s===(c.status||"New")?"selected":""}>${s}</option>`).join("")}</select></dd>
       <dt>First seen</dt><dd class="mono">${esc(c.firstSeen||"")} · via ${esc(c.source||"")}</dd>
+      <dt>Startup Leads</dt><dd><a href="../?q=${encodeURIComponent(c.name)}" title="Open this company's card on the Startup Leads dashboard">Open company card ↗</a></dd>
     </dl>
+    ${contactsHtml(c)}
     <div class="sec">Notes</div>
     <textarea id="dNotes" ${S.canWrite?"":"readonly"} placeholder="Who to contact, what they build, what you sent">${esc(notesVal)}</textarea>
     <div class="note" id="dNoteMsg">Saves when you click away.</div>
@@ -440,6 +441,18 @@ async function renderDrawer(){
   $("dCheck")&&($("dCheck").onchange=e=>{const v=e.target.value;if(!v||v===c.check)return;const lbl=(CHECK[v]||[])[1]||v;const prev=(c.checkNote||"").replace(/^Team marked .*?\. Earlier: /,"");setField(c.id,{check:v,checkBy:"team",checkNote:`Team marked \"${lbl}\" on ${today()}. Earlier: ${prev}`.slice(0,500)})});
   const ta=$("dNotes");if(active){ta.focus();ta.selectionStart=ta.selectionEnd=ta.value.length}
   ta.onblur=()=>{if(ta.value!==(c.notes||""))setField(c.id,{notes:ta.value}).then(()=>{const m=$("dNoteMsg");if(m)m.textContent="Saved."})};
+}
+
+/* Contacts from Startup Leads: C-Suite first, then talent / partnerships, with copyable email and phone. */
+const CSUITE=/\b(ceo|cto|cpo|coo|cfo|chief|co-?founder|founder|president|managing director|geschäftsführer|vp,? (?:of )?engineering|head of engineering)\b/i;
+function sortedContacts(c){return (c.contacts||[]).slice().sort((a,b)=>(CSUITE.test(b.title)-CSUITE.test(a.title))||((b.phone?1:0)-(a.phone?1:0)))}
+function contactsHtml(c){
+  const list=sortedContacts(c);
+  const company=[...(c.companyEmails||[]).map(e=>`<a href="mailto:${esc(e)}">${esc(e)}</a>`),c.hqPhone?`HQ <a href="tel:${esc(c.hqPhone.replace(/[^\d+]/g,""))}">${esc(c.hqPhone)}</a>`:""].filter(Boolean).join(" · ");
+  const rows=list.map(p=>{const li=safeUrl(p.linkedin);return`<li><div><strong>${esc(p.name)}</strong> <span class="note">${esc(p.title)}</span>${CSUITE.test(p.title)?' <span class="chip t-job">C-Suite</span>':""}</div>
+    <div class="note">${[p.email?`<a href="mailto:${esc(p.email)}">${esc(p.email)}</a>`:"",p.phone?`<a href="tel:${esc(p.phone.replace(/[^\d+]/g,""))}">${esc(p.phone)}</a>`:"",li?`<a href="${esc(li)}" target="_blank" rel="noopener">LinkedIn</a>`:""].filter(Boolean).join(" · ")||"No email or phone on record"}</div></li>`}).join("");
+  const find=`<a href="https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent("CEO "+c.name)}" target="_blank" rel="noopener">Find the CEO / CTO on LinkedIn</a>`;
+  return `<div class="sec">Contacts (${list.length})</div>${rows?`<ul class="tl">${rows}</ul>`:`<p class="note">No named contact yet. ${find}.</p>`}${company?`<p class="note">Company: ${company}</p>`:""}`;
 }
 
 const pending={};
