@@ -332,7 +332,7 @@
  "zeroMiss": {},
  "prospeo": {
   "credits": {
-   "2026-10-30": 73
+   "2026-10-30": 74
   },
   "mobileCredits": {
    "2026-10-30": 136
@@ -2118,6 +2118,10 @@
   "remotive:unio-digital": {
    "reason": "Staffing / talent marketplace (not a direct employer) (config)",
    "at": "2026-10-30T09:32:39.208Z"
+  },
+  "arbeitnow:promantis-gmbh": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T13:22:48.201Z"
   }
  },
  "wikidata": {
@@ -4095,16 +4099,61 @@
    "at": "2026-10-30T09:32:39.208Z",
    "id": null,
    "us": false
+  },
+  "DIB Consulting GmbH": {
+   "at": "2026-10-30T13:21:54.134Z",
+   "id": null,
+   "us": false
+  },
+  "Tarebase": {
+   "at": "2026-10-30T13:21:54.134Z",
+   "id": null,
+   "us": false
+  },
+  "TokPortal": {
+   "at": "2026-10-30T13:21:54.134Z",
+   "id": null,
+   "us": false
+  },
+  "Ordio GmbH": {
+   "at": "2026-10-30T13:21:54.134Z",
+   "id": null,
+   "us": false
+  },
+  "promantis GmbH": {
+   "at": "2026-10-30T13:21:54.134Z",
+   "id": null,
+   "us": false
+  },
+  "Code Gaia": {
+   "at": "2026-10-30T13:21:54.134Z",
+   "id": null,
+   "us": false
+  },
+  "hey contact heroes GmbH": {
+   "at": "2026-10-30T13:21:54.134Z",
+   "id": null,
+   "us": false
+  },
+  "N2JSoft": {
+   "at": "2026-10-30T13:21:54.134Z",
+   "id": null,
+   "us": false
+  },
+  "Callista Group AG": {
+   "at": "2026-10-30T13:21:54.134Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-10-30T07:31:58.129Z",
-  "remoteok": "2026-10-30T09:38:14.666Z",
-  "workingnomads": "2026-10-30T09:38:14.666Z",
-  "weworkremotely": "2026-10-30T09:38:14.666Z",
-  "nodesk": "2026-10-30T09:38:14.666Z",
+  "remotive": "2026-10-30T13:21:54.134Z",
+  "remoteok": "2026-10-30T13:21:54.134Z",
+  "workingnomads": "2026-10-30T13:21:54.134Z",
+  "weworkremotely": "2026-10-30T13:21:54.134Z",
+  "nodesk": "2026-10-30T13:21:54.134Z",
   "jobfound": "2026-10-30T09:38:14.666Z"
  },
- "jobicyAt": "2026-10-30T09:38:14.666Z",
- "arbeitnowAt": "2026-10-30T09:38:14.666Z"
+ "jobicyAt": "2026-10-30T13:21:54.134Z",
+ "arbeitnowAt": "2026-10-30T13:21:54.134Z"
 }

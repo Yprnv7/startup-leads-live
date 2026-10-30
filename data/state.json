@@ -768,7 +768,9 @@
    "discovered": "2026-10-30T11:59:31.500Z",
    "active": true,
    "via": "prospeo",
-   "domain": "invesco.com"
+   "domain": "invesco.com",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "workable",
@@ -779,7 +781,9 @@
    "discovered": "2026-10-30T11:59:31.500Z",
    "active": true,
    "via": "prospeo",
-   "domain": "amberstudent.com"
+   "domain": "amberstudent.com",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "workable",
@@ -790,7 +794,9 @@
    "discovered": "2026-10-30T11:59:31.500Z",
    "active": true,
    "via": "prospeo",
-   "domain": "visionfund.org"
+   "domain": "visionfund.org",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "lever",
@@ -812,7 +818,9 @@
    "discovered": "2026-10-30T11:59:31.500Z",
    "active": true,
    "via": "prospeo",
-   "domain": "doo.com"
+   "domain": "doo.com",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "workable",
@@ -823,7 +831,9 @@
    "discovered": "2026-10-30T11:59:31.500Z",
    "active": true,
    "via": "prospeo",
-   "domain": "vanguard.com.au"
+   "domain": "vanguard.com.au",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "workable",
@@ -834,7 +844,9 @@
    "discovered": "2026-10-30T11:59:31.500Z",
    "active": true,
    "via": "prospeo",
-   "domain": "finexis.com.sg"
+   "domain": "finexis.com.sg",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "recruitee",
@@ -858,7 +870,9 @@
    "discovered": "2026-10-30T11:59:31.500Z",
    "active": true,
    "via": "prospeo",
-   "domain": "logicalis.com"
+   "domain": "logicalis.com",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "workable",
@@ -869,7 +883,9 @@
    "discovered": "2026-10-30T11:59:31.500Z",
    "active": true,
    "via": "prospeo",
-   "domain": "in-tech.com"
+   "domain": "in-tech.com",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "workable",
@@ -880,7 +896,9 @@
    "discovered": "2026-10-30T11:59:31.500Z",
    "active": true,
    "via": "prospeo",
-   "domain": "challenger.com.au"
+   "domain": "challenger.com.au",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "workable",
@@ -891,7 +909,9 @@
    "discovered": "2026-10-30T11:59:31.500Z",
    "active": true,
    "via": "prospeo",
-   "domain": "tmgm.com"
+   "domain": "tmgm.com",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "workable",
@@ -902,7 +922,9 @@
    "discovered": "2026-10-30T11:59:31.500Z",
    "active": true,
    "via": "prospeo",
-   "domain": "mondia.com"
+   "domain": "mondia.com",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "workable",
@@ -913,7 +935,9 @@
    "discovered": "2026-10-30T11:59:31.500Z",
    "active": true,
    "via": "prospeo",
-   "domain": "acemoneytransfer.com"
+   "domain": "acemoneytransfer.com",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "workable",
@@ -924,7 +948,9 @@
    "discovered": "2026-10-30T11:59:31.500Z",
    "active": true,
    "via": "prospeo",
-   "domain": "vtmarkets.com"
+   "domain": "vtmarkets.com",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "workable",
@@ -935,7 +961,9 @@
    "discovered": "2026-10-30T11:59:31.500Z",
    "active": true,
    "via": "prospeo",
-   "domain": "mygwork.com"
+   "domain": "mygwork.com",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "workable",
@@ -946,7 +974,9 @@
    "discovered": "2026-10-30T11:59:31.500Z",
    "active": true,
    "via": "prospeo",
-   "domain": "rakuten.com"
+   "domain": "rakuten.com",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "greenhouse",
@@ -968,7 +998,9 @@
    "discovered": "2026-10-30T11:59:31.500Z",
    "active": true,
    "via": "prospeo",
-   "domain": "hungrypanda.co"
+   "domain": "hungrypanda.co",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "workable",
@@ -979,7 +1011,9 @@
    "discovered": "2026-10-30T11:59:31.500Z",
    "active": true,
    "via": "prospeo",
-   "domain": "octopusinvestments.com"
+   "domain": "octopusinvestments.com",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "workable",
@@ -2999,7 +3033,9 @@
    "discovered": "2026-10-30T12:33:34.969Z",
    "active": true,
    "via": "prospeo",
-   "domain": "rapid-pioneers.com"
+   "domain": "rapid-pioneers.com",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "personio",
@@ -3036,7 +3072,9 @@
    "discovered": "2026-10-30T12:33:34.969Z",
    "active": true,
    "via": "prospeo",
-   "domain": "cosoft.de"
+   "domain": "cosoft.de",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "workable",
@@ -3047,7 +3085,9 @@
    "discovered": "2026-10-30T12:33:34.969Z",
    "active": true,
    "via": "prospeo",
-   "domain": "frisch-solutions.com"
+   "domain": "frisch-solutions.com",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "personio",
@@ -3096,7 +3136,9 @@
    "discovered": "2026-10-30T12:33:34.969Z",
    "active": true,
    "via": "prospeo",
-   "domain": "lovey.com"
+   "domain": "lovey.com",
+   "readAt": "2026-10-30T13:21:31.916Z",
+   "hits": 0
   },
   {
    "ats": "recruitee",
@@ -5158,6 +5200,10 @@
   "ats:greenhouse:appian": {
    "reason": "India office",
    "at": "2026-10-30T12:09:40.825Z"
+  },
+  "ats:workable:fundingsocieties": {
+   "reason": "India office",
+   "at": "2026-10-30T13:21:31.916Z"
   }
  },
  "wikidata": {
@@ -7183,6 +7229,111 @@
   },
   "Patsnap": {
    "at": "2026-10-30T12:34:19.226Z",
+   "id": null,
+   "us": false
+  },
+  "Amber": {
+   "at": "2026-10-30T13:21:31.916Z",
+   "id": null,
+   "us": false
+  },
+  "Invesco EMEA": {
+   "at": "2026-10-30T13:21:31.916Z",
+   "id": null,
+   "us": false
+  },
+  "Doo Group": {
+   "at": "2026-10-30T13:21:31.916Z",
+   "id": null,
+   "us": false
+  },
+  "VisionFund International": {
+   "at": "2026-10-30T13:21:31.916Z",
+   "id": null,
+   "us": false
+  },
+  "Vanguard Australia": {
+   "at": "2026-10-30T13:21:31.916Z",
+   "id": null,
+   "us": false
+  },
+  "finexis advisory": {
+   "at": "2026-10-30T13:21:31.916Z",
+   "id": null,
+   "us": false
+  },
+  "Logicalis Asia Pacific": {
+   "at": "2026-10-30T13:21:31.916Z",
+   "id": null,
+   "us": false
+  },
+  "in-tech": {
+   "at": "2026-10-30T13:21:31.916Z",
+   "id": "Q30273597",
+   "us": false
+  },
+  "Challenger Limited": {
+   "at": "2026-10-30T13:21:31.916Z",
+   "id": null,
+   "us": false
+  },
+  "Mondia": {
+   "at": "2026-10-30T13:21:31.916Z",
+   "id": "Q3320547",
+   "us": false
+  },
+  "ACE Money Transfer": {
+   "at": "2026-10-30T13:21:31.916Z",
+   "id": "Q115123757",
+   "us": false
+  },
+  "VT Markets": {
+   "at": "2026-10-30T13:21:31.916Z",
+   "id": null,
+   "us": false
+  },
+  "TMGM": {
+   "at": "2026-10-30T13:21:31.916Z",
+   "id": null,
+   "us": false
+  },
+  "myGwork - LGBTQ+ Business Community": {
+   "at": "2026-10-30T13:21:31.916Z",
+   "id": null,
+   "us": false
+  },
+  "Rakuten Asia": {
+   "at": "2026-10-30T13:21:31.916Z",
+   "id": null,
+   "us": false
+  },
+  "HungryPanda 熊猫外卖": {
+   "at": "2026-10-30T13:21:31.916Z",
+   "id": null,
+   "us": false
+  },
+  "Octopus Investments": {
+   "at": "2026-10-30T13:21:31.916Z",
+   "id": "Q86685332",
+   "us": false
+  },
+  "Rapid Pioneers Group": {
+   "at": "2026-10-30T13:21:31.916Z",
+   "id": null,
+   "us": false
+  },
+  "cosoft computer consulting gmbh": {
+   "at": "2026-10-30T13:21:31.916Z",
+   "id": null,
+   "us": false
+  },
+  "LISA | digital Shopfloor Management by Frisch Solutions": {
+   "at": "2026-10-30T13:21:31.916Z",
+   "id": null,
+   "us": false
+  },
+  "Lovey": {
+   "at": "2026-10-30T13:21:31.916Z",
    "id": null,
    "us": false
   }
