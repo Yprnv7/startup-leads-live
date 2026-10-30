@@ -1,721 +1,851 @@
-    // Startup Leads — 100% remote, pure-tech roles in Australia, Europe, MEA, New Zealand, SEA and the UK.
-    // Data comes from data/leads.json, rebuilt every hour by .github/workflows/hourly_sync.yml.
-    // The page re-checks open roles against the live job boards every 60 minutes.
+// Startup Leads: 100% remote, pure-tech roles in Australia, Europe, MEA, New Zealand, SEA and the UK.
+// Data comes from data/leads.json (rebuilt hourly by .github/workflows/hourly_sync.yml); this page only
+// reads it. Open roles are also re-checked against the live job boards from the browser every 60 minutes.
+//
+// Flow: Find (Jobs tab) → Open (detail panel) → Reach out (panel Outreach tab) → Track (Outreach tab).
+// All filter, search and tab state lives in the URL query; the open panel lives in the URL hash.
+(() => {
+  "use strict";
 
-    const DATA_URL = "data/leads.json";
-    const VERSION_URL = "data/version.json";
-    const HOURLY_CRON = "0 * * * *";
-    const REGIONS = ["Australia", "Europe", "MEA", "New Zealand", "SEA", "UK"];
-    const REGION_SHORT = { Australia: "AU", Europe: "EU", MEA: "MEA", "New Zealand": "NZ", SEA: "SEA", UK: "UK" };
-    // Region-wide remote tokens and the regions they cover (mirrors scripts/markets.mjs).
-    const WIDE = {
-      Worldwide: REGIONS,
-      "Europe-wide": ["Europe", "UK"],
-      EMEA: ["Europe", "MEA", "UK"],
-      "APAC-wide": ["Australia", "New Zealand", "SEA"],
-      "MENA-wide": ["MEA"],
-      "Africa-wide": ["MEA"],
-    };
-    const CSUITE_RE = /\b(ceo|cto|cpo|coo|cfo|chief|co-?founder|founder|president|vp,? (?:of )?engineering|vice president,? engineering|head of (?:engineering|ai|technology|machine learning|data|platform))\b/i;
-    const TALENT_RE = /recruit|talent|human resources|\bhr\b|people/i;
-    const PARTNER_RE = /partner(?:ship)?s?\b|alliance|business development/i;
-    const STACK = ["Python", "TypeScript", "JavaScript", "Go", "Golang", "Rust", "Java", "Kotlin", "Swift", "Scala", "C++", "C#", "Ruby", "Elixir", "PHP", "Node.js", "React", "React Native", "Flutter", "Next.js", "Vue", "Django", "Rails", "PyTorch", "TensorFlow", "LLM", "Kubernetes", "AWS", "GCP", "Azure", "Terraform", "Postgres", "Kafka", "Spark", "dbt", "Snowflake", "Linux", "iOS", "Android", "Solidity", "Web3", "ROS", "CUDA"];
-    const SOURCE_LABEL = { yc: "Y Combinator", hn: "HN Who's Hiring", greenhouse: "Greenhouse", lever: "Lever", ashby: "Ashby", jobicy: "Jobicy", arbeitnow: "Arbeitnow", manual: "Manual",
-      remotive: "Remotive", remoteok: "Remote OK", workingnomads: "Working Nomads", weworkremotely: "We Work Remotely", nodesk: "NoDesk", jobfound: "Jobfound" };
-    const OTHERS = ["remotive", "remoteok", "workingnomads", "weworkremotely", "nodesk", "jobfound"];
-    // LinkedIn Jobs search terms per engineering track, and LinkedIn location names per region.
-    const TRACK_KEYWORDS = { "AI / ML & LLM Systems": "machine learning engineer", "Backend & Distributed Systems": "backend engineer", "Data & Quant Engineering": "data engineer",
-      "DevOps, Cloud & SRE": "devops engineer", "Full-Stack & Product Engineering": "full stack engineer", "Mobile & Autonomous Systems": "mobile engineer" };
-    const REGION_LINKEDIN = { Australia: "Australia", Europe: "European Union", MEA: "Middle East", "New Zealand": "New Zealand", SEA: "Southeast Asia", UK: "United Kingdom" };
+  const DATA_URL = "data/leads.json";
+  const VERSION_URL = "data/version.json";
+  const HOURLY_CRON = "0 * * * *";
+  const STATUS_KEY = "startup_leads_contact_status_v6"; // same storage as before: contactKey -> status
+  const THEME_KEY = "startup_leads_theme";
+  const VISIT_KEY = "startup_leads_last_visit";
+  const REGIONS = ["Australia", "Europe", "MEA", "New Zealand", "SEA", "UK"];
+  const REGION_SHORT = { Australia: "AU", Europe: "EU", MEA: "MEA", "New Zealand": "NZ", SEA: "SEA", UK: "UK" };
+  const WIDE = { Worldwide: REGIONS, "Europe-wide": ["Europe", "UK"], EMEA: ["Europe", "MEA", "UK"], "APAC-wide": ["Australia", "New Zealand", "SEA"], "MENA-wide": ["MEA"], "Africa-wide": ["MEA"] };
+  const STATUSES = ["Not Contacted", "Contacted", "Replied"];
+  const CSUITE_RE = /\b(ceo|cto|cpo|coo|cfo|chief|co-?founder|founder|president|vp,? (?:of )?engineering|vice president,? engineering|head of (?:engineering|ai|technology|machine learning|data|platform))\b/i;
+  const TALENT_RE = /recruit|talent|human resources|\bhr\b|people/i;
+  const PARTNER_RE = /partner(?:ship)?s?\b|alliance|business development/i;
+  const STACK = ["Python", "TypeScript", "JavaScript", "Go", "Golang", "Rust", "Java", "Kotlin", "Swift", "Scala", "C++", "C#", "Ruby", "Elixir", "PHP", "Node.js", "React", "React Native", "Flutter", "Next.js", "Vue", "Django", "Rails", "PyTorch", "TensorFlow", "LLM", "Kubernetes", "AWS", "GCP", "Azure", "Terraform", "Postgres", "Kafka", "Spark", "dbt", "Snowflake", "Linux", "iOS", "Android", "Solidity", "Web3", "ROS", "CUDA"];
+  const TIER_ORDER = { "C-Suite": 0, "Talent & HR": 1, Partnerships: 2, Leadership: 3 };
+  const SOURCE_LABEL = { yc: "Y Combinator", hn: "HN Who's Hiring", greenhouse: "Greenhouse", lever: "Lever", ashby: "Ashby", jobicy: "Jobicy", arbeitnow: "Arbeitnow", manual: "Manual",
+    remotive: "Remotive", remoteok: "Remote OK", workingnomads: "Working Nomads", weworkremotely: "We Work Remotely", nodesk: "NoDesk", jobfound: "Jobfound", linkedin: "LinkedIn", others: "Other job boards" };
+  const OTHERS = ["remotive", "remoteok", "workingnomads", "weworkremotely", "nodesk", "jobfound"];
+  const TRACK_KEYWORDS = { "AI / ML & LLM Systems": "machine learning engineer", "Backend & Distributed Systems": "backend engineer", "Data & Quant Engineering": "data engineer",
+    "DevOps, Cloud & SRE": "devops engineer", "Full-Stack & Product Engineering": "full stack engineer", "Mobile & Autonomous Systems": "mobile engineer" };
+  const TRACK_SHORT = { "AI / ML & LLM Systems": "AI / ML", "Backend & Distributed Systems": "Backend", "Data & Quant Engineering": "Data", "DevOps, Cloud & SRE": "DevOps / Cloud",
+    "Full-Stack & Product Engineering": "Full-stack", "Mobile & Autonomous Systems": "Mobile / Robotics" };
+  const REGION_LINKEDIN = { Australia: "Australia", Europe: "European Union", MEA: "Middle East", "New Zealand": "New Zealand", SEA: "Southeast Asia", UK: "United Kingdom" };
+  const HAS_LABEL = { email: "Has email", phone: "Has phone", linkedin: "Has LinkedIn", csuite: "C-Suite email + phone + LinkedIn", uncontacted: "Not contacted" };
+  // Country → ISO code for flags (countries the data can contain).
+  const ISO = { "United Kingdom": "GB", Germany: "DE", "United Arab Emirates": "AE", "Saudi Arabia": "SA", Qatar: "QA", Bahrain: "BH", Kuwait: "KW", Oman: "OM", Egypt: "EG", Jordan: "JO", Lebanon: "LB",
+    Morocco: "MA", Tunisia: "TN", Algeria: "DZ", Israel: "IL", Turkey: "TR", Nigeria: "NG", Kenya: "KE", Ghana: "GH", "South Africa": "ZA", Rwanda: "RW", Uganda: "UG", Ethiopia: "ET", Tanzania: "TZ",
+    Senegal: "SN", Zambia: "ZM", Zimbabwe: "ZW", Namibia: "NA", Botswana: "BW", Mauritius: "MU", "Côte d'Ivoire": "CI", Cameroon: "CM", Singapore: "SG", Indonesia: "ID", Malaysia: "MY", Thailand: "TH",
+    Vietnam: "VN", Philippines: "PH", Myanmar: "MM", Cambodia: "KH", Australia: "AU", "New Zealand": "NZ", Ireland: "IE", France: "FR", Spain: "ES", Portugal: "PT", Netherlands: "NL", Belgium: "BE",
+    Switzerland: "CH", Austria: "AT", Italy: "IT", Poland: "PL", Czechia: "CZ", Romania: "RO", Bulgaria: "BG", Greece: "GR", Hungary: "HU", Croatia: "HR", Serbia: "RS", "Bosnia and Herzegovina": "BA",
+    "North Macedonia": "MK", Slovenia: "SI", Slovakia: "SK", Lithuania: "LT", Latvia: "LV", Estonia: "EE", Finland: "FI", Sweden: "SE", Norway: "NO", Denmark: "DK", Iceland: "IS", Luxembourg: "LU",
+    Ukraine: "UA", Cyprus: "CY", Malta: "MT" };
 
-    let raw = null;               // data/leads.json
-    let leads = [];               // adapted companies
-    let lastVersion = null;
-    let lastLiveCheck = null;
-    let liveChecking = false;
-    const liveClosed = new Map(); // role id -> reason, found by in-browser checks since the last dataset
-    let countdownSeconds = 3600;  // next in-browser hourly verification
-    let shown = 30;
-    let activeRoleTab = "ALL", activeRegion = "ALL", activeCountry = "ALL", activeDiscipline = "ALL";
-    let activeCSuiteFilter = "ALL", activeSource = "ALL", activeSort = "COUNTRY_AZ", searchQuery = "", viewMode = "CARDS";
-    let contactStatusMap = {};
-    const localEvents = [];
+  // ---------------------------------------------------------------- state
+  let raw = null, leads = [], lastVersion = null, lastLiveCheck = null, liveChecking = false;
+  let countdownSeconds = 3600; // next in-browser verification of open roles (hourly)
+  const liveClosed = new Map(); // role id -> reason, found by in-browser checks since the last dataset
+  const localEvents = [];
+  let shown = 40, boardShown = { "Not Contacted": 60, Contacted: 60, Replied: 60 };
+  let lastFocus = null;
+  const DEFAULTS = { tab: "jobs", q: "", region: "", country: "", track: "", type: "", source: "", has: [], sort: "newest", team: "", empty: false, layout: "board", kind: "" };
+  const S = { ...DEFAULTS, has: [] };
 
-    const $ = id => document.getElementById(id);
-    function escapeHtml(s) {
-      return String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
-    }
-    function ago(iso) {
-      if (!iso) return "—";
-      const s = Math.max(0, (Date.now() - Date.parse(iso)) / 1000);
-      if (s < 60) return "just now";
-      if (s < 3600) return `${Math.floor(s / 60)} min ago`;
-      if (s < 86400) return `${Math.floor(s / 3600)} h ago`;
-      const d = Math.floor(s / 86400);
-      return d === 1 ? "yesterday" : `${d} days ago`;
-    }
-    const fmtDate = iso => iso ? new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short" }) : "";
-    const regionOfCountry = c => raw?.meta?.regionOf?.[c];
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} },
+  };
+  let statusMap = store.get(STATUS_KEY, {});
 
-    function showToast(msg) {
-      const el = $("toastBanner");
-      $("toastText").textContent = msg;
-      el.classList.remove("hidden");
-      clearTimeout(window._toastTimeout);
-      window._toastTimeout = setTimeout(() => el.classList.add("hidden"), 2800);
-    }
-    function copyToClipboard(text, label) {
-      const done = () => showToast("Copied " + (label || text));
-      if (navigator.clipboard?.writeText) navigator.clipboard.writeText(text).then(done, () => fallbackCopy(text, done));
-      else fallbackCopy(text, done);
-    }
-    function fallbackCopy(text, done) {
-      const ta = Object.assign(document.createElement("textarea"), { value: text });
-      ta.style.cssText = "position:fixed;opacity:0";
-      document.body.appendChild(ta);
-      ta.select();
-      try { document.execCommand("copy"); done(); } catch (e) {}
-      ta.remove();
-    }
-    function loadStatus() {
-      try { contactStatusMap = JSON.parse(localStorage.getItem("startup_leads_contact_status_v6") || "{}"); } catch (e) { contactStatusMap = {}; }
-    }
-    function saveStatus() {
-      try { localStorage.setItem("startup_leads_contact_status_v6", JSON.stringify(contactStatusMap)); } catch (e) {}
-    }
+  // "New" = added since the previous visit (kept for this browser session so a refresh doesn't clear it).
+  const prevVisit = (() => {
+    let prev = null;
+    try {
+      prev = sessionStorage.getItem("sl.prevVisit");
+      if (prev === null) {
+        prev = localStorage.getItem(VISIT_KEY) || "";
+        sessionStorage.setItem("sl.prevVisit", prev);
+        localStorage.setItem(VISIT_KEY, new Date().toISOString());
+      }
+    } catch (e) {}
+    return prev ? Date.parse(prev) : null;
+  })();
+  const isNew = iso => prevVisit !== null && iso && Date.parse(iso) > prevVisit;
 
-    // ------------------------------------------------------------------ data → view model
-    function contactTier(p) {
-      const t = p.title || "";
-      if (CSUITE_RE.test(t)) return "C-Suite";
-      if (p.source === "HN" || TALENT_RE.test(t)) return "Talent & HR";
-      if (PARTNER_RE.test(t)) return "Partnerships";
-      return "Leadership";
-    }
-    const TIER_ORDER = { "C-Suite": 0, "Talent & HR": 1, Partnerships: 2, Leadership: 3 };
-    const contactKey = (companyId, p) => companyId + "::" + (p.linkedin || p.email || p.name || "").toLowerCase();
-    const linkedInSearch = (company, role) => `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(`${role} ${company}`)}`;
+  // ---------------------------------------------------------------- formatting helpers
+  function ago(iso) {
+    if (!iso) return "—";
+    const s = Math.max(0, (Date.now() - Date.parse(iso)) / 1000);
+    if (s < 60) return "just now";
+    if (s < 3600) return `${Math.floor(s / 60)} min ago`;
+    if (s < 86400) return `${Math.floor(s / 3600)} h ago`;
+    const d = Math.floor(s / 86400);
+    return d === 1 ? "yesterday" : `${d} days ago`;
+  }
+  const fmtDate = iso => (iso ? new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short" }) : "");
+  const flag = country => (ISO[country] ? String.fromCodePoint(...[...ISO[country]].map(c => 127397 + c.charCodeAt(0))) : "");
+  const initials = n => (n || "?").replace(/[^A-Za-z0-9 ]/g, "").split(/\s+/).filter(Boolean).map(w => w[0]).join("").slice(0, 2).toUpperCase() || "?";
+  const plural = (n, one, many) => `${n.toLocaleString()} ${n === 1 ? one : many}`;
+  const telHref = p => "tel:" + String(p).replace(/[^\d+]/g, "");
+  const linkedInPeople = (company, role) => `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(`${role} ${company}`)}`;
 
-    function adapt(c) {
-      const roles = c.jobs.filter(j => !j.dup).map(j => {
-        const closedLive = liveClosed.has(j.id) && j.status === "open";
-        return {
-          id: j.id, title: j.title, src: j.src, via: j.via,
-          category: j.type === "internship" ? "Remote Internship" : "Remote Job",
-          remoteScope: j.remoteScope || "100% Remote",
-          track: j.track || "Backend & Distributed Systems",
-          places: j.places || [], regions: j.regions || [],
-          url: j.url, applyUrl: j.applyUrl && j.applyUrl !== j.url ? j.applyUrl : null,
-          salary: j.salary, postedAt: j.postedAt, firstSeen: j.firstSeen,
-          status: closedLive ? "closed" : j.status,
-          closedAt: closedLive ? new Date().toISOString() : j.closedAt,
-          closedReason: closedLive ? liveClosed.get(j.id) + " (detected live)" : j.closedReason,
-        };
-      });
-      const open = roles.filter(r => r.status === "open");
-      const hqPhone = c.channels?.phones?.[0]?.phone || null;
-      const contacts = (c.contacts || []).map(p => ({ ...p, tier: contactTier(p) }))
-        .sort((a, b) => TIER_ORDER[a.tier] - TIER_ORDER[b.tier] || (b.email ? 1 : 0) - (a.email ? 1 : 0));
-      const text = roles.map(r => r.title).join(" ") + " " + (c.oneLiner || "") + " " + (c.tags || []).join(" ");
-      const techStack = STACK.filter(t => new RegExp(`(^|[^\\w])${t.replace(/[.+#]/g, m => "\\" + m)}([^\\w]|$)`, "i").test(text)).slice(0, 8);
-      const scopes = new Set(open.flatMap(r => r.places));
-      const remoteScope = scopes.has("Worldwide") ? "100% Remote (Global)"
-        : `100% Remote (${REGIONS.filter(r => open.some(x => x.regions.includes(r))).map(r => REGION_SHORT[r]).join("/") || "—"})`;
+  // Salaries are shown as listed, with consistent separators. When units are unclear (e.g. "$100 - $165"
+  // with no K, or "£80 - £150 GBP") nothing is invented: the value is marked "as listed".
+  function fmtSalary(s) {
+    if (!s) return null;
+    let t = String(s).trim().replace(/\s*[-–]\s*/g, " – ").replace(/(\d)k\b/g, "$1K");
+    const nums = [...t.matchAll(/[$£€]\s?(\d+(?:\.\d+)?)(K)?/g)];
+    const unclear = nums.length > 0 && nums.every(m => !m[2] && +m[1] >= 10 && +m[1] < 1000) && !/hour|\/hr|day|month|week/i.test(t);
+    return { text: t, unclear };
+  }
+
+  // ---------------------------------------------------------------- data → view model
+  function contactTier(p) {
+    const t = p.title || "";
+    if (CSUITE_RE.test(t)) return "C-Suite";
+    if (p.source === "HN" || TALENT_RE.test(t)) return "Talent & HR";
+    if (PARTNER_RE.test(t)) return "Partnerships";
+    return "Leadership";
+  }
+  const contactKey = (companyId, p) => companyId + "::" + (p.linkedin || p.email || p.name || "").toLowerCase();
+  const statusOf = (item, p) => statusMap[contactKey(item.id, p)] || "Not Contacted";
+
+  function adapt(c) {
+    const roles = c.jobs.filter(j => !j.dup).map(j => {
+      const closedLive = liveClosed.has(j.id) && j.status === "open";
       return {
-        id: c.id, company: c.name, country: c.country || null, region: c.region || null,
-        website: c.website, logo: c.logo, oneLiner: c.oneLiner || "", batch: c.batch ? `YC ${shortBatch(c.batch)}` : "",
-        source: c.source, sources: c.sources || [c.source], firstSeen: c.firstSeen,
-        status: open.length ? "open" : "closed", closedAt: c.closedAt,
-        roles, openCount: open.length, remoteScope, techStack,
-        contacts, hqPhone, companyEmails: c.channels?.emails || [], social: c.channels?.social || {}, pages: c.channels?.pages || {},
-        linkedinPage: c.linkedin || c.channels?.social?.linkedin || null,
-        boardUrl: c.careersUrl || c.profileUrl || c.website || roles[0]?.url,
-        profileUrl: c.profileUrl,
+        id: j.id, title: j.title, src: j.src, via: j.via,
+        category: j.type === "internship" ? "Internship" : "Job",
+        remoteScope: j.remoteScope || "100% Remote", track: j.track || "Backend & Distributed Systems",
+        places: j.places || [], regions: j.regions || [],
+        url: j.url, applyUrl: j.applyUrl && j.applyUrl !== j.url ? j.applyUrl : null,
+        salary: fmtSalary(j.salary), experience: j.experience, postedAt: j.postedAt, firstSeen: j.firstSeen,
+        status: closedLive ? "closed" : j.status,
+        closedAt: closedLive ? new Date().toISOString() : j.closedAt,
+        closedReason: closedLive ? liveClosed.get(j.id) + " (detected live)" : j.closedReason,
       };
-    }
-    function shortBatch(b) { const m = /(Winter|Spring|Summer|Fall)\s+20(\d\d)/.exec(b || ""); return m ? m[1][0] + m[2] : b; }
+    }).sort((a, b) => (a.status === "open" ? 0 : 1) - (b.status === "open" ? 0 : 1) || String(b.postedAt || b.firstSeen).localeCompare(String(a.postedAt || a.firstSeen)));
+    const open = roles.filter(r => r.status === "open");
+    const contacts = (c.contacts || []).map(p => ({ ...p, tier: contactTier(p) }))
+      .sort((a, b) => TIER_ORDER[a.tier] - TIER_ORDER[b.tier] || (b.email ? 1 : 0) - (a.email ? 1 : 0));
+    const text = roles.map(r => r.title).join(" ") + " " + (c.oneLiner || "") + " " + (c.tags || []).join(" ");
+    const techStack = STACK.filter(t => new RegExp(`(^|[^\\w])${t.replace(/[.+#]/g, m => "\\" + m)}([^\\w]|$)`, "i").test(text)).slice(0, 8);
+    const remoteScope = open.some(r => r.places.includes("Worldwide")) ? "100% Remote (Global)"
+      : `100% Remote (${REGIONS.filter(r => open.some(x => x.regions.includes(r))).map(r => REGION_SHORT[r]).join("/") || "—"})`;
+    return {
+      id: c.id, company: c.name, country: c.country || null, region: c.region || null,
+      website: c.website, logo: c.logo, oneLiner: c.oneLiner || "", batch: c.batch ? `YC ${shortBatch(c.batch)}` : "", techStack,
+      source: c.source, sources: c.sources || [c.source], firstSeen: c.firstSeen,
+      status: open.length ? "open" : "closed", closedAt: c.closedAt,
+      roles, openCount: open.length, remoteScope, contacts,
+      hqPhone: c.channels?.phones?.[0]?.phone || null, companyEmails: c.channels?.emails || [], social: c.channels?.social || {}, pages: c.channels?.pages || {},
+      linkedinPage: c.linkedin || c.channels?.social?.linkedin || null,
+      boardUrl: c.careersUrl || c.profileUrl || c.website || roles[0]?.url, careersUrl: c.careersUrl, profileUrl: c.profileUrl,
+    };
+  }
+  const shortBatch = b => { const m = /(Winter|Spring|Summer|Fall)\s+20(\d\d)/.exec(b || ""); return m ? m[1][0] + m[2] : b; };
+  const regionOfCountry = c => raw?.meta?.regionOf?.[c];
 
-    // ------------------------------------------------------------------ filtering
-    function roleCovers(role, { region, country }) {
-      // A country shows only roles that name that country (no region-wide or worldwide roles).
-      if (country && country !== "ALL") return role.places.includes(country);
-      if (region && region !== "ALL") return role.regions.includes(region);
-      return true;
+  // ---------------------------------------------------------------- filtering
+  function roleCovers(role, region, country) {
+    if (country) return role.places.includes(country); // a country shows only roles that name it
+    if (region) return role.regions.includes(region);
+    return true;
+  }
+  function roleMatches(role, f = S) {
+    if (f.type && (f.type === "internship") !== (role.category === "Internship")) return false;
+    if (!roleCovers(role, f.region, f.country)) return false;
+    if (f.track && role.track !== f.track) return false;
+    return true;
+  }
+  function hasMatch(item, has) {
+    for (const h of has) {
+      if (h === "email" && !(item.contacts.some(p => p.email) || item.companyEmails.length)) return false;
+      if (h === "phone" && !(item.contacts.some(p => p.phone) || item.hqPhone)) return false;
+      if (h === "linkedin" && !(item.contacts.some(p => p.linkedin) || item.linkedinPage)) return false;
+      if (h === "csuite" && !item.contacts.some(p => p.tier === "C-Suite" && p.email && (p.phone || item.hqPhone) && p.linkedin)) return false;
+      if (h === "uncontacted" && item.contacts.some(p => statusOf(item, p) !== "Not Contacted")) return false;
     }
-    function roleMatches(role, opts = {}) {
-      const tab = opts.tab ?? activeRoleTab;
-      if (tab === "JOB" && role.category !== "Remote Job") return false;
-      if (tab === "INTERN" && role.category !== "Remote Internship") return false;
-      if (!roleCovers(role, { region: activeRegion, country: activeCountry })) return false;
-      if (activeDiscipline !== "ALL" && role.track !== activeDiscipline) return false;
-      return true;
+    return true;
+  }
+  function sourceMatch(item, src) {
+    if (!src) return true;
+    if (src === "others") return item.sources.some(s => OTHERS.includes(s));
+    if (src === "linkedin") return item.roles.some(r => r.via === "linkedin") || Boolean(item.linkedinPage) || item.contacts.some(p => p.linkedin);
+    return item.sources.includes(src);
+  }
+  function searchMatch(item, q) {
+    if (!q) return true;
+    const hay = [item.company, item.country, item.region, item.oneLiner, ...item.techStack, ...item.roles.map(r => `${r.title} ${r.track}`), ...item.contacts.map(p => `${p.name} ${p.title} ${p.email || ""}`)].join(" ").toLowerCase();
+    return q.toLowerCase().split(/\s+/).filter(Boolean).every(t => hay.includes(t));
+  }
+  const newestOf = roles => roles.reduce((m, r) => { const t = r.postedAt || r.firstSeen; return t && (!m || t > m) ? t : m; }, null);
+
+  // Companies (with only their matching roles) for the Jobs tab.
+  function jobRows(f = S) {
+    const rows = [];
+    for (const item of leads) {
+      const roles = item.roles.filter(r => roleMatches(r, f));
+      if (!roles.length) continue;
+      if (!hasMatch(item, f.has) || !sourceMatch(item, f.source) || !searchMatch(item, f.q)) continue;
+      const open = roles.filter(r => r.status === "open");
+      rows.push({ ...item, visibleRoles: roles, visibleOpen: open.length, newest: newestOf(open.length ? open : roles), status: open.length ? "open" : "closed" });
     }
-    function contactMatch(item) {
-      const pocs = item.contacts;
-      switch (activeCSuiteFilter) {
-        case "CSUITE_DIRECT": return pocs.some(p => p.tier === "C-Suite" && p.email && (p.phone || item.hqPhone) && p.linkedin);
-        case "HAS_EMAIL": return pocs.some(p => p.email) || item.companyEmails.length > 0;
-        case "HAS_PHONE": return pocs.some(p => p.phone) || Boolean(item.hqPhone);
-        case "HAS_LINKEDIN": return pocs.some(p => p.linkedin) || Boolean(item.linkedinPage);
-        case "UNCONTACTED": return !pocs.some(p => (contactStatusMap[contactKey(item.id, p)] || "Not Contacted") !== "Not Contacted");
-        default: return true;
-      }
+    const name = (a, b) => a.company.localeCompare(b.company, "en");
+    const sorters = {
+      newest: (a, b) => String(b.newest || "").localeCompare(String(a.newest || "")) || name(a, b),
+      country: (a, b) => (!a.country) - (!b.country) || String(a.country || "").localeCompare(String(b.country || ""), "en") || name(a, b),
+      company: name,
+      roles: (a, b) => b.visibleOpen - a.visibleOpen || name(a, b),
+    };
+    // Hiring companies first; companies whose roles all closed follow, in red.
+    return rows.sort((a, b) => (a.status === "open" ? 0 : 1) - (b.status === "open" ? 0 : 1) || (sorters[f.sort] || sorters.newest)(a, b));
+  }
+
+  // Region tree with counts (companies), using every filter except region/country.
+  function regionTree() {
+    const f = { ...S, region: "", country: "" };
+    const base = leads.filter(i => hasMatch(i, f.has) && sourceMatch(i, f.source) && searchMatch(i, f.q));
+    const countFor = (region, country) => base.filter(i => i.roles.some(r => r.status === "open" && roleMatches(r, { ...f, region, country }))).length;
+    const countries = {};
+    for (const i of base) for (const r of i.roles) if (r.status === "open") for (const p of r.places) if (regionOfCountry(p)) (countries[regionOfCountry(p)] ||= new Set()).add(p);
+    return REGIONS.map(region => ({
+      region, count: countFor(region, ""),
+      countries: [...(countries[region] || [])].sort((a, b) => a.localeCompare(b, "en")).map(c => ({ country: c, count: countFor("", c) })).filter(x => x.count),
+    }));
+  }
+
+  // ---------------------------------------------------------------- URL state
+  function readURL() {
+    const p = new URLSearchParams(location.search);
+    Object.assign(S, DEFAULTS, { has: [] });
+    for (const k of ["tab", "q", "region", "country", "track", "type", "source", "sort", "team", "layout", "kind"]) if (p.get(k)) S[k] = p.get(k);
+    if (p.get("has")) S.has = p.get("has").split(",").filter(h => HAS_LABEL[h]);
+    S.empty = p.get("empty") === "1";
+    if (!["jobs", "outreach", "changes"].includes(S.tab)) S.tab = "jobs";
+  }
+  function writeURL() {
+    const p = new URLSearchParams();
+    for (const k of ["tab", "q", "region", "country", "track", "type", "source", "sort", "team", "layout", "kind"]) if (S[k] && S[k] !== DEFAULTS[k]) p.set(k, S[k]);
+    if (S.has.length) p.set("has", S.has.join(","));
+    if (S.empty) p.set("empty", "1");
+    const qs = p.toString();
+    history.replaceState(null, "", (qs ? "?" + qs : location.pathname) + location.hash);
+  }
+  const set = patch => { Object.assign(S, patch); shown = 40; writeURL(); render(); };
+
+  // ---------------------------------------------------------------- rendering: shared
+  function render() {
+    if (!raw) return;
+    syncControls();
+    const rows = jobRows();
+    $("nJobs").textContent = rows.filter(r => r.status === "open").length;
+    $("nOutreach").textContent = leads.reduce((n, i) => n + i.contacts.length, 0);
+    $("nChanges").textContent = allEvents().filter(e => Date.now() - Date.parse(e.t) < 7 * 864e5).length || "";
+    for (const t of ["jobs", "outreach", "changes"]) {
+      const on = S.tab === t;
+      $("tab-" + t).setAttribute("aria-selected", on);
+      $("tab-" + t).tabIndex = on ? 0 : -1;
+      $("view-" + t).hidden = !on;
     }
-    function sourceMatch(item) {
-      if (activeSource === "ALL") return true;
-      if (activeSource === "others") return item.sources.some(s => OTHERS.includes(s));
-      if (activeSource === "linkedin") return item.roles.some(r => r.via === "linkedin") || Boolean(item.linkedinPage) || item.contacts.some(p => p.linkedin);
-      return item.sources.includes(activeSource);
+    if (S.tab === "jobs") renderJobs(rows);
+    if (S.tab === "outreach") renderOutreach();
+    if (S.tab === "changes") renderChanges();
+    if (openId) renderPanel();
+  }
+
+  function syncControls() {
+    $("q").value !== S.q && document.activeElement !== $("q") && ($("q").value = S.q);
+    $("track").value = S.track;
+    $("sort").value = S.sort;
+    $("source").value = S.source;
+    document.querySelectorAll("#typeSeg button").forEach(b => b.setAttribute("aria-pressed", b.dataset.type === S.type));
+    document.querySelectorAll("#teamSeg button").forEach(b => b.setAttribute("aria-pressed", b.dataset.team === S.team));
+    document.querySelectorAll("#layoutSeg button").forEach(b => b.setAttribute("aria-pressed", b.dataset.layout === S.layout));
+    document.querySelectorAll("#changeSeg button").forEach(b => b.setAttribute("aria-pressed", b.dataset.kind === S.kind));
+    document.querySelectorAll('input[name="has"]').forEach(i => { i.checked = S.has.includes(i.value); });
+    $("showEmpty").checked = S.empty;
+    $("regionLabel").textContent = S.country ? `${flag(S.country)} ${S.country}`.trim() : S.region || "All regions";
+    const more = (S.source ? 1 : 0) + S.has.length;
+    $("moreCount").textContent = more ? ` · ${more}` : "";
+    const active = activeFilters().length;
+    $("filterCount").textContent = active ? ` · ${active}` : "";
+  }
+
+  function activeFilters() {
+    const out = [];
+    if (S.country) out.push({ label: `${flag(S.country)} ${S.country}`.trim(), clear: { country: "" } });
+    else if (S.region) out.push({ label: S.region, clear: { region: "" } });
+    if (S.track) out.push({ label: TRACK_SHORT[S.track] || S.track, clear: { track: "" } });
+    if (S.type) out.push({ label: S.type === "internship" ? "Internships" : "Jobs", clear: { type: "" } });
+    if (S.source) out.push({ label: `Source: ${SOURCE_LABEL[S.source] || S.source}`, clear: { source: "" } });
+    for (const h of S.has) out.push({ label: HAS_LABEL[h], clear: { has: S.has.filter(x => x !== h) } });
+    if (S.q) out.push({ label: `“${S.q}”`, clear: { q: "" } });
+    return out;
+  }
+
+  // ---------------------------------------------------------------- Jobs tab
+  function renderJobs(rows) {
+    const open = rows.filter(r => r.status === "open");
+    const roles = open.reduce((n, r) => n + r.visibleOpen, 0);
+    const contacts = open.reduce((n, r) => n + r.contacts.length, 0);
+    const closed = rows.length - open.length;
+    $("summaryText").innerHTML = `<b>${plural(open.length, "startup", "startups")}</b> · <b>${plural(roles, "role", "roles")}</b> · <b>${plural(contacts, "contact", "contacts")}</b>${closed ? ` · <span style="color:var(--crimson)">${closed} no longer hiring</span>` : ""}`;
+    const chips = activeFilters();
+    $("chips").innerHTML = chips.length ? chips.map((c, i) => `<span class="chip">${esc(c.label)}<button type="button" data-chip="${i}" aria-label="Remove filter ${esc(c.label)}">×</button></span>`).join("") + `<button type="button" class="linkbtn" id="clearAll">Clear all</button>` : "";
+    updateLinkedInButton();
+
+    if (!rows.length) {
+      $("results").innerHTML = `<div class="empty"><strong>No remote tech roles match.</strong>Try removing a filter${chips.length ? ', or <button type="button" class="linkbtn" data-clear-all>clear all filters</button>' : ""}.</div>`;
+      return;
     }
-    function searchMatch(item) {
-      if (!searchQuery) return true;
-      const hay = [item.company, item.country, item.region, item.oneLiner, ...item.techStack,
-        ...item.roles.map(r => `${r.title} ${r.track} ${r.remoteScope} ${r.places.join(" ")}`),
-        ...item.contacts.map(p => `${p.name} ${p.title} ${p.email || ""} ${p.phone || ""}`)].join(" ").toLowerCase();
-      return searchQuery.toLowerCase().split(/\s+/).every(t => hay.includes(t));
+    $("results").innerHTML = rows.slice(0, shown).map(rowHtml).join("") +
+      (rows.length > shown ? `<button type="button" class="btn more" id="showMore">Show ${Math.min(40, rows.length - shown)} more of ${rows.length - shown}</button>` : "");
+  }
+
+  function rowHtml(r) {
+    const closed = r.status === "closed";
+    const tracks = [...new Set(r.visibleRoles.filter(x => x.status === "open").map(x => TRACK_SHORT[x.track] || x.track))].slice(0, 3);
+    const interns = r.visibleRoles.some(x => x.status === "open" && x.category === "Internship");
+    const nw = isNew(r.firstSeen);
+    const where = r.country ? `${flag(r.country)} ${esc(r.country)}` : "Global remote";
+    return `<button type="button" class="row${closed ? " closed" : ""}" data-open="${esc(r.id)}" aria-label="${esc(r.company)}, ${r.visibleOpen} open roles">
+      <span class="logo" aria-hidden="true">${r.logo ? `<img src="${esc(r.logo)}" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode('${esc(initials(r.company))}'))">` : esc(initials(r.company))}</span>
+      <span class="main">
+        <span class="top"><span class="name">${esc(r.company)}</span>${nw ? '<span class="badge new">New</span>' : ""}${closed ? '<span class="badge closed">No longer hiring</span>' : ""}<span class="where">${where} · ${esc(r.remoteScope)}</span></span>
+        <span class="tags">${tracks.map(t => `<span class="tag">${esc(t)}</span>`).join("")}${interns ? '<span class="badge intern">Internship</span>' : ""}</span>
+      </span>
+      <span class="facts">
+        <span class="fact"><b>${r.visibleOpen}</b><span>${r.visibleOpen === 1 ? "open role" : "open roles"}</span></span>
+        <span class="fact"><b>${r.contacts.length}</b><span>${r.contacts.length === 1 ? "contact" : "contacts"}</span></span>
+        <span class="fact"><b>${esc(fmtDate(r.newest) || "—")}</b><span>newest posting</span></span>
+      </span>
+    </button>`;
+  }
+
+  function renderRegionPop() {
+    const tree = regionTree();
+    const opt = (label, count, patch, checked, cls) =>
+      `<button type="button" role="menuitemradio" class="opt ${cls}" aria-checked="${checked}" data-region-set='${esc(JSON.stringify(patch))}'><span>${label}</span><span class="c">${count}</span></button>`;
+    const all = leads.filter(i => i.roles.some(r => r.status === "open")).length;
+    $("regionPop").innerHTML = opt("All regions", all, { region: "", country: "" }, !S.region && !S.country, "") +
+      tree.map(t => opt(esc(t.region), t.count, { region: t.region, country: "" }, S.region === t.region && !S.country, "region") +
+        t.countries.map(c => opt(`${flag(c.country)} ${esc(c.country)}`.trim(), c.count, { region: "", country: c.country }, S.country === c.country, "country")).join("")).join("");
+  }
+
+  // LinkedIn Jobs search for the current filters: remote only (f_WT=2), posted in the last week.
+  function updateLinkedInButton() {
+    const kw = [S.q || TRACK_KEYWORDS[S.track] || "software engineer", S.type === "internship" ? "intern" : ""].filter(Boolean).join(" ");
+    const loc = S.country || REGION_LINKEDIN[S.region] || "Worldwide";
+    $("linkedinJobsBtn").href = `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(kw)}&location=${encodeURIComponent(loc)}&f_WT=2&f_TPR=r604800`;
+    $("linkedinJobsBtn").title = `Remote ${S.type === "internship" ? "internships" : "jobs"} on LinkedIn · ${loc} · last 7 days`;
+  }
+
+  // ---------------------------------------------------------------- Detail panel
+  let openId = null, panelTab = "roles", outreachTo = null;
+
+  function openPanel(id, tab = "roles", fromEl) {
+    if (!leads.some(i => i.id === id)) return;
+    openId = id; panelTab = tab; outreachTo = null;
+    lastFocus = fromEl || document.activeElement;
+    $("panel").hidden = false; $("scrim").hidden = false;
+    document.body.style.overflow = "hidden";
+    const h = `#c=${encodeURIComponent(id)}&t=${tab}`;
+    if (location.hash !== h) history.replaceState(null, "", location.pathname + location.search + h);
+    renderPanel();
+    $("panelClose")?.focus();
+  }
+  function closePanel() {
+    openId = null;
+    $("panel").hidden = true; $("scrim").hidden = true;
+    document.body.style.overflow = "";
+    history.replaceState(null, "", location.pathname + location.search);
+    if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+  }
+
+  function renderPanel() {
+    const item = leads.find(i => i.id === openId);
+    if (!item) { closePanel(); return; }
+    const open = item.roles.filter(r => r.status === "open");
+    const links = [
+      item.website && `<a href="${esc(item.website)}" target="_blank" rel="noopener noreferrer">Website ↗</a>`,
+      item.linkedinPage && `<a href="${esc(item.linkedinPage)}" target="_blank" rel="noopener noreferrer">Company LinkedIn ↗</a>`,
+      item.boardUrl && `<a href="${esc(item.boardUrl)}" target="_blank" rel="noopener noreferrer">Job board ↗</a>`,
+      item.profileUrl && item.profileUrl !== item.boardUrl && `<a href="${esc(item.profileUrl)}" target="_blank" rel="noopener noreferrer">YC profile ↗</a>`,
+    ].filter(Boolean).join("");
+    const tabBtn = (t, label) => `<button class="tab" role="tab" id="ptab-${t}" aria-controls="pbody" aria-selected="${panelTab === t}" tabindex="${panelTab === t ? 0 : -1}" data-ptab="${t}">${label}</button>`;
+    const prevScroll = $("pbody")?.scrollTop || 0;
+    $("panel").innerHTML = `
+      <header>
+        <div class="ptop">
+          <span class="logo" aria-hidden="true">${item.logo ? `<img src="${esc(item.logo)}" alt="" onerror="this.replaceWith(document.createTextNode('${esc(initials(item.company))}'))">` : esc(initials(item.company))}</span>
+          <div>
+            <h2 id="panelTitle">${esc(item.company)}</h2>
+            <div class="sub">${item.country ? `${flag(item.country)} ${esc(item.country)}` : "Global remote"} · ${esc(item.remoteScope)}${item.batch ? ` · ${esc(item.batch)}` : ""}
+              ${item.status === "closed" ? '<span class="badge closed">No longer hiring</span>' : ""}${isNew(item.firstSeen) ? '<span class="badge new">New</span>' : ""}</div>
+          </div>
+          <button type="button" class="iconbtn close" id="panelClose" aria-label="Close details">×</button>
+        </div>
+        ${item.oneLiner ? `<p class="muted" style="margin:16px 0 0">${esc(item.oneLiner)}</p>` : ""}
+        ${item.techStack.length ? `<div class="tags">${item.techStack.map(t => `<span class="tag mono">${esc(t)}</span>`).join("")}</div>` : ""}
+        <div class="links">${links}</div>
+        <div class="ptabs" role="tablist" aria-label="Company details">${tabBtn("roles", `Roles <span class="n">${open.length}</span>`)}${tabBtn("people", `People <span class="n">${item.contacts.length}</span>`)}${tabBtn("outreach", "Outreach")}</div>
+      </header>
+      <div class="body" id="pbody" role="tabpanel" aria-labelledby="ptab-${panelTab}">${panelTab === "roles" ? rolesHtml(item) : panelTab === "people" ? peopleHtml(item) : outreachHtml(item)}</div>`;
+    $("pbody").scrollTop = prevScroll;
+    if (panelTab === "outreach") $("pitch").addEventListener("input", syncMailto);
+  }
+
+  function rolesHtml(item) {
+    if (!item.roles.length) return '<p class="muted">No roles on record.</p>';
+    return item.roles.map(r => {
+      const closed = r.status === "closed";
+      const meta = [r.remoteScope, TRACK_SHORT[r.track] || r.track, r.experience, r.postedAt ? `posted ${fmtDate(r.postedAt)}` : `seen ${fmtDate(r.firstSeen)}`,
+        OTHERS.includes(r.src) || ["jobicy", "arbeitnow"].includes(r.src) ? `via ${SOURCE_LABEL[r.src]}` : ""].filter(Boolean).map(esc).join(" · ");
+      const sal = r.salary ? `<span class="mono" ${r.salary.unclear ? 'title="Units unclear in the source listing; shown exactly as listed"' : ""}>${esc(r.salary.text)}${r.salary.unclear ? ' <span class="muted">(as listed)</span>' : ""}</span>` : "";
+      return `<div class="role${closed ? " closed" : ""}">
+        <div class="rt"><span class="title">${esc(r.title)}</span>${r.category === "Internship" ? '<span class="badge intern">Internship</span>' : '<span class="badge soft">Job</span>'}${!closed && isNew(r.firstSeen) ? '<span class="badge new">New</span>' : ""}</div>
+        <div class="meta">${meta}${sal ? " · " + sal : ""}</div>
+        ${closed ? `<div class="why">Closed: ${esc(r.closedReason || "no longer listed")}${r.closedAt ? ` · ${esc(fmtDate(r.closedAt))}` : ""}</div>` : ""}
+        <div class="acts">
+          ${r.url ? `<a class="btn sm${closed ? "" : " primary"}" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${closed ? "Listing" : "Apply"} ↗</a>` : ""}
+          ${r.applyUrl ? `<a class="btn sm" href="${esc(r.applyUrl)}" target="_blank" rel="noopener noreferrer">Direct ↗</a>` : ""}
+          <a class="btn sm" href="https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(item.company + " " + r.title)}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        </div>
+      </div>`;
+    }).join("");
+  }
+
+  function statusSelect(item, p) {
+    const st = statusOf(item, p);
+    return `<label class="sr-only" for="st-${esc(contactKey(item.id, p))}">Status for ${esc(p.name)}</label>
+      <select class="statussel st-${st.split(" ")[0].toLowerCase()}" id="st-${esc(contactKey(item.id, p))}" data-status-key="${esc(contactKey(item.id, p))}">${STATUSES.map(s => `<option ${s === st ? "selected" : ""}>${s}</option>`).join("")}</select>`;
+  }
+  function contactWays(item, p) {
+    const phone = p.phone || item.hqPhone;
+    return [
+      p.email ? `<span><button type="button" class="copy" data-copy="${esc(p.email)}" title="Copy email">${esc(p.email)}</button> · <a href="mailto:${esc(p.email)}">mail ↗</a></span>` : '<span class="muted">No email on record</span>',
+      phone ? `<span><button type="button" class="copy" data-copy="${esc(phone)}" title="Copy phone">${esc(phone)}</button> <span class="muted">${p.phone ? "direct" : "HQ line"}</span> · <a href="${esc(telHref(phone))}">call</a></span>` : "",
+      p.linkedin ? `<a href="${esc(p.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>` : `<a href="${esc(linkedInPeople(item.company, p.name))}" target="_blank" rel="noopener noreferrer">Find on LinkedIn ↗</a>`,
+      p.twitter ? `<a href="${esc(p.twitter)}" target="_blank" rel="noopener noreferrer">X ↗</a>` : "",
+      p.hn ? `<a href="${esc(p.hn)}" target="_blank" rel="noopener noreferrer">HN ↗</a>` : "",
+    ].filter(Boolean).join("");
+  }
+
+  function peopleHtml(item) {
+    const groups = {};
+    for (const p of item.contacts) (groups[p.tier] ||= []).push(p);
+    const label = { "C-Suite": "C-Suite", "Talent & HR": "Talent & HR", Partnerships: "Partnerships", Leadership: "Leadership & other" };
+    let html = Object.keys(TIER_ORDER).filter(t => groups[t]).map(t => `<h3 class="sect">${label[t]} · ${groups[t].length}</h3>` +
+      groups[t].map(p => `<div class="person"><div><div class="pn">${esc(p.name)}</div><div class="pt">${esc(p.title || "")}${p.location ? ` · ${esc(p.location)}` : ""}</div></div>
+        <div>${statusSelect(item, p)}</div><div class="pc">${contactWays(item, p)}</div></div>`).join("")).join("");
+    if (!item.contacts.length) {
+      html = `<h3 class="sect">No named contact yet</h3><p class="muted">Find the decision-makers on LinkedIn:</p>
+        <div class="btnrow">${["CEO", "CTO", "founder"].map(r => `<a class="btn sm" href="${esc(linkedInPeople(item.company, r))}" target="_blank" rel="noopener noreferrer">Find ${r === "founder" ? "founders" : r} ↗</a>`).join("")}</div>`;
     }
-    // Companies (with only their matching roles) for the current filters; tab can be overridden for counts.
-    function getFilteredLeads(tab) {
+    const channels = [
+      ...item.companyEmails.map(e => `<span><button type="button" class="copy" data-copy="${esc(e.email)}">${esc(e.email)}</button> <span class="muted">${esc(e.team)}</span></span>`),
+      item.hqPhone ? `<span><button type="button" class="copy" data-copy="${esc(item.hqPhone)}">${esc(item.hqPhone)}</button> <span class="muted">HQ</span></span>` : "",
+      ...Object.entries(item.social).filter(([k]) => k !== "linkedin").map(([k, v]) => `<a href="${esc(v)}" target="_blank" rel="noopener noreferrer">${esc(k[0].toUpperCase() + k.slice(1))} ↗</a>`),
+      ...Object.entries(item.pages).filter(([k]) => ["contact", "careers", "partners", "team"].includes(k)).map(([k, v]) => `<a href="${esc(v)}" target="_blank" rel="noopener noreferrer">${esc({ contact: "Contact page", careers: "Careers page", partners: "Partner page", team: "Team page" }[k])} ↗</a>`),
+    ].filter(Boolean);
+    if (channels.length) html += `<h3 class="sect">Company channels</h3><div class="person"><div class="pc" style="grid-column:1/-1">${channels.join("")}</div></div>`;
+    if (item.contacts.length) html += `<div class="btnrow">${["CEO", "CTO", "founder"].map(r => `<a class="linkbtn" href="${esc(linkedInPeople(item.company, r))}" target="_blank" rel="noopener noreferrer">Find more: ${r === "founder" ? "founders" : r} ↗</a>`).join(" · ")}</div>`;
+    return html;
+  }
+
+  function pitchFor(item, target) {
+    const open = item.roles.filter(r => r.status === "open");
+    const first = (target?.name || "there").split(/\s+/)[0];
+    const roleTitles = open.slice(0, 3).map(r => r.title).join(", ");
+    const track = open[0]?.track || "engineering";
+    const subject = `Remote ${track} hiring at ${item.company}`;
+    const body = `Hi ${first},\n\nI saw that ${item.company} is hiring remotely for ${roleTitles || "engineering roles"}.\n\nWe work with pre-vetted software and AI engineers who are used to working fully remote across time zones${item.techStack.length ? `, including people shipping production code in ${item.techStack.slice(0, 4).join(", ")}` : ""}. I'd be glad to share a short list of profiles that match these roles.\n\nWould a 15-minute call this week or next be useful?\n\nBest regards,\n`;
+    return { subject, body };
+  }
+  function outreachHtml(item) {
+    const withEmail = item.contacts.filter(p => p.email);
+    const target = withEmail.find(p => contactKey(item.id, p) === outreachTo) || withEmail.find(p => p.tier === "C-Suite") || withEmail[0] || item.contacts[0];
+    if (target) outreachTo = contactKey(item.id, target);
+    const { subject, body } = pitchFor(item, target);
+    const mailto = target?.email ? `mailto:${encodeURIComponent(target.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}` : "";
+    return `${withEmail.length ? `<div class="field"><label for="pitchTo">To</label><select class="sel" id="pitchTo">${withEmail.map(p => `<option value="${esc(contactKey(item.id, p))}" ${contactKey(item.id, p) === outreachTo ? "selected" : ""}>${esc(p.name)} · ${esc(p.title || p.tier)} · ${esc(p.email)}</option>`).join("")}</select></div>`
+      : `<p class="muted">No email on record for this company. Use the People tab or LinkedIn to find the right person; you can still copy the pitch.</p>`}
+      <div class="field"><label for="pitch">Pitch (editable)</label><textarea class="pitch" id="pitch">Subject: ${esc(subject)}\n\n${esc(body)}</textarea></div>
+      <div class="btnrow">
+        <button type="button" class="btn" id="copyPitch">Copy text</button>
+        ${mailto ? `<a class="btn primary" id="mailPitch" href="${esc(mailto)}" data-to="${esc(target.email)}">Open in mail app ↗</a>` : ""}
+        ${target ? statusSelect(item, target) : ""}
+      </div>`;
+  }
+  function syncMailto() {
+    const a = $("mailPitch");
+    if (!a) return;
+    const m = /^Subject:\s*(.*)\n\n?([\s\S]*)$/.exec($("pitch").value);
+    a.href = `mailto:${encodeURIComponent(a.dataset.to)}?subject=${encodeURIComponent(m ? m[1] : "")}&body=${encodeURIComponent(m ? m[2] : $("pitch").value)}`;
+  }
+
+  // ---------------------------------------------------------------- Outreach tab (board / table)
+  function outreachCompanies() {
+    return leads.filter(i => (S.empty || i.roles.some(r => r.status === "open")) && searchMatch(i, S.q));
+  }
+  function outreachPeople() {
+    const out = [];
+    for (const item of outreachCompanies()) for (const p of item.contacts) if (!S.team || p.tier === S.team) out.push({ item, p, status: statusOf(item, p) });
+    return out;
+  }
+  function renderOutreach() {
+    const people = outreachPeople();
+    const companies = new Set(people.map(x => x.item.id)).size;
+    const by = s => people.filter(x => x.status === s);
+    $("outreachSummary").innerHTML = `<b>${plural(people.length, "contact", "contacts")}</b> at <b>${plural(companies, "company", "companies")}</b> · ${by("Contacted").length} contacted · ${by("Replied").length} replied<span class="grow"></span><span class="muted" style="font-size:13px">Statuses are saved in this browser.</span>`;
+    if (!people.length) { $("outreachView").innerHTML = `<div class="empty"><strong>No contacts match.</strong>Clear the search${S.team ? " or choose Everyone" : ""}.</div>`; return; }
+    if (S.layout === "board") {
+      $("outreachView").innerHTML = `<div class="board">${STATUSES.map(st => {
+        const list = by(st);
+        return `<section class="col" aria-label="${st}"><h3>${st}<span class="n">${list.length}</span></h3>
+          ${list.slice(0, boardShown[st]).map(({ item, p }) => `<div class="card">
+            <div class="who">${esc(p.name)}</div><div class="ttl">${esc(p.title || p.tier)}</div>
+            <button type="button" class="co" data-open="${esc(item.id)}" data-open-tab="people">${esc(item.company)}${item.status === "closed" ? " (no open roles)" : ` · ${item.openCount} open`}</button>
+            <div class="ways">${p.email ? `<button type="button" class="copy" data-copy="${esc(p.email)}">${esc(p.email)}</button>` : ""}${(p.phone || item.hqPhone) ? `<button type="button" class="copy" data-copy="${esc(p.phone || item.hqPhone)}">${esc(p.phone || item.hqPhone)}</button>` : ""}${p.linkedin ? `<a href="${esc(p.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>` : ""}</div>
+            <div>${statusSelect(item, p)}</div>
+          </div>`).join("")}
+          ${list.length > boardShown[st] ? `<button type="button" class="btn sm" data-board-more="${st}">Show more (${list.length - boardShown[st]})</button>` : ""}
+        </section>`;
+      }).join("")}</div>`;
+    } else {
+      // Table: each company appears once, its contacts listed beside it.
+      const byCo = new Map();
+      for (const x of people) (byCo.get(x.item.id) || byCo.set(x.item.id, { item: x.item, list: [] }).get(x.item.id)).list.push(x);
       const rows = [];
-      for (const item of leads) {
-        const roles = item.roles.filter(r => roleMatches(r, { tab }));
-        if (!roles.length) continue;
-        if (!contactMatch(item) || !sourceMatch(item) || !searchMatch(item)) continue;
-        const openRoles = roles.filter(r => r.status === "open");
-        rows.push({ ...item, visibleRoles: roles, visibleOpen: openRoles.length, status: openRoles.length ? "open" : "closed" });
+      for (const { item, list } of [...byCo.values()].sort((a, b) => a.item.company.localeCompare(b.item.company, "en"))) {
+        list.forEach(({ p }, i) => {
+          const phone = p.phone || item.hqPhone;
+          rows.push(`<tr>${i === 0 ? `<td class="co" rowspan="${list.length}"><button type="button" class="linkbtn" data-open="${esc(item.id)}" data-open-tab="people"><span class="name">${esc(item.company)}</span></button><div class="muted" style="font-size:13px">${item.country ? `${flag(item.country)} ${esc(item.country)}` : "Global remote"} · ${item.openCount} open roles</div></td>` : ""}
+            <td><strong>${esc(p.name)}</strong><div class="muted" style="font-size:13px">${esc(p.title || "")} · ${esc(p.tier)}</div></td>
+            <td>${p.email ? `<button type="button" class="copy" data-copy="${esc(p.email)}">${esc(p.email)}</button>` : "—"}</td>
+            <td>${phone ? `<button type="button" class="copy" data-copy="${esc(phone)}">${esc(phone)}</button><div class="muted" style="font-size:12px">${p.phone ? "direct" : "HQ line"}</div>` : "—"}</td>
+            <td>${p.linkedin ? `<a href="${esc(p.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>` : `<a href="${esc(linkedInPeople(item.company, p.name))}" target="_blank" rel="noopener noreferrer">Find ↗</a>`}</td>
+            <td>${statusSelect(item, p)}</td></tr>`);
+        });
       }
-      const name = (a, b) => a.company.localeCompare(b.company, "en");
-      // Companies without one home country ("Global") go after the A → Z countries.
-      const byCountry = (a, b) => (!a.country) - (!b.country) || (a.country || "").localeCompare(b.country || "", "en") || name(a, b);
-      const sorters = {
-        COUNTRY_AZ: byCountry,
-        COMPANY_AZ: name,
-        MOST_ROLES: (a, b) => b.visibleOpen - a.visibleOpen || name(a, b),
-        NEWEST_HOURLY: (a, b) => String(b.firstSeen).localeCompare(String(a.firstSeen)) || name(a, b),
-      };
-      // Hiring companies first; companies whose roles all closed follow, in red.
-      return rows.sort((a, b) => (a.status === "open" ? 0 : 1) - (b.status === "open" ? 0 : 1) || sorters[activeSort](a, b));
+      $("outreachView").innerHTML = `<div class="tablewrap"><table class="dir"><thead><tr><th scope="col">Company</th><th scope="col">Person</th><th scope="col">Email</th><th scope="col">Phone</th><th scope="col">LinkedIn</th><th scope="col">Status</th></tr></thead><tbody>${rows.join("")}</tbody></table></div>`;
     }
+  }
 
-    // Countries (A → Z) that have matching roles, optionally limited to a region.
-    function getAlphabeticalCountries(region) {
-      const set = new Set();
-      for (const item of leads) for (const r of item.roles) {
-        if (r.status !== "open") continue;
-        for (const p of r.places) if (regionOfCountry(p) && (region === "ALL" || regionOfCountry(p) === region)) set.add(p);
+  // ---------------------------------------------------------------- What changed tab
+  function allEvents() {
+    const known = new Set(leads.map(i => i.id));
+    return [...localEvents, ...((raw && raw.events) || [])].filter(e => e.local || known.has(e.companyId));
+  }
+  function renderChanges() {
+    const kindOf = e => (/closed/.test(e.type) ? "closed" : "added");
+    const events = allEvents().filter(e => !S.kind || kindOf(e) === S.kind).sort((a, b) => String(b.t).localeCompare(String(a.t)));
+    const label = e => ({
+      company_added: ["Added", e.company], company_closed: ["No longer hiring", e.company], company_reopened: ["Hiring again", e.company],
+      job_added: ["New role", `${e.company} · ${e.job}`], job_closed: ["Role closed", `${e.company} · ${e.job}`], job_reopened: ["Role reopened", `${e.company} · ${e.job}`],
+    }[e.type] || [e.type, e.company || e.text]);
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const bucket = t => { const d = Date.parse(t); return d >= +today ? "Today" : d >= +today - 864e5 ? "Yesterday" : d >= +today - 6 * 864e5 ? "This week" : "Earlier"; };
+    const groups = {};
+    for (const e of events.slice(0, 300)) (groups[bucket(e.t)] ||= []).push(e);
+    $("changesView").innerHTML = Object.keys(groups).length ? ["Today", "Yesterday", "This week", "Earlier"].filter(g => groups[g]).map(g => `<h3>${g}</h3>` + groups[g].map(e => {
+      const [what, who] = e.local ? [/closed/.test(e.type) ? "Role closed" : "Live check", e.text] : label(e);
+      const canOpen = e.companyId && leads.some(i => i.id === e.companyId);
+      return `<div class="ev${kindOf(e) === "closed" ? " closed" : ""}"><time datetime="${esc(e.t)}">${esc(new Date(e.t).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" }))}</time>
+        <div class="what"><strong>${esc(what)}:</strong> ${canOpen ? `<button type="button" data-open="${esc(e.companyId)}">${esc(who)}</button>` : esc(who)}${e.reason ? `<div class="why">${esc(e.reason)}</div>` : ""}</div></div>`;
+    }).join("")).join("") : `<div class="empty"><strong>Nothing has changed yet.</strong>New and closed roles appear here after each hourly update.</div>`;
+  }
+
+  // ---------------------------------------------------------------- status bar, toasts
+  function updateLiveLabel() {
+    if (!raw) return;
+    const at = raw.meta.lastVerifyAt || raw.meta.generatedAt;
+    const hours = (Date.now() - Date.parse(at)) / 3600e3;
+    $("liveDot").className = "dot" + (liveChecking ? " busy" : hours > 3 ? " stale" : "");
+    $("updatedText").textContent = liveChecking ? "Checking roles…" : `Updated ${ago(at)}`;
+    const mm = String(Math.floor(countdownSeconds / 60)).padStart(2, "0"), ss = String(countdownSeconds % 60).padStart(2, "0");
+    $("updated").title = `Server update: hourly (${HOURLY_CRON}). This page re-checks open roles every hour; next check in ${mm}:${ss}.${lastLiveCheck ? ` Last browser check ${ago(lastLiveCheck)}.` : ""}`;
+    $("nextCheck").textContent = `next auto ${mm}:${ss}`;
+  }
+  function toast(msg) {
+    const el = document.createElement("div");
+    el.className = "toast"; el.textContent = msg;
+    $("toasts").appendChild(el);
+    setTimeout(() => el.remove(), 3200);
+    while ($("toasts").children.length > 3) $("toasts").firstChild.remove();
+  }
+  function copy(text) {
+    const done = () => toast(`Copied ${text.length > 60 ? "text" : text}`);
+    if (navigator.clipboard?.writeText) navigator.clipboard.writeText(text).then(done, () => fallbackCopy(text, done));
+    else fallbackCopy(text, done);
+  }
+  function fallbackCopy(text, done) {
+    const ta = Object.assign(document.createElement("textarea"), { value: text });
+    ta.style.cssText = "position:fixed;opacity:0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); done(); } catch (e) {}
+    ta.remove();
+  }
+
+  // ---------------------------------------------------------------- data loading + hourly live engine
+  async function load(force) {
+    try {
+      const vr = await fetch(`${VERSION_URL}?t=${Date.now()}`, { cache: "no-store" }).catch(() => null);
+      const version = vr && vr.ok ? (await vr.json()).v : null;
+      if (raw && !force && version && version === lastVersion) { updateLiveLabel(); return false; }
+      const res = await fetch(`${DATA_URL}?t=${Date.now()}`, { cache: "no-store" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const next = await res.json();
+      const before = raw ? new Map(leads.map(i => [i.id, i.status])) : null;
+      raw = next; lastVersion = version;
+      for (const id of [...liveClosed.keys()]) {
+        const job = raw.companies.flatMap(c => c.jobs).find(j => j.id === id);
+        if (!job || job.status === "closed") liveClosed.delete(id);
       }
-      return [...set].sort((a, b) => a.localeCompare(b, "en"));
-    }
-    const companiesInCountry = c => leads.filter(i => i.roles.some(r => r.status === "open" && roleCovers(r, { country: c }))).length;
-
-    // ------------------------------------------------------------------ rendering
-    function populateAlphabeticalCountryDropdown() {
-      const countries = getAlphabeticalCountries(activeRegion);
-      if (activeCountry !== "ALL" && !countries.includes(activeCountry)) activeCountry = "ALL";
-      $("countrySelectAlpha").innerHTML = [`<option value="ALL">All countries (A → Z · ${countries.length})</option>`,
-        ...countries.map(c => `<option value="${escapeHtml(c)}" ${activeCountry === c ? "selected" : ""}>${escapeHtml(c)} (${companiesInCountry(c)})</option>`)].join("");
-    }
-
-    function renderKpisAndCounts(filtered) {
-      const open = filtered.filter(i => i.status === "open");
-      let roles = 0, interns = 0, pocs = 0, emails = 0, phones = 0, linkedins = 0;
-      const countries = new Set();
-      for (const item of open) {
-        for (const r of item.visibleRoles) if (r.status === "open") {
-          roles++;
-          if (r.category === "Remote Internship") interns++;
-          r.places.forEach(p => regionOfCountry(p) && countries.add(p));
-        }
-        const cs = item.contacts.filter(p => p.tier === "C-Suite");
-        pocs += cs.length;
-        emails += cs.filter(p => p.email).length;
-        phones += cs.filter(p => p.phone || item.hqPhone).length;
-        linkedins += cs.filter(p => p.linkedin).length;
+      leads = raw.companies.map(adapt);
+      if (before) {
+        const added = leads.filter(i => !before.has(i.id)).length;
+        const closed = leads.filter(i => before.get(i.id) === "open" && i.status === "closed");
+        if (added) toast(`${plural(added, "new startup", "new startups")} added`);
+        if (closed.length) toast(`${closed[0].company}${closed.length > 1 ? ` and ${closed.length - 1} more` : ""} stopped hiring`);
       }
-      $("kpiStartupsCount").textContent = open.length;
-      $("kpiTotalRolesCount").textContent = roles;
-      $("kpiInternshipsCount").textContent = interns;
-      $("kpiPocsCount").textContent = pocs;
-      $("kpiPocBreakdown").textContent = `${emails} emails · ${phones} phones · ${linkedins} LinkedIn`;
-      $("kpiPocBadge").textContent = pocs ? `${Math.round((linkedins / pocs) * 100)}% on LinkedIn` : "—";
-      $("kpiCountriesCount").textContent = countries.size;
-      $("activeFilterCountLabel").textContent = open.length;
-      $("activeRolesCountLabel").textContent = roles;
-      const closed = filtered.length - open.length;
-      $("closedCountLabel").textContent = closed ? ` · ${closed} closed (red)` : "";
-      const count = tab => getFilteredLeads(tab).reduce((n, i) => n + i.visibleRoles.filter(r => r.status === "open").length, 0);
-      $("tabCountAll").textContent = count("ALL");
-      $("tabCountJobs").textContent = count("JOB");
-      $("tabCountInterns").textContent = count("INTERN");
-      const active = activeRoleTab !== "ALL" || activeRegion !== "ALL" || activeCountry !== "ALL" || activeDiscipline !== "ALL" || activeCSuiteFilter !== "ALL" || activeSource !== "ALL" || searchQuery;
-      $("resetAllFiltersBtn").classList.toggle("invisible", !active);
+      render(); updateLiveLabel();
+      return true;
+    } catch (e) {
+      $("updatedText").textContent = "Offline · retrying";
+      return false;
     }
+  }
 
-    function contactRow(item, p) {
-      const key = contactKey(item.id, p);
-      const st = contactStatusMap[key] || "Not Contacted";
-      const phone = p.phone || item.hqPhone;
-      const phoneLabel = p.phone ? "Direct" : "HQ line";
-      const links = [
-        p.email ? `<button type="button" data-copy-val="${escapeHtml(p.email)}" class="underline decoration-dotted text-[var(--accent-emerald)] font-medium" title="Copy email">${escapeHtml(p.email)}</button>
-                   <a href="mailto:${escapeHtml(p.email)}" class="text-[var(--ink-muted)] hover:underline" title="Write email">mail ↗</a>` : `<span class="text-[var(--ink-muted)]">no email on record</span>`,
-        phone ? `<button type="button" data-copy-val="${escapeHtml(phone)}" class="underline decoration-dotted" title="Copy ${phoneLabel.toLowerCase()}">${escapeHtml(phone)}</button>
-                 <span class="text-[10px] uppercase tracking-wider text-[var(--ink-muted)]">${phoneLabel}</span>` : "",
-        p.linkedin ? `<a href="${escapeHtml(p.linkedin)}" target="_blank" rel="noopener noreferrer" class="underline font-medium">LinkedIn ↗</a>`
-                   : `<a href="${linkedInSearch(item.company, p.name)}" target="_blank" rel="noopener noreferrer" class="underline text-[var(--ink-muted)]">Find on LinkedIn ↗</a>`,
-        p.twitter ? `<a href="${escapeHtml(p.twitter)}" target="_blank" rel="noopener noreferrer" class="underline text-[var(--ink-muted)]">X ↗</a>` : "",
-        p.hn ? `<a href="${escapeHtml(p.hn)}" target="_blank" rel="noopener noreferrer" class="underline text-[var(--ink-muted)]">HN ↗</a>` : "",
-      ].filter(Boolean).join('<span class="opacity-30">·</span>');
-      return `
-        <div class="surface-subtle rounded-md p-2.5 flex flex-col md:flex-row md:items-center justify-between gap-2 text-xs font-mono-tabular">
-          <div class="space-y-0.5 min-w-0">
-            <div class="font-sans font-semibold text-sm">${escapeHtml(p.name)}
-              <span class="text-xs font-mono-tabular font-normal text-[var(--ink-secondary)]">— ${escapeHtml(p.title || "")}</span>
-              <span class="ml-1 text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded border hairline-border text-[var(--ink-muted)]">${escapeHtml(p.tier)}</span>
-            </div>
-            <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[11px] pt-0.5">${links}</div>
-          </div>
-          <div class="flex items-center gap-2 self-start md:self-center">
-            <select data-status-key="${escapeHtml(key)}" class="contact-status-select select-clean rounded px-2 py-1 text-[11px]" aria-label="Contact status">
-              ${["Not Contacted", "Contacted", "Replied"].map(o => `<option ${st === o ? "selected" : ""}>${o}</option>`).join("")}
-            </select>
-          </div>
-        </div>`;
+  // Greenhouse, Lever, Ashby and HN (Algolia) allow cross-origin reads, so open roles are re-checked
+  // straight from the browser. Roles are only marked closed on positive evidence, never on errors.
+  async function fetchJson(url) {
+    const r = await fetch(url, { cache: "no-store" });
+    if (r.status === 404) return { gone: true };
+    if (!r.ok) throw new Error(r.status);
+    return r.json();
+  }
+  async function boardIds(board) {
+    const [ats, ...rest] = board.split(":");
+    const token = encodeURIComponent(rest.join(":"));
+    if (ats === "greenhouse") { const d = await fetchJson(`https://boards-api.greenhouse.io/v1/boards/${token}/jobs`); return d.gone ? d : new Set(d.jobs.map(j => String(j.id))); }
+    if (ats === "lever") { const d = await fetchJson(`https://api.lever.co/v0/postings/${token}?mode=json`); return d.gone ? d : new Set(d.map(j => j.id)); }
+    if (ats === "ashby") { const d = await fetchJson(`https://api.ashbyhq.com/posting-api/job-board/${token}`); return d.gone ? d : new Set((d.jobs || []).map(j => j.id)); }
+    return null;
+  }
+  const FILLED_RE = /\b(no longer hiring|positions? (?:(?:have|has) been |are |is )?filled|hiring (?:is )?(?:now )?closed|roles? (?:(?:is|are|has been|have been) )?filled)\b/i;
+
+  async function runLiveCheck(manual) {
+    if (!raw || liveChecking) return;
+    liveChecking = true; updateLiveLabel();
+    if (manual) toast("Re-checking every open role against its job board…");
+    const found = new Map();
+    try {
+      const boards = new Map(), threads = new Map();
+      for (const c of raw.companies) for (const j of c.jobs) {
+        if (j.status !== "open" || liveClosed.has(j.id)) continue;
+        if (j.board) (boards.get(j.board) || boards.set(j.board, []).get(j.board)).push([c, j]);
+        else if (j.src === "hn" && j.thread) (threads.get(j.thread) || threads.set(j.thread, []).get(j.thread)).push([c, j]);
+      }
+      const tasks = [...boards].map(([board, list]) => async () => {
+        try {
+          const ids = await boardIds(board);
+          if (!ids) return;
+          if (ids.gone) { list.forEach(([c, j]) => found.set(j.id, [c, j, "job board removed"])); return; }
+          if (ids.size === 0 && list.length > 3) return;
+          for (const [c, j] of list) if (!ids.has(j.id.split(":").slice(2).join(":"))) found.set(j.id, [c, j, "removed from the company job board"]);
+        } catch (e) {}
+      });
+      for (const [thread, list] of threads) tasks.push(async () => {
+        try {
+          const d = await fetchJson(`https://hn.algolia.com/api/v1/items/${thread}`);
+          if (d.gone) return;
+          const kids = new Map((d.children || []).map(k => [String(k.id), k]));
+          for (const [c, j] of list) {
+            const k = kids.get(j.id.slice(3));
+            if (!k || !k.text || !k.author) found.set(j.id, [c, j, "HN post deleted"]);
+            else if (FILLED_RE.test(k.text.replace(/<[^>]+>/g, " ").slice(0, 400))) found.set(j.id, [c, j, "HN post says filled"]);
+          }
+        } catch (e) {}
+      });
+      const queue = [...tasks];
+      await Promise.all(Array.from({ length: 5 }, async () => { while (queue.length) await queue.shift()(); }));
+      const before = new Map(leads.map(i => [i.id, i.status]));
+      for (const [id, [c, j, reason]] of found) {
+        liveClosed.set(id, reason);
+        localEvents.unshift({ local: true, t: new Date().toISOString(), type: "job_closed", companyId: c.id, text: `${c.name} · ${j.title}`, reason });
+      }
+      lastLiveCheck = new Date().toISOString();
+      leads = raw.companies.map(adapt);
+      render();
+      const turnedRed = leads.filter(i => before.get(i.id) === "open" && i.status === "closed");
+      if (turnedRed.length) toast(`${turnedRed[0].company} just stopped hiring`);
+      else if (manual) toast(found.size ? `${plural(found.size, "role", "roles")} closed since the last update` : "All open roles are still live");
+    } finally {
+      liveChecking = false; countdownSeconds = 3600; updateLiveLabel();
     }
+  }
 
-    function renderStartupCards(filtered) {
-      const container = $("cardsFeedContainer");
-      if (!filtered.length) {
-        container.innerHTML = `<div class="surface-card rounded-xl p-10 text-center space-y-2">
-          <div class="font-serif-editorial text-2xl">No remote tech roles match these filters</div>
-          <p class="text-xs text-[var(--ink-secondary)]">Reset the filters to see every 100% remote role across Australia, Europe, MEA, New Zealand, SEA and the UK.</p></div>`;
-        $("showMoreBtn").classList.add("hidden");
+  // ---------------------------------------------------------------- CSV exports (current Jobs filters)
+  function exportCsv(onlyCSuite) {
+    const rows = jobRows();
+    const head = ["Country", "Region", "Startup", "Status", "Remote scope", "Open remote tech roles", "Tracks", "Contact name", "Contact title", "Tier", "Email", "Phone", "Phone type", "LinkedIn", "Company emails", "Company LinkedIn", "Job board", "Sources", "Contact status"];
+    const cell = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
+    const out = [head.map(cell).join(",")];
+    for (const item of rows) {
+      const roles = item.visibleRoles.filter(r => r.status === "open");
+      const base = [item.country || "Global", item.region || "Global", item.company, item.status === "open" ? "Hiring" : "No longer hiring", item.remoteScope,
+        roles.map(r => `${r.title} [${r.category}] <${r.url}>`).join(" | "), [...new Set(roles.map(r => r.track))].join(" | ")];
+      const tail = [item.companyEmails.map(e => e.email).join(" | "), item.linkedinPage, item.boardUrl, item.sources.map(s => SOURCE_LABEL[s] || s).join(" | ")];
+      const people = onlyCSuite ? item.contacts.filter(p => p.tier === "C-Suite") : item.contacts;
+      if (!people.length) { if (!onlyCSuite) out.push([...base, "", "", "", "", item.hqPhone, item.hqPhone ? "HQ line" : "", "", ...tail, ""].map(cell).join(",")); continue; }
+      for (const p of people) out.push([...base, p.name, p.title, p.tier, p.email, p.phone || item.hqPhone, p.phone ? "Direct" : item.hqPhone ? "HQ line" : "", p.linkedin, ...tail, statusOf(item, p)].map(cell).join(","));
+    }
+    const blob = new Blob(["﻿" + out.join("\n")], { type: "text/csv;charset=utf-8;" });
+    const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(blob), download: onlyCSuite ? "startup_leads_csuite_contacts.csv" : "startup_leads_remote_tech.csv" });
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+    toast(`Exported ${plural(out.length - 1, "row", "rows")}`);
+  }
+
+  // ---------------------------------------------------------------- popovers, menu, sheet
+  const pops = [["regionBtn", "regionPop"], ["moreBtn", "morePop"], ["menuBtn", "menu"]];
+  function closePops(except) {
+    for (const [b, p] of pops) if (p !== except) { $(p).hidden = true; $(b).setAttribute("aria-expanded", "false"); }
+  }
+  function togglePop(btnId, popId) {
+    const open = $(popId).hidden;
+    closePops(popId);
+    $(popId).hidden = !open;
+    $(btnId).setAttribute("aria-expanded", String(open));
+    if (open && popId === "regionPop") renderRegionPop();
+    if (open) ($(popId).querySelector('[aria-checked="true"], button, a, select, input') || $(popId)).focus();
+  }
+  function setSheet(open) {
+    $("filters").classList.toggle("open", open);
+    $("filtersToggle").setAttribute("aria-expanded", String(open));
+    if (!openId) $("scrim").hidden = !open;
+    if (open) $("sheetDone").focus(); else $("filtersToggle").focus();
+  }
+  const isMobile = () => matchMedia("(max-width: 760px)").matches;
+
+  function applyTheme(t) {
+    if (t) document.documentElement.dataset.theme = t; else delete document.documentElement.dataset.theme;
+    const dark = t ? t === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    $("themeHint").textContent = dark ? "dark" : "light";
+  }
+
+  // ---------------------------------------------------------------- wiring
+  function wire() {
+    applyTheme(store.get(THEME_KEY, null));
+    let qTimer;
+    $("q").addEventListener("input", e => { clearTimeout(qTimer); qTimer = setTimeout(() => set({ q: e.target.value.trim() }), 150); });
+    $("track").addEventListener("change", e => set({ track: e.target.value }));
+    $("sort").addEventListener("change", e => set({ sort: e.target.value }));
+    $("source").addEventListener("change", e => set({ source: e.target.value }));
+    document.querySelectorAll('input[name="has"]').forEach(i => i.addEventListener("change", () => set({ has: [...document.querySelectorAll('input[name="has"]:checked')].map(x => x.value) })));
+    $("showEmpty").addEventListener("change", e => set({ empty: e.target.checked }));
+    const segs = [["typeSeg", "type"], ["teamSeg", "team"], ["layoutSeg", "layout"], ["changeSeg", "kind"]];
+    for (const [id, key] of segs) $(id).addEventListener("click", e => { const b = e.target.closest("button"); if (b) set({ [key]: b.dataset[key === "kind" ? "kind" : key] ?? "" }); });
+    document.querySelector('[role="tablist"]').addEventListener("click", e => { const t = e.target.closest("[data-tab]"); if (t) { set({ tab: t.dataset.tab }); t.focus(); } });
+    document.querySelector('[role="tablist"]').addEventListener("keydown", e => {
+      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)) return;
+      const tabs = ["jobs", "outreach", "changes"]; let i = tabs.indexOf(S.tab);
+      i = e.key === "Home" ? 0 : e.key === "End" ? 2 : (i + (e.key === "ArrowRight" ? 1 : 2)) % 3;
+      set({ tab: tabs[i] }); $("tab-" + tabs[i]).focus(); e.preventDefault();
+    });
+    $("regionBtn").addEventListener("click", () => togglePop("regionBtn", "regionPop"));
+    $("moreBtn").addEventListener("click", () => togglePop("moreBtn", "morePop"));
+    $("menuBtn").addEventListener("click", () => togglePop("menuBtn", "menu"));
+    $("regionPop").addEventListener("click", e => {
+      const o = e.target.closest("[data-region-set]");
+      if (!o) return;
+      set(JSON.parse(o.dataset.regionSet));
+      if (!isMobile()) closePops(); else renderRegionPop();
+      if (!isMobile()) $("regionBtn").focus();
+    });
+    $("filtersToggle").addEventListener("click", () => setSheet(true));
+    $("sheetDone").addEventListener("click", () => { setSheet(false); closePops(); });
+    $("syncBtn").addEventListener("click", async () => { closePops(); await load(true); await runLiveCheck(true); });
+    $("exportRolesBtn").addEventListener("click", () => { closePops(); exportCsv(false); });
+    $("exportContactsBtn").addEventListener("click", () => { closePops(); exportCsv(true); });
+    $("themeBtn").addEventListener("click", () => {
+      const dark = document.documentElement.dataset.theme ? document.documentElement.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+      const t = dark ? "light" : "dark"; store.set(THEME_KEY, t); applyTheme(t);
+    });
+    $("scrim").addEventListener("click", () => (openId ? closePanel() : setSheet(false)));
+
+    document.addEventListener("click", e => {
+      if (!e.target.closest(".anchor, #menu, #menuBtn")) closePops();
+      const cp = e.target.closest("[data-copy]"); if (cp) { copy(cp.dataset.copy); return; }
+      const chip = e.target.closest("[data-chip]"); if (chip) { set(activeFilters()[+chip.dataset.chip].clear); return; }
+      if (e.target.closest("#clearAll, [data-clear-all]")) { set({ q: "", region: "", country: "", track: "", type: "", source: "", has: [] }); return; }
+      if (e.target.closest("#showMore")) { shown += 40; renderJobs(jobRows()); return; }
+      const bm = e.target.closest("[data-board-more]"); if (bm) { boardShown[bm.dataset.boardMore] += 60; renderOutreach(); return; }
+      const op = e.target.closest("[data-open]"); if (op) { openPanel(op.dataset.open, op.dataset.openTab || "roles", op); return; }
+      const pt = e.target.closest("[data-ptab]"); if (pt) { panelTab = pt.dataset.ptab; history.replaceState(null, "", `#c=${encodeURIComponent(openId)}&t=${panelTab}`); renderPanel(); $("ptab-" + panelTab).focus(); return; }
+      if (e.target.closest("#panelClose")) { closePanel(); return; }
+      if (e.target.closest("#copyPitch")) { copy($("pitch").value); return; }
+    });
+    document.addEventListener("change", e => {
+      const sel = e.target.closest("[data-status-key]");
+      if (sel) {
+        statusMap[sel.dataset.statusKey] = sel.value; store.set(STATUS_KEY, statusMap);
+        toast(`Marked ${sel.value.toLowerCase()}`);
+        if (S.tab === "outreach") renderOutreach();
+        if (openId) renderPanel();
+        if (S.tab === "jobs" && S.has.includes("uncontacted")) renderJobs(jobRows());
         return;
       }
-      container.innerHTML = filtered.slice(0, shown).map(item => {
-        const closed = item.status === "closed";
-        const roles = item.visibleRoles;
-        const c = item.contacts;
-        const csuite = c.filter(p => p.tier === "C-Suite");
-        const rest = c.filter(p => p.tier !== "C-Suite");
-        const pocs = [...csuite, ...rest].slice(0, 6);
-        const channelBits = [
-          ...item.companyEmails.slice(0, 3).map(e => `<button type="button" data-copy-val="${escapeHtml(e.email)}" class="underline decoration-dotted">${escapeHtml(e.email)}</button> <span class="text-[var(--ink-muted)]">${escapeHtml(e.team)}</span>`),
-          item.hqPhone ? `<button type="button" data-copy-val="${escapeHtml(item.hqPhone)}" class="underline decoration-dotted">${escapeHtml(item.hqPhone)}</button> <span class="text-[var(--ink-muted)]">HQ</span>` : "",
-          item.linkedinPage ? `<a href="${escapeHtml(item.linkedinPage)}" target="_blank" rel="noopener noreferrer" class="underline">Company LinkedIn ↗</a>` : "",
-          item.website ? `<a href="${escapeHtml(item.website)}" target="_blank" rel="noopener noreferrer" class="underline">Website ↗</a>` : "",
-        ].filter(Boolean);
-        return `
-          <article class="surface-card rounded-xl p-5 space-y-4 transition ${closed ? "is-closed" : "hover:border-[var(--ink-primary)]"}" data-company="${escapeHtml(item.id)}">
-            <div class="flex flex-wrap items-start justify-between gap-2 pb-3 border-b hairline-border">
-              <div class="space-y-1 min-w-0">
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-xs font-mono-tabular font-semibold px-2 py-0.5 rounded bg-[var(--ink-primary)] text-[var(--bg-surface)]">${escapeHtml(item.country || "Global")}</span>
-                  <span class="text-xs font-mono-tabular px-2 py-0.5 rounded surface-subtle">Region: ${escapeHtml(item.region || "Global")}</span>
-                  <span class="text-xs font-mono-tabular px-2 py-0.5 rounded ${closed ? "badge-closed" : "badge-remote"} font-medium">${closed ? "No longer hiring" : escapeHtml(item.remoteScope)}</span>
-                  ${item.batch ? `<span class="text-xs font-mono-tabular px-2 py-0.5 rounded surface-subtle">${escapeHtml(item.batch)}</span>` : ""}
-                </div>
-                <div class="flex flex-wrap items-baseline gap-2.5 pt-1">
-                  <h2 class="font-serif-editorial text-2xl sm:text-3xl company-name">${escapeHtml(item.company)}</h2>
-                  <span class="text-xs font-mono-tabular text-[var(--ink-muted)]">${escapeHtml(item.sources.map(s => SOURCE_LABEL[s] || s).join(" · "))}</span>
-                </div>
-              </div>
-              <div class="flex items-center gap-2 text-xs font-mono-tabular">
-                <span class="text-[var(--ink-muted)]" title="Last server verification">Verified ${escapeHtml(ago(raw.meta.lastVerifyAt))}</span>
-                ${item.boardUrl ? `<a href="${escapeHtml(item.boardUrl)}" target="_blank" rel="noopener noreferrer" class="pill-btn px-2.5 py-1 rounded font-medium">Job board ↗</a>` : ""}
-              </div>
-            </div>
-            ${item.oneLiner || item.techStack.length ? `
-            <div class="space-y-2">
-              ${item.oneLiner ? `<p class="text-xs sm:text-sm text-[var(--ink-secondary)] leading-relaxed">${escapeHtml(item.oneLiner)}</p>` : ""}
-              ${item.techStack.length ? `<div class="flex flex-wrap items-center gap-1.5">${item.techStack.map(t => `<span class="text-[11px] font-mono-tabular px-2 py-0.5 rounded surface-subtle">${escapeHtml(t)}</span>`).join("")}</div>` : ""}
-            </div>` : ""}
-            <div class="surface-subtle rounded-lg p-3.5 space-y-2">
-              <div class="flex items-center justify-between text-[11px] font-mono-tabular uppercase tracking-wider text-[var(--ink-secondary)]">
-                <span>100% remote tech roles (${roles.filter(r => r.status === "open").length} open${roles.some(r => r.status === "closed") ? `, ${roles.filter(r => r.status === "closed").length} closed` : ""})</span>
-                <span class="hidden sm:inline">No on-site · No hybrid</span>
-              </div>
-              <div class="divide-y hairline-border text-xs">
-                ${roles.map(r => `
-                  <div class="py-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2 ${r.status === "closed" ? "role-closed" : ""}">
-                    <div class="min-w-0 space-y-0.5">
-                      <div class="flex flex-wrap items-center gap-2">
-                        <span class="font-medium role-title">${escapeHtml(r.title)}</span>
-                        <span class="text-[10px] font-mono-tabular px-1.5 py-0.5 rounded ${r.category === "Remote Internship" ? "badge-intern" : "badge-remote"}">${escapeHtml(r.category)}</span>
-                      </div>
-                      <div class="text-[11px] font-mono-tabular text-[var(--ink-muted)]">${escapeHtml([r.remoteScope, r.track, r.salary, r.postedAt ? "posted " + fmtDate(r.postedAt) : "seen " + fmtDate(r.firstSeen), OTHERS.includes(r.src) || ["jobicy", "arbeitnow"].includes(r.src) ? "via " + SOURCE_LABEL[r.src] : ""].filter(Boolean).join(" · "))}</div>
-                      ${r.status === "closed" ? `<div class="text-[11px] font-mono-tabular text-[var(--accent-crimson)]">Closed — ${escapeHtml(r.closedReason || "no longer listed")}</div>` : ""}
-                    </div>
-                    <div class="flex items-center gap-3 font-mono-tabular shrink-0">
-                      ${r.url ? `<a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer" class="underline font-medium">${r.status === "closed" ? "Listing" : "Apply"} ↗</a>` : ""}
-                      ${r.applyUrl ? `<a href="${escapeHtml(r.applyUrl)}" target="_blank" rel="noopener noreferrer" class="underline text-[var(--ink-muted)]">Direct ↗</a>` : ""}
-                      <a href="https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(item.company + " " + r.title)}" target="_blank" rel="noopener noreferrer" class="underline text-[var(--ink-muted)]" title="Search this role on LinkedIn Jobs">LinkedIn ↗</a>
-                    </div>
-                  </div>`).join("")}
-              </div>
-            </div>
-            <div class="border hairline-border rounded-lg p-3.5 space-y-2.5">
-              <div class="flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono-tabular uppercase tracking-wider text-[var(--ink-secondary)]">
-                <span>C-Suite &amp; decision-makers (${csuite.length} C-Suite · ${c.length} total)</span>
-                <button type="button" data-open-outreach="${escapeHtml(item.id)}" class="underline font-semibold text-[var(--ink-primary)]">Draft C-Suite outreach →</button>
-              </div>
-              <div class="grid grid-cols-1 gap-2">
-                ${pocs.length ? pocs.map(p => contactRow(item, p)).join("") : `
-                  <div class="text-xs font-mono-tabular text-[var(--ink-secondary)]">No named contact on record yet.
-                    <a class="underline" target="_blank" rel="noopener noreferrer" href="${linkedInSearch(item.company, "CEO")}">Find CEO ↗</a> ·
-                    <a class="underline" target="_blank" rel="noopener noreferrer" href="${linkedInSearch(item.company, "CTO")}">Find CTO ↗</a> ·
-                    <a class="underline" target="_blank" rel="noopener noreferrer" href="${linkedInSearch(item.company, "founder")}">Find founders ↗</a></div>`}
-                ${c.length > pocs.length ? `<div class="text-[11px] font-mono-tabular text-[var(--ink-muted)]">+ ${c.length - pocs.length} more in the C-Suite directory view</div>` : ""}
-              </div>
-              ${channelBits.length ? `<div class="flex flex-wrap items-center gap-x-3 gap-y-1 pt-2 border-t hairline-border text-[11px] font-mono-tabular">${channelBits.join('<span class="opacity-30">·</span>')}</div>` : ""}
-            </div>
-          </article>`;
-      }).join("");
-      const more = filtered.length - shown;
-      $("showMoreBtn").classList.toggle("hidden", more <= 0);
-      $("showMoreBtn").textContent = `Show ${Math.min(more, 30)} more of ${more}`;
-    }
-
-    function renderCSuiteDirectoryTable(filtered) {
-      const rows = [];
-      for (const item of filtered) for (const p of item.contacts) {
-        const st = contactStatusMap[contactKey(item.id, p)] || "Not Contacted";
-        const phone = p.phone || item.hqPhone;
-        rows.push(`
-          <tr class="hover:bg-black/5 dark:hover:bg-white/5 ${item.status === "closed" ? "text-[var(--accent-crimson)]" : ""}">
-            <td class="py-2.5 px-3 font-semibold">${escapeHtml(item.country || "Global")}<div class="text-[10px] text-[var(--ink-muted)]">${escapeHtml(item.region || "")}</div></td>
-            <td class="py-2.5 px-3 font-sans font-semibold">${escapeHtml(item.company)}<div class="text-[10px] font-mono-tabular text-[var(--ink-secondary)]">${item.visibleOpen} remote tech roles</div></td>
-            <td class="py-2.5 px-3 font-sans font-medium">${escapeHtml(p.name)}<div class="text-[10px] font-mono-tabular text-[var(--ink-secondary)]">${escapeHtml(p.title || "")} · ${escapeHtml(p.tier)}</div></td>
-            <td class="py-2.5 px-3">${p.email ? `<button type="button" data-copy-val="${escapeHtml(p.email)}" class="underline decoration-dotted text-[var(--accent-emerald)]">${escapeHtml(p.email)}</button>` : "—"}</td>
-            <td class="py-2.5 px-3">${phone ? `<button type="button" data-copy-val="${escapeHtml(phone)}" class="underline decoration-dotted">${escapeHtml(phone)}</button><div class="text-[10px] text-[var(--ink-muted)]">${p.phone ? "Direct" : "HQ line"}</div>` : "—"}</td>
-            <td class="py-2.5 px-3"><div class="flex items-center gap-2">
-              ${p.linkedin ? `<a href="${escapeHtml(p.linkedin)}" target="_blank" rel="noopener noreferrer" class="underline">LinkedIn ↗</a>` : `<a href="${linkedInSearch(item.company, p.name)}" target="_blank" rel="noopener noreferrer" class="underline text-[var(--ink-muted)]">Find ↗</a>`}
-              <span class="text-[10px] px-1.5 py-0.5 rounded surface-subtle">${escapeHtml(st)}</span></div></td>
-          </tr>`);
+      if (e.target.id === "pitchTo") { outreachTo = e.target.value; renderPanel(); }
+    });
+    document.addEventListener("keydown", e => {
+      const typing = /input|textarea|select/i.test(document.activeElement?.tagName || "");
+      if (e.key === "/" && !typing) { e.preventDefault(); $("q").focus(); return; }
+      if (e.key === "Escape") {
+        if (!$("panel").hidden) { closePanel(); return; }
+        const openPop = pops.find(([, p]) => !$(p).hidden);
+        if (openPop) { closePops(); $(openPop[0]).focus(); return; }
+        if ($("filters").classList.contains("open")) { setSheet(false); return; }
       }
-      $("cSuiteTableBody").innerHTML = rows.join("") || `<tr><td colspan="6" class="py-6 px-3 text-center text-[var(--ink-muted)]">No contacts for these filters.</td></tr>`;
-    }
-
-    function renderSidebars() {
-      const countries = getAlphabeticalCountries("ALL");
-      $("sidebarCountriesAlphaList").innerHTML = countries.map(c => {
-        const startups = companiesInCountry(c);
-        const roles = leads.reduce((n, i) => n + i.roles.filter(r => r.status === "open" && roleCovers(r, { country: c })).length, 0);
-        return `<button type="button" data-sidebar-country="${escapeHtml(c)}" class="w-full flex items-center justify-between px-2.5 py-1.5 rounded-md text-left transition ${activeCountry === c ? "pill-btn-active" : "hover:bg-black/5 dark:hover:bg-white/5"}">
-          <span class="font-medium">${escapeHtml(c)}</span><span class="text-[11px] opacity-80">${startups} startups · ${roles} roles</span></button>`;
-      }).join("");
-      $("sidebarRegionsList").innerHTML = REGIONS.map(reg => {
-        const count = leads.filter(i => i.roles.some(r => r.status === "open" && r.regions.includes(reg))).length;
-        return `<button type="button" data-sidebar-region="${escapeHtml(reg)}" class="p-2.5 rounded-lg border hairline-border text-left transition ${activeRegion === reg ? "pill-btn-active" : "surface-subtle hover:border-[var(--ink-primary)]"}">
-          <div class="font-semibold">${escapeHtml(reg)}</div><div class="text-[11px] opacity-75 mt-0.5">${count} remote startups</div></button>`;
-      }).join("");
-      const label = e => ({
-        company_added: `${e.company} added`,
-        company_closed: `${e.company} no longer hiring`,
-        company_reopened: `${e.company} hiring again`,
-        job_added: `${e.company}: new role — ${e.job}`,
-        job_closed: `${e.company}: closed — ${e.job}`,
-        job_reopened: `${e.company}: reopened — ${e.job}`,
-      }[e.type] || e.type);
-      const known = new Set(leads.map(i => i.id));
-      const events = [...localEvents, ...(raw.meta ? raw.events || [] : [])].filter(e => e.local || known.has(e.companyId)).slice(0, 60);
-      $("hourlyActivityFeed").innerHTML = events.map(e => {
-        const bad = /closed/.test(e.type);
-        return `<div class="p-2.5 rounded-md surface-subtle space-y-0.5">
-          <div class="flex items-center justify-between text-[10px] text-[var(--ink-muted)]">
-            <span>${escapeHtml(ago(e.t))}</span>
-            <span class="uppercase font-semibold ${bad ? "text-[var(--accent-crimson)]" : "text-[var(--accent-emerald)]"}">${bad ? "closed" : e.local ? "live" : "ok"}</span>
-          </div>
-          <div class="text-[11px] leading-snug">${escapeHtml(e.local ? e.text : label(e))}${e.reason ? `<div class="text-[var(--ink-muted)]">${escapeHtml(e.reason)}</div>` : ""}</div></div>`;
-      }).join("") || `<div class="text-[11px] text-[var(--ink-muted)]">No activity yet.</div>`;
-    }
-
-    function refreshAll() {
-      populateAlphabeticalCountryDropdown();
-      const filtered = getFilteredLeads();
-      renderKpisAndCounts(filtered);
-      renderStartupCards(filtered);
-      renderCSuiteDirectoryTable(filtered);
-      renderSidebars();
-      document.querySelectorAll(".role-tab-btn").forEach(b => b.classList.toggle("seg-btn-active", b.dataset.roleTab === activeRoleTab));
-      document.querySelectorAll(".region-pill-btn").forEach(b => b.classList.toggle("pill-btn-active", b.dataset.regionPill === activeRegion));
-      updateLinkedInButton();
-    }
-
-    function updateLiveLabel() {
-      if (!raw) return;
-      const hours = (Date.now() - Date.parse(raw.meta.lastVerifyAt || raw.meta.generatedAt)) / 3600e3;
-      $("liveSyncDot").className = "inline-block w-2 h-2 rounded-full " + (liveChecking ? "bg-amber-500 pulse-live" : hours > 3 ? "bg-amber-500" : "bg-emerald-600");
-      $("liveStatusText").textContent = liveChecking ? "Checking roles live…" : `Live · server check ${ago(raw.meta.lastVerifyAt || raw.meta.generatedAt)}`;
-      $("lastHourlyCheckNote").textContent = `Server: hourly (${HOURLY_CRON}) · Browser: ${lastLiveCheck ? "checked " + ago(lastLiveCheck) : "checking…"}`;
-    }
-
-    // ------------------------------------------------------------------ data loading + hourly live engine
-    async function load(force) {
-      try {
-        const vr = await fetch(`${VERSION_URL}?t=${Date.now()}`, { cache: "no-store" }).catch(() => null);
-        const version = vr && vr.ok ? (await vr.json()).v : null;
-        if (raw && !force && version && version === lastVersion) { updateLiveLabel(); return false; }
-        const res = await fetch(`${DATA_URL}?t=${Date.now()}`, { cache: "no-store" });
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        const next = await res.json();
-        const before = raw ? new Map(leads.map(i => [i.id, i.status])) : null;
-        raw = next;
-        lastVersion = version;
-        for (const id of [...liveClosed.keys()]) {
-          const job = raw.companies.flatMap(c => c.jobs).find(j => j.id === id);
-          if (!job || job.status === "closed") liveClosed.delete(id);
-        }
-        leads = raw.companies.map(adapt);
-        if (before) {
-          const added = leads.filter(i => !before.has(i.id));
-          const closed = leads.filter(i => before.get(i.id) === "open" && i.status === "closed");
-          if (added.length) showToast(`${added.length} new startup${added.length === 1 ? "" : "s"} added`);
-          if (closed.length) showToast(`${closed[0].company}${closed.length > 1 ? ` and ${closed.length - 1} more` : ""} stopped hiring`);
-        }
-        refreshAll();
-        updateLiveLabel();
-        return true;
-      } catch (e) {
-        $("liveStatusText").textContent = "Offline · retrying (" + e.message + ")";
-        return false;
+      // Keep focus inside the open panel.
+      if (e.key === "Tab" && !$("panel").hidden) {
+        const f = [...$("panel").querySelectorAll("button, a[href], select, textarea, input")].filter(x => !x.disabled && x.offsetParent !== null);
+        if (f.length && e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f.at(-1).focus(); }
+        else if (f.length && !e.shiftKey && document.activeElement === f.at(-1)) { e.preventDefault(); f[0].focus(); }
       }
-    }
-
-    // Greenhouse, Lever, Ashby and HN (Algolia) allow cross-origin reads, so open roles are re-checked
-    // straight from the browser. Roles are only marked closed on positive evidence, never on errors.
-    async function fetchJson(url) {
-      const r = await fetch(url, { cache: "no-store" });
-      if (r.status === 404) return { gone: true };
-      if (!r.ok) throw new Error(r.status);
-      return r.json();
-    }
-    async function boardIds(board) {
-      const [ats, ...rest] = board.split(":");
-      const token = encodeURIComponent(rest.join(":"));
-      if (ats === "greenhouse") { const d = await fetchJson(`https://boards-api.greenhouse.io/v1/boards/${token}/jobs`); return d.gone ? d : new Set(d.jobs.map(j => String(j.id))); }
-      if (ats === "lever") { const d = await fetchJson(`https://api.lever.co/v0/postings/${token}?mode=json`); return d.gone ? d : new Set(d.map(j => j.id)); }
-      if (ats === "ashby") { const d = await fetchJson(`https://api.ashbyhq.com/posting-api/job-board/${token}`); return d.gone ? d : new Set((d.jobs || []).map(j => j.id)); }
-      return null;
-    }
-    const FILLED_RE = /\b(no longer hiring|positions? (?:(?:have|has) been |are |is )?filled|hiring (?:is )?(?:now )?closed|roles? (?:(?:is|are|has been|have been) )?filled)\b/i;
-
-    async function runLiveHourlyVerification(isManual) {
-      if (!raw || liveChecking) return;
-      liveChecking = true;
-      updateLiveLabel();
-      if (isManual) showToast("Re-checking every open role against its job board…");
-      const found = new Map();
-      try {
-        const boards = new Map(), threads = new Map();
-        for (const c of raw.companies) for (const j of c.jobs) {
-          if (j.status !== "open" || liveClosed.has(j.id)) continue;
-          if (j.board) (boards.get(j.board) || boards.set(j.board, []).get(j.board)).push([c, j]);
-          else if (j.src === "hn" && j.thread) (threads.get(j.thread) || threads.set(j.thread, []).get(j.thread)).push([c, j]);
-        }
-        const tasks = [...boards].map(([board, list]) => async () => {
-          try {
-            const ids = await boardIds(board);
-            if (!ids) return;
-            if (ids.gone) { list.forEach(([c, j]) => found.set(j.id, [c, j, "job board removed"])); return; }
-            if (ids.size === 0 && list.length > 3) return;
-            for (const [c, j] of list) if (!ids.has(j.id.split(":").slice(2).join(":"))) found.set(j.id, [c, j, "removed from the company job board"]);
-          } catch (e) {}
-        });
-        for (const [thread, list] of threads) tasks.push(async () => {
-          try {
-            const d = await fetchJson(`https://hn.algolia.com/api/v1/items/${thread}`);
-            if (d.gone) return;
-            const kids = new Map((d.children || []).map(k => [String(k.id), k]));
-            for (const [c, j] of list) {
-              const k = kids.get(j.id.slice(3));
-              if (!k || !k.text || !k.author) found.set(j.id, [c, j, "HN post deleted"]);
-              else if (FILLED_RE.test(k.text.replace(/<[^>]+>/g, " ").slice(0, 400))) found.set(j.id, [c, j, "HN post says filled"]);
-            }
-          } catch (e) {}
-        });
-        const queue = [...tasks];
-        await Promise.all(Array.from({ length: 5 }, async () => { while (queue.length) await queue.shift()(); }));
-        const before = new Map(leads.map(i => [i.id, i.status]));
-        for (const [id, [c, j, reason]] of found) {
-          liveClosed.set(id, reason);
-          localEvents.unshift({ local: true, t: new Date().toISOString(), type: "job_closed", text: `${c.name}: closed — ${j.title}`, reason });
-        }
-        lastLiveCheck = new Date().toISOString();
-        localEvents.unshift({ local: true, t: lastLiveCheck, type: "check", text: `Live check: ${boards.size + threads.size} job boards re-read, ${found.size} role${found.size === 1 ? "" : "s"} closed since the last server update.` });
-        leads = raw.companies.map(adapt);
-        refreshAll();
-        const turnedRed = leads.filter(i => before.get(i.id) === "open" && i.status === "closed");
-        if (turnedRed.length) showToast(`${turnedRed[0].company} just stopped hiring`);
-        else if (isManual) showToast(found.size ? `${found.size} role(s) closed — marked in red` : "All open roles are still live");
-      } finally {
-        liveChecking = false;
-        countdownSeconds = 3600;
-        updateLiveLabel();
-      }
-    }
-
-    // LinkedIn Jobs search for the current filters: remote only (f_WT=2), posted in the last week.
-    function linkedInJobsUrl() {
-      const kw = [searchQuery || TRACK_KEYWORDS[activeDiscipline] || "software engineer", activeRoleTab === "INTERN" ? "intern" : ""].filter(Boolean).join(" ");
-      const loc = activeCountry !== "ALL" ? activeCountry : REGION_LINKEDIN[activeRegion] || "Worldwide";
-      return `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(kw)}&location=${encodeURIComponent(loc)}&f_WT=2&f_TPR=r604800`;
-    }
-    function updateLinkedInButton() {
-      const a = $("linkedinJobsBtn");
-      if (!a) return;
-      a.href = linkedInJobsUrl();
-      const where = activeCountry !== "ALL" ? activeCountry : activeRegion !== "ALL" ? activeRegion : "all regions";
-      a.title = `Remote ${activeRoleTab === "INTERN" ? "internships" : "jobs"} on LinkedIn · ${where} · last 7 days`;
-    }
-
-    // ------------------------------------------------------------------ outreach drawer + CSV
-    function openOutreachModal(id) {
-      const item = leads.find(l => l.id === id);
-      if (!item) return;
-      const target = item.contacts.find(p => p.tier === "C-Suite" && p.email) || item.contacts.find(p => p.email) || item.contacts[0];
-      const openRoles = item.roles.filter(r => r.status === "open");
-      $("modalCompanyBadge").textContent = `${item.country || "Global"} · ${item.region || "Global"} · ${item.remoteScope}`;
-      $("modalTitle").textContent = `${item.company} — C-Suite outreach`;
-      $("modalContactsList").innerHTML = item.contacts.length ? item.contacts.slice(0, 8).map(p => {
-        const phone = p.phone || item.hqPhone;
-        return `<div class="surface-subtle p-3 rounded-lg flex flex-wrap items-center justify-between gap-2 text-xs font-mono-tabular">
-          <div><div class="font-sans font-semibold">${escapeHtml(p.name)} — ${escapeHtml(p.title || "")}</div>
-          <div class="text-[11px] text-[var(--ink-secondary)]">${escapeHtml(p.email || "no email on record")}${phone ? " · " + escapeHtml(phone) + (p.phone ? "" : " (HQ)") : ""}</div></div>
-          <div class="flex items-center gap-2">
-            ${p.email ? `<button type="button" data-copy-val="${escapeHtml(p.email)}" class="pill-btn px-2 py-1 rounded">Copy email</button>` : ""}
-            ${phone ? `<button type="button" data-copy-val="${escapeHtml(phone)}" class="pill-btn px-2 py-1 rounded">Copy phone</button>` : ""}
-            ${p.linkedin ? `<a href="${escapeHtml(p.linkedin)}" target="_blank" rel="noopener noreferrer" class="pill-btn px-2 py-1 rounded">LinkedIn ↗</a>` : ""}
-          </div></div>`;
-      }).join("") : `<div class="text-xs font-mono-tabular text-[var(--ink-secondary)]">No named contact yet — use <a class="underline" target="_blank" rel="noopener noreferrer" href="${linkedInSearch(item.company, "CEO")}">LinkedIn search</a> to find the CEO / CTO.</div>`;
-      const first = (target?.name || "there").split(/\s+/)[0];
-      const roleTitles = openRoles.slice(0, 3).map(r => r.title).join(", ");
-      const track = openRoles[0]?.track || "engineering";
-      const subject = `Remote ${track} hiring at ${item.company}`;
-      const body = `Hi ${first},\n\nI saw that ${item.company} is hiring remotely for ${roleTitles || "engineering roles"}.\n\nWe work with pre-vetted software and AI engineers who are used to working fully remote across time zones${item.techStack.length ? `, including people shipping production code in ${item.techStack.slice(0, 4).join(", ")}` : ""}. I'd be glad to share a short list of profiles that match these roles.\n\nWould a 15-minute call this week or next be useful?\n\nBest regards,\n`;
-      $("modalPitchTextarea").value = `Subject: ${subject}\n\n${body}`;
-      $("mailtoPitchLink").href = target?.email ? `mailto:${encodeURIComponent(target.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}` : "#";
-      $("mailtoPitchLink").classList.toggle("opacity-40", !target?.email);
-      $("outreachModal").classList.remove("hidden");
-    }
-    function syncMailtoFromTextarea() {
-      const text = $("modalPitchTextarea").value;
-      const m = /^Subject:\s*(.*)\n\n?([\s\S]*)$/.exec(text);
-      const link = $("mailtoPitchLink");
-      const to = decodeURIComponent((link.href.match(/^mailto:([^?]*)/) || [])[1] || "");
-      if (to) link.href = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(m ? m[1] : "")}&body=${encodeURIComponent(m ? m[2] : text)}`;
-    }
-
-    function exportCsv(onlyCSuite) {
-      const filtered = getFilteredLeads();
-      const headers = ["Country", "Region", "Startup", "Status", "Remote scope", "Open remote tech roles", "Tracks", "Contact name", "Contact title", "Tier", "Email", "Phone", "Phone type", "LinkedIn", "Company emails", "Company LinkedIn", "Job board", "Sources", "Contact status"];
-      const cell = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
-      const rows = [headers.map(cell).join(",")];
-      for (const item of filtered) {
-        const roles = item.visibleRoles.filter(r => r.status === "open");
-        const base = [item.country || "Global", item.region || "Global", item.company, item.status === "open" ? "Hiring" : "No longer hiring", item.remoteScope,
-          roles.map(r => `${r.title} [${r.category}] <${r.url}>`).join(" | "), [...new Set(roles.map(r => r.track))].join(" | ")];
-        const tail = [item.companyEmails.map(e => e.email).join(" | "), item.linkedinPage, item.boardUrl, item.sources.map(s => SOURCE_LABEL[s] || s).join(" | ")];
-        const people = onlyCSuite ? item.contacts.filter(p => p.tier === "C-Suite") : item.contacts;
-        if (!people.length) { if (!onlyCSuite) rows.push([...base, "", "", "", "", item.hqPhone, item.hqPhone ? "HQ line" : "", "", ...tail, ""].map(cell).join(",")); continue; }
-        for (const p of people) rows.push([...base, p.name, p.title, p.tier, p.email, p.phone || item.hqPhone, p.phone ? "Direct" : item.hqPhone ? "HQ line" : "", p.linkedin, ...tail,
-          contactStatusMap[contactKey(item.id, p)] || "Not Contacted"].map(cell).join(","));
-      }
-      const blob = new Blob(["﻿" + rows.join("\n")], { type: "text/csv;charset=utf-8;" });
-      const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(blob), download: onlyCSuite ? "startup_leads_csuite_contacts.csv" : "startup_leads_remote_tech.csv" });
-      document.body.appendChild(a); a.click(); a.remove();
-      setTimeout(() => URL.revokeObjectURL(a.href), 2000);
-      showToast(`Exported ${rows.length - 1} rows`);
-    }
-
-    // ------------------------------------------------------------------ wiring
-    document.addEventListener("DOMContentLoaded", async () => {
-      loadStatus();
-      if (localStorage.getItem("startup_leads_theme") === "dark" || (!localStorage.getItem("startup_leads_theme") && matchMedia("(prefers-color-scheme: dark)").matches)) document.documentElement.classList.add("dark");
-
-      setInterval(() => {
-        countdownSeconds = Math.max(0, countdownSeconds - 1);
-        $("hourlyCountdownLabel").textContent = `${String(Math.floor(countdownSeconds / 60)).padStart(2, "0")}:${String(countdownSeconds % 60).padStart(2, "0")}`;
-        if (countdownSeconds === 0) load(false).then(() => runLiveHourlyVerification(false));
-      }, 1000);
-      setInterval(() => load(false), 60 * 1000);           // cheap version check; new data appears within a minute of deploy
-      setInterval(() => { updateLiveLabel(); renderSidebars(); }, 30 * 1000);
-
-      const set = fn => (...a) => { fn(...a); shown = 30; refreshAll(); };
-      document.querySelectorAll(".role-tab-btn").forEach(b => b.addEventListener("click", set(() => { activeRoleTab = b.dataset.roleTab; })));
-      document.querySelectorAll(".region-pill-btn").forEach(b => b.addEventListener("click", set(() => { activeRegion = b.dataset.regionPill; activeCountry = "ALL"; })));
-      $("countrySelectAlpha").addEventListener("change", set(e => { activeCountry = e.target.value; }));
-      $("disciplineSelect").addEventListener("change", set(e => { activeDiscipline = e.target.value; }));
-      $("cSuiteFilterSelect").addEventListener("change", set(e => { activeCSuiteFilter = e.target.value; }));
-      $("sourceSelect").addEventListener("change", set(e => { activeSource = e.target.value; }));
-      $("sortOrderSelect").addEventListener("change", set(e => { activeSort = e.target.value; }));
-
-      const searchInput = $("searchFilterInput"), clearBtn = $("clearSearchBtn");
-      let t;
-      searchInput.addEventListener("input", () => {
-        clearTimeout(t);
-        t = setTimeout(set(() => { searchQuery = searchInput.value.trim(); clearBtn.classList.toggle("hidden", !searchQuery); }), 120);
-      });
-      clearBtn.addEventListener("click", set(() => { searchInput.value = ""; searchQuery = ""; clearBtn.classList.add("hidden"); }));
-      document.addEventListener("keydown", e => {
-        if (e.key === "/" && !/input|textarea|select/i.test(document.activeElement?.tagName || "")) { e.preventDefault(); searchInput.focus(); }
-        if (e.key === "Escape") $("outreachModal").classList.add("hidden");
-      });
-
-      $("resetAllFiltersBtn").addEventListener("click", set(() => {
-        activeRoleTab = activeRegion = activeCountry = activeDiscipline = activeCSuiteFilter = activeSource = "ALL";
-        activeSort = "COUNTRY_AZ"; searchQuery = ""; searchInput.value = ""; clearBtn.classList.add("hidden");
-        $("disciplineSelect").value = "ALL"; $("cSuiteFilterSelect").value = "ALL"; $("sourceSelect").value = "ALL"; $("sortOrderSelect").value = "COUNTRY_AZ";
-      }));
-      $("showMoreBtn").addEventListener("click", () => { shown += 30; renderStartupCards(getFilteredLeads()); });
-
-      document.querySelectorAll(".view-mode-btn").forEach(btn => btn.addEventListener("click", () => {
-        viewMode = btn.dataset.viewMode;
-        document.querySelectorAll(".view-mode-btn").forEach(b => b.classList.toggle("pill-btn-active", b === btn));
-        $("cardsFeedContainer").classList.toggle("hidden", viewMode !== "CARDS");
-        $("showMoreBtn").classList.toggle("hidden", viewMode !== "CARDS" || getFilteredLeads().length <= shown);
-        $("cSuiteTableContainer").classList.toggle("hidden", viewMode !== "TABLE");
-      }));
-
-      const syncNow = async () => { await load(true); await runLiveHourlyVerification(true); };
-      $("checkNowBtn").addEventListener("click", syncNow);
-      $("sidebarSyncBtn").addEventListener("click", syncNow);
-      $("exportCsvBtn").addEventListener("click", () => exportCsv(false));
-      $("exportCSuiteCsvBtn").addEventListener("click", () => exportCsv(true));
-      $("themeToggleBtn").addEventListener("click", () => {
-        const dark = document.documentElement.classList.toggle("dark");
-        try { localStorage.setItem("startup_leads_theme", dark ? "dark" : "light"); } catch (e) {}
-      });
-      $("closeOutreachModalBtn").addEventListener("click", () => $("outreachModal").classList.add("hidden"));
-      $("outreachModal").addEventListener("click", e => { if (e.target.id === "outreachModal") $("outreachModal").classList.add("hidden"); });
-      $("copyPitchBtn").addEventListener("click", () => copyToClipboard($("modalPitchTextarea").value, "outreach email"));
-      $("modalPitchTextarea").addEventListener("input", syncMailtoFromTextarea);
-
-      document.body.addEventListener("click", e => {
-        const copy = e.target.closest("[data-copy-val]");
-        if (copy) { copyToClipboard(copy.dataset.copyVal); return; }
-        const outreach = e.target.closest("[data-open-outreach]");
-        if (outreach) { openOutreachModal(outreach.dataset.openOutreach); return; }
-        const sc = e.target.closest("[data-sidebar-country]");
-        if (sc) { const c = sc.dataset.sidebarCountry; activeCountry = activeCountry === c ? "ALL" : c; if (activeCountry !== "ALL") activeRegion = "ALL"; shown = 30; refreshAll(); return; }
-        const sr = e.target.closest("[data-sidebar-region]");
-        if (sr) { const r = sr.dataset.sidebarRegion; activeRegion = activeRegion === r ? "ALL" : r; activeCountry = "ALL"; shown = 30; refreshAll(); }
-      });
-      document.body.addEventListener("change", e => {
-        const sel = e.target.closest(".contact-status-select");
-        if (!sel) return;
-        contactStatusMap[sel.dataset.statusKey] = sel.value;
-        saveStatus();
-        showToast("Marked " + sel.value.toLowerCase());
-        if (activeCSuiteFilter === "UNCONTACTED") refreshAll();
-      });
-
-      // Deep link from the RTI tracker: ?q=<company> pre-fills the search.
-      const deepQ = new URLSearchParams(location.search).get("q");
-      if (deepQ) { searchInput.value = deepQ; searchQuery = deepQ; clearBtn.classList.remove("hidden"); }
-      await load(true);
-      if (raw) {
-        $("updaterLink").href = `https://github.com/${raw.meta.repo}/actions/workflows/hourly_sync.yml`;
-        runLiveHourlyVerification(false);
+      // Arrow keys move between result rows.
+      if ((e.key === "ArrowDown" || e.key === "ArrowUp") && document.activeElement?.classList.contains("row")) {
+        const rows = [...document.querySelectorAll("#results .row")]; const i = rows.indexOf(document.activeElement);
+        const next = rows[i + (e.key === "ArrowDown" ? 1 : -1)]; if (next) { e.preventDefault(); next.focus(); }
       }
     });
+    window.addEventListener("hashchange", openFromHash);
+    window.addEventListener("popstate", () => { readURL(); render(); });
+
+    setInterval(() => {
+      countdownSeconds = Math.max(0, countdownSeconds - 1);
+      if (countdownSeconds === 0) load(false).then(() => runLiveCheck(false));
+      if (!$("menu").hidden || countdownSeconds % 30 === 0) updateLiveLabel();
+    }, 1000);
+    setInterval(() => load(false), 60 * 1000); // cheap version check; new data shows within a minute of deploy
+    document.addEventListener("visibilitychange", () => { if (!document.hidden) load(false); });
+  }
+
+  function openFromHash() {
+    const m = /#c=([^&]+)(?:&t=(roles|people|outreach))?/.exec(location.hash);
+    if (m && leads.length) openPanel(decodeURIComponent(m[1]), m[2] || "roles");
+  }
+
+  // ---------------------------------------------------------------- boot
+  readURL();
+  wire();
+  load(true).then(ok => {
+    if (!ok) return;
+    if (raw.meta.repo) $("updaterLink").href = `https://github.com/${raw.meta.repo}/actions/workflows/hourly_sync.yml`;
+    openFromHash();
+    runLiveCheck(false);
+  });
+})();

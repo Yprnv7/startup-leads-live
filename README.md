@@ -17,7 +17,7 @@
   Talent marketplaces (Proxify, Lemon.io and others) are excluded in `config.json`. The same role listed twice is shown once.
 - **No India offices.** A company is excluded if its location, YC regions or any of its job locations name an Indian city.
 - **Countries A → Z** everywhere, using `localeCompare('en')`.
-- **Closed roles turn red.** The server re-checks every role hourly. Open pages also re-check Greenhouse, Lever, Ashby and HN roles directly every 60 minutes (countdown in the header, plus a **Sync now** button). A removed role is struck through in crimson with the reason, and a company with no open roles left turns red.
+- **Closed roles turn red.** The server re-checks every role hourly. Open pages also re-check Greenhouse, Lever, Ashby and HN roles directly every 60 minutes (the ⋯ menu shows the countdown and has **Sync now**). A removed role is struck through in crimson with the reason, and a company with no open roles left turns red.
 
 ## Sources
 
@@ -35,9 +35,11 @@ Remote.co refuses automated connections, so it isn't included.
 
 **LinkedIn** isn't scraped: its terms forbid automated collection and it blocks scrapers. Instead, the **Search on LinkedIn Jobs** button opens LinkedIn's own job search using the current filters (remote only, the selected country or region, track or search text, posted in the last 7 days). Every role and company also has LinkedIn links.
 
-**Country filter:** picking a country shows only roles that name that country. Region-wide and worldwide remote roles appear under the region buttons, not under a country.
+**Using the site:** **Jobs** lists one row per startup (country, tracks, open roles, contacts, newest posting, and a **New** badge for anything added since your last visit). Click a row to open its panel: **Roles** (Apply ↗ / LinkedIn ↗), **People** (C-Suite, then Talent & HR, then Partnerships) and **Outreach** (editable pitch, Copy text, Open in mail app). **Outreach** is a board of every contact by status (Not contacted / Contacted / Replied), or a table with each company once; statuses are saved in your browser. **What changed** is the hourly log of added and closed roles. Search, filters, tab and the open panel are all in the URL, so any view can be shared as a link. On phones, filters open as a bottom sheet.
 
-**RTI tracker** (`/rti/`): the header button opens your team's RTI Tracker screen, running on this site's live data. It shows every hiring company and its open remote tech roles as "Job posting" signals, with region tabs for Australia, Europe, MEA, New Zealand, SEA, UK and Global remote. Status, notes, India-office changes and CSV/Excel imports are saved in each person's browser, and Download Excel works. The original tracker, with its shared team data, news and freelance projects, lives in a claude.ai shared store that only works on claude.ai, so it's linked from the page rather than copied. `rti/adapter.js` connects the tracker to `data/leads.json`. Its other features:
+**Country filter:** picking a country shows only roles that name that country. Region-wide and worldwide remote roles appear under the region, not under a country. Regions and their countries are in one **Region** control, with counts.
+
+**RTI tracker** (`/rti/`): the ⋯ menu's **RTI tracker** link opens your team's RTI Tracker screen, running on this site's live data. It shows every hiring company and its open remote tech roles as "Job posting" signals, with region tabs for Australia, Europe, MEA, New Zealand, SEA, UK and Global remote. Status, notes, India-office changes and CSV/Excel imports are saved in each person's browser, and Download Excel works. The original tracker, with its shared team data, news and freelance projects, lives in a claude.ai shared store that only works on claude.ai, so it's linked from the page rather than copied. `rti/adapter.js` connects the tracker to `data/leads.json`. Its other features:
 - **Open to India** lists roles whose posting names India as eligible.
 - **Contacts:** each company's drawer shows its C-Suite and other contacts (email, phone, LinkedIn), and links to the company's card on the main site.
 - **Download Excel** includes open roles and all contacts.

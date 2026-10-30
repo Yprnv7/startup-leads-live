@@ -1,527 +1,394 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Startup Leads · Remote Tech &amp; Internships · Australia · Europe · MEA · New Zealand · SEA · UK</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-canvas: #F7F6F2;
-      --bg-surface: #FFFFFF;
-      --bg-subtle: #EFECE6;
-      --bg-hover: #F3F1EC;
-      --ink-primary: #141413;
-      --ink-secondary: #575652;
-      --ink-muted: #787670;
-      --border-hairline: #DFDDD6;
-      --border-strong: #141413;
-      --accent-emerald: #0D6E4F;
-      --accent-emerald-bg: #E6F4EE;
-      --accent-amber: #9A4A06;
-      --accent-amber-bg: #FEF3C7;
-      --accent-crimson: #B91C1C;
-      --accent-crimson-bg: #FDECEC;
-    }
-    html.dark {
-      --bg-canvas: #0D0F12;
-      --bg-surface: #15181E;
-      --bg-subtle: #1D212A;
-      --bg-hover: #212631;
-      --ink-primary: #F3F2EE;
-      --ink-secondary: #A6A8B1;
-      --ink-muted: #6E717C;
-      --border-hairline: #272B36;
-      --border-strong: #F3F2EE;
-      --accent-emerald: #34D399;
-      --accent-emerald-bg: rgba(16, 185, 129, 0.14);
-      --accent-amber: #FBBF24;
-      --accent-amber-bg: rgba(245, 158, 11, 0.15);
-      --accent-crimson: #F87171;
-      --accent-crimson-bg: rgba(248, 113, 113, 0.14);
-    }
-    body {
-      background-color: var(--bg-canvas);
-      color: var(--ink-primary);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      letter-spacing: -0.011em;
-      overflow-x: hidden;
-      transition: background-color 0.15s ease, color 0.15s ease;
-    }
-    .font-serif-editorial {
-      font-family: 'Instrument Serif', Georgia, serif;
-      letter-spacing: -0.015em;
-    }
-    .font-mono-tabular {
-      font-family: 'JetBrains Mono', monospace;
-      font-variant-numeric: tabular-nums;
-    }
-    .surface-card {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-hairline);
-    }
-    .surface-subtle {
-      background-color: var(--bg-subtle);
-      border: 1px solid var(--border-hairline);
-    }
-    .hairline-border {
-      border-color: var(--border-hairline);
-    }
-    .pill-btn {
-      border: 1px solid var(--border-hairline);
-      background-color: var(--bg-surface);
-      color: var(--ink-secondary);
-      transition: all 0.12s ease;
-    }
-    .pill-btn:hover {
-      background-color: var(--bg-hover);
-      color: var(--ink-primary);
-      border-color: var(--ink-secondary);
-    }
-    .pill-btn-active {
-      background-color: var(--ink-primary) !important;
-      color: var(--bg-surface) !important;
-      border-color: var(--ink-primary) !important;
-      font-weight: 600;
-    }
-    .seg-btn {
-      color: var(--ink-secondary);
-      transition: all 0.12s ease;
-    }
-    .seg-btn-active {
-      background-color: var(--bg-surface);
-      color: var(--ink-primary);
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
-      font-weight: 600;
-    }
-    .select-clean {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-hairline);
-      color: var(--ink-primary);
-    }
-    .select-clean:focus {
-      outline: none;
-      border-color: var(--ink-primary);
-    }
-    .badge-remote {
-      background-color: var(--accent-emerald-bg);
-      color: var(--accent-emerald);
-    }
-    .badge-intern {
-      background-color: var(--accent-amber-bg);
-      color: var(--accent-amber);
-    }
-    .badge-closed { background-color: var(--accent-crimson-bg); color: var(--accent-crimson); }
-    .is-closed { border-color: var(--accent-crimson) !important; box-shadow: inset 3px 0 0 var(--accent-crimson); }
-    .is-closed .company-name { color: var(--accent-crimson); text-decoration: line-through; text-decoration-thickness: 1px; }
-    .role-closed .role-title { color: var(--accent-crimson); text-decoration: line-through; }
-    .pulse-live {
-      animation: pulseDot 2s infinite;
-    }
-    @keyframes pulseDot {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.35; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Startup Leads · Remote tech roles in Australia, Europe, MEA, New Zealand, SEA and the UK</title>
+<meta name="description" content="100% remote, pure-tech jobs and internships at startups in Australia, Europe, MEA, New Zealand, SEA and the UK, with founder and C-Suite contacts. Updated hourly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Design tokens: 8px spacing scale, one accent (emerald), semantic amber (internships) and crimson (closed). */
+:root {
+  --s1: 4px; --s2: 8px; --s3: 16px; --s4: 24px; --s5: 32px; --s6: 48px;
+  --bg: #F7F6F2; --surface: #FFFFFF; --subtle: #F0EEE8; --hover: #F4F2EC;
+  --line: #E2E0D8; --ink: #141413; --ink-2: #4A4945; --ink-3: #6B6964;
+  --accent: #0D6E4F; --accent-ink: #FFFFFF; --accent-soft: #E3F2EC;
+  --amber: #8F3F05; --amber-soft: #FDF0DC;
+  --crimson: #A3171A; --crimson-soft: #FBE8E8;
+  --focus: #0D6E4F;
+  --radius: 8px; --shadow: 0 8px 32px rgba(20, 20, 19, .12);
+  --serif: "Instrument Serif", Georgia, serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #0F1012; --surface: #16181C; --subtle: #1D2025; --hover: #1F2228;
+  --line: #2A2E36; --ink: #F1F0EC; --ink-2: #C3C1BB; --ink-3: #9C9A94;
+  --accent: #4FD1A2; --accent-ink: #08221A; --accent-soft: #123328;
+  --amber: #F5B85C; --amber-soft: #33240F;
+  --crimson: #FF8A86; --crimson-soft: #3A1A1B;
+  --focus: #4FD1A2; --shadow: 0 8px 32px rgba(0, 0, 0, .5);
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1012; --surface: #16181C; --subtle: #1D2025; --hover: #1F2228;
+    --line: #2A2E36; --ink: #F1F0EC; --ink-2: #C3C1BB; --ink-3: #9C9A94;
+    --accent: #4FD1A2; --accent-ink: #08221A; --accent-soft: #123328;
+    --amber: #F5B85C; --amber-soft: #33240F;
+    --crimson: #FF8A86; --crimson-soft: #3A1A1B;
+    --focus: #4FD1A2; --shadow: 0 8px 32px rgba(0, 0, 0, .5);
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font: 400 15px/1.5 var(--sans); letter-spacing: -0.011em; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+button, input, select, textarea { font: inherit; color: inherit; letter-spacing: inherit; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+.mono { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 13px; }
+.muted { color: var(--ink-3); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip:focus { position: fixed; left: 16px; top: 16px; z-index: 100; width: auto; height: auto; clip: auto; background: var(--surface); padding: 8px 16px; border-radius: 8px; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--s3); }
+
+/* Top bar */
+.topbar { position: sticky; top: 0; z-index: 30; background: var(--bg); border-bottom: 1px solid var(--line); }
+.topbar .wrap { display: flex; align-items: center; gap: var(--s3); min-height: 64px; position: relative; }
+.brand { font-family: var(--serif); font-size: 26px; line-height: 1; white-space: nowrap; text-decoration: none; }
+.search { flex: 1; max-width: 520px; position: relative; }
+.search input { width: 100%; height: 40px; padding: 0 var(--s5) 0 var(--s3); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.search input::placeholder { color: var(--ink-3); }
+.search kbd { position: absolute; right: var(--s2); top: 50%; transform: translateY(-50%); font: 400 12px var(--mono); color: var(--ink-3); border: 1px solid var(--line); border-radius: 4px; padding: 0 6px; }
+.updated { display: flex; align-items: center; gap: var(--s2); font-size: 13px; color: var(--ink-3); white-space: nowrap; margin-left: auto; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex: none; }
+.dot.stale { background: var(--amber); }
+.dot.busy { animation: pulse 1s infinite; }
+@keyframes pulse { 50% { opacity: .3; } }
+.iconbtn { width: 40px; height: 40px; display: inline-grid; place-items: center; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); cursor: pointer; flex: none; font-size: 18px; }
+.iconbtn:hover { background: var(--hover); }
+
+/* Menus and popovers */
+.pop { position: absolute; z-index: 40; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: var(--s2); min-width: 240px; }
+.menu { right: var(--s3); top: 60px; width: 300px; }
+.menu button, .menu a { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: var(--s3); padding: var(--s2) 12px; border: 0; background: none; border-radius: 6px; text-decoration: none; cursor: pointer; text-align: left; }
+.menu button:hover, .menu a:hover, .menu button:focus-visible, .menu a:focus-visible { background: var(--hover); }
+.menu hr { border: 0; border-top: 1px solid var(--line); margin: var(--s2) 0; }
+.menu .hint { font-size: 12px; color: var(--ink-3); }
+
+/* Main tabs */
+.tabs { display: flex; gap: var(--s4); border-bottom: 1px solid var(--line); margin-top: var(--s3); overflow-x: auto; }
+.tab { border: 0; background: none; padding: var(--s2) 0 12px; cursor: pointer; color: var(--ink-3); border-bottom: 2px solid transparent; margin-bottom: -1px; font-weight: 600; white-space: nowrap; }
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+.tab .n { font: 400 12px var(--mono); margin-left: 6px; color: var(--ink-3); }
+
+/* Controls */
+.btn { height: 36px; display: inline-flex; align-items: center; gap: var(--s2); padding: 0 12px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); cursor: pointer; white-space: nowrap; text-decoration: none; font-size: 14px; }
+.btn:hover { background: var(--hover); }
+.btn.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.btn.primary:hover { opacity: .9; }
+.btn .caret { font-size: 10px; color: var(--ink-3); }
+.btn[aria-expanded="true"] { border-color: var(--ink-2); }
+.btn.sm { height: 30px; font-size: 13px; padding: 0 10px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 2px; }
+.seg button { border: 0; background: none; height: 30px; padding: 0 12px; border-radius: 6px; cursor: pointer; color: var(--ink-2); font-size: 14px; white-space: nowrap; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+select.sel { height: 36px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 0 var(--s2); font-size: 14px; max-width: 100%; }
+.check { display: flex; align-items: center; gap: var(--s2); padding: 6px 0; cursor: pointer; font-size: 14px; }
+.check input { width: 16px; height: 16px; accent-color: var(--accent); margin: 0; }
+
+.filters { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); padding: var(--s3) 0 0; }
+.filters .spacer { flex: 1; }
+.lbl { font-size: 13px; color: var(--ink-3); }
+.anchor { position: relative; }
+.region-pop { width: min(360px, calc(100vw - 32px)); max-height: 60vh; overflow: auto; top: 44px; left: 0; }
+.region-pop .opt { display: flex; width: 100%; justify-content: space-between; gap: var(--s3); border: 0; background: none; padding: 6px var(--s2); border-radius: 6px; cursor: pointer; text-align: left; font-size: 14px; }
+.region-pop .opt:hover, .region-pop .opt:focus-visible { background: var(--hover); }
+.region-pop .opt[aria-checked="true"] { background: var(--accent-soft); font-weight: 600; }
+.region-pop .opt.region { font-weight: 600; margin-top: var(--s1); }
+.region-pop .opt.country { padding-left: var(--s5); }
+.region-pop .opt .c { font: 400 12px var(--mono); color: var(--ink-3); }
+.more-pop { width: 300px; top: 44px; left: 0; }
+.more-pop h4 { margin: var(--s2) 0 var(--s1); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
+.chips { display: flex; flex-wrap: wrap; gap: var(--s2); align-items: center; }
+.chips:empty { display: none; }
+.chip { display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 4px 0 10px; border-radius: 999px; background: var(--subtle); border: 1px solid var(--line); font-size: 13px; }
+.chip button { border: 0; background: none; width: 22px; height: 22px; border-radius: 50%; cursor: pointer; color: var(--ink-3); line-height: 1; }
+.chip button:hover { background: var(--line); color: var(--ink); }
+.linkbtn { border: 0; background: none; padding: 0; color: var(--ink-2); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; font-size: 13px; }
+
+.summary { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2) 12px; padding: var(--s3) 0; color: var(--ink-2); font-size: 14px; }
+.summary b { color: var(--ink); font-weight: 600; }
+.summary .grow { flex: 1; }
+.info { position: relative; display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; border: 1px solid var(--line); font: 600 12px var(--sans); color: var(--ink-3); cursor: help; background: var(--surface); }
+.info .tip { display: none; position: absolute; left: 50%; top: 28px; transform: translateX(-50%); width: min(320px, 80vw); padding: 12px; background: var(--ink); color: var(--bg); border-radius: var(--radius); font-weight: 400; font-size: 13px; line-height: 1.5; z-index: 20; text-align: left; }
+.info:hover .tip, .info:focus .tip { display: block; }
+
+/* Results */
+.list { display: flex; flex-direction: column; gap: var(--s2); padding: var(--s2) 0 var(--s6); }
+.row { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; gap: var(--s3); align-items: center; width: 100%; padding: var(--s3); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); text-align: left; cursor: pointer; }
+.row:hover { border-color: var(--ink-3); }
+.row.closed { border-left: 3px solid var(--crimson); }
+.row.closed .name { color: var(--crimson); text-decoration: line-through; text-decoration-thickness: 1px; }
+.logo { width: 40px; height: 40px; border-radius: var(--radius); background: var(--subtle); border: 1px solid var(--line); display: grid; place-items: center; overflow: hidden; font: 600 14px var(--sans); color: var(--ink-3); flex: none; }
+.logo img { width: 100%; height: 100%; object-fit: cover; }
+.row .main { min-width: 0; }
+.row .top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; }
+.name { font-family: var(--serif); font-size: 22px; line-height: 1.15; }
+.where { font-size: 14px; color: var(--ink-2); }
+.badge { display: inline-flex; align-items: center; height: 22px; padding: 0 8px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+.badge.new { background: var(--accent); color: var(--accent-ink); }
+.badge.intern { background: var(--amber-soft); color: var(--amber); }
+.badge.closed { background: var(--crimson-soft); color: var(--crimson); }
+.badge.soft { background: var(--subtle); color: var(--ink-2); font-weight: 400; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--s2); }
+.tag { font-size: 12px; padding: 2px 8px; border-radius: 4px; background: var(--subtle); color: var(--ink-2); }
+.facts { display: grid; grid-auto-flow: column; gap: var(--s4); text-align: right; }
+.fact b { display: block; font: 600 15px var(--mono); color: var(--ink); }
+.fact span { display: block; font-size: 12px; color: var(--ink-3); white-space: nowrap; }
+.empty { padding: var(--s6) var(--s3); text-align: center; color: var(--ink-3); border: 1px dashed var(--line); border-radius: var(--radius); }
+.empty strong { display: block; color: var(--ink); font-weight: 600; margin-bottom: var(--s1); }
+.more { margin: var(--s2) auto 0; }
+
+/* Detail panel */
+.scrim { position: fixed; inset: 0; background: rgba(15, 16, 18, .4); z-index: 50; }
+.panel { position: fixed; top: 0; right: 0; bottom: 0; width: min(640px, 100%); background: var(--surface); border-left: 1px solid var(--line); z-index: 51; display: flex; flex-direction: column; box-shadow: var(--shadow); }
+.panel header { padding: var(--s4) var(--s4) 0; }
+.panel .ptop { display: flex; gap: var(--s3); align-items: flex-start; }
+.panel h2 { font-family: var(--serif); font-weight: 400; font-size: 32px; line-height: 1.1; margin: 0; }
+.panel .sub { font-size: 14px; color: var(--ink-2); margin-top: var(--s1); display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; }
+.panel .close { margin-left: auto; }
+.panel .links { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s3); margin: var(--s3) 0 0; font-size: 14px; }
+.panel .links a { color: var(--ink-2); text-underline-offset: 3px; }
+.panel .ptabs { display: flex; gap: var(--s4); border-bottom: 1px solid var(--line); margin-top: var(--s3); }
+.panel .body { padding: var(--s3) var(--s4) var(--s6); overflow-y: auto; flex: 1; }
+.role { padding: var(--s3) 0; border-bottom: 1px solid var(--line); }
+.role:last-child { border-bottom: 0; }
+.role .rt { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s2); }
+.role .title { font-weight: 600; }
+.role .meta { font-size: 13px; color: var(--ink-3); margin-top: var(--s1); }
+.role .acts { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: 12px; }
+.role.closed .title { color: var(--crimson); text-decoration: line-through; }
+.role .why { color: var(--crimson); font-size: 13px; margin-top: var(--s1); }
+.sect { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); margin: var(--s4) 0 0; }
+.sect:first-child { margin-top: 0; }
+.person { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s2) var(--s3); padding: 12px 0; border-bottom: 1px solid var(--line); }
+.person .pn { font-weight: 600; }
+.person .pt { font-size: 13px; color: var(--ink-3); }
+.person .pc { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: var(--s2) var(--s3); font-size: 13px; }
+.person .pc a { text-underline-offset: 3px; }
+.copy { border: 0; background: none; padding: 0; cursor: pointer; font: inherit; color: var(--ink); text-decoration: underline dotted; text-underline-offset: 3px; }
+.statussel { height: 32px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); padding: 0 6px; font-size: 13px; }
+.statussel.st-contacted { border-color: var(--amber); }
+.statussel.st-replied { border-color: var(--accent); }
+textarea.pitch { width: 100%; min-height: 320px; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg); font: 400 13px/1.6 var(--mono); resize: vertical; }
+.field { display: grid; gap: var(--s1); margin-bottom: var(--s3); font-size: 13px; color: var(--ink-3); }
+.btnrow { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: 12px; }
+
+/* Outreach board and table */
+.board { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s3); padding-bottom: var(--s6); align-items: start; }
+.col { background: var(--subtle); border-radius: var(--radius); padding: 12px; }
+.col h3 { margin: 0 0 12px; font-size: 14px; font-weight: 600; display: flex; justify-content: space-between; }
+.col h3 .n { font: 400 12px var(--mono); color: var(--ink-3); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; margin-bottom: var(--s2); display: grid; gap: 6px; }
+.card .who { font-weight: 600; }
+.card .ttl { font-size: 13px; color: var(--ink-3); }
+.card .co { border: 0; background: none; padding: 0; cursor: pointer; text-align: left; font-size: 13px; color: var(--ink-2); text-decoration: underline; text-underline-offset: 3px; justify-self: start; }
+.card .ways { display: flex; flex-wrap: wrap; gap: var(--s2) 12px; font-size: 13px; }
+.tablewrap { overflow-x: auto; padding-bottom: var(--s6); }
+table.dir { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--line); font-size: 14px; }
+table.dir th { text-align: left; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); padding: 12px; border-bottom: 1px solid var(--line); background: var(--subtle); }
+table.dir td { padding: 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.dir td.co { border-right: 1px solid var(--line); min-width: 180px; }
+table.dir td.co .name { font-size: 18px; }
+
+/* What changed */
+.changes h3 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); margin: var(--s4) 0 var(--s2); }
+.ev { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: var(--s3); padding: 12px 0; border-bottom: 1px solid var(--line); }
+.ev time { font: 400 12px var(--mono); color: var(--ink-3); padding-top: 2px; }
+.ev .what button { border: 0; background: none; padding: 0; cursor: pointer; font: inherit; color: inherit; text-align: left; }
+.ev .what button:hover { text-decoration: underline; text-underline-offset: 3px; }
+.ev.closed .what { color: var(--crimson); }
+.ev .why { font-size: 13px; color: var(--ink-3); }
+
+/* Toasts */
+.toasts { position: fixed; bottom: var(--s4); left: 50%; transform: translateX(-50%); z-index: 60; display: grid; gap: var(--s2); width: min(420px, calc(100vw - 32px)); pointer-events: none; }
+.toast { background: var(--ink); color: var(--bg); padding: 12px var(--s3); border-radius: var(--radius); box-shadow: var(--shadow); font-size: 14px; }
+
+/* Mobile: filter row becomes a bottom sheet; the panel goes full screen */
+.filters-toggle, .sheet-head { display: none; }
+@media (max-width: 760px) {
+  .topbar .wrap { flex-wrap: wrap; padding-top: var(--s2); padding-bottom: var(--s2); gap: var(--s2); }
+  .search { order: 3; max-width: none; flex-basis: 100%; }
+  .search kbd { display: none; }
+  .updated .label { display: none; }
+  .brand { font-size: 22px; }
+  .filters-toggle { display: inline-flex; }
+  #filters { position: fixed; left: 0; right: 0; bottom: 0; z-index: 55; background: var(--surface); border-top: 1px solid var(--line); border-radius: 16px 16px 0 0; padding: var(--s4) var(--s3); box-shadow: var(--shadow); transform: translateY(105%); visibility: hidden; transition: transform .2s ease, visibility .2s; max-height: 85vh; overflow-y: auto; display: grid; gap: var(--s3); }
+  #filters.open { transform: none; visibility: visible; }
+  #filters .spacer { display: none; }
+  #filters .sheet-head { display: flex; justify-content: space-between; align-items: center; }
+  #filters .pop { position: static; box-shadow: none; padding: var(--s2) 0 0; width: auto; max-height: none; border: 0; }
+  #filters select.sel, #filters .btn { width: 100%; justify-content: space-between; }
+  #filters .sheet-head .btn { width: auto; }
+  #filters .lbl { margin-bottom: calc(-1 * var(--s2)); }
+  .row { grid-template-columns: 40px minmax(0, 1fr); }
+  .facts { grid-column: 1 / -1; justify-content: start; text-align: left; }
+  .board { grid-template-columns: 1fr; }
+  .panel header, .panel .body { padding-left: var(--s3); padding-right: var(--s3); }
+  .panel h2 { font-size: 28px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body>
+<a class="sr-only skip" href="#results">Skip to results</a>
 
-  <!-- Top Editorial Masthead -->
-  <header class="sm:sticky top-0 z-30 surface-card border-b hairline-border backdrop-blur-md bg-opacity-95">
-    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
-      <div class="flex items-center gap-3">
-        <div class="w-2.5 h-2.5 rounded-full bg-emerald-600 pulse-live" title="Hourly Live Auto-Sync Active"></div>
-        <div>
-          <div class="flex flex-wrap items-baseline gap-2.5">
-            <span class="font-serif-editorial text-2xl sm:text-3xl tracking-tight">Startup Leads</span>
-            <span class="text-xs font-mono-tabular uppercase tracking-wider px-2 py-0.5 rounded surface-subtle">100% Remote · Pure Tech</span>
-          </div>
-          <p class="text-xs text-[#575652] dark:text-slate-400">
-            Australia · Europe · MEA · New Zealand · SEA · UK &nbsp;|&nbsp; <span class="font-mono-tabular font-medium">Zero USA · Zero On-Site</span>
-          </p>
-        </div>
-      </div>
-
-      <!-- Right Controls: Live Hourly Status, Check Now, CSV, Updater, Add Lead, Theme -->
-      <div class="flex flex-wrap items-center gap-2">
-        <div class="flex items-center gap-2 px-2.5 py-1.5 rounded-md surface-subtle text-xs font-mono-tabular">
-          <span id="liveSyncDot" class="inline-block w-2 h-2 rounded-full bg-emerald-600"></span>
-          <span id="liveStatusText">Live · Hourly sync</span>
-          <span class="opacity-40">|</span>
-          <span class="text-[11px]" title="Countdown to next automatic hourly refresh">Next: <strong id="hourlyCountdownLabel">59:59</strong></span>
-        </div>
-
-        <a id="rtiTrackerBtn" href="rti/" class="pill-btn-active px-3 py-1.5 rounded-md text-xs font-mono-tabular" title="Open the RTI tracker (remote tech internships)">
-          RTI tracker
-        </a>
-
-        <button id="checkNowBtn" type="button" class="pill-btn px-3 py-1.5 rounded-md text-xs font-mono-tabular font-medium">
-          Sync now ↻
-        </button>
-
-        <button id="exportCsvBtn" type="button" class="pill-btn px-3 py-1.5 rounded-md text-xs font-mono-tabular font-medium">
-          Export CSV ↓
-        </button>
-
-        <a id="updaterLink" href="https://github.com/Yprnv7/startup-leads-live/actions/workflows/hourly_sync.yml" target="_blank" rel="noopener noreferrer" class="pill-btn px-3 py-1.5 rounded-md text-xs font-mono-tabular font-medium" title="Hourly GitHub Actions run (0 * * * *)">
-          Hourly updater ↗
-        </a>
-
-        <button id="themeToggleBtn" type="button" class="pill-btn px-2.5 py-1.5 rounded-md text-xs font-mono-tabular" title="Toggle Light / Dark theme">
-          Dark / Light
-        </button>
-      </div>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Startup Leads, home">Startup Leads</a>
+    <div class="search" role="search">
+      <label class="sr-only" for="q">Search companies, roles and people</label>
+      <input id="q" type="search" placeholder="Search company, role or person" autocomplete="off">
+      <kbd aria-hidden="true">/</kbd>
     </div>
-  </header>
+    <div class="updated" id="updated">
+      <span class="dot" id="liveDot" aria-hidden="true"></span><span class="label" id="updatedText">Loading…</span>
+    </div>
+    <button class="iconbtn" id="menuBtn" aria-haspopup="menu" aria-expanded="false" aria-controls="menu" title="More actions">
+      <span aria-hidden="true">⋯</span><span class="sr-only">More actions</span>
+    </button>
+    <div class="pop menu" id="menu" role="menu" aria-label="More actions" hidden>
+      <button role="menuitem" id="syncBtn"><span>Sync now</span><span class="hint" id="nextCheck"></span></button>
+      <hr>
+      <button role="menuitem" id="exportRolesBtn"><span>Export roles (CSV)</span><span class="hint">current filters</span></button>
+      <button role="menuitem" id="exportContactsBtn"><span>Export C-Suite contacts (CSV)</span><span class="hint">current filters</span></button>
+      <hr>
+      <button role="menuitem" id="themeBtn"><span>Dark / Light</span><span class="hint" id="themeHint"></span></button>
+      <a role="menuitem" href="rti/"><span>RTI tracker</span><span class="hint" aria-hidden="true">↗</span></a>
+      <a role="menuitem" id="updaterLink" href="https://github.com/Yprnv7/startup-leads-live/actions/workflows/hourly_sync.yml" target="_blank" rel="noopener noreferrer"><span>Hourly updater</span><span class="hint" aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</header>
 
-  <!-- Main Container -->
-  <main class="max-w-[1400px] w-full mx-auto px-4 sm:px-6 py-6 flex-1 space-y-6">
+<main class="wrap" id="main">
+  <div class="tabs" role="tablist" aria-label="Views">
+    <button class="tab" role="tab" id="tab-jobs" aria-controls="view-jobs" aria-selected="true" data-tab="jobs">Jobs<span class="n" id="nJobs"></span></button>
+    <button class="tab" role="tab" id="tab-outreach" aria-controls="view-outreach" aria-selected="false" tabindex="-1" data-tab="outreach">Outreach<span class="n" id="nOutreach"></span></button>
+    <button class="tab" role="tab" id="tab-changes" aria-controls="view-changes" aria-selected="false" tabindex="-1" data-tab="changes">What changed<span class="n" id="nChanges"></span></button>
+  </div>
 
-    <!-- Top KPI Ledger Bar (Clean 5-Column Typographic Grid) -->
-    <section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-      <div class="surface-card rounded-lg p-3.5 flex flex-col justify-between">
-        <span class="text-[11px] font-mono-tabular uppercase tracking-wider text-[#575652] dark:text-slate-400">Hiring Startups</span>
-        <div class="flex items-baseline justify-between mt-1">
-          <span id="kpiStartupsCount" class="font-serif-editorial text-3xl sm:text-4xl">—</span>
-          <span class="text-[11px] font-mono-tabular badge-remote px-1.5 py-0.5 rounded">100% Remote</span>
-        </div>
-        <span class="text-[11px] text-[#787670] mt-1">0 USA · 0 India offices</span>
+  <!-- JOBS -->
+  <section id="view-jobs" role="tabpanel" aria-labelledby="tab-jobs" tabindex="-1">
+    <div class="filters" id="filters" role="group" aria-label="Filters">
+      <div class="sheet-head"><strong>Filters</strong><button class="btn" id="sheetDone" type="button">Show results</button></div>
+
+      <div class="anchor">
+        <button class="btn" id="regionBtn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="regionPop"><span id="regionLabel">All regions</span><span class="caret" aria-hidden="true">▼</span></button>
+        <div class="pop region-pop" id="regionPop" role="dialog" aria-label="Region and country" hidden></div>
       </div>
 
-      <div class="surface-card rounded-lg p-3.5 flex flex-col justify-between">
-        <span class="text-[11px] font-mono-tabular uppercase tracking-wider text-[#575652] dark:text-slate-400">Pure Tech Roles</span>
-        <div class="flex items-baseline justify-between mt-1">
-          <span id="kpiTotalRolesCount" class="font-serif-editorial text-3xl sm:text-4xl">—</span>
-          <span class="text-[11px] font-mono-tabular text-[#575652]">0 On-Site</span>
-        </div>
-        <span class="text-[11px] text-[#787670] mt-1">SWE, AI/ML, Backend, Infra</span>
+      <label class="sr-only" for="track">Engineering track</label>
+      <select class="sel" id="track">
+        <option value="">All tracks</option>
+        <option>AI / ML &amp; LLM Systems</option>
+        <option>Backend &amp; Distributed Systems</option>
+        <option>Data &amp; Quant Engineering</option>
+        <option>DevOps, Cloud &amp; SRE</option>
+        <option>Full-Stack &amp; Product Engineering</option>
+        <option>Mobile &amp; Autonomous Systems</option>
+      </select>
+
+      <div class="seg" role="group" aria-label="Role type" id="typeSeg">
+        <button type="button" aria-pressed="true" data-type="">All</button><button type="button" aria-pressed="false" data-type="job">Jobs</button><button type="button" aria-pressed="false" data-type="internship">Internships</button>
       </div>
 
-      <div class="surface-card rounded-lg p-3.5 flex flex-col justify-between">
-        <span class="text-[11px] font-mono-tabular uppercase tracking-wider text-[#575652] dark:text-slate-400">Remote Internships</span>
-        <div class="flex items-baseline justify-between mt-1">
-          <span id="kpiInternshipsCount" class="font-serif-editorial text-3xl sm:text-4xl">—</span>
-          <span class="text-[11px] font-mono-tabular badge-intern px-1.5 py-0.5 rounded">Remote only</span>
-        </div>
-        <span class="text-[11px] text-[#787670] mt-1">Software, AI &amp; data internships</span>
-      </div>
-
-      <div class="surface-card rounded-lg p-3.5 flex flex-col justify-between">
-        <span class="text-[11px] font-mono-tabular uppercase tracking-wider text-[#575652] dark:text-slate-400">C-Suite Contacts</span>
-        <div class="flex items-baseline justify-between mt-1">
-          <span id="kpiPocsCount" class="font-serif-editorial text-3xl sm:text-4xl">—</span>
-          <span id="kpiPocBadge" class="text-[11px] font-mono-tabular text-[var(--accent-emerald)]">—</span>
-        </div>
-        <span id="kpiPocBreakdown" class="text-[11px] text-[#787670] mt-1">—</span>
-      </div>
-
-      <div class="surface-card rounded-lg p-3.5 flex flex-col justify-between col-span-2 sm:col-span-1">
-        <span class="text-[11px] font-mono-tabular uppercase tracking-wider text-[#575652] dark:text-slate-400">Countries (A → Z)</span>
-        <div class="flex items-baseline justify-between mt-1">
-          <span id="kpiCountriesCount" class="font-serif-editorial text-3xl sm:text-4xl">—</span>
-          <span class="text-[11px] font-mono-tabular px-1.5 py-0.5 rounded surface-subtle">6 Focus Regions</span>
-        </div>
-        <span class="text-[11px] text-[#787670] mt-1">AU · Europe · MEA · NZ · SEA · UK</span>
-      </div>
-    </section>
-
-    <!-- REDESIGNED, INTUITIVE 2-TIER FILTER BAR (Replaces the confusing 3-row filter mess) -->
-    <section class="surface-card rounded-xl p-4 sm:p-5 space-y-4 shadow-sm" aria-label="Filter Command Bar">
-      <!-- Tier 1: Role Type Segmented Control + 6 Focus Region Pills + Instant Search -->
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3.5 border-b hairline-border">
-        <!-- Segmented Role Type Switcher -->
-        <div class="inline-flex p-1 rounded-lg surface-subtle self-start">
-          <button type="button" data-role-tab="ALL" class="role-tab-btn seg-btn seg-btn-active px-3 py-1.5 rounded-md text-xs font-mono-tabular">
-            All Remote Tech (<span id="tabCountAll">—</span>)
-          </button>
-          <button type="button" data-role-tab="JOB" class="role-tab-btn seg-btn px-3 py-1.5 rounded-md text-xs font-mono-tabular">
-            Remote Jobs (<span id="tabCountJobs">—</span>)
-          </button>
-          <button type="button" data-role-tab="INTERN" class="role-tab-btn seg-btn px-3 py-1.5 rounded-md text-xs font-mono-tabular">
-            Remote Internships (<span id="tabCountInterns">—</span>)
-          </button>
-        </div>
-
-        <!-- 6 Focus Region Pills (Strictly Alphabetical: Australia, Europe, MEA, New Zealand, SEA, UK) -->
-        <div class="flex flex-wrap items-center gap-1.5" id="regionPillsContainer">
-          <span class="text-[11px] font-mono-tabular uppercase tracking-wider text-[#787670] mr-1">Region:</span>
-          <button type="button" data-region-pill="ALL" class="region-pill-btn pill-btn pill-btn-active px-2.5 py-1 rounded-md text-xs font-mono-tabular">
-            All 6 Regions
-          </button>
-          <button type="button" data-region-pill="Australia" class="region-pill-btn pill-btn px-2.5 py-1 rounded-md text-xs font-mono-tabular">
-            Australia
-          </button>
-          <button type="button" data-region-pill="Europe" class="region-pill-btn pill-btn px-2.5 py-1 rounded-md text-xs font-mono-tabular">
-            Europe
-          </button>
-          <button type="button" data-region-pill="MEA" class="region-pill-btn pill-btn px-2.5 py-1 rounded-md text-xs font-mono-tabular">
-            MEA
-          </button>
-          <button type="button" data-region-pill="New Zealand" class="region-pill-btn pill-btn px-2.5 py-1 rounded-md text-xs font-mono-tabular">
-            New Zealand
-          </button>
-          <button type="button" data-region-pill="SEA" class="region-pill-btn pill-btn px-2.5 py-1 rounded-md text-xs font-mono-tabular">
-            SEA
-          </button>
-          <button type="button" data-region-pill="UK" class="region-pill-btn pill-btn px-2.5 py-1 rounded-md text-xs font-mono-tabular">
-            UK
-          </button>
-        </div>
-
-        <!-- Instant Search Input + LinkedIn Jobs (uses the current filters) -->
-        <div class="flex items-center gap-2 w-full lg:w-auto">
-        <a id="linkedinJobsBtn" href="https://www.linkedin.com/jobs/search/?keywords=software%20engineer&f_WT=2" target="_blank" rel="noopener noreferrer" class="shrink-0 px-3 py-1.5 rounded-lg text-xs font-mono-tabular font-semibold text-white bg-[#0A66C2] hover:bg-[#004182]">
-          Search on LinkedIn Jobs ↗
-        </a>
-        <div class="relative w-full lg:w-64">
-          <input
-            id="searchFilterInput"
-            type="text"
-            placeholder="Search startup, stack, role, CEO/CTO   ( / )"
-            class="w-full select-clean rounded-lg pl-3 pr-8 py-1.5 text-xs font-mono-tabular"
-          />
-          <button id="clearSearchBtn" type="button" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-[#787670] hover:text-black">✕</button>
-        </div>
-        </div>
-      </div>
-
-      <!-- Tier 2: 4 Clean Aligned Dropdowns (Alphabetical Country A-Z, Pure Tech Discipline, C-Suite Filter, Sort) + Reset -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 items-end">
-        <div>
-          <label for="countrySelectAlpha" class="block text-[11px] font-mono-tabular uppercase tracking-wider text-[#575652] dark:text-slate-400 mb-1">
-            Country (A → Z)
-          </label>
-          <select id="countrySelectAlpha" class="w-full select-clean rounded-lg px-2.5 py-1.5 text-xs font-mono-tabular">
-            <option value="ALL">All Countries (A → Z)</option>
-            <!-- Populated strictly A-Z in JS -->
-          </select>
-        </div>
-
-        <div>
-          <label for="disciplineSelect" class="block text-[11px] font-mono-tabular uppercase tracking-wider text-[#575652] dark:text-slate-400 mb-1">
-            Engineering track
-          </label>
-          <select id="disciplineSelect" class="w-full select-clean rounded-lg px-2.5 py-1.5 text-xs font-mono-tabular">
-            <option value="ALL">All pure tech tracks</option>
-            <option value="AI / ML & LLM Systems">AI / ML &amp; LLM Systems</option>
-            <option value="Backend & Distributed Systems">Backend &amp; Distributed Systems</option>
-            <option value="Data & Quant Engineering">Data &amp; Quant Engineering</option>
-            <option value="DevOps, Cloud & SRE">DevOps, Cloud &amp; SRE</option>
-            <option value="Full-Stack & Product Engineering">Full-Stack &amp; Product Engineering</option>
-            <option value="Mobile & Autonomous Systems">Mobile &amp; Autonomous Systems</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="cSuiteFilterSelect" class="block text-[11px] font-mono-tabular uppercase tracking-wider text-[#575652] dark:text-slate-400 mb-1">
-            C-Suite &amp; Contact Filter
-          </label>
-          <select id="cSuiteFilterSelect" class="w-full select-clean rounded-lg px-2.5 py-1.5 text-xs font-mono-tabular">
-            <option value="ALL">All contacts</option>
-            <option value="CSUITE_DIRECT">C-Suite with email + phone + LinkedIn</option>
-            <option value="HAS_EMAIL">Has an email</option>
-            <option value="HAS_PHONE">Has a phone number</option>
-            <option value="HAS_LINKEDIN">Has LinkedIn</option>
-            <option value="UNCONTACTED">Not contacted yet</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="sourceSelect" class="block text-[11px] font-mono-tabular uppercase tracking-wider text-[#575652] dark:text-slate-400 mb-1">
-            Source
-          </label>
-          <select id="sourceSelect" class="w-full select-clean rounded-lg px-2.5 py-1.5 text-xs font-mono-tabular">
-            <option value="ALL">All sources</option>
-            <option value="ashby">Ashby</option>
-            <option value="arbeitnow">Arbeitnow</option>
-            <option value="greenhouse">Greenhouse</option>
-            <option value="hn">HN Who's Hiring</option>
-            <option value="jobicy">Jobicy</option>
-            <option value="lever">Lever</option>
-            <option value="linkedin">LinkedIn (profiles &amp; job links)</option>
-            <option value="yc">Y Combinator</option>
+      <div class="anchor">
+        <button class="btn" id="moreBtn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="morePop">More filters<span id="moreCount"></span><span class="caret" aria-hidden="true">▼</span></button>
+        <div class="pop more-pop" id="morePop" role="dialog" aria-label="More filters" hidden>
+          <h4>Source</h4>
+          <label class="sr-only" for="source">Source</label>
+          <select class="sel" id="source" style="width:100%">
+            <option value="">All sources</option>
+            <option value="ashby">Ashby</option><option value="arbeitnow">Arbeitnow</option><option value="greenhouse">Greenhouse</option>
+            <option value="hn">HN Who's Hiring</option><option value="jobicy">Jobicy</option><option value="lever">Lever</option>
+            <option value="linkedin">LinkedIn (profiles &amp; job links)</option><option value="yc">Y Combinator</option>
             <optgroup label="Others">
               <option value="others">All others (6 job boards)</option>
-              <option value="nodesk">NoDesk</option>
-              <option value="jobfound">Jobfound</option>
-              <option value="remoteok">Remote OK</option>
-              <option value="remotive">Remotive</option>
-              <option value="weworkremotely">We Work Remotely</option>
-              <option value="workingnomads">Working Nomads</option>
+              <option value="nodesk">NoDesk</option><option value="jobfound">Jobfound</option><option value="remoteok">Remote OK</option>
+              <option value="remotive">Remotive</option><option value="weworkremotely">We Work Remotely</option><option value="workingnomads">Working Nomads</option>
             </optgroup>
           </select>
-        </div>
-
-        <div>
-          <label for="sortOrderSelect" class="block text-[11px] font-mono-tabular uppercase tracking-wider text-[#575652] dark:text-slate-400 mb-1">
-            Sort by
-          </label>
-          <select id="sortOrderSelect" class="w-full select-clean rounded-lg px-2.5 py-1.5 text-xs font-mono-tabular">
-            <option value="COUNTRY_AZ">Country (A → Z)</option>
-            <option value="NEWEST_HOURLY">Newest first</option>
-            <option value="COMPANY_AZ">Company name (A → Z)</option>
-            <option value="MOST_ROLES">Most open remote roles</option>
-          </select>
-        </div>
-
-      </div>
-      <div class="flex flex-wrap items-center justify-between gap-2 -mt-1">
-          <div class="text-xs font-mono-tabular text-[var(--ink-secondary)]">
-            <strong id="activeFilterCountLabel" class="text-[var(--ink-primary)]">—</strong> startups ·
-            <strong id="activeRolesCountLabel" class="text-[var(--ink-primary)]">—</strong> open remote roles<span id="closedCountLabel" class="text-[var(--accent-crimson)]"></span>
-          </div>
-          <button id="resetAllFiltersBtn" type="button" class="invisible pill-btn px-3 py-1.5 rounded-lg text-xs font-mono-tabular font-medium">
-            Reset filters
-          </button>
-      </div>
-
-      <!-- View Switcher Sub-Bar (Startup Cards vs C-Suite Master Table) -->
-      <div class="pt-2 border-t hairline-border flex flex-wrap items-center justify-between gap-2 text-xs font-mono-tabular">
-        <div class="flex items-center gap-2">
-          <span class="text-[#787670]">View Mode:</span>
-          <button type="button" data-view-mode="CARDS" class="view-mode-btn pill-btn pill-btn-active px-2.5 py-1 rounded">
-            Startup &amp; C-Suite Cards
-          </button>
-          <button type="button" data-view-mode="TABLE" class="view-mode-btn pill-btn px-2.5 py-1 rounded">
-            C-Suite Executive Directory Table
-          </button>
-        </div>
-        <div class="text-[11px] text-[#787670]">
-          Strict policy active: <span class="text-emerald-700 dark:text-emerald-400 font-medium">100% Remote Only · Pure Tech Only · USA Excluded · Countries Sorted A–Z</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- 2-Column Content Layout (Left: Main Feed ~70% | Right: Live Hourly & Alphabetical Country Sidebar ~30%) -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-
-      <!-- Left Column: Startup Cards or C-Suite Directory Table (8 cols) -->
-      <div class="lg:col-span-8 space-y-4">
-        <div id="cardsFeedContainer" class="space-y-4">
-          <div class="surface-card rounded-xl p-10 text-center text-xs font-mono-tabular text-[var(--ink-muted)]">Loading live remote roles…</div>
-        </div>
-        <button id="showMoreBtn" type="button" class="hidden w-full pill-btn rounded-lg py-2 text-xs font-mono-tabular font-medium">Show more</button>
-
-        <div id="cSuiteTableContainer" class="hidden surface-card rounded-xl overflow-hidden">
-          <div class="p-4 border-b hairline-border flex items-center justify-between">
-            <div>
-              <h2 class="font-serif-editorial text-2xl">C-Suite &amp; decision-maker directory</h2>
-              <p class="text-xs text-[#575652]">Every named contact: email, phone (direct where known, otherwise the company's HQ line) and LinkedIn</p>
-            </div>
-            <button id="exportCSuiteCsvBtn" type="button" class="pill-btn px-3 py-1.5 rounded text-xs font-mono-tabular">
-              Export C-Suite CSV ↓
-            </button>
-          </div>
-          <div class="overflow-x-auto">
-            <table class="w-full text-left border-collapse text-xs">
-              <thead>
-                <tr class="surface-subtle font-mono-tabular text-[11px] uppercase text-[#575652] border-b hairline-border">
-                  <th class="py-2.5 px-3">Country (A–Z)</th>
-                  <th class="py-2.5 px-3">Startup &amp; Remote Roles</th>
-                  <th class="py-2.5 px-3">C-Suite Executive</th>
-                  <th class="py-2.5 px-3">Direct Email ID</th>
-                  <th class="py-2.5 px-3">Phone (direct / HQ)</th>
-                  <th class="py-2.5 px-3">LinkedIn &amp; Status</th>
-                </tr>
-              </thead>
-              <tbody id="cSuiteTableBody" class="divide-y hairline-border font-mono-tabular">
-                <!-- Populated dynamically -->
-              </tbody>
-            </table>
-          </div>
+          <h4>Contact availability</h4>
+          <label class="check"><input type="checkbox" value="email" name="has"> Has an email</label>
+          <label class="check"><input type="checkbox" value="phone" name="has"> Has a phone number</label>
+          <label class="check"><input type="checkbox" value="linkedin" name="has"> Has LinkedIn</label>
+          <label class="check"><input type="checkbox" value="csuite" name="has"> C-Suite with email + phone + LinkedIn</label>
+          <label class="check"><input type="checkbox" value="uncontacted" name="has"> Not contacted yet</label>
         </div>
       </div>
 
-      <!-- Right Sidebar: Countries (A-Z), Focus Regions & Hourly Live Verification Log (4 cols) -->
-      <aside class="lg:col-span-4 space-y-5 lg:sticky lg:top-20">
-
-        <!-- Widget 1: Countries Breakdown (Strictly Alphabetical A -> Z, Zero USA) -->
-        <div class="surface-card rounded-xl p-4 space-y-3">
-          <div class="flex items-center justify-between border-b hairline-border pb-2.5">
-            <div>
-              <h3 class="font-serif-editorial text-xl">Countries (A → Z)</h3>
-              <p class="text-[11px] text-[#787670]">Click any country to filter · USA permanently excluded</p>
-            </div>
-            <span class="text-[11px] font-mono-tabular px-2 py-0.5 rounded surface-subtle">A–Z</span>
-          </div>
-          <div id="sidebarCountriesAlphaList" class="space-y-1.5 text-xs font-mono-tabular">
-            <!-- Populated strictly alphabetically -->
-          </div>
-        </div>
-
-        <!-- Widget 2: 6 Focus Macro-Regions -->
-        <div class="surface-card rounded-xl p-4 space-y-3">
-          <div class="flex items-center justify-between border-b hairline-border pb-2.5">
-            <h3 class="font-serif-editorial text-xl">Focus Regions</h3>
-            <span class="text-[11px] font-mono-tabular text-emerald-700 dark:text-emerald-400">100% Remote</span>
-          </div>
-          <div id="sidebarRegionsList" class="grid grid-cols-2 gap-2 text-xs font-mono-tabular">
-            <!-- Populated dynamically -->
-          </div>
-        </div>
-
-        <!-- Widget 3: Hourly Live Activity & Verification Log -->
-        <div class="surface-card rounded-xl p-4 space-y-3">
-          <div class="flex items-center justify-between border-b hairline-border pb-2.5">
-            <div>
-              <h3 class="font-serif-editorial text-xl">Live activity</h3>
-              <p id="lastHourlyCheckNote" class="text-[11px] text-[#787670]">Re-verified in browser · Cron: 0 * * * *</p>
-            </div>
-            <button id="sidebarSyncBtn" type="button" class="pill-btn px-2 py-1 rounded text-[11px] font-mono-tabular">
-              Sync now
-            </button>
-          </div>
-          <div id="hourlyActivityFeed" class="space-y-2 max-h-72 overflow-y-auto pr-1 text-xs font-mono-tabular">
-            <!-- Populated dynamically -->
-          </div>
-        </div>
-
-      </aside>
+      <span class="spacer"></span>
+      <label class="lbl" for="sort">Sort</label>
+      <select class="sel" id="sort">
+        <option value="newest">Newest posting</option>
+        <option value="country">Country (A → Z)</option>
+        <option value="company">Company (A → Z)</option>
+        <option value="roles">Most open roles</option>
+      </select>
     </div>
-  </main>
 
-  <!-- C-Suite Outreach & Full Role Dossier Modal -->
-  <div id="outreachModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-    <div class="surface-card rounded-xl max-w-2xl w-full p-6 space-y-4 my-8 shadow-2xl">
-      <div class="flex items-start justify-between gap-3 border-b hairline-border pb-3">
-        <div>
-          <span id="modalCompanyBadge" class="text-xs font-mono-tabular uppercase px-2 py-0.5 rounded surface-subtle"></span>
-          <h3 id="modalTitle" class="font-serif-editorial text-3xl mt-1">C-Suite outreach</h3>
-        </div>
-        <button id="closeOutreachModalBtn" type="button" class="pill-btn px-2.5 py-1 rounded text-xs font-mono-tabular">Close ✕</button>
+    <div class="summary">
+      <button class="btn filters-toggle" id="filtersToggle" type="button" aria-controls="filters" aria-expanded="false">Filters<span id="filterCount"></span></button>
+      <span id="summaryText" aria-live="polite"></span>
+      <span class="info" tabindex="0" role="button" aria-label="What's included and what isn't">i<span class="tip" role="tooltip">Every role is 100% remote (no hybrid or office-based roles) and pure tech: software, AI/ML, data, DevOps/cloud, security, mobile and tech internships. Roles must be open to Australia, Europe, MEA, New Zealand, SEA or the UK. No US-headquartered companies and no companies with an India office. Checked every hour; closed roles turn red.</span></span>
+      <span class="grow"></span>
+      <a class="btn sm" id="linkedinJobsBtn" href="https://www.linkedin.com/jobs/search/?keywords=software%20engineer&amp;f_WT=2" target="_blank" rel="noopener noreferrer">Search on LinkedIn Jobs ↗</a>
+    </div>
+    <div class="chips" id="chips" aria-label="Active filters"></div>
+    <div class="list" id="results" tabindex="-1" aria-label="Companies"></div>
+  </section>
+
+  <!-- OUTREACH -->
+  <section id="view-outreach" role="tabpanel" aria-labelledby="tab-outreach" tabindex="-1" hidden>
+    <div class="filters">
+      <div class="seg" role="group" aria-label="Who" id="teamSeg">
+        <button type="button" aria-pressed="true" data-team="">Everyone</button><button type="button" aria-pressed="false" data-team="C-Suite">C-Suite</button><button type="button" aria-pressed="false" data-team="Talent &amp; HR">Talent &amp; HR</button><button type="button" aria-pressed="false" data-team="Partnerships">Partnerships</button>
       </div>
-
-      <div id="modalContactsList" class="space-y-2"></div>
-
-      <div class="space-y-1.5">
-        <div class="flex items-center justify-between text-xs font-mono-tabular">
-          <span class="uppercase text-[#575652]">Pitch (editable)</span>
-          <div class="flex items-center gap-2">
-            <button id="copyPitchBtn" type="button" class="pill-btn px-2.5 py-1 rounded font-semibold">Copy text</button>
-            <a id="mailtoPitchLink" href="mailto:" class="pill-btn-active px-3 py-1 rounded">Open in mail app ↗</a>
-          </div>
-        </div>
-        <textarea id="modalPitchTextarea" rows="11" class="w-full select-clean rounded-lg p-3 text-xs font-mono-tabular leading-relaxed"></textarea>
+      <label class="check"><input type="checkbox" id="showEmpty"> Show companies with no open roles</label>
+      <span class="spacer"></span>
+      <div class="seg" role="group" aria-label="Layout" id="layoutSeg">
+        <button type="button" aria-pressed="true" data-layout="board">Board</button><button type="button" aria-pressed="false" data-layout="table">Table</button>
       </div>
     </div>
-  </div>
+    <div class="summary" id="outreachSummary" aria-live="polite"></div>
+    <div id="outreachView"></div>
+  </section>
 
-  <!-- Toast Notification -->
-  <div id="toastBanner" class="fixed bottom-5 right-5 z-50 hidden surface-card border border-black dark:border-white px-4 py-2.5 rounded-lg text-xs font-mono-tabular shadow-lg">
-    <span id="toastText">Copied to clipboard</span>
-  </div>
-
-  <!-- Footer -->
-  <footer class="border-t hairline-border py-6 px-4 sm:px-6 mt-12 text-xs font-mono-tabular text-[#787670]">
-    <div class="max-w-[1400px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-      <div>Startup Leads · 100% Remote Pure-Tech Jobs &amp; Internships · Australia · Europe · MEA · New Zealand · SEA · UK</div>
-      <div>Updated hourly (0 * * * *) · Sources: Y Combinator, HN Who's Hiring, Greenhouse, Lever, Ashby, <a class="underline" href="https://jobicy.com" target="_blank" rel="noopener noreferrer">Jobicy</a>, <a class="underline" href="https://www.arbeitnow.com" target="_blank" rel="noopener noreferrer">Arbeitnow</a>, <a class="underline" href="https://remotive.com" target="_blank" rel="noopener">Remotive</a>, <a class="underline" href="https://remoteok.com" target="_blank" rel="noopener">Remote OK</a>, <a class="underline" href="https://www.workingnomads.com" target="_blank" rel="noopener">Working Nomads</a>, <a class="underline" href="https://weworkremotely.com" target="_blank" rel="noopener">We Work Remotely</a>, <a class="underline" href="https://nodesk.co" target="_blank" rel="noopener">NoDesk</a>, <a class="underline" href="https://jobfound.org" target="_blank" rel="noopener">Jobfound</a></div>
+  <!-- WHAT CHANGED -->
+  <section id="view-changes" role="tabpanel" aria-labelledby="tab-changes" tabindex="-1" hidden>
+    <div class="filters">
+      <div class="seg" role="group" aria-label="Show" id="changeSeg">
+        <button type="button" aria-pressed="true" data-kind="">Everything</button><button type="button" aria-pressed="false" data-kind="added">Added</button><button type="button" aria-pressed="false" data-kind="closed">Closed</button>
+      </div>
     </div>
-  </footer>
+    <div class="changes" id="changesView"></div>
+  </section>
+</main>
 
-    <script src="app.js?v=2026103004"></script>
+<div class="scrim" id="scrim" hidden></div>
+<aside class="panel" id="panel" role="dialog" aria-modal="true" aria-labelledby="panelTitle" hidden></aside>
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+
+<footer class="wrap muted" style="font-size:13px;padding-bottom:32px">
+  Sources: Y Combinator, HN Who's Hiring, Greenhouse, Lever, Ashby, <a href="https://jobicy.com" target="_blank" rel="noopener">Jobicy</a>, <a href="https://www.arbeitnow.com" target="_blank" rel="noopener">Arbeitnow</a>, <a href="https://remotive.com" target="_blank" rel="noopener">Remotive</a>, <a href="https://remoteok.com" target="_blank" rel="noopener">Remote OK</a>, <a href="https://www.workingnomads.com" target="_blank" rel="noopener">Working Nomads</a>, <a href="https://weworkremotely.com" target="_blank" rel="noopener">We Work Remotely</a>, <a href="https://nodesk.co" target="_blank" rel="noopener">NoDesk</a>, <a href="https://jobfound.org" target="_blank" rel="noopener">Jobfound</a>. Updated hourly (0 * * * *).
+</footer>
+
+<script src="app.js?v=2026103102"></script>
 </body>
 </html>
