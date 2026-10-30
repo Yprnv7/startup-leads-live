@@ -97,7 +97,7 @@
     const linkedInSearch = (company, role) => `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(`${role} ${company}`)}`;
 
     function adapt(c) {
-      const roles = c.jobs.map(j => {
+      const roles = c.jobs.filter(j => !j.dup).map(j => {
         const closedLive = liveClosed.has(j.id) && j.status === "open";
         return {
           id: j.id, title: j.title, src: j.src, via: j.via,

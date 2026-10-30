@@ -2086,6 +2086,38 @@
   "hn:avision-gmbh": {
    "reason": "US headquarters (Prospeo)",
    "at": "2026-10-30T08:00:53.433Z"
+  },
+  "jobicy:gt": {
+   "reason": "Recruitment agency (posts for unnamed clients)",
+   "at": "2026-10-30T09:32:39.208Z"
+  },
+  "arbeitnow:swisspeak-partners-gmbh": {
+   "reason": "Recruitment agency (posts for unnamed clients)",
+   "at": "2026-10-30T09:32:39.208Z"
+  },
+  "workingnomads:proxify": {
+   "reason": "Staffing / talent marketplace (not a direct employer) (config)",
+   "at": "2026-10-30T09:32:39.208Z"
+  },
+  "remoteok:lemon-io": {
+   "reason": "Staffing / talent marketplace (not a direct employer) (config)",
+   "at": "2026-10-30T09:32:39.208Z"
+  },
+  "remoteok:sanctuary-computer": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T09:32:39.208Z"
+  },
+  "remoteok:edconic": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-30T09:32:39.208Z"
+  },
+  "weworkremotely:proxify-ab": {
+   "reason": "Staffing / talent marketplace (not a direct employer) (config)",
+   "at": "2026-10-30T09:32:39.208Z"
+  },
+  "remotive:unio-digital": {
+   "reason": "Staffing / talent marketplace (not a direct employer) (config)",
+   "at": "2026-10-30T09:32:39.208Z"
   }
  },
  "wikidata": {
@@ -4053,16 +4085,26 @@
    "at": "2026-10-30T07:56:44.705Z",
    "id": null,
    "us": false
+  },
+  "P1 Security": {
+   "at": "2026-10-30T09:32:39.208Z",
+   "id": null,
+   "us": false
+  },
+  "PAJ UG (haftungsbeschränkt)": {
+   "at": "2026-10-30T09:32:39.208Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-10-30T07:31:58.129Z",
-  "remoteok": "2026-10-30T07:56:44.705Z",
-  "workingnomads": "2026-10-30T07:56:44.705Z",
-  "weworkremotely": "2026-10-30T07:56:44.705Z",
-  "nodesk": "2026-10-30T07:56:44.705Z",
-  "jobfound": "2026-10-30T07:56:44.705Z"
+  "remoteok": "2026-10-30T09:38:14.666Z",
+  "workingnomads": "2026-10-30T09:38:14.666Z",
+  "weworkremotely": "2026-10-30T09:38:14.666Z",
+  "nodesk": "2026-10-30T09:38:14.666Z",
+  "jobfound": "2026-10-30T09:38:14.666Z"
  },
- "jobicyAt": "2026-10-30T07:56:44.705Z",
- "arbeitnowAt": "2026-10-30T07:56:44.705Z"
+ "jobicyAt": "2026-10-30T09:38:14.666Z",
+ "arbeitnowAt": "2026-10-30T09:38:14.666Z"
 }

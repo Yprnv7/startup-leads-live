@@ -32,7 +32,7 @@
   function build(data) {
     const companies = [], signals = [];
     for (const c of data.companies) {
-      const open = c.jobs.filter(j => j.status === "open");
+      const open = c.jobs.filter(j => j.status === "open" && !j.dup); // same role from two feeds counts once
       const region = REGION_CODE[c.region] || REGION_CODE[(c.markets || [])[0]] || "GL";
       const contacts = (c.contacts || []).map(p => ({ name: p.name, title: p.title || "", email: p.email || "", phone: p.phone || "", linkedin: p.linkedin || "", team: p.team || "" }));
       companies.push({

@@ -573,7 +573,11 @@
     "Samsara": "US headquarters",
     "Signifyd": "US headquarters",
     "Upgrade": "US headquarters",
-    "Legion": "US headquarters"
+    "Legion": "US headquarters",
+    "Proxify": "Staffing / talent marketplace (not a direct employer)",
+    "Proxify AB": "Staffing / talent marketplace (not a direct employer)",
+    "Lemon.io": "Staffing / talent marketplace (not a direct employer)",
+    "Unio Digital": "Staffing / talent marketplace (not a direct employer)"
   },
   "wikidataLookupsPerRun": 150,
   "allowCompanies": {

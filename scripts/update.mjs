@@ -48,6 +48,7 @@ const firstRun = db.companies.length === 0;
 if (MODE === 'discover' && !args.force && db.meta.lastDiscoverAt && Date.now() - Date.parse(db.meta.lastDiscoverAt) < 20 * 3600e3) MODE = 'verify';
 
 const byId = new Map(db.companies.map(c => [c.id, c]));
+const nameIndexSeed = db.companies.map(c => [c.name, c.id]);
 const byDomain = new Map();
 for (const c of db.companies) if (c.domain && !byDomain.has(c.domain)) byDomain.set(c.domain, c.id);
 const prevStatus = new Map(db.companies.map(c => [c.id, c.status]));
@@ -99,11 +100,18 @@ function event(type, company, job, extra = {}) {
   db.events.unshift({ t: NOW, type, companyId: company.id, company: company.name, job: job?.title, ...extra });
 }
 
+// Company names compared without legal suffixes, so feeds that spell a company differently still match.
+const normCo = s => String(s || '').toLowerCase().replace(/\b(gmbh|ag|ab|ltd|limited|inc|plc|oy|bv|sas|sa|llc|operations|technologies|group)\b|[^a-z0-9]/g, '');
+const nameIndex = new Map();
+for (const [n, id] of nameIndexSeed) if (!nameIndex.has(normCo(n))) nameIndex.set(normCo(n), id);
+const companyIdFor = (name, fallbackId) => nameIndex.get(normCo(name)) || fallbackId;
+
 function upsertCompany(id, fields) {
   let c = byId.get(id);
   if (!c) {
     c = { id, name: fields.name, firstSeen: NOW, status: 'open', closedAt: null, contacts: [], jobs: [], sources: [] };
     byId.set(id, c);
+    if (fields.name && !nameIndex.has(normCo(fields.name))) nameIndex.set(normCo(fields.name), id);
     db.companies.push(c);
     today.companiesAdded++;
     event('company_added', { id, name: fields.name });
@@ -134,8 +142,39 @@ const companyContext = c => placesOf([c.location, ...(c.regions || [])].filter(B
 
 // Site scope: tech roles, remote, workable from at least one country outside the US.
 const OFFICE_RE = /hybrid|in[- ]office|in[- ]person|on-?site (?:only|required)|\d+\s*(?:days?|x)\s*(?:a |per |\/)?\s*(?:week|wk)?\s*(?:in|at) (?:the )?office|office[- ]based|relocat(?:e|ion) (?:to|required)/i;
+// Posting-text checks (from the lead-quality audit). A role is dropped if its text clearly requires
+// office/hybrid work and offers no remote option, or if an agency is posting for an unnamed client.
+const REMOTE_OK_RE = /\b(fully remote|100% remote|remote[- ]first|remote within|work from anywhere|work remotely|or (?:fully )?remote|remote or|remote[- ]friendly|remote (?:role|position|setup|opportunity))\b/i;
+const OFFICE_STRONG_RE = [
+  /\b(?:this|the) (?:is an? )?(?:in[- ]person|on-?site|office[- ]based|hybrid) (?:role|position)\b/i,
+  /\bhybrid\s*\(\s*\d+\s*(?:days?|x)\b/i,
+  /\b(?:will|to) (?:transition|move|switch) to (?:a )?hybrid\b/i,
+  /\bwork in[- ]person in\b/i,
+  /\blocation\s*:\s*[^.|\n]{0,60}\((?:hybrid|on-?site|in[- ]office)\)/i,
+  /\b(?:role|position) is based in [A-Z][a-z]+ to\b/,
+];
+const OFFICE_WEAK_RE = /\b(hybrid work(?:ing)? (?:model|policy|setup|arrangement)s?|hybrid working\b|we operate a hybrid|(?:\d|two|three|four) days? (?:a|per) week (?:in|at) (?:the|our) office)\b/i;
+const AGENCY_RE = /\b(on behalf of (?:our|a|an) client|our client(?:s)? (?:is|are)|for (?:one of )?our clients?\b|we are recruiting (?:for|on behalf))/i;
+function postingIssue(job) {
+  const t = String(job.text || '').replace(/\s+/g, ' ').slice(0, 30000);
+  if (!t) return null;
+  if (AGENCY_RE.test(t)) return 'agency';
+  if (OFFICE_STRONG_RE.some(re => re.test(t))) return 'office';
+  // A startup job board that explicitly says "Remote" (Ashby / Lever) outranks generic company
+  // boilerplate about hybrid work. Feed "remote" flags (Arbeitnow, Jobicy, ...) are not trusted for this.
+  if (!job.trustedRemote && OFFICE_WEAK_RE.test(t) && !REMOTE_OK_RE.test(t)) return 'office';
+  return null;
+}
+
 function scopeOf(job, context) {
   if (!isTechRole(job) || /^\s*test\b|do not apply|dummy/i.test(job.title)) return { ok: false };
+  // Text checked when the posting was read; the stored verdict is reused on later runs.
+  if (job.text !== undefined) job.postingIssue = postingIssue(job);
+  if (job.postingIssue === 'office') return { ok: false };
+  if (job.postingIssue === 'agency') return { ok: false, agency: true };
+  // A title that names a country outside the six regions ("Senior PHP Engineer (Mexico)").
+  const titlePlaces = placesOf(job.title).filter(p => REGION_OF[p] || p === 'United States');
+  if (titlePlaces.length && !inScopePlaces(titlePlaces).length) return { ok: false };
   // The job board itself says hybrid / on-site.
   if (job.notRemote) return { ok: false };
   // 100% remote only: any hybrid / in-office / relocation requirement disqualifies the role.
@@ -158,6 +197,8 @@ const isExcluded = id => !!state.excluded?.[id];
 
 function upsertJob(company, job) {
   const scope = scopeOf(job, companyContext(company));
+  delete job.text;
+  if (scope.agency) exclude(company.id, 'Recruitment agency (posts for unnamed clients)');
   if (!scope.ok) {
     // Out of scope (US-only, on-site, or not a tech role): never stored.
     company.jobs = company.jobs.filter(x => x.id !== job.id);
@@ -252,7 +293,18 @@ async function fetchYC(slug) {
   } catch { return null; }
 }
 
-function applyYC(slug, data, listing = {}) {
+let ycJobPages = 0;
+async function ycJobText(c, id, path) {
+  const prev = c?.jobs.find(x => x.id === id);
+  if (prev?.textCheckedAt && Date.now() - Date.parse(prev.textCheckedAt) < 7 * DAY) return undefined; // keep stored verdict
+  if (ycJobPages >= 80) return undefined;
+  ycJobPages++;
+  const r = await get(`https://www.ycombinator.com${path}`, { retries: 1 });
+  await sleep(config.yc.requestDelayMs);
+  return r.ok ? stripHtml(r.body).slice(0, 30000) : undefined;
+}
+
+async function applyYC(slug, data, listing = {}) {
   const yc = data.company;
   const c = upsertCompany(`yc:${slug}`, {
     name: yc.name,
@@ -276,6 +328,7 @@ function applyYC(slug, data, listing = {}) {
   const present = new Set();
   for (const p of data.jobs) {
     const id = `yc:${p.id}`;
+    const text = await ycJobText(c, id, p.url);
     present.add(id);
     upsertJob(c, {
       id, src: 'yc', title: p.title,
@@ -283,6 +336,7 @@ function applyYC(slug, data, listing = {}) {
       location: p.location, salary: p.salaryRange || undefined,
       experience: p.minExperience || undefined,
       url: `https://www.ycombinator.com${p.url}`,
+      ...(text !== undefined ? { text, textCheckedAt: NOW } : {}),
     });
   }
   reconcile(c, j => j.src === 'yc', present, 'Removed from YC job board');
@@ -310,7 +364,7 @@ async function discoverYC() {
     if (!data || data.gone || !data.jobs.length) { state.ycSkipped[listing.slug] = NOW; continue; }
     const why = exclusionOf({ location: data.company.location, regions: listing.regions }, data.jobs.map(j => j.location));
     if (why) { exclude(`yc:${listing.slug}`, why); state.ycSkipped[listing.slug] = NOW; continue; }
-    const c = applyYC(listing.slug, data, listing);
+    const c = await applyYC(listing.slug, data, listing);
     if (!c.jobs.length) { removeCompany(c); today.companiesAdded--; state.ycSkipped[listing.slug] = NOW; continue; }
     added++;
   }
@@ -331,7 +385,7 @@ async function verifyYC() {
     checked++;
     if (data.gone) {
       for (const j of c.jobs) if (j.src === 'yc') closeJob(c, j, 'Company removed from YC directory');
-    } else applyYC(slug, data);
+    } else await applyYC(slug, data);
   }
   db.meta.lastYcVerifyAt = NOW;
   sourceReport.ycVerify = { ok: !tracked.length || failed < tracked.length / 2, checked, failed };
@@ -409,6 +463,7 @@ function parseHN(c) {
     title: clip(roles.join(' / ') || rest.filter(p => !isMeta(p)).join(' / ') || 'Multiple roles (see post)', 140),
     location: clip(location, 100),
     snippet: clip(text.slice(header.length).trim(), 320),
+    text,
     type: jobType(header, text.slice(0, 600)),
     applyUrl: links.find(u => boardFromUrl(u) || /careers|jobs|apply/i.test(u)),
     closed: CLOSED_RE.test(text.slice(0, 400)),
@@ -471,7 +526,7 @@ async function processHN() {
       upsertJob(c, {
         id: jobId, src: 'hn', thread: t.objectID, title: p.title, type: p.type,
         location: p.location, url: `https://news.ycombinator.com/item?id=${p.commentId}`,
-        applyUrl: p.applyUrl, snippet: p.snippet, postedAt: p.created,
+        applyUrl: p.applyUrl, snippet: p.snippet, postedAt: p.created, text: p.text,
       });
       present.add(jobId);
       for (const b of p.boards) {
@@ -508,19 +563,19 @@ async function processHN() {
 async function fetchBoard({ ats, token }) {
   const enc = encodeURIComponent(token);
   if (ats === 'greenhouse') {
-    const r = await get(`https://boards-api.greenhouse.io/v1/boards/${enc}/jobs`, { json: true });
+    const r = await get(`https://boards-api.greenhouse.io/v1/boards/${enc}/jobs?content=true`, { json: true });
     if (!r.ok) return r;
-    return { ok: true, jobs: r.body.jobs.map(j => ({ id: String(j.id), title: j.title, url: j.absolute_url, location: j.location?.name, posted: j.updated_at })) };
+    return { ok: true, jobs: r.body.jobs.map(j => ({ id: String(j.id), title: j.title, url: j.absolute_url, location: j.location?.name, posted: j.updated_at, text: stripHtml(decode(j.content || '')) })) };
   }
   if (ats === 'lever') {
     const r = await get(`https://api.lever.co/v0/postings/${enc}?mode=json`, { json: true });
     if (!r.ok || !Array.isArray(r.body)) return { ok: false, status: r.ok ? 404 : r.status };
-    return { ok: true, jobs: r.body.map(j => ({ id: j.id, title: j.text, url: j.hostedUrl, location: (j.categories?.allLocations?.length ? j.categories.allLocations.join(' / ') : j.categories?.location), remoteFlag: j.workplaceType === 'remote', notRemote: /hybrid|on-?site/i.test(j.workplaceType || ''), commitment: j.categories?.commitment, posted: new Date(j.createdAt).toISOString() })) };
+    return { ok: true, jobs: r.body.map(j => ({ id: j.id, title: j.text, url: j.hostedUrl, location: (j.categories?.allLocations?.length ? j.categories.allLocations.join(' / ') : j.categories?.location), remoteFlag: j.workplaceType === 'remote', trustedRemote: j.workplaceType === 'remote', notRemote: /hybrid|on-?site/i.test(j.workplaceType || ''), text: `${j.descriptionPlain || ''} ${(j.lists || []).map(l => stripHtml(l.content)).join(' ')} ${j.additionalPlain || ''}`, commitment: j.categories?.commitment, posted: new Date(j.createdAt).toISOString() })) };
   }
   if (ats === 'ashby') {
     const r = await get(`https://api.ashbyhq.com/posting-api/job-board/${enc}`, { json: true });
     if (!r.ok) return r;
-    return { ok: true, jobs: (r.body.jobs || []).map(j => ({ id: j.id, title: j.title, url: j.jobUrl, location: [j.location, ...(j.secondaryLocations || []).map(x => x.location)].filter(Boolean).join(' / '), remoteFlag: j.workplaceType ? j.workplaceType === 'Remote' : !!j.isRemote, notRemote: /hybrid|onsite/i.test(j.workplaceType || ''), commitment: j.employmentType, posted: j.publishedAt })) };
+    return { ok: true, jobs: (r.body.jobs || []).map(j => ({ id: j.id, title: j.title, url: j.jobUrl, location: [j.location, ...(j.secondaryLocations || []).map(x => x.location)].filter(Boolean).join(' / '), remoteFlag: j.workplaceType ? j.workplaceType === 'Remote' : !!j.isRemote, trustedRemote: j.workplaceType === 'Remote', notRemote: /hybrid|onsite/i.test(j.workplaceType || ''), text: j.descriptionPlain || '', commitment: j.employmentType, posted: j.publishedAt })) };
   }
   return { ok: false, status: 0 };
 }
@@ -584,7 +639,7 @@ async function processBoards() {
     for (const j of relevant) {
       const id = `${key}:${j.id}`;
       if (!tracked.has(id)) { if (room <= 0) continue; room--; }
-      upsertJob(c, { id, src: b.ats, board: key, title: j.title, type: j.type, location: j.location, remoteFlag: j.remoteFlag, notRemote: j.notRemote, url: j.url, postedAt: j.posted });
+      upsertJob(c, { id, src: b.ats, board: key, title: j.title, type: j.type, location: j.location, remoteFlag: j.remoteFlag, notRemote: j.notRemote, text: j.text, trustedRemote: j.trustedRemote, url: j.url, postedAt: j.posted });
     }
     reconcile(c, j => j.board === key, present, `Removed from ${b.ats} job board`);
   });
@@ -613,12 +668,11 @@ async function processJobicy() {
       await sleep(300);
     }
   }
-  const byName = new Map(db.companies.map(c => [c.name.toLowerCase().replace(/[^a-z0-9]/g, ''), c.id]));
   let added = 0;
   for (const j of seen.values()) {
     const name = decode(j.companyName || '').trim();
     if (!name) continue;
-    const id = byName.get(name.toLowerCase().replace(/[^a-z0-9]/g, '')) || `jobicy:${slugify(name)}`;
+    const id = companyIdFor(name, `jobicy:${slugify(name)}`);
     if (isExcluded(id)) continue;
     // Jobicy gives no headquarters. A company that also hires in the US is treated as US-based and dropped.
     if (!byId.get(id)?.location && placesOf(decode(j.jobGeo || '')).includes('United States')) { exclude(id, 'Hires in the US'); continue; }
@@ -629,7 +683,7 @@ async function processJobicy() {
     const job = upsertJob(c, {
       id: `jobicy:${j.id}`, src: 'jobicy', title, type: levelIntern ? 'internship' : jobType(title),
       location: decode(j.jobGeo || 'Anywhere').replace(/,\s+/g, ' / '), remoteFlag: true,
-      url: j.url, snippet: clip(decode(j.jobExcerpt || ''), 280), postedAt: j.pubDate,
+      url: j.url, snippet: clip(decode(j.jobExcerpt || ''), 280), postedAt: j.pubDate, text: stripHtml(decode(j.jobDescription || '')),
     });
     if (job && isNew) added++;
   }
@@ -660,12 +714,11 @@ async function processArbeitnow() {
     if (!r.body.links?.next) break;
     await sleep(500);
   }
-  const byName = new Map(db.companies.map(c => [c.name.toLowerCase().replace(/[^a-z0-9]/g, ''), c.id]));
   let added = 0;
   for (const j of seen.values()) {
     const name = decode(j.company_name || '').trim();
     if (!name) continue;
-    const id = byName.get(name.toLowerCase().replace(/[^a-z0-9]/g, '')) || `arbeitnow:${slugify(name)}`;
+    const id = companyIdFor(name, `arbeitnow:${slugify(name)}`);
     if (isExcluded(id)) continue;
     const isNew = !byId.has(id);
     // Arbeitnow is a German board: a bare "Remote job" means remote within Germany.
@@ -674,7 +727,7 @@ async function processArbeitnow() {
     const title = decode(j.title).replace(/\s*·\s*remote\s*$/i, '');
     const job = upsertJob(c, {
       id: `arbeitnow:${j.slug}`, src: 'arbeitnow', title, type: (j.job_types || []).some(t => /intern|praktikum|werkstudent/i.test(t)) ? 'internship' : jobType(title),
-      location: loc, remoteFlag: true, url: j.url, postedAt: new Date(j.created_at * 1000).toISOString(),
+      location: loc, remoteFlag: true, url: j.url, postedAt: new Date(j.created_at * 1000).toISOString(), text: stripHtml(j.description || ''),
     });
     if (job && isNew) added++;
   }
@@ -702,7 +755,7 @@ const OTHERS = {
     async fetch() {
       const r = await get('https://remotive.com/api/remote-jobs', { json: true });
       if (!r.ok) return null;
-      return (r.body.jobs || []).map(j => ({ id: j.id, company: j.company_name, title: j.title, location: j.candidate_required_location, url: j.url, postedAt: j.publication_date, logo: j.company_logo, internship: /intern/i.test(j.job_type || '') }));
+      return (r.body.jobs || []).map(j => ({ id: j.id, company: j.company_name, title: j.title, location: j.candidate_required_location, url: j.url, postedAt: j.publication_date, logo: j.company_logo, internship: /intern/i.test(j.job_type || ''), text: j.description }));
     },
   },
   remoteok: {
@@ -710,7 +763,7 @@ const OTHERS = {
     async fetch() {
       const r = await get('https://remoteok.com/api', { json: true });
       if (!r.ok || !Array.isArray(r.body)) return null;
-      return r.body.slice(1).map(j => ({ id: j.id, company: j.company, title: j.position, location: j.location, url: j.url, postedAt: j.date, logo: j.company_logo || j.logo }));
+      return r.body.slice(1).map(j => ({ id: j.id, company: j.company, title: j.position, location: j.location, url: j.url, postedAt: j.date, logo: j.company_logo || j.logo, text: j.description }));
     },
   },
   workingnomads: {
@@ -718,7 +771,7 @@ const OTHERS = {
     async fetch() {
       const r = await get('https://www.workingnomads.com/api/exposed_jobs/', { json: true });
       if (!r.ok || !Array.isArray(r.body)) return null;
-      return r.body.filter(j => /development|administration|data|engineering/i.test(j.category_name || '')).map(j => ({ id: j.url, company: j.company_name, title: j.title, location: j.location, url: j.url, postedAt: j.pub_date }));
+      return r.body.filter(j => /development|administration|data|engineering/i.test(j.category_name || '')).map(j => ({ id: j.url, company: j.company_name, title: j.title, location: j.location, url: j.url, postedAt: j.pub_date, text: j.description }));
     },
   },
   weworkremotely: {
@@ -731,7 +784,7 @@ const OTHERS = {
         for (const it of rssItems(r.body)) {
           const [company, ...rest] = it.title.split(': ');
           const hq = /Headquarters:\s*<\/strong>\s*([^<]+)/i.exec(it.description)?.[1] || /Headquarters:\s*([^\n<]+)/i.exec(stripHtml(it.description))?.[1];
-          out.push({ id: it.link, company, title: rest.join(': ') || it.title, location: [it.region, it.country].filter(Boolean).join(' / '), url: it.link, postedAt: it.pubDate && new Date(it.pubDate).toISOString(), hq: hq && hq.trim() });
+          out.push({ id: it.link, company, title: rest.join(': ') || it.title, location: [it.region, it.country].filter(Boolean).join(' / '), url: it.link, postedAt: it.pubDate && new Date(it.pubDate).toISOString(), hq: hq && hq.trim(), text: it.description });
         }
         await sleep(300);
       }
@@ -748,7 +801,7 @@ const OTHERS = {
         // NoDesk's feed has no location field; use a "Remote (…)" / "Location: …" mention in the text if there is one.
         const text = stripHtml(it.description).slice(0, 1500);
         const loc = /(?:location|based in|remote)\s*[:(–-]\s*([^.\n)]{3,80})/i.exec(text)?.[1] || '';
-        return { id: it.link, company: m[2], title: m[1], location: loc, url: it.link, postedAt: it.pubDate && new Date(it.pubDate).toISOString() };
+        return { id: it.link, company: m[2], title: m[1], location: loc, url: it.link, postedAt: it.pubDate && new Date(it.pubDate).toISOString(), text: it.description };
       });
     },
   },
@@ -769,7 +822,7 @@ const OTHERS = {
           let d; try { d = JSON.parse(m[1]); } catch { continue; }
           if (d['@type'] !== 'JobPosting') continue;
           const req = [].concat(d.applicantLocationRequirements || []).map(x => x.name).filter(Boolean);
-          out.push({ id: d.url, company: d.hiringOrganization?.name, title: d.title, location: (req.length ? req.join(' / ') : 'Anywhere') + ' / Remote', url: d.url, postedAt: d.datePosted, internship: /intern/i.test(d.employmentType || '') });
+          out.push({ id: d.url, company: d.hiringOrganization?.name, title: d.title, location: (req.length ? req.join(' / ') : 'Anywhere') + ' / Remote', url: d.url, postedAt: d.datePosted, internship: /intern/i.test(d.employmentType || ''), text: d.description });
         }
       }
       return out;
@@ -779,7 +832,6 @@ const OTHERS = {
 
 async function processOthers() {
   state.othersAt ??= {};
-  const byName = new Map(db.companies.map(c => [c.name.toLowerCase().replace(/[^a-z0-9]/g, ''), c.id]));
   const report = {};
   for (const [src, feed] of Object.entries(OTHERS)) {
     if (state.othersAt[src] && Date.now() - Date.parse(state.othersAt[src]) < feed.everyHours * 3600e3 - 10 * 60e3) continue;
@@ -795,7 +847,7 @@ async function processOthers() {
       seen.add(jobId);
       const t = Date.parse(it.postedAt);
       if (t && (oldest === null || t < oldest)) oldest = t;
-      const id = byName.get(name.toLowerCase().replace(/[^a-z0-9]/g, '')) || `${src}:${slugify(name)}`;
+      const id = companyIdFor(name, `${src}:${slugify(name)}`);
       if (isExcluded(id)) continue;
       // A board that names a US headquarters (We Work Remotely does) rules the company out.
       if (it.hq && placesOf(it.hq).includes('United States')) { exclude(id, `US headquarters (${feed.label})`); continue; }
@@ -804,7 +856,7 @@ async function processOthers() {
       const c = upsertCompany(id, { name, source: src, location: byId.get(id)?.location || it.hq || undefined, logo: byId.get(id)?.logo || it.logo });
       const job = upsertJob(c, {
         id: jobId, src, via: src, title, type: it.internship ? 'internship' : jobType(title),
-        location: decode(it.location || ''), remoteFlag: true, url: it.url, postedAt: t ? new Date(t).toISOString() : undefined,
+        location: decode(it.location || ''), remoteFlag: true, url: it.url, postedAt: t ? new Date(t).toISOString() : undefined, text: stripHtml(decode(it.text || '')),
       });
       if (job) { kept++; if (isNew) added++; }
     }
@@ -925,6 +977,7 @@ for (const c of [...db.companies]) {
 }
 
 // Merge companies that turned out to be the same business (same website domain).
+// (Name-based merging happens below, after domain merging.)
 const SOURCE_RANK = { yc: 0, manual: 1, greenhouse: 2, lever: 2, ashby: 2, hn: 3 };
 const byDom = new Map();
 for (const c of [...db.companies].sort((a, b) => (SOURCE_RANK[a.source] ?? 9) - (SOURCE_RANK[b.source] ?? 9) || a.firstSeen.localeCompare(b.firstSeen))) {
@@ -943,6 +996,36 @@ for (const c of [...db.companies].sort((a, b) => (SOURCE_RANK[a.source] ?? 9) - 
   prevStatus.delete(c.id);
 }
 
+// Merge companies with the same name from different feeds (e.g. "Proxify" and "Proxify AB").
+{
+  const keepByName = new Map();
+  const rank = c => (SOURCE_RANK[c.source] ?? 5);
+  for (const c of [...db.companies].sort((a, b) => rank(a) - rank(b) || a.firstSeen.localeCompare(b.firstSeen))) {
+    const k = normCo(c.name);
+    const keep = keepByName.get(k);
+    if (!keep) { keepByName.set(k, c); continue; }
+    for (const j of c.jobs) if (!keep.jobs.some(x => x.id === j.id)) keep.jobs.push(j);
+    for (const p of c.contacts) addContact(keep, p);
+    for (const src of c.sources || []) if (!keep.sources.includes(src)) keep.sources.push(src);
+    removeCompany(c); prevStatus.delete(c.id);
+  }
+}
+// The same role listed twice (two feeds, or one per city): keep one, with all its places.
+for (const c of db.companies) {
+  const first = new Map();
+  const pref = j => (['greenhouse', 'lever', 'ashby', 'yc'].includes(j.src) ? 0 : 1);
+  for (const j of [...c.jobs].filter(j => j.status === 'open').sort((a, b) => pref(a) - pref(b))) {
+    const k = normCo(j.title) + '|' + j.type;
+    const keep = first.get(k);
+    j.dup = false;
+    if (!keep) { first.set(k, j); continue; }
+    j.dup = true;
+    keep.places = [...new Set([...(keep.places || []), ...(j.places || [])])];
+    keep.regions = regionsOf(keep.places);
+    keep.remoteScope = remoteLabel(keep.places);
+  }
+}
+
 // Drop companies added this run that ended up with no relevant roles at all.
 const empty = new Set(db.companies.filter(c => c.firstSeen === NOW && !c.jobs.length).map(c => c.id));
 if (empty.size) {
@@ -953,7 +1036,7 @@ if (empty.size) {
 
 // Company status: open while any job is open; red (closed) once every job is gone.
 for (const c of db.companies) {
-  const open = c.jobs.filter(j => j.status === 'open');
+  const open = c.jobs.filter(j => j.status === 'open' && !j.dup);
   c.openJobs = open.length;
   c.openInternships = open.filter(j => j.type === 'internship').length;
   const next = open.length ? 'open' : 'closed';

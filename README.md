@@ -9,6 +9,12 @@
 - **100% remote only.** A role must be remote by its job board's own flag (Ashby `workplaceType: Remote`, Lever `workplaceType: remote`) or by its stated location. Anything hybrid, in-office, "X days in office" or requiring relocation is dropped.
 - **Pure tech only.** Software (backend, frontend, full-stack, systems), AI/ML/LLM, data and quant, DevOps/SRE/cloud/platform, security, mobile, robotics/embedded, and tech internships. Sales, GTM, marketing, recruiting, HR, legal, compliance, ops, PM, design, support and non-software engineering are dropped.
 - **Six regions, no USA.** Each role must be workable from Australia, Europe, MEA, New Zealand, SEA or the UK. US-only roles are dropped. Companies are excluded if they are **headquartered in the US** (from the company's location, YC data, or Wikidata), **hire in the US** (job-feed companies with no known HQ), or are on the `excludeCompanies` list in `config.json`.
+- **Posting text is checked.** Every posting's full text is read, and a role is dropped if:
+  - it clearly requires office or hybrid work and offers no remote option (for example "This is an in-person role", "Hybrid (2 days a week in office)", "will transition to hybrid");
+  - an agency is posting for an unnamed client ("Our client is…");
+  - its title names a country outside the six regions.
+
+  Talent marketplaces (Proxify, Lemon.io and others) are excluded in `config.json`. The same role listed twice is shown once.
 - **No India offices.** A company is excluded if its location, YC regions or any of its job locations name an Indian city.
 - **Countries A → Z** everywhere, using `localeCompare('en')`.
 - **Closed roles turn red.** The server re-checks every role hourly. Open pages also re-check Greenhouse, Lever, Ashby and HN roles directly every 60 minutes (countdown in the header, plus a **Sync now** button). A removed role is struck through in crimson with the reason, and a company with no open roles left turns red.
