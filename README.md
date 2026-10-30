@@ -30,6 +30,8 @@
 
 Y Combinator (company pages: jobs and founders), HN "Who is hiring?", 60+ startup job boards on Greenhouse / Lever / Ashby (`config.json → ats.boards`, plus boards found in HN posts), [Jobicy](https://jobicy.com) (remote jobs by region) and [Arbeitnow](https://www.arbeitnow.com) (EU remote jobs) and [Himalayas](https://himalayas.app) (remote-only board: every internship search for the five countries plus worldwide).
 
+**Deeper search** (`scripts/discover.mjs`, every run): Prospeo's company search lists companies in the five countries that are hiring interns (software, IT, internet, security, fintech; up to 1,000 people; about 30 credits a week, `config.json → discovery`). For each one the script finds its job board, either linked from its own website or a board on Greenhouse, Lever, Ashby, Workable, Recruitee or SmartRecruiters whose company name matches (a board is never attributed to a company without that check). Those boards are then read like every other source, and only 100% remote tech internships are kept. Boards that have never had a remote internship are re-read every 6 hours.
+
 **Others** (one group in the Source filter), read through each site's official feed and credited on every role:
 - [Remotive](https://remotive.com): API, at most 4 checks a day as Remotive asks
 - [Remote OK](https://remoteok.com): API

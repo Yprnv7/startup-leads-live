@@ -583,7 +583,7 @@ async function processHN() {
 
 // ---------------------------------------------------------------- ATS boards (Greenhouse / Lever / Ashby)
 
-async function fetchBoard({ ats, token }) {
+async function fetchBoard({ ats, token, eu }) {
   const enc = encodeURIComponent(token);
   if (ats === 'greenhouse') {
     const r = await get(`https://boards-api.greenhouse.io/v1/boards/${enc}/jobs?content=true`, { json: true });
@@ -591,7 +591,7 @@ async function fetchBoard({ ats, token }) {
     return { ok: true, jobs: r.body.jobs.map(j => ({ id: String(j.id), title: j.title, url: j.absolute_url, location: j.location?.name, posted: j.updated_at, text: stripHtml(decode(j.content || '')) })) };
   }
   if (ats === 'lever') {
-    const r = await get(`https://api.lever.co/v0/postings/${enc}?mode=json`, { json: true });
+    const r = await get(`https://api.${eu ? 'eu.' : ''}lever.co/v0/postings/${enc}?mode=json`, { json: true });
     if (!r.ok || !Array.isArray(r.body)) return { ok: false, status: r.ok ? 404 : r.status };
     return { ok: true, jobs: r.body.map(j => ({ id: j.id, title: j.text, url: j.hostedUrl, location: (j.categories?.allLocations?.length ? j.categories.allLocations.join(' / ') : j.categories?.location), remoteFlag: j.workplaceType === 'remote', trustedRemote: j.workplaceType === 'remote', notRemote: /hybrid|on-?site/i.test(j.workplaceType || ''), text: `${j.descriptionPlain || ''} ${(j.lists || []).map(l => stripHtml(l.content)).join(' ')} ${j.additionalPlain || ''}`, commitment: j.categories?.commitment, posted: new Date(j.createdAt).toISOString() })) };
   }
@@ -600,13 +600,47 @@ async function fetchBoard({ ats, token }) {
     if (!r.ok) return r;
     return { ok: true, jobs: (r.body.jobs || []).map(j => ({ id: j.id, title: j.title, url: j.jobUrl, location: [j.location, ...(j.secondaryLocations || []).map(x => x.location)].filter(Boolean).join(' / '), remoteFlag: j.workplaceType ? j.workplaceType === 'Remote' : !!j.isRemote, trustedRemote: j.workplaceType === 'Remote', notRemote: /hybrid|onsite/i.test(j.workplaceType || ''), text: j.descriptionPlain || '', commitment: j.employmentType, posted: j.publishedAt })) };
   }
+  // Workable: "telecommuting" is the board's own remote flag; anything else is on-site or hybrid.
+  if (ats === 'workable') {
+    const r = await get(`https://apply.workable.com/api/v1/widget/accounts/${enc}?details=true`, { json: true });
+    if (!r.ok) return r;
+    return { ok: true, jobs: (r.body.jobs || []).map(j => {
+      const places = (j.locations?.length ? j.locations : [j]).map(l => [l.city, l.country].filter(Boolean).join(', ')).filter(Boolean);
+      return { id: j.shortcode, title: j.title, url: j.url, location: j.telecommuting ? `Remote (${places.join(' / ') || 'Anywhere'})` : places.join(' / '), remoteFlag: !!j.telecommuting, trustedRemote: !!j.telecommuting, notRemote: !j.telecommuting, commitment: j.employment_type, text: stripHtml(j.description || ''), posted: j.published_on };
+    }) };
+  }
+  if (ats === 'recruitee') {
+    const r = await get(`https://${enc}.recruitee.com/api/offers/`, { json: true });
+    if (!r.ok) return r;
+    return { ok: true, jobs: (r.body.offers || []).map(o => ({ id: String(o.id), title: o.title, url: o.careers_url, location: o.remote ? `Remote (${[o.city, o.country].filter(Boolean).join(', ') || 'Anywhere'})` : [o.city, o.country].filter(Boolean).join(', '), remoteFlag: !!o.remote, trustedRemote: !!o.remote && !o.hybrid, notRemote: !o.remote || !!o.hybrid, commitment: o.employment_type_code, text: stripHtml(o.description || ''), posted: o.published_at })) };
+  }
+  if (ats === 'smartrecruiters') {
+    const r = await get(`https://api.smartrecruiters.com/v1/companies/${enc}/postings?limit=100`, { json: true });
+    if (!r.ok) return r;
+    return { ok: true, jobs: (r.body.content || []).map(p => ({ id: p.id, title: p.name, url: `https://jobs.smartrecruiters.com/${token}/${p.id}`, location: p.location?.remote ? `Remote (${p.location.fullLocation || p.location.country || 'Anywhere'})` : p.location?.fullLocation || '', remoteFlag: !!p.location?.remote, trustedRemote: !!p.location?.remote && !p.location?.hybrid, notRemote: !p.location?.remote || !!p.location?.hybrid, commitment: p.typeOfEmployment?.label, posted: p.releasedDate })) };
+  }
+  // Personio XML feed: an office called "Remote" (or "Home office") marks a remote role.
+  if (ats === 'personio') {
+    const r = await get(`https://${enc}.jobs.personio.de/xml`);
+    if (!r.ok) return r;
+    const tag = (x, t) => decode((new RegExp(`<${t}>([\\s\\S]*?)</${t}>`, 'i').exec(x) || [])[1] || '').replace(/^<!\[CDATA\[|\]\]>$/g, '').trim();
+    return { ok: true, jobs: r.body.split(/<position>/i).slice(1).map(x => {
+      const offices = [tag(x, 'office'), ...[...x.matchAll(/<additionalOffice>([\s\S]*?)<\/additionalOffice>/gi)].map(m => decode(m[1]).trim())].filter(Boolean);
+      const remote = offices.some(o => /remote|home ?office|mobile/i.test(o));
+      return { id: tag(x, 'id'), title: tag(x, 'name'), url: `https://${token}.jobs.personio.de/job/${tag(x, 'id')}`, location: remote ? `Remote (${offices.join(' / ')})` : offices.join(' / '), remoteFlag: remote, notRemote: !remote, commitment: tag(x, 'employmentType'), text: stripHtml(decode(tag(x, 'value'))), posted: tag(x, 'createdAt') };
+    }) };
+  }
   return { ok: false, status: 0 };
 }
 
-const careersUrl = ({ ats, token }) => ({
+const careersUrl = ({ ats, token, eu }) => ({
   greenhouse: `https://job-boards.greenhouse.io/${token}`,
-  lever: `https://jobs.lever.co/${token}`,
+  lever: `https://jobs.${eu ? 'eu.' : ''}lever.co/${token}`,
   ashby: `https://jobs.ashbyhq.com/${token}`,
+  workable: `https://apply.workable.com/${token}/`,
+  recruitee: `https://${token}.recruitee.com/`,
+  smartrecruiters: `https://jobs.smartrecruiters.com/${token}`,
+  personio: `https://${token}.jobs.personio.de/`,
 })[ats];
 
 async function processBoards() {
@@ -617,7 +651,10 @@ async function processBoards() {
       if (!b.active && !b.dead && activated < config.ats.newBoardsPerDay) { b.active = true; activated++; }
     }
   }
-  const boards = [...config.ats.boards, ...state.boards.filter(b => b.active && !b.dead)];
+  // Boards found by the deeper search (scripts/discover.mjs) that have never had a remote internship
+  // are re-read every 6 hours instead of every run.
+  const boards = [...config.ats.boards, ...state.boards.filter(b => b.active && !b.dead)
+    .filter(b => b.via !== 'prospeo' || b.hits || !b.readAt || Date.now() - Date.parse(b.readAt) > 6 * 3600e3 - 10 * 60e3)];
   let ok = 0, failed = 0, gone = 0;
   await pool(boards, 6, async (b) => {
     const key = `${b.ats}:${b.token}`;
@@ -653,6 +690,7 @@ async function processBoards() {
     // Roles the board now marks hybrid / on-site (or that fell out of scope) are removed, not closed.
     const outOfScope = new Set(relevantAll.filter(j => !j.scope.ok).map(j => `${key}:${j.id}`));
     c.jobs = c.jobs.filter(j => !outOfScope.has(j.id));
+    if (b.via === 'prospeo') { b.readAt = NOW; b.hits = relevantAll.filter(j => j.scope.ok).length; }
     const relevant = relevantAll
       .filter(j => j.scope.ok)
       .map(j => ({ ...j, type: jobType(j.title, j.commitment), focus: isFocusPlaces(j.scope.places) }))

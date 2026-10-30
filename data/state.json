@@ -566,6 +566,185 @@
    "name": "ICEYE",
    "discovered": "2026-10-29T10:32:13.751Z",
    "active": true
+  },
+  {
+   "ats": "lever",
+   "token": "addx",
+   "name": "ADDX",
+   "website": "https://addx.co",
+   "location": "Singapore",
+   "discovered": "2026-10-30T11:57:10.232Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "addx.co",
+   "dead": "2026-10-30T11:57:46.384Z"
+  },
+  {
+   "ats": "greenhouse",
+   "token": "xtxmarketstechnologies",
+   "name": "XTX Markets",
+   "website": "https://xtxmarkets.com",
+   "location": "United Kingdom",
+   "discovered": "2026-10-30T11:57:10.232Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "xtxmarkets.com",
+   "readAt": "2026-10-30T11:57:46.384Z",
+   "hits": 0
+  },
+  {
+   "ats": "workable",
+   "token": "luminance-1",
+   "name": "Luminance",
+   "website": "https://luminance.com",
+   "location": "United Kingdom",
+   "discovered": "2026-10-30T11:57:10.232Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "luminance.com",
+   "readAt": "2026-10-30T11:57:46.384Z",
+   "hits": 0
+  },
+  {
+   "ats": "greenhouse",
+   "token": "speechmatics",
+   "name": "Speechmatics",
+   "website": "https://speechmatics.com",
+   "location": "United Kingdom",
+   "discovered": "2026-10-30T11:57:10.232Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "speechmatics.com",
+   "readAt": "2026-10-30T11:57:46.384Z",
+   "hits": 0
+  },
+  {
+   "ats": "workable",
+   "token": "fresha",
+   "name": "Fresha",
+   "website": "https://fresha.com",
+   "location": "United Kingdom",
+   "discovered": "2026-10-30T11:57:10.232Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "fresha.com",
+   "readAt": "2026-10-30T11:57:46.384Z",
+   "hits": 0
+  },
+  {
+   "ats": "workable",
+   "token": "fundingsocieties",
+   "name": "Funding Societies | Modalku Group",
+   "website": "https://fundingsocieties.com",
+   "location": "Singapore",
+   "discovered": "2026-10-30T11:57:10.232Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "fundingsocieties.com"
+  },
+  {
+   "ats": "workable",
+   "token": "instadeep",
+   "name": "InstaDeep",
+   "website": "https://instadeep.com",
+   "location": "United Kingdom",
+   "discovered": "2026-10-30T11:57:10.232Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "instadeep.com",
+   "readAt": "2026-10-30T11:57:46.384Z",
+   "hits": 0
+  },
+  {
+   "ats": "workable",
+   "token": "vezeeta",
+   "name": "Vezeeta",
+   "website": "https://vezeeta.com",
+   "location": "United Arab Emirates",
+   "discovered": "2026-10-30T11:57:10.232Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "vezeeta.com",
+   "readAt": "2026-10-30T11:57:46.384Z",
+   "hits": 0
+  },
+  {
+   "ats": "workable",
+   "token": "atome",
+   "name": "Atome",
+   "website": "https://atome.sg",
+   "location": "Singapore",
+   "discovered": "2026-10-30T11:57:10.232Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "atome.sg",
+   "readAt": "2026-10-30T11:57:46.384Z",
+   "hits": 0
+  },
+  {
+   "ats": "workable",
+   "token": "shopback",
+   "name": "ShopBack",
+   "website": "https://shopback.com",
+   "location": "Singapore",
+   "discovered": "2026-10-30T11:57:10.232Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "shopback.com",
+   "readAt": "2026-10-30T11:57:46.384Z",
+   "hits": 0
+  },
+  {
+   "ats": "workable",
+   "token": "blink22",
+   "name": "Blink22",
+   "website": "https://blink22.com",
+   "location": "United Arab Emirates",
+   "discovered": "2026-10-30T11:57:10.232Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "blink22.com",
+   "readAt": "2026-10-30T11:57:46.384Z",
+   "hits": 0
+  },
+  {
+   "ats": "ashby",
+   "token": "mitti",
+   "name": "SafetyCulture",
+   "website": "https://safetyculture.com",
+   "location": "Australia",
+   "discovered": "2026-10-30T11:57:10.232Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "safetyculture.com",
+   "readAt": "2026-10-30T11:57:46.384Z",
+   "hits": 0
+  },
+  {
+   "ats": "lever",
+   "token": "ambergroup",
+   "name": "Amber Group",
+   "website": "https://ambergroup.io",
+   "location": "Singapore",
+   "discovered": "2026-10-30T11:57:10.232Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "ambergroup.io",
+   "readAt": "2026-10-30T11:57:46.384Z",
+   "hits": 0
+  },
+  {
+   "ats": "workable",
+   "token": "mindera",
+   "name": "Mindera",
+   "website": "https://mindera.com",
+   "location": "United Kingdom",
+   "discovered": "2026-10-30T11:57:10.232Z",
+   "active": true,
+   "via": "prospeo",
+   "domain": "mindera.com",
+   "readAt": "2026-10-30T11:57:46.384Z",
+   "hits": 0
   }
  ],
  "boardNames": {},
@@ -4148,5 +4327,197 @@
  },
  "zb": {},
  "jobicyAt": "2026-10-30T11:34:43.762Z",
- "arbeitnowAt": "2026-10-30T11:34:43.762Z"
+ "arbeitnowAt": "2026-10-30T11:34:43.762Z",
+ "discovery": {
+  "page": 0,
+  "totalPages": null,
+  "cycleAt": "2026-10-30T11:56:27.843Z",
+  "companies": {
+   "instadeep.com": {
+    "name": "InstaDeep",
+    "website": "https://instadeep.com",
+    "country": "United Kingdom",
+    "via": "matched board name",
+    "checkedAt": "2026-10-30T11:57:10.232Z",
+    "boards": [
+     "workable:instadeep"
+    ]
+   },
+   "luminance.com": {
+    "name": "Luminance",
+    "website": "https://luminance.com",
+    "country": "United Kingdom",
+    "via": "website",
+    "checkedAt": "2026-10-30T11:57:10.232Z",
+    "boards": [
+     "workable:luminance-1"
+    ]
+   },
+   "taxfix.de": {
+    "name": "Taxfix",
+    "website": "https://taxfix.de",
+    "country": "Germany",
+    "checkedAt": "2026-10-30T11:57:10.232Z",
+    "boards": []
+   },
+   "xtxmarkets.com": {
+    "name": "XTX Markets",
+    "website": "https://xtxmarkets.com",
+    "country": "United Kingdom",
+    "via": "website",
+    "checkedAt": "2026-10-30T11:57:10.232Z",
+    "boards": [
+     "greenhouse:xtxmarketstechnologies"
+    ]
+   },
+   "endowus.com": {
+    "name": "Endowus",
+    "website": "https://endowus.com",
+    "country": "Singapore",
+    "checkedAt": "2026-10-30T11:57:10.232Z",
+    "boards": []
+   },
+   "speechmatics.com": {
+    "name": "Speechmatics",
+    "website": "https://speechmatics.com",
+    "country": "United Kingdom",
+    "via": "matched board name",
+    "checkedAt": "2026-10-30T11:57:10.232Z",
+    "boards": [
+     "greenhouse:speechmatics"
+    ]
+   },
+   "qogita.com": {
+    "name": "Qogita",
+    "website": "https://qogita.com",
+    "country": "United Kingdom",
+    "checkedAt": "2026-10-30T11:57:10.232Z",
+    "boards": []
+   },
+   "addx.co": {
+    "name": "ADDX",
+    "website": "https://addx.co",
+    "country": "Singapore",
+    "via": "website",
+    "checkedAt": "2026-10-30T11:57:10.232Z",
+    "boards": [
+     "lever:addx"
+    ]
+   },
+   "fresha.com": {
+    "name": "Fresha",
+    "website": "https://fresha.com",
+    "country": "United Kingdom",
+    "via": "matched board name",
+    "checkedAt": "2026-10-30T11:57:10.232Z",
+    "boards": [
+     "workable:fresha"
+    ]
+   },
+   "safetyculture.com": {
+    "name": "SafetyCulture",
+    "website": "https://safetyculture.com",
+    "country": "Australia",
+    "via": "website",
+    "checkedAt": "2026-10-30T11:57:10.232Z",
+    "boards": [
+     "ashby:mitti"
+    ]
+   },
+   "mindera.com": {
+    "name": "Mindera",
+    "website": "https://mindera.com",
+    "country": "United Kingdom",
+    "via": "matched board name",
+    "checkedAt": "2026-10-30T11:57:10.232Z",
+    "boards": [
+     "workable:mindera"
+    ]
+   },
+   "fundingsocieties.com": {
+    "name": "Funding Societies | Modalku Group",
+    "website": "https://fundingsocieties.com",
+    "country": "Singapore",
+    "via": "website",
+    "checkedAt": "2026-10-30T11:57:10.232Z",
+    "boards": [
+     "workable:fundingsocieties"
+    ]
+   },
+   "helsing.ai": {
+    "name": "Helsing",
+    "website": "https://helsing.ai",
+    "country": "Germany",
+    "via": "matched board name",
+    "checkedAt": "2026-10-30T11:57:10.232Z",
+    "boards": [
+     "greenhouse:helsing"
+    ]
+   },
+   "atome.sg": {
+    "name": "Atome",
+    "website": "https://atome.sg",
+    "country": "Singapore",
+    "via": "matched board name",
+    "checkedAt": "2026-10-30T11:57:10.232Z",
+    "boards": [
+     "workable:atome"
+    ]
+   },
+   "vezeeta.com": {
+    "name": "Vezeeta",
+    "website": "https://vezeeta.com",
+    "country": "United Arab Emirates",
+    "via": "matched board name",
+    "checkedAt": "2026-10-30T11:57:10.232Z",
+    "boards": [
+     "workable:vezeeta"
+    ]
+   },
+   "univers.com": {
+    "name": "Univers",
+    "website": "https://univers.com",
+    "country": "Singapore",
+    "checkedAt": "2026-10-30T11:57:10.232Z",
+    "boards": []
+   },
+   "ambergroup.io": {
+    "name": "Amber Group",
+    "website": "https://ambergroup.io",
+    "country": "Singapore",
+    "via": "matched board name",
+    "checkedAt": "2026-10-30T11:57:10.232Z",
+    "boards": [
+     "lever:ambergroup"
+    ]
+   },
+   "blink22.com": {
+    "name": "Blink22",
+    "website": "https://blink22.com",
+    "country": "United Arab Emirates",
+    "via": "matched board name",
+    "checkedAt": "2026-10-30T11:57:10.232Z",
+    "boards": [
+     "workable:blink22"
+    ]
+   },
+   "shopback.com": {
+    "name": "ShopBack",
+    "website": "https://shopback.com",
+    "country": "Singapore",
+    "via": "matched board name",
+    "checkedAt": "2026-10-30T11:57:10.232Z",
+    "boards": [
+     "workable:shopback"
+    ]
+   },
+   "solarisgroup.com": {
+    "name": "Solaris SE",
+    "website": "https://solarisgroup.com",
+    "country": "Germany",
+    "checkedAt": "2026-10-30T11:57:10.232Z",
+    "boards": []
+   }
+  }
+ }
 }

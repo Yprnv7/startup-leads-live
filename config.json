@@ -588,5 +588,11 @@
     "_note": "Company name -> reason. Overrides a wrong automatic US/India match.",
     "Flow Traders": "Headquartered in Amsterdam",
     "Capital on Tap": "Headquartered in London"
+  },
+  "discovery": {
+    "_note": "Deeper search (scripts/discover.mjs): Prospeo company search for companies in the five countries hiring interns, then their job boards.",
+    "prospeoPagesPerRun": 25,
+    "prospeoDailyCredits": 60,
+    "detectPerRun": 150
   }
 }

@@ -47,6 +47,11 @@ jobs:
           fi
           echo "mode=$mode" >> "$GITHUB_OUTPUT"
 
+      - name: Deeper search (companies hiring interns + their job boards)
+        run: node scripts/discover.mjs
+        env:
+          PROSPEO_API_KEY: ${{ secrets.PROSPEO_API_KEY }}
+
       - name: Fetch, discover and verify remote tech roles
         run: node scripts/update.mjs --mode=${{ steps.mode.outputs.mode }} ${{ inputs.force_yc && '--force-yc' || '' }}
 

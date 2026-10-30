@@ -21,7 +21,7 @@
   const TIER_ORDER = { "Talent & HR": 0, "Founders & CTO": 1, Leadership: 2 };
   const TIER_LABEL = { "Talent & HR": "Talent & HR", "Founders & CTO": "Founders & CTO", Leadership: "VPs, directors & heads" };
   const SOURCE_LABEL = { yc: "Y Combinator", hn: "HN Who's Hiring", greenhouse: "Greenhouse", lever: "Lever", ashby: "Ashby", jobicy: "Jobicy", arbeitnow: "Arbeitnow", manual: "Manual",
-    remotive: "Remotive", remoteok: "Remote OK", himalayas: "Himalayas", workingnomads: "Working Nomads", weworkremotely: "We Work Remotely", nodesk: "NoDesk", jobfound: "Jobfound", linkedin: "LinkedIn", others: "Other job boards" };
+    remotive: "Remotive", remoteok: "Remote OK", himalayas: "Himalayas", workable: "Workable", personio: "Personio", recruitee: "Recruitee", smartrecruiters: "SmartRecruiters", workingnomads: "Working Nomads", weworkremotely: "We Work Remotely", nodesk: "NoDesk", jobfound: "Jobfound", linkedin: "LinkedIn", others: "Other job boards" };
   const OTHERS = ["remotive", "remoteok", "workingnomads", "weworkremotely", "nodesk", "jobfound", "himalayas"];
   const TRACK_KEYWORDS = { "AI / ML & LLM Systems": "machine learning", "Backend & Distributed Systems": "backend", "Data & Quant Engineering": "data engineering",
     "DevOps, Cloud & SRE": "devops cloud", "Full-Stack & Product Engineering": "full stack", "Mobile & Autonomous Systems": "mobile" };

@@ -10,7 +10,7 @@
   const LOCAL_KEY = "rti.local.v1"; // { overrides: {companyId: patch}, companies: {id: doc}, signals: [doc] }
   const REGION_CODE = { Australia: "AU", Europe: "EU", MEA: "ME", "New Zealand": "NZ", SEA: "SG", UK: "UK", Global: "GL" };
   const SOURCE_LABEL = { yc: "Y Combinator", hn: "HN Who's Hiring", greenhouse: "Greenhouse", lever: "Lever", ashby: "Ashby", jobicy: "Jobicy", arbeitnow: "Arbeitnow", manual: "Manual",
-    remotive: "Remotive", remoteok: "Remote OK", workingnomads: "Working Nomads", weworkremotely: "We Work Remotely", nodesk: "NoDesk", jobfound: "Jobfound", himalayas: "Himalayas" };
+    remotive: "Remotive", remoteok: "Remote OK", workingnomads: "Working Nomads", weworkremotely: "We Work Remotely", nodesk: "NoDesk", jobfound: "Jobfound", himalayas: "Himalayas", workable: "Workable", personio: "Personio", recruitee: "Recruitee", smartrecruiters: "SmartRecruiters" };
 
   const loadLocal = () => { try { return JSON.parse(localStorage.getItem(LOCAL_KEY)) || {}; } catch (e) { return {}; } };
   const local = Object.assign({ overrides: {}, companies: {}, signals: [] }, loadLocal());
