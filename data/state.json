@@ -5204,6 +5204,34 @@
   "ats:workable:fundingsocieties": {
    "reason": "India office",
    "at": "2026-10-30T13:21:31.916Z"
+  },
+  "himalayas:centene-corporation": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T13:33:44.379Z"
+  },
+  "himalayas:ge-vernova": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T13:33:44.379Z"
+  },
+  "himalayas:nvidia": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T13:33:44.379Z"
+  },
+  "himalayas:upstart": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T13:33:44.379Z"
+  },
+  "himalayas:circana": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T13:33:44.379Z"
+  },
+  "himalayas:gitlab": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T13:33:44.379Z"
+  },
+  "himalayas:akamai-technologies": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T13:33:44.379Z"
   }
  },
  "wikidata": {
@@ -7336,6 +7364,756 @@
    "at": "2026-10-30T13:21:31.916Z",
    "id": null,
    "us": false
+  },
+  "DND": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "GWEN": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "A Healthier Democracy": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Zepho": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Centene Corporation": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": "Q5059102",
+   "us": true
+  },
+  "GE Vernova": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": "Q118957699",
+   "us": true
+  },
+  "MQ Health": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "identifeye HEALTH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "National Australia Bank (NAB)": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "HOPn": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Culture Vitale": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "GetBeauty": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Finmid": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "M365Connect": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "IndieKidz": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "truckoo GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Rocket Internet": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": "Q82229",
+   "us": false
+  },
+  "First Momentum Ventures": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "MicroHarvest": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "The Quality Group GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "NVIDIA": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": "Q182477",
+   "us": true
+  },
+  "Beglaubigt.de": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Smatched": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "SwissBorg": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "BeamNG GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "RWE": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": "Q138133",
+   "us": false
+  },
+  "Energy Robotics": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "edyoucated GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "FixFirst": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "AIRS Medical": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "mercor": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "10x Value Partners GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "UPSTART": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": "Q7899307",
+   "us": true
+  },
+  "SPIRIT/21": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "qardsCOM": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Job Squad": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "SEOMATIK GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Verve Group": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "1KOMMA5˚": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Kai Marxen Media": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Greenpocket": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Event Yoga": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "PKF Fasselt Partnerschaft mbB": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Kubermatic": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Circana": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": "Q117011698",
+   "us": true
+  },
+  "Vestlane": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Social DNA": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Golf Post": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "KOSTAL Group": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "energized&": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "ekipa GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Consileon Business Consultancy GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Talentspring Academy Group": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Femlives": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "mindsquare AG": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "HAUSGOLD - talocasa GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "ParentPay": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Radio MusicStar": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Finanzklar GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Beutler Saghari & Partner GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "ProviPanda": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Jamorie Consulting GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "dreamteam": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Momenterie": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "App Akademie": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Physikit": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Luxregia": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Pairs": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "NielsenIQ": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Kluuu": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "4ALLPORTAL GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Urban Systems": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "akirolabs": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "lilacard": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "GE HealthCare": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": "Q1152374",
+   "us": false
+  },
+  "OH MY! FANTASY": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Renergo": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": "Q116891704",
+   "us": false
+  },
+  "BSL Managementberatung": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Psytastic": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Karriere bei FIR e. V. an der RWTH Aachen": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Public Cloud Group": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "chocoBRAIN": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Digistore": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Die Tierversicherer": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "vermaye": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "RoX Health": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "OnlineDialog GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Teachy": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "codeblick": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "kaer GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Cendas GMBH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Persowerk Deutschland GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Female Power Hub": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Nutrition-Plus": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "cigus GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Depeur": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "JYMMiN": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "YAVO Yoga & Events": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Parasus GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "NeysCustoms": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "BestForm Bastian": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "GSA Capital": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Smartemis": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Digitalebox.de": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Your Personal AI": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "LocateRisk GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Pflegia": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "BLP Digital AG": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "SAP Fioneer": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Fraunhofer-Gesellschaft": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "FINN Design": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Unseen Media": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Digital Trendteam": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Careerxtra": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "EER Poland": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Teleios Collaborative Network": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Canonical": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": "Q39064",
+   "us": false
+  },
+  "Alpaca": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Wizard Ventures GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Seedtag": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "IONITY GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "StudySmarter": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "EMR Metal Recycling": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "usd AG": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Mediengruppe Pressedruck": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "NightOwl Consulting": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Novo": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": "Q818846",
+   "us": false
+  },
+  "prospecter business development": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "D3 Global": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Bee Seen Agency": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "GermanZero e. V.": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Verlagshaus Stopfer": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Interkultura Verlag": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "allbuyone | Karriere": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "reos": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": "Q16671945",
+   "us": false
+  },
+  "Unicade Publishing": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "big little things GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "STUDIO EINS - Bürgerfunkinitiative e.V.": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "REXEL": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": "Q962489",
+   "us": false
+  },
+  "Cryptory": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "ECSO CLOUD": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "MOX Relations GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Aumovio": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": "Q26492961",
+   "us": false
+  },
+  "Little Dot Studios": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": "Q138775543",
+   "us": false
+  },
+  "Grüns": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Wegain": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "atrain": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "KF Brands": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Banauten GmbH": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
+  },
+  "Reformer Club": {
+   "at": "2026-10-30T13:33:44.379Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
@@ -7344,7 +8122,7 @@
   "workingnomads": "2026-10-30T11:34:43.762Z",
   "weworkremotely": "2026-10-30T11:34:43.762Z",
   "nodesk": "2026-10-30T11:34:43.762Z",
-  "himalayas": "2026-10-30T11:34:43.762Z",
+  "himalayas": "2026-10-30T13:33:44.379Z",
   "jobfound": "2026-10-30T11:34:43.762Z"
  },
  "badEmails": {},
@@ -15388,5 +16166,14 @@
    }
   }
  },
- "hqKnown": {}
+ "hqKnown": {},
+ "hqCandidates": {
+  "ritual": {
+   "name": "Ritual",
+   "titles": [
+    "Software Engineer Intern"
+   ],
+   "at": "2026-10-30T13:33:44.379Z"
+  }
+ }
 }
