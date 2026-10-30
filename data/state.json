@@ -572,12 +572,14 @@
  "zeroMiss": {},
  "prospeo": {
   "credits": {
-   "2026-10-30": 73
+   "2026-10-30": 75
   },
   "mobileCredits": {
    "2026-10-30": 136
   },
-  "companyCredits": {}
+  "companyCredits": {
+   "2026-10-30": 5
+  }
  },
  "excluded": {
   "ats:greenhouse:deliveroo": {
