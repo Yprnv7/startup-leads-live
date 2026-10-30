@@ -43,10 +43,11 @@ const db = JSON.parse(await fs.readFile(LEADS_FILE, 'utf8'));
 const state = JSON.parse(await fs.readFile(STATE_FILE, 'utf8'));
 state.prospeo ??= { credits: {} };
 state.badEmails ??= {};
-// The contact rules changed (v2: HR / founders & CTO / VPs, directors, heads): search every company again.
-if (state.contactRules !== 2) {
+// The contact rules changed (v2: HR / founders & CTO / VPs, directors, heads; v3: people matched by
+// Prospeo company id and second domains): search every company again.
+if ((state.contactRules || 0) < 3) {
   for (const c of db.companies) { delete c.prospeoAt; for (const p of c.contacts || []) delete p.enrichedAt; }
-  state.contactRules = 2;
+  state.contactRules = 3;
 }
 const report = {};
 
@@ -212,12 +213,24 @@ const LEADER_TITLES = ['founder', 'chief technology', 'cto', 'talent', 'recruit'
 const TWO_PART_TLD = /\.(?:co|com|org|net|ac|gov|edu)\.[a-z]{2}$/;
 const registrable = d => d.split('.').slice(TWO_PART_TLD.test(d) ? -3 : -2).join('.');
 
+// People results are matched back to our companies by website, or by Prospeo's company id (the
+// company lookup can find a company under a second domain, e.g. tether.io / tether.to).
+const byRegistrable = new Map();
+const byProspeoId = new Map();
+function indexCompanies() {
+  for (const c of db.companies) {
+    for (const d of [c.domain, c.hq?.domain]) {
+      if (!d) continue;
+      if (!byDomain.has(d)) byDomain.set(d, c);
+      if (!byRegistrable.has(registrable(d))) byRegistrable.set(registrable(d), c);
+    }
+    if (c.hq?.companyId) byProspeoId.set(c.hq.companyId, c);
+  }
+}
 const companyForResult = co => {
   const d = (co?.domain || domainOf(co?.website) || '').toLowerCase();
-  return byDomain.get(d) || byRegistrable.get(registrable(d));
+  return byProspeoId.get(co?.company_id) || byDomain.get(d) || byRegistrable.get(registrable(d));
 };
-const byRegistrable = new Map();
-for (const c of db.companies) if (c.domain && !byRegistrable.has(registrable(c.domain))) byRegistrable.set(registrable(c.domain), c);
 
 const normName = s => String(s || '').toLowerCase().replace(/\b(gmbh|plc|ag|ltd|limited|inc|oy|sas|bv|llc)\b|\(.*?\)|[^a-z0-9]/g, '');
 const excludedNow = new Set();
@@ -296,6 +309,7 @@ const TEAM_PRIORITY = { 'Talent & HR': 0, 'Founders & CTO': 1, 'Leadership': 2 }
 
 async function prospeoPeople() {
   const budget = cfg.prospeoDailyCredits;
+  indexCompanies();
   // Find people at companies we haven't searched yet (search pages cost 1 credit each).
   const due = db.companies
     .filter(c => c.domain && !c.prospeoAt && !/(^|\.)(github\.io|notion\.site|vercel\.app|linkedin\.com)$/.test(c.domain))
@@ -310,7 +324,7 @@ async function prospeoPeople() {
         r = await prospeo('search-person', {
           page,
           filters: {
-            company: { websites: { include: [...new Set(batch.map(c => registrable(c.domain)))] } },
+            company: { websites: { include: [...new Set(batch.flatMap(c => [c.domain, c.hq?.domain]).filter(Boolean).map(registrable))] } },
             person_job_title: { include: TITLES, match_mode: 'CONTAINS' },
             max_person_per_company: cfg.peoplePerCompany,
           },
@@ -436,7 +450,7 @@ async function prospeoCompanies() {
   state.prospeo.companyCredits ??= {};
   const used = () => state.prospeo.companyCredits[TODAY] || 0;
   const due = db.companies
-    .filter(c => !c.hqAt || Date.now() - Date.parse(c.hqAt) > 90 * DAY)
+    .filter(c => !c.hqAt || Date.now() - Date.parse(c.hqAt) > 90 * DAY || (c.hq?.matchedBy && !c.hq.companyId))
     .sort((a, b) => (a.status === 'open' ? 0 : 1) - (b.status === 'open' ? 0 : 1) || b.firstSeen.localeCompare(a.firstSeen));
   let looked = 0, matched = 0, linkedin = 0, dropped = 0;
   for (const c of due) {
@@ -464,6 +478,7 @@ async function prospeoCompanies() {
     c.hq = {
       matchedBy: how, country: co.location?.country || undefined, countryCode: co.location?.country_code || undefined, city: co.location?.city || undefined,
       linkedin: normLinkedIn(co.linkedin_url) || undefined, employees: co.employee_count || undefined, founded: co.founded || undefined,
+      companyId: co.company_id || undefined, domain: co.domain || undefined,
     };
     if (c.hq.linkedin) linkedin++;
     if (!c.website && co.website) { c.website = co.website; c.domain = domainOf(co.website); }
