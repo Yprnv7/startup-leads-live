@@ -572,7 +572,7 @@
  "zeroMiss": {},
  "prospeo": {
   "credits": {
-   "2026-10-30": 75
+   "2026-10-30": 105
   },
   "mobileCredits": {
    "2026-10-30": 136
@@ -4119,11 +4119,31 @@
   "jobfound": "2026-10-30T11:34:43.762Z"
  },
  "badEmails": {},
- "contactRules": 2,
+ "contactRules": 3,
  "mx": {
   "leeroo.com": {
    "ok": true,
    "at": "2026-10-30T11:32:47.805Z"
+  },
+  "inovex.de": {
+   "ok": true,
+   "at": "2026-10-30T11:44:44.947Z"
+  },
+  "tngtech.com": {
+   "ok": true,
+   "at": "2026-10-30T11:44:44.947Z"
+  },
+  "trusteq.de": {
+   "ok": true,
+   "at": "2026-10-30T11:44:44.947Z"
+  },
+  "tether.io": {
+   "ok": true,
+   "at": "2026-10-30T11:44:44.947Z"
+  },
+  "tether.to": {
+   "ok": true,
+   "at": "2026-10-30T11:44:44.947Z"
   }
  },
  "zb": {},
