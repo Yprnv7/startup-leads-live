@@ -332,7 +332,7 @@
  "zeroMiss": {},
  "prospeo": {
   "credits": {
-   "2026-10-30": 77
+   "2026-10-30": 80
   },
   "mobileCredits": {
    "2026-10-30": 136
@@ -2122,6 +2122,10 @@
   "arbeitnow:promantis-gmbh": {
    "reason": "US headquarters (Prospeo)",
    "at": "2026-10-30T13:22:48.201Z"
+  },
+  "jobicy:welo-global": {
+   "reason": "Hires in the US",
+   "at": "2026-10-30T18:03:14.751Z"
   }
  },
  "wikidata": {
@@ -4144,16 +4148,101 @@
    "at": "2026-10-30T13:21:54.134Z",
    "id": null,
    "us": false
+  },
+  "Alimentiv": {
+   "at": "2026-10-30T18:03:14.751Z",
+   "id": null,
+   "us": false
+  },
+  "Apaleo": {
+   "at": "2026-10-30T18:03:14.751Z",
+   "id": null,
+   "us": false
+  },
+  "AgentixLake GmbH": {
+   "at": "2026-10-30T18:03:14.751Z",
+   "id": null,
+   "us": false
+  },
+  "Pentadoc Gruppe": {
+   "at": "2026-10-30T18:03:14.751Z",
+   "id": null,
+   "us": false
+  },
+  "RusHour": {
+   "at": "2026-10-30T18:03:14.751Z",
+   "id": null,
+   "us": false
+  },
+  "JETPLAN": {
+   "at": "2026-10-30T18:03:14.751Z",
+   "id": null,
+   "us": false
+  },
+  "ElevenLabs": {
+   "at": "2026-10-30T18:03:14.751Z",
+   "id": null,
+   "us": false
+  },
+  "LOTARO": {
+   "at": "2026-10-30T18:03:14.751Z",
+   "id": null,
+   "us": false
+  },
+  "Hilobyaktiia": {
+   "at": "2026-10-30T18:03:14.751Z",
+   "id": null,
+   "us": false
+  },
+  "1KOMMA5˚": {
+   "at": "2026-10-30T18:03:14.751Z",
+   "id": null,
+   "us": false
+  },
+  "fino data services GmbH": {
+   "at": "2026-10-30T18:03:14.751Z",
+   "id": null,
+   "us": false
+  },
+  "IT Studio Rech GmbH": {
+   "at": "2026-10-30T18:03:14.751Z",
+   "id": null,
+   "us": false
+  },
+  "LLEVERAGE": {
+   "at": "2026-10-30T18:03:14.751Z",
+   "id": "Q136652762",
+   "us": false
+  },
+  "Smile Digital Health": {
+   "at": "2026-10-30T18:03:14.751Z",
+   "id": null,
+   "us": false
+  },
+  "Pivotal Health": {
+   "at": "2026-10-30T18:03:14.751Z",
+   "id": null,
+   "us": false
+  },
+  "Ace IT Careers": {
+   "at": "2026-10-30T18:03:14.751Z",
+   "id": null,
+   "us": false
+  },
+  "Welocalize": {
+   "at": "2026-10-30T18:03:14.751Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-10-30T13:21:54.134Z",
-  "remoteok": "2026-10-30T13:21:54.134Z",
-  "workingnomads": "2026-10-30T13:21:54.134Z",
-  "weworkremotely": "2026-10-30T13:21:54.134Z",
-  "nodesk": "2026-10-30T13:21:54.134Z",
-  "jobfound": "2026-10-30T09:38:14.666Z"
+  "remoteok": "2026-10-30T18:03:14.751Z",
+  "workingnomads": "2026-10-30T18:03:14.751Z",
+  "weworkremotely": "2026-10-30T18:03:14.751Z",
+  "nodesk": "2026-10-30T18:03:14.751Z",
+  "jobfound": "2026-10-30T18:03:14.751Z"
  },
- "jobicyAt": "2026-10-30T13:21:54.134Z",
- "arbeitnowAt": "2026-10-30T13:21:54.134Z"
+ "jobicyAt": "2026-10-30T18:03:14.751Z",
+ "arbeitnowAt": "2026-10-30T18:03:14.751Z"
 }
