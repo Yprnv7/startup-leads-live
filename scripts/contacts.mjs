@@ -274,16 +274,21 @@ function handleEnriched(matched) {
   return found;
 }
 
+// Prospeo rate-limits per minute: space calls out and back off on HTTP 429.
 async function prospeo(endpoint, body) {
-  const res = await fetch(`https://api.prospeo.io/${endpoint}`, {
-    method: 'POST',
-    headers: { 'X-KEY': API_KEY, 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-    signal: AbortSignal.timeout(60000),
-  });
-  const json = await res.json().catch(() => ({}));
-  if (!res.ok || json.error) throw new Error(`${endpoint}: HTTP ${res.status} ${json.error_code || json.message || ''}`);
-  return json;
+  for (let attempt = 0; ; attempt++) {
+    await new Promise(r => setTimeout(r, 1200));
+    const res = await fetch(`https://api.prospeo.io/${endpoint}`, {
+      method: 'POST',
+      headers: { 'X-KEY': API_KEY, 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+      signal: AbortSignal.timeout(60000),
+    });
+    const json = await res.json().catch(() => ({}));
+    if (res.status === 429 && attempt < 4) { await new Promise(r => setTimeout(r, 15000 * (attempt + 1))); continue; }
+    if (!res.ok || json.error) throw new Error(`${endpoint}: HTTP ${res.status} ${json.error_code || json.message || ''}`);
+    return json;
+  }
 }
 
 const spent = () => state.prospeo.credits[TODAY] || 0;
