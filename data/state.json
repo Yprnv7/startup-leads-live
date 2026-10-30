@@ -331,8 +331,12 @@
  "boardNames": {},
  "zeroMiss": {},
  "prospeo": {
-  "credits": {},
-  "mobileCredits": {}
+  "credits": {
+   "2026-10-30": 2
+  },
+  "mobileCredits": {
+   "2026-10-30": 45
+  }
  },
  "excluded": {
   "ats:greenhouse:deliveroo": {
@@ -1986,6 +1990,10 @@
   "weworkremotely:upgrade": {
    "reason": "US headquarters (config)",
    "at": "2026-10-30T07:34:30.814Z"
+  },
+  "yc:newscatcher": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-10-30T07:51:50.897Z"
   }
  },
  "arbeitnowAt": "2026-10-30T05:40:14.012Z",
