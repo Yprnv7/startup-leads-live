@@ -1701,6 +1701,18 @@
   "hn:livekit": {
    "reason": "US headquarters (config)",
    "at": "2026-10-30T05:55:43.867Z"
+  },
+  "hn:ripple": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T06:00:09.566Z"
+  },
+  "hn:rivian-automotive": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T06:00:09.566Z"
+  },
+  "hn:flow-traders": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-30T06:00:09.566Z"
   }
  },
  "arbeitnowAt": "2026-10-30T05:40:14.012Z",
@@ -2305,6 +2317,236 @@
    "at": "2026-10-30T05:55:43.867Z",
    "id": "Q54263821",
    "us": true
+  },
+  "Wake Up Call Service": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "typesafe ai": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "lovable": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": "Q135998012",
+   "us": false
+  },
+  "Longshot Systems": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Metcor": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "neoshare": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Enclave": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "PlantingSpace": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "EggAI": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Search Atlas": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Flok Health": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Proxima Fusion": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": "Q123422387",
+   "us": false
+  },
+  "GROWTH HACKER": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Estee Lauder Companies": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "AREO": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Founding Engineer": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "ML6": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Small prop-trading firm": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Charly": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Tivly": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Role: UX/UI Designer (BAY AREA, CA": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "GetYourGuide": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": "Q16839994",
+   "us": false
+  },
+  "Ripple": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": "Q16904931",
+   "us": true
+  },
+  "Odoo": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": "Q16668106",
+   "us": false
+  },
+  "AssumeAI": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Rentman": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": "Q140312539",
+   "us": false
+  },
+  "G-Research": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "In-office 4 days": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "MaFi Games": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "telli": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Rivian Automotive": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": "Q7338847",
+   "us": true
+  },
+  "PostHog": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Coder": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Empower Pharmacy": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Flow Traders": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": "Q21009903",
+   "us": true
+  },
+  "Flowstate": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Cleverbase": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "ChainSecurity": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Ojin": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "StartupHakk": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "esumry.com": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Sendery": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Irash Tech": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Baserow": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": "Q107454027",
+   "us": false
+  },
+  "exLabora AI": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
+  },
+  "Treat Health": {
+   "at": "2026-10-30T06:00:09.566Z",
+   "id": null,
+   "us": false
   }
  }
 }
