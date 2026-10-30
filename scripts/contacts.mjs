@@ -208,6 +208,7 @@ async function scanSites() {
 // ---------------------------------------------------------------- 2. Prospeo people + verified emails
 
 // Substring match, so avoid short tokens like "cto" (matches "director") or "coo" ("coordinator").
+const CSUITE_TITLES = ['founder', 'ceo', 'chief executive', 'chief technology', 'vp engineering', 'vp of engineering', 'head of engineering', 'managing director', 'geschäftsführer'];
 const TITLES = ['talent', 'recruit', 'human resources', 'people operations', 'head of people', 'hr manager', 'hr business partner', 'head of hr', 'hrbp', 'campus', 'university relations', 'partnership', 'alliance', 'business development', 'founder', 'ceo', 'chief'];
 const TWO_PART_TLD = /\.(?:co|com|org|net|ac|gov|edu)\.[a-z]{2}$/;
 const registrable = d => d.split('.').slice(TWO_PART_TLD.test(d) ? -3 : -2).join('.');
@@ -219,13 +220,31 @@ const companyForResult = co => {
 const byRegistrable = new Map();
 for (const c of db.companies) if (c.domain && !byRegistrable.has(registrable(c.domain))) byRegistrable.set(registrable(c.domain), c);
 
-function handleSearchResults(results) {
+const STRICT_CSUITE_RE = /^(?!.*\bassistant\b)(?!.*\bdirector\b(?!.*managing))(?:.*\b(ceo|cto|chief|co-?founder|founder|president|geschäftsführer|managing director|vp,? (?:of )?engineering|head of engineering)\b)/i;
+const normName = s => String(s || '').toLowerCase().replace(/\b(gmbh|plc|ag|ltd|limited|inc|oy|sas|bv|llc)\b|\(.*?\)|[^a-z0-9]/g, '');
+const excludedNow = new Set();
+
+// Companies whose Prospeo record puts the headquarters in the US are dropped (site rule: no USA).
+function excludeCompany(c, reason) {
+  state.excluded ??= {};
+  state.excluded[c.id] = { reason, at: NOW };
+  excludedNow.add(c.id);
+  const i = db.companies.indexOf(c);
+  if (i >= 0) db.companies.splice(i, 1);
+  db.events = (db.events || []).filter(e => e.companyId !== c.id);
+}
+
+function handleSearchResults(results, { resolve = companyForResult, strict = false } = {}) {
   let added = 0;
   for (const r of results || []) {
     const p = r.person || {};
-    const c = companyForResult(r.company);
+    const c = resolve(r.company);
+    if (!c || excludedNow.has(c.id)) continue;
+    if (r.company?.location?.country_code === 'US') { excludeCompany(c, 'US headquarters (Prospeo)'); continue; }
+    if (!c.website && r.company?.website) { c.website = r.company.website; c.domain = domainOf(r.company.website); }
+    if (!c.linkedin && r.company?.linkedin_url) c.linkedin = r.company.linkedin_url;
     const title = p.current_job_title || p.headline;
-    if (!c || !p.full_name || teamOf(title) === 'Other') continue;
+    if (!p.full_name || teamOf(title) === 'Other' || (strict && !STRICT_CSUITE_RE.test(p.current_job_title || ''))) continue;
     const revealed = p.email?.revealed && p.email?.email && !p.email.email.includes('*') ? p.email.email.toLowerCase() : undefined;
     const loc = p.location ? [p.location.city, p.location.country].filter(Boolean).join(', ') : undefined;
     addPerson(c, {
@@ -301,6 +320,35 @@ async function prospeoPeople() {
     }
     for (const c of batch) c.prospeoAt = NOW;
   }
+  // Companies from job feeds often have no website: look up their C-Suite by company name instead.
+  const dueNames = db.companies
+    .filter(c => !c.domain && !c.prospeoAt && c.status === 'open')
+    .sort((a, b) => b.firstSeen.localeCompare(a.firstSeen))
+    .slice(0, cfg.prospeoCompaniesPerRun);
+  for (let i = 0; i < dueNames.length && spent() < budget; i += 25) {
+    const batch = dueNames.slice(i, i + 25);
+    const byNorm = new Map(batch.map(c => [normName(c.name), c]));
+    for (let page = 1; page <= 4 && spent() < budget; page++) {
+      let r;
+      try {
+        r = await prospeo('search-person', {
+          page,
+          filters: {
+            company: { names: { include: batch.map(c => c.name) } },
+            person_job_title: { include: CSUITE_TITLES, match_mode: 'CONTAINS' },
+            max_person_per_company: 2,
+          },
+        });
+      } catch (e) {
+        if (/NO_RESULTS/i.test(e.message)) break;
+        report.prospeo = { error: e.message }; return;
+      }
+      spend(1); pages++;
+      people += handleSearchResults(r.results, { resolve: co => byNorm.get(normName(co?.name)), strict: true });
+      if (page >= (r.pagination?.total_page || 1)) break;
+    }
+    for (const c of batch) c.prospeoAt = NOW;
+  }
   // Reveal verified emails, recruiters & partnerships first, within the daily credit cap.
   const queue = db.companies.flatMap(c => (c.contacts || []).filter(x => x.personId && !x.email && !x.enrichedAt && x.emailStatus === 'VERIFIED'))
     .sort((a, b) => TEAM_PRIORITY[a.team] - TEAM_PRIORITY[b.team]);
@@ -315,7 +363,62 @@ async function prospeoPeople() {
     for (const x of batch) x.enrichedAt = NOW;
     emails += handleEnriched(r.matched);
   }
-  report.prospeo = { companiesSearched: due.length, people, searchPages: pages, emailsRevealed: emails, creditsToday: spent(), pendingEmails: queue.length };
+  report.prospeo = { companiesSearched: due.length + dueNames.length, people, searchPages: pages, emailsRevealed: emails, creditsToday: spent(), pendingEmails: queue.length, excludedUS: excludedNow.size };
+}
+
+// Verified mobiles for each hiring company's top C-Suite (CEO, then CTO, then founders), newest
+// companies first, under a separate daily credit cap. Prospeo charges 10 credits per number found.
+const mobileRank = t => (/\bceo\b|chief executive|geschäftsführer|managing director/i.test(t) ? 0 : /\bcto\b|chief technology/i.test(t) ? 1 : /founder/i.test(t) ? 2 : 3);
+const liKey = url => 'li' + String(url || '').toLowerCase().replace(/^.*\/in\//, '').replace(/[^a-z0-9]/g, '').slice(0, 60);
+
+async function prospeoMobiles() {
+  const budget = cfg.prospeoMobileDailyCredits ?? 0;
+  if (!budget) return;
+  state.prospeo.mobileCredits ??= {};
+  const used = () => state.prospeo.mobileCredits[TODAY] || 0;
+  const retryAfter = 90 * DAY;
+  const queue = db.companies
+    .filter(c => c.status === 'open')
+    .sort((a, b) => b.firstSeen.localeCompare(a.firstSeen))
+    .flatMap(c => (c.contacts || [])
+      .filter(p => STRICT_CSUITE_RE.test(p.title || '') && !p.phone && p.mobileStatus !== 'UNAVAILABLE' && (p.personId || p.linkedin)
+        && (!p.mobileTriedAt || Date.now() - Date.parse(p.mobileTriedAt) > retryAfter))
+      .sort((a, b) => mobileRank(a.title) - mobileRank(b.title))
+      .slice(0, cfg.mobilesPerCompany ?? 2)
+      .map(p => ({ c, p })));
+  let tried = 0, found = 0, moved = 0;
+  // Each batch is sized so that even if every lookup hits, the daily cap can't be exceeded.
+  while (queue.length && used() + 10 <= budget) {
+    const batch = queue.splice(0, Math.min(25, Math.floor((budget - used()) / 10)));
+    const byKey = new Map(batch.map(x => [x.p.personId || liKey(x.p.linkedin), x]));
+    const data = batch.map(({ c, p }) => p.personId
+      ? { identifier: p.personId, person_id: p.personId }
+      : { identifier: liKey(p.linkedin), linkedin_url: p.linkedin, full_name: p.name, company_name: c.name, ...(c.domain ? { company_website: c.domain } : {}) });
+    let r;
+    try {
+      r = await prospeo('bulk-enrich-person', { enrich_mobile: true, only_verified_mobile: true, data });
+    } catch (e) { report.mobiles = { error: e.message, tried, found }; return; }
+    state.prospeo.mobileCredits[TODAY] = used() + (r.total_cost ?? 0);
+    for (const { p } of batch) p.mobileTriedAt = NOW;
+    tried += batch.length;
+    for (const m of r.matched || []) {
+      const hit = byKey.get(m.identifier);
+      if (!hit) continue;
+      const { c, p } = hit;
+      const co = m.company;
+      // Only attach a number if Prospeo still places the person at this company.
+      if (co && c.domain && registrable(domainOf(co.website || co.domain) || '') !== registrable(c.domain) && normName(co.name) !== normName(c.name)) { moved++; continue; }
+      const mobile = m.person?.mobile?.mobile_international || m.person?.mobile?.mobile;
+      if (!mobile || mobile.includes('*')) continue;
+      p.phone = mobile;
+      p.mobileStatus = 'VERIFIED';
+      p.personId ??= m.person.person_id;
+      const email = m.person?.email?.email;
+      if (email && !email.includes('*') && !p.email) { p.email = email.toLowerCase(); p.emailStatus = 'VERIFIED'; }
+      found++;
+    }
+  }
+  report.mobiles = { tried, found, skippedMoved: moved, creditsToday: used(), dailyCap: budget, waiting: queue.length };
 }
 
 // Responses saved from the Prospeo connector (MCP) can be imported with --import.
@@ -336,7 +439,7 @@ async function importSaved(files) {
 
 if (args.import) await importSaved(String(args.import).split(','));
 if (!args['skip-scan']) await scanSites();
-if (API_KEY) await prospeoPeople();
+if (API_KEY) { await prospeoPeople(); await prospeoMobiles(); }
 else report.prospeo = { skipped: 'PROSPEO_API_KEY not set' };
 
 // Founders from YC / HN keep their team label too.
@@ -356,7 +459,7 @@ db.meta.totals = {
 db.meta.sources = { ...db.meta.sources, contacts: report };
 db.meta.lastContactsAt = NOW;
 // Keep only 30 days of the credit ledger.
-for (const d of Object.keys(state.prospeo.credits)) if (Date.now() - Date.parse(d) > 30 * DAY) delete state.prospeo.credits[d];
+for (const ledger of [state.prospeo.credits, state.prospeo.mobileCredits || {}]) for (const d of Object.keys(ledger)) if (Date.now() - Date.parse(d) > 30 * DAY) delete ledger[d];
 
 await fs.writeFile(LEADS_FILE, JSON.stringify(db));
 await fs.writeFile(STATE_FILE, JSON.stringify(state, null, 1));

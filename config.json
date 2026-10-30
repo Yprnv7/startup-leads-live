@@ -514,7 +514,9 @@
     "rescanDays": 30,
     "prospeoDailyCredits": 250,
     "prospeoCompaniesPerRun": 150,
-    "peoplePerCompany": 6
+    "peoplePerCompany": 6,
+    "prospeoMobileDailyCredits": 100,
+    "mobilesPerCompany": 2
   },
   "focusMarkets": [
     "MEA",

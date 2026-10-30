@@ -21,7 +21,12 @@ Y Combinator (company pages: jobs and founders), HN "Who is hiring?", 60+ startu
 
 People come from YC founder lists, HN posters, and Prospeo (talent, partnerships and C-Suite people with verified emails). Company emails, HQ phone numbers and social profiles come from a scan of each company's own website. **No contact detail is ever guessed.** Where a person's direct phone isn't known, the card shows the company's HQ line, labelled "HQ line". Where no one is on record, it shows one-click LinkedIn searches for the CEO, CTO and founders.
 
-Prospeo lookups for new companies need the repo secret `PROSPEO_API_KEY` and are capped at 250 credits a day (`config.json → contacts.prospeoDailyCredits`).
+Prospeo lookups for new companies need the repo secret `PROSPEO_API_KEY`. Every hourly run:
+- searches each new company's people, by website or, for companies from job feeds, by company name;
+- reveals verified emails, capped at 250 credits a day (`contacts.prospeoDailyCredits`);
+- buys **verified mobiles** for the top CEO/CTO/founders (up to 2 per company, newest companies first), capped at **100 credits a day** (`contacts.prospeoMobileDailyCredits`). Prospeo charges 10 credits only when it finds a number. A number is only attached if Prospeo still places the person at that company. Anyone without a number is retried after 90 days.
+
+Companies whose Prospeo record puts the headquarters in the US are excluded automatically.
 
 ## Schedule
 
