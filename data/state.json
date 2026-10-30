@@ -331,7 +331,8 @@
  "boardNames": {},
  "zeroMiss": {},
  "prospeo": {
-  "credits": {}
+  "credits": {},
+  "mobileCredits": {}
  },
  "excluded": {
   "ats:greenhouse:deliveroo": {
