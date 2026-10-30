@@ -192,7 +192,8 @@ function scopeOf(job, context) {
   const countries = scopeCountries(places, context.filter(p => SCOPE_COUNTRIES.includes(p)));
   // For the RTI tracker: does the posting itself name India (e.g. "Remote (SG; ID; IN)")?
   const openToIndia = places.includes('India');
-  return { ok: remote && countries.length > 0, places: countries, worldwide: places.includes('Worldwide'), openToIndia };
+  const wideOnly = remote && !countries.length && places.some(p => WIDE[p]?.covers.some(r => SCOPE_COUNTRIES.some(c => REGION_OF[c] === r)));
+  return { ok: remote && countries.length > 0, places: countries, worldwide: places.includes('Worldwide'), openToIndia, wideOnly };
 }
 
 // Companies we never list: headquartered in the US, or with an office in India.
@@ -215,8 +216,19 @@ function applyScope(j, s) {
   j.openToIndia = s.openToIndia;
 }
 
+// Headquarters found by the deeper search for companies the job feeds don't place anywhere.
+const hqKnown = name => state.hqKnown?.[normCo(name)];
+const hqLocation = name => { const h = hqKnown(name); return h?.country || undefined; };
+
 function upsertJob(company, job) {
   const scope = scopeOf(job, companyContext(company));
+  // A remote tech internship open worldwide / Europe-wide / APAC-wide from a company whose headquarters
+  // we don't know: ask the deeper search to look the company up (scripts/discover.mjs).
+  if (!scope.ok && !company.location && !hqKnown(company.name) && scope.wideOnly) {
+    state.hqCandidates ??= {};
+    const cand = (state.hqCandidates[normCo(company.name)] ??= { name: company.name, titles: [], at: NOW });
+    if (!cand.titles.includes(job.title)) cand.titles = [...cand.titles, job.title].slice(-5);
+  }
   delete job.text;
   if (scope.agency) exclude(company.id, 'Recruitment agency (posts for unnamed clients)');
   if (scope.usHq) exclude(company.id, 'US headquarters (job posting)');
@@ -738,7 +750,7 @@ async function processJobicy() {
     // Jobicy gives no headquarters. A company that also hires in the US is treated as US-based and dropped.
     if (!byId.get(id)?.location && placesOf(decode(j.jobGeo || '')).includes('United States')) { exclude(id, 'Hires in the US'); continue; }
     const isNew = !byId.has(id);
-    const c = upsertCompany(id, { name, source: 'jobicy', logo: byId.get(id)?.logo || j.companyLogo });
+    const c = upsertCompany(id, { name, source: 'jobicy', location: byId.get(id)?.location || hqLocation(name), logo: byId.get(id)?.logo || j.companyLogo });
     const title = decode(j.jobTitle);
     const levelIntern = /intern/i.test(`${j.jobLevel} ${j.jobType}`);
     const job = upsertJob(c, {
@@ -784,7 +796,7 @@ async function processArbeitnow() {
     const isNew = !byId.has(id);
     // Arbeitnow is a German board: a bare "Remote job" means remote within Germany.
     const loc = /^(remote( job)?|homeoffice)$/i.test((j.location || '').trim()) ? 'Remote (Germany)' : `${j.location} / Remote`;
-    const c = upsertCompany(id, { name, source: 'arbeitnow', location: byId.get(id)?.location || (placesOf(j.location).length ? j.location : 'Germany') });
+    const c = upsertCompany(id, { name, source: 'arbeitnow', location: byId.get(id)?.location || hqLocation(name) || (placesOf(j.location).length ? j.location : 'Germany') });
     const title = decode(j.title).replace(/\s*·\s*remote\s*$/i, '');
     const job = upsertJob(c, {
       id: `arbeitnow:${j.slug}`, src: 'arbeitnow', title, type: jobType(title, (j.job_types || []).some(t => /intern|praktikum/i.test(t)) ? 'intern' : ''),
@@ -948,7 +960,7 @@ async function processOthers() {
       if (it.hq && placesOf(it.hq).includes('United States')) { exclude(id, `US headquarters (${feed.label})`); continue; }
       const isNew = !byId.has(id);
       const title = decode(it.title);
-      const c = upsertCompany(id, { name, source: src, location: byId.get(id)?.location || it.hq || undefined, logo: byId.get(id)?.logo || it.logo });
+      const c = upsertCompany(id, { name, source: src, location: byId.get(id)?.location || it.hq || hqLocation(name), logo: byId.get(id)?.logo || it.logo });
       const job = upsertJob(c, {
         id: jobId, src, via: src, title, type: jobType(title, it.internship ? 'intern' : ''),
         location: decode(it.location || ''), remoteFlag: true, url: it.url, applyUrl: it.applyUrl, postedAt: t ? new Date(t).toISOString() : undefined, text: stripHtml(decode(it.text || '')),

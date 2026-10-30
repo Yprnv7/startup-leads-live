@@ -8,6 +8,10 @@
 //      name matches on Greenhouse, Lever, Ashby, Workable, Recruitee or SmartRecruiters.
 //   3. Boards found are added to data/state.json (boards); update.mjs reads them every run and keeps
 //      only 100% remote tech internships, like every other source.
+//   4. Headquarters for companies whose remote internships are open worldwide / Europe-wide / APAC-wide
+//      but whose location the job feeds don't give (state.hqCandidates, from update.mjs): a Prospeo
+//      company lookup, accepted only when the name matches and Prospeo lists one of the same open roles.
+//      If the company is based in one of the five countries, those internships count for it.
 //
 //   node scripts/discover.mjs            flags: --detect-limit=N
 
@@ -201,8 +205,37 @@ async function detectBoards() {
   report.boards = { checked: due.length, withBoard, newBoards, waiting: Object.values(disc.companies).filter(c => !c.checkedAt).length, totalDiscoveredBoards: state.boards.filter(b => b.via === 'prospeo').length };
 }
 
+const sameTitle = (a, b) => { a = a.toLowerCase(); b = b.toLowerCase(); return a === b || (Math.min(a.length, b.length) > 12 && (a.includes(b) || b.includes(a))); };
+async function resolveHeadquarters() {
+  if (!API_KEY) return;
+  state.hqKnown ??= {};
+  state.prospeo.discoveryCredits ??= {};
+  const used = () => state.prospeo.discoveryCredits[TODAY] || 0;
+  const due = Object.entries(state.hqCandidates || {}).filter(([, c]) => !c.lookedAt).slice(0, cfg.hqLookupsPerRun ?? 20);
+  let looked = 0, confirmed = 0;
+  for (const [key, cand] of due) {
+    if (used() >= (cfg.prospeoDailyCredits ?? 60)) break;
+    let r;
+    try { r = await prospeo('enrich-company', { data: { company_name: cand.name } }); } catch (e) {
+      if (/NO_MATCH|NOT_FOUND|404/i.test(e.message)) { cand.lookedAt = NOW; cand.result = 'not found'; looked++; continue; }
+      report.headquarters = { error: e.message, looked, confirmed }; return;
+    }
+    looked++;
+    cand.lookedAt = NOW;
+    if (!r.free_enrichment) state.prospeo.discoveryCredits[TODAY] = used() + 1;
+    const co = r.company || r.data?.company;
+    const roleMatch = (co?.job_postings?.active_titles || []).some(t => cand.titles.some(x => sameTitle(x, t)));
+    if (!co || !sameCompany(co.name, cand.name) || !roleMatch || !co.location?.country) { cand.result = 'not confirmed'; continue; }
+    state.hqKnown[key] = { name: co.name, country: co.location.country, countryCode: co.location.country_code, website: co.website || undefined, at: NOW };
+    cand.result = co.location.country;
+    confirmed++;
+  }
+  report.headquarters = { looked, confirmed, waiting: Object.values(state.hqCandidates || {}).filter(c => !c.lookedAt).length };
+}
+
 await searchCompanies();
 await detectBoards();
+await resolveHeadquarters();
 for (const d of Object.keys(state.prospeo.discoveryCredits || {})) if (Date.now() - Date.parse(d) > 30 * DAY) delete state.prospeo.discoveryCredits[d];
 await fs.writeFile(STATE_FILE, JSON.stringify(state, null, 1));
 console.log(JSON.stringify(report, null, 2));
