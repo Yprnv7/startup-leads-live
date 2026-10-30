@@ -1,7 +1,7 @@
 {
   "repo": "Yprnv7/startup-leads-live",
   "yc": {
-    "newCompaniesPerDay": 40,
+    "newCompaniesPerDay": 60,
     "firstRunCompanies": 120,
     "regionPriority": [
       "United Kingdom",
@@ -508,22 +508,24 @@
     ]
   },
   "techRoleRegex": "engineer|developer|software|\\bsde\\b|data|machine learning|\\bml\\b|\\bai\\b|product|design|devops|\\bsre\\b|security|\\bqa\\b|test|front.?end|back.?end|full.?stack|mobile|android|ios|intern|analyst|research|scientist|architect|platform|infra|cloud|growth|founding",
-  "internRegex": "\\bintern(ship)?s?\\b|co-?op\\b|apprentice|trainee",
+  "internRegex": "\\bintern(ship)?s?\\b|\\bco-?op\\b|praktik(um|ant|antin)\\b|pflichtpraktikum|industrial placement|placement year|year in industry",
   "contacts": {
     "websiteScansPerRun": 150,
     "rescanDays": 30,
     "prospeoDailyCredits": 250,
     "prospeoCompaniesPerRun": 150,
-    "peoplePerCompany": 6,
+    "peoplePerCompany": 10,
     "prospeoMobileDailyCredits": 100,
-    "mobilesPerCompany": 2
+    "mobilesPerCompany": 2,
+    "prospeoCompanyDailyCredits": 150,
+    "zerobounceDailyCredits": 100
   },
   "focusMarkets": [
-    "MEA",
-    "SEA",
+    "Australia",
     "Germany",
-    "UK",
-    "Australia"
+    "Singapore",
+    "United Arab Emirates",
+    "United Kingdom"
   ],
   "jobicy": {
     "enabled": true,
@@ -577,7 +579,9 @@
     "Proxify": "Staffing / talent marketplace (not a direct employer)",
     "Proxify AB": "Staffing / talent marketplace (not a direct employer)",
     "Lemon.io": "Staffing / talent marketplace (not a direct employer)",
-    "Unio Digital": "Staffing / talent marketplace (not a direct employer)"
+    "Unio Digital": "Staffing / talent marketplace (not a direct employer)",
+    "Galaxy": "US headquarters (Galaxy Digital, New York)",
+    "Novi Loren & PortCo": "Posts internships on behalf of other firms (not the employer)"
   },
   "wikidataLookupsPerRun": 150,
   "allowCompanies": {

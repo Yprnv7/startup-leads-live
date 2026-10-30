@@ -1,17 +1,25 @@
 #!/usr/bin/env node
-// Builds every point of contact for each company in data/leads.json:
-//   1. Website scan (free): careers / HR / partnerships / press emails, phone numbers,
-//      social profiles and contact/careers/partner pages from the company's own site.
-//   2. Prospeo (needs PROSPEO_API_KEY): named founders, talent acquisition, HR,
-//      partnerships and BD people with LinkedIn, plus verified emails (credit-capped).
+// Builds the points of contact for each company in data/leads.json:
+//   1. Website scan (free): careers / HR mailboxes, phone numbers, social profiles and
+//      contact / careers pages from the company's own site.
+//   2. Prospeo company lookup (needs PROSPEO_API_KEY): headquarters country (US / India HQs are
+//      dropped) and the company's LinkedIn page, accepted only when Prospeo's record has the same
+//      website as ours (or, with no website, the same name plus our open roles or country).
+//   3. Prospeo people: HR / talent, founders & CTOs, VPs, directors and heads (no partnerships),
+//      with LinkedIn and verified emails (credit-capped).
+//   4. Email validation: every published email must have a working mail server (MX record) and be
+//      verified by Prospeo, published on the company's own site, or confirmed by ZeroBounce
+//      (ZEROBOUNCE_API_KEY). Emails that fail are removed and never added again.
 //
 //   node scripts/contacts.mjs                       # scan + Prospeo (if key set)
-//   flags: --crawl-limit=N  --import=a.json,b.json  (import saved Prospeo responses)
+//   flags: --crawl-limit=N  --skip-scan  --import=a.json,b.json  (import saved Prospeo responses)
 
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { isFocusPlaces } from './markets.mjs';
+import dns from 'node:dns/promises';
+import { isFocusPlaces, SCOPE_COUNTRIES } from './markets.mjs';
+import { teamOf, isTalentMailbox, normLinkedIn } from './people.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const LEADS_FILE = path.join(ROOT, 'data/leads.json');
@@ -29,10 +37,17 @@ const TODAY = NOW.slice(0, 10);
 const DAY = 86400e3;
 const UA = `Mozilla/5.0 (compatible; StartupLeadsBot/1.0; +https://github.com/${config.repo})`;
 const API_KEY = process.env.PROSPEO_API_KEY;
+const ZB_KEY = process.env.ZEROBOUNCE_API_KEY;
 
 const db = JSON.parse(await fs.readFile(LEADS_FILE, 'utf8'));
 const state = JSON.parse(await fs.readFile(STATE_FILE, 'utf8'));
 state.prospeo ??= { credits: {} };
+state.badEmails ??= {};
+// The contact rules changed (v2: HR / founders & CTO / VPs, directors, heads): search every company again.
+if (state.contactRules !== 2) {
+  for (const c of db.companies) { delete c.prospeoAt; for (const p of c.contacts || []) delete p.enrichedAt; }
+  state.contactRules = 2;
+}
 const report = {};
 
 const domainOf = u => { if (!u || u === 'undefined') return null; try { return new URL(/^https?:/.test(u) ? u : `https://${u}`).hostname.replace(/^www\./, '').toLowerCase(); } catch { return null; } };
@@ -43,23 +58,6 @@ for (const c of db.companies) {
 }
 
 // ---------------------------------------------------------------- classification
-
-function teamOf(title = '') {
-  if (/recruit|talent|human resources|\bhr\b|\bhrbp\b|people (?:ops|operations|partner|team|lead)|head of people|campus|university|hiring|staffing/i.test(title)) return 'Talent & HR';
-  if (/partner(?:ship)?s?\b(?! at)|alliance|business development|\bbd\b|bizdev|ecosystem|channel|strategic relations|developer relations/i.test(title) && !/managing partner|general partner/i.test(title)) return 'Partnerships & BD';
-  if (/founder|\bceo\b|\bcto\b|\bcoo\b|\bcfo\b|\bcpo\b|chief|president|owner|managing director|founding/i.test(title)) return 'Founders & leadership';
-  if (/sales|growth|marketing|account exec|revenue|customer success/i.test(title)) return 'Sales & growth';
-  return 'Other';
-}
-function emailTeam(local) {
-  if (/career|job|hiring|recruit|talent|^hr|people|join|work|campus|intern|resume|cv/i.test(local)) return 'Talent & HR';
-  if (/partner|alliance|^bd|business|bizdev|collab|affiliate|reseller/i.test(local)) return 'Partnerships & BD';
-  if (/press|media|^pr$|news|comms|brand/i.test(local)) return 'Press';
-  if (/sales|growth|marketing|demo/i.test(local)) return 'Sales & growth';
-  if (/support|help|care|service|billing|privacy|legal|security|abuse|dpo|compliance/i.test(local)) return 'Support & legal';
-  if (/hello|^hi$|info|contact|team|founders?|ceo|office|admin|general|enquir|inquir/i.test(local)) return 'General';
-  return 'Other';
-}
 
 function addPerson(c, p) {
   c.contacts ??= [];
@@ -180,12 +178,12 @@ async function scanSite(c) {
   if (!ch.pages.careers && c.careersUrl) ch.pages.careers = c.careersUrl;
 
   c.channels = {
-    emails: [...ch.emails].slice(0, 15).map(([email, page]) => ({ email, team: emailTeam(email.split('@')[0]), page })),
+    emails: [...ch.emails].filter(([email]) => isTalentMailbox(email) && !state.badEmails[email]).slice(0, 6).map(([email, page]) => ({ email, team: 'Talent & HR', page })),
     phones: [...new Map([...ch.phones.values()].map(x => [x.phone.replace(/\D/g, '').slice(-10), x])).values()].slice(0, 6),
     social: { ...(c.channels?.social || {}), ...ch.social },
     pages: ch.pages,
   };
-  if (c.channels.social.linkedin && !c.linkedin) c.linkedin = c.channels.social.linkedin;
+  c.siteLinkedin = normLinkedIn(ch.social.linkedin) || undefined;
   c.scan = { at: NOW, ok: true };
   return true;
 }
@@ -207,9 +205,10 @@ async function scanSites() {
 
 // ---------------------------------------------------------------- 2. Prospeo people + verified emails
 
-// Substring match, so avoid short tokens like "cto" (matches "director") or "coo" ("coordinator").
-const CSUITE_TITLES = ['founder', 'ceo', 'chief executive', 'chief technology', 'vp engineering', 'vp of engineering', 'head of engineering', 'managing director', 'geschäftsführer'];
-const TITLES = ['talent', 'recruit', 'human resources', 'people operations', 'head of people', 'hr manager', 'hr business partner', 'head of hr', 'hrbp', 'campus', 'university relations', 'partnership', 'alliance', 'business development', 'founder', 'ceo', 'chief'];
+// Substring match on job titles; results are then checked against the contact rules (people.mjs).
+const TITLES = ['talent', 'recruit', 'human resources', 'people operations', 'people partner', 'head of people', 'chief people', 'hr manager', 'hr business partner', 'hr director', 'hr lead', 'hr generalist', 'head of hr', 'hrbp', 'campus', 'university relations', 'early careers',
+  'founder', 'chief technology', 'cto', 'vp', 'vice president', 'director', 'head of', 'geschäftsführer'];
+const LEADER_TITLES = ['founder', 'chief technology', 'cto', 'talent', 'recruit', 'human resources', 'head of people', 'hr manager', 'head of hr'];
 const TWO_PART_TLD = /\.(?:co|com|org|net|ac|gov|edu)\.[a-z]{2}$/;
 const registrable = d => d.split('.').slice(TWO_PART_TLD.test(d) ? -3 : -2).join('.');
 
@@ -220,7 +219,6 @@ const companyForResult = co => {
 const byRegistrable = new Map();
 for (const c of db.companies) if (c.domain && !byRegistrable.has(registrable(c.domain))) byRegistrable.set(registrable(c.domain), c);
 
-const STRICT_CSUITE_RE = /^(?!.*\bassistant\b)(?!.*\bdirector\b(?!.*managing))(?:.*\b(ceo|cto|chief|co-?founder|founder|president|geschäftsführer|managing director|vp,? (?:of )?engineering|head of engineering)\b)/i;
 const normName = s => String(s || '').toLowerCase().replace(/\b(gmbh|plc|ag|ltd|limited|inc|oy|sas|bv|llc)\b|\(.*?\)|[^a-z0-9]/g, '');
 const excludedNow = new Set();
 
@@ -242,14 +240,15 @@ function handleSearchResults(results, { resolve = companyForResult, strict = fal
     if (!c || excludedNow.has(c.id)) continue;
     if (r.company?.location?.country_code === 'US') { excludeCompany(c, 'US headquarters (Prospeo)'); continue; }
     if (!c.website && r.company?.website) { c.website = r.company.website; c.domain = domainOf(r.company.website); }
-    if (!c.linkedin && r.company?.linkedin_url) c.linkedin = r.company.linkedin_url;
-    const title = p.current_job_title || p.headline;
-    if (!p.full_name || teamOf(title) === 'Other' || (strict && !STRICT_CSUITE_RE.test(p.current_job_title || ''))) continue;
-    const revealed = p.email?.revealed && p.email?.email && !p.email.email.includes('*') ? p.email.email.toLowerCase() : undefined;
+    if (r.company?.linkedin_url) c.prospeoLinkedin ??= normLinkedIn(r.company.linkedin_url) || undefined;
+    const title = strict ? p.current_job_title : (p.current_job_title || p.headline);
+    const team = teamOf({ title });
+    if (!p.full_name || !team) continue;
+    const revealed = p.email?.revealed && p.email?.email && !p.email.email.includes('*') && !state.badEmails[p.email.email.toLowerCase()] ? p.email.email.toLowerCase() : undefined;
     // Site rule: no US data anywhere, so a US-based person's location isn't stored.
     const loc = p.location && p.location.country_code !== 'US' && !/united states/i.test(p.location.country || '') ? [p.location.city, p.location.country].filter(Boolean).join(', ') : undefined;
     addPerson(c, {
-      name: p.full_name, title, team: teamOf(title),
+      name: p.full_name, title, team,
       linkedin: p.linkedin_url, location: loc, source: 'Prospeo', personId: p.person_id,
       emailStatus: p.email?.status || undefined, email: revealed, mobileStatus: p.mobile?.status || undefined,
     });
@@ -267,7 +266,7 @@ function handleEnriched(matched) {
     if (!target) continue;
     target.enrichedAt = NOW;
     const email = typeof p.email === 'string' ? p.email : p.email?.email;
-    if (email && !email.includes('*')) { target.email = email.toLowerCase(); target.emailStatus = p.email?.status || 'VERIFIED'; found++; }
+    if (email && !email.includes('*') && !state.badEmails[email.toLowerCase()]) { target.email = email.toLowerCase(); target.emailStatus = p.email?.status || 'VERIFIED'; found++; }
     const mobile = p.mobile?.revealed !== false ? (p.mobile?.mobile_international || p.mobile?.mobile) : null;
     if (mobile && !mobile.includes('*')) target.phone = mobile;
   }
@@ -293,7 +292,7 @@ async function prospeo(endpoint, body) {
 
 const spent = () => state.prospeo.credits[TODAY] || 0;
 const spend = n => { state.prospeo.credits[TODAY] = spent() + n; };
-const TEAM_PRIORITY = { 'Talent & HR': 0, 'Partnerships & BD': 1, 'Founders & leadership': 2, 'Sales & growth': 3, Other: 4 };
+const TEAM_PRIORITY = { 'Talent & HR': 0, 'Founders & CTO': 1, 'Leadership': 2 };
 
 async function prospeoPeople() {
   const budget = cfg.prospeoDailyCredits;
@@ -341,8 +340,8 @@ async function prospeoPeople() {
           page,
           filters: {
             company: { names: { include: batch.map(c => c.name) } },
-            person_job_title: { include: CSUITE_TITLES, match_mode: 'CONTAINS' },
-            max_person_per_company: 2,
+            person_job_title: { include: LEADER_TITLES, match_mode: 'CONTAINS' },
+            max_person_per_company: 4,
           },
         });
       } catch (e) {
@@ -355,7 +354,7 @@ async function prospeoPeople() {
     }
     for (const c of batch) c.prospeoAt = NOW;
   }
-  // Reveal verified emails, recruiters & partnerships first, within the daily credit cap.
+  // Reveal verified emails, recruiters & HR first, then founders & CTOs, within the daily credit cap.
   const queue = db.companies.flatMap(c => (c.contacts || []).filter(x => x.personId && !x.email && !x.enrichedAt && x.emailStatus === 'VERIFIED'))
     .sort((a, b) => TEAM_PRIORITY[a.team] - TEAM_PRIORITY[b.team]);
   let emails = 0;
@@ -372,8 +371,8 @@ async function prospeoPeople() {
   report.prospeo = { companiesSearched: due.length + dueNames.length, people, searchPages: pages, emailsRevealed: emails, creditsToday: spent(), pendingEmails: queue.length, excludedUS: excludedNow.size };
 }
 
-// Verified mobiles for each hiring company's top C-Suite (CEO, then CTO, then founders), newest
-// companies first, under a separate daily credit cap. Prospeo charges 10 credits per number found.
+// Verified mobiles for each hiring company's founders and CTO (founder-CEO first, then CTO, then other
+// founders), newest companies first, under a separate daily credit cap. Prospeo charges 10 credits per number found.
 const mobileRank = t => (/\bceo\b|chief executive|geschäftsführer|managing director/i.test(t) ? 0 : /\bcto\b|chief technology/i.test(t) ? 1 : /founder/i.test(t) ? 2 : 3);
 const liKey = url => 'li' + String(url || '').toLowerCase().replace(/^.*\/in\//, '').replace(/[^a-z0-9]/g, '').slice(0, 60);
 
@@ -387,7 +386,7 @@ async function prospeoMobiles() {
     .filter(c => c.status === 'open')
     .sort((a, b) => b.firstSeen.localeCompare(a.firstSeen))
     .flatMap(c => (c.contacts || [])
-      .filter(p => STRICT_CSUITE_RE.test(p.title || '') && !p.phone && p.mobileStatus !== 'UNAVAILABLE' && (p.personId || p.linkedin)
+      .filter(p => teamOf(p) === 'Founders & CTO' && !p.phone && p.mobileStatus !== 'UNAVAILABLE' && (p.personId || p.linkedin)
         && (!p.mobileTriedAt || Date.now() - Date.parse(p.mobileTriedAt) > retryAfter))
       .sort((a, b) => mobileRank(a.title) - mobileRank(b.title))
       .slice(0, cfg.mobilesPerCompany ?? 2)
@@ -420,11 +419,173 @@ async function prospeoMobiles() {
       p.mobileStatus = 'VERIFIED';
       p.personId ??= m.person.person_id;
       const email = m.person?.email?.email;
-      if (email && !email.includes('*') && !p.email) { p.email = email.toLowerCase(); p.emailStatus = 'VERIFIED'; }
+      if (email && !email.includes('*') && !p.email && !state.badEmails[email.toLowerCase()]) { p.email = email.toLowerCase(); p.emailStatus = 'VERIFIED'; }
       found++;
     }
   }
   report.mobiles = { tried, found, skippedMoved: moved, creditsToday: used(), dailyCap: budget, waiting: queue.length };
+}
+
+// ---------------------------------------------------------------- 3. Prospeo company lookup (HQ + LinkedIn)
+
+const SCOPE_ISO = ['AU', 'DE', 'SG', 'AE', 'GB'];
+const sameTitle = (a, b) => { a = a.toLowerCase(); b = b.toLowerCase(); return a === b || (Math.min(a.length, b.length) > 12 && (a.includes(b) || b.includes(a))); };
+
+async function prospeoCompanies() {
+  const budget = cfg.prospeoCompanyDailyCredits ?? 0;
+  state.prospeo.companyCredits ??= {};
+  const used = () => state.prospeo.companyCredits[TODAY] || 0;
+  const due = db.companies
+    .filter(c => !c.hqAt || Date.now() - Date.parse(c.hqAt) > 90 * DAY)
+    .sort((a, b) => (a.status === 'open' ? 0 : 1) - (b.status === 'open' ? 0 : 1) || b.firstSeen.localeCompare(a.firstSeen));
+  let looked = 0, matched = 0, linkedin = 0, dropped = 0;
+  for (const c of due) {
+    if (used() >= budget) break;
+    const data = { company_name: c.name };
+    if (c.domain) data.company_website = c.domain;
+    let r;
+    try { r = await prospeo('enrich-company', { data }); } catch (e) {
+      if (/NO_MATCH|NOT_FOUND|404/i.test(e.message)) { c.hqAt = NOW; c.hq = { found: false }; looked++; continue; }
+      report.companies = { error: e.message, looked, matched }; return;
+    }
+    looked++;
+    c.hqAt = NOW;
+    const co = r.company || r.data?.company;
+    if (!r.free_enrichment) state.prospeo.companyCredits[TODAY] = used() + 1;
+    if (!co) { c.hq = { found: false }; continue; }
+    // Same company? Same website; or, for companies we only know by name, the same name plus one of
+    // our open roles in Prospeo's job list, or a headquarters in one of the five countries.
+    const sameSite = c.domain && registrable(domainOf(co.website || co.domain) || '') === registrable(c.domain);
+    const sameName = normName(co.name) === normName(c.name);
+    const roleMatch = (co.job_postings?.active_titles || []).some(t => c.jobs.some(j => sameTitle(j.title, t)));
+    const how = sameSite ? 'website' : !c.domain && sameName && roleMatch ? 'name + open roles' : !c.domain && sameName && SCOPE_ISO.includes(co.location?.country_code) ? 'name + country' : null;
+    if (!how) { c.hq = { found: true, matchedBy: null }; continue; }
+    matched++;
+    c.hq = {
+      matchedBy: how, country: co.location?.country || undefined, countryCode: co.location?.country_code || undefined, city: co.location?.city || undefined,
+      linkedin: normLinkedIn(co.linkedin_url) || undefined, employees: co.employee_count || undefined, founded: co.founded || undefined,
+    };
+    if (c.hq.linkedin) linkedin++;
+    if (!c.website && co.website) { c.website = co.website; c.domain = domainOf(co.website); }
+    const hqPhone = co.phone_hq?.phone_hq_international;
+    if (hqPhone && co.phone_hq.phone_hq_country_code !== 'US') {
+      c.channels ??= { emails: [], phones: [], social: {}, pages: {} };
+      c.channels.phones ??= [];
+      if (!c.channels.phones.some(x => x.phone.replace(/\D/g, '').slice(-9) === hqPhone.replace(/\D/g, '').slice(-9))) c.channels.phones.unshift({ phone: hqPhone, page: 'Prospeo' });
+    }
+    if (c.hq.countryCode === 'US') { excludeCompany(c, 'US headquarters (Prospeo)'); dropped++; }
+    else if (c.hq.countryCode === 'IN') { excludeCompany(c, 'India headquarters (Prospeo)'); dropped++; }
+  }
+  report.companies = { looked, matched, linkedinFound: linkedin, droppedUSorIndia: dropped, creditsToday: used(), dailyCap: budget, waiting: Math.max(0, due.length - looked) };
+}
+
+// Company LinkedIn page, most reliable source first: Prospeo matched by website, YC's profile, the
+// company's own website, Prospeo matched by name, then a person search result.
+function pickLinkedIn(c) {
+  // Companies scanned before the source was recorded: their LinkedIn link came from the website scan.
+  if (!('siteLinkedin' in c) && c.scan?.ok && c.source !== 'yc') c.siteLinkedin = normLinkedIn(c.channels?.social?.linkedin) || null;
+  // YC companies stored before ycLinkedin existed: their LinkedIn link came from the YC profile.
+  if (!('ycLinkedin' in c) && c.source === 'yc') c.ycLinkedin = normLinkedIn(c.linkedin) || null;
+  const options = [
+    [c.hq?.matchedBy === 'website' && c.hq.linkedin, 'Prospeo (same website)'],
+    [c.source === 'yc' && c.ycLinkedin, 'Y Combinator profile'],
+    [c.siteLinkedin, 'company website'],
+    [c.hq?.linkedin, `Prospeo (${c.hq?.matchedBy})`],
+    [c.prospeoLinkedin, 'Prospeo people search'],
+  ];
+  const hit = options.find(([u]) => normLinkedIn(u));
+  if (hit) { c.linkedin = normLinkedIn(hit[0]); c.linkedinVia = hit[1]; }
+  else { delete c.linkedin; delete c.linkedinVia; }
+  if (c.channels?.social) { if (c.linkedin) c.channels.social.linkedin = c.linkedin; else delete c.channels.social.linkedin; }
+}
+
+// ---------------------------------------------------------------- 4. email validation
+
+const EMAIL_RE = /^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)*\.[a-z]{2,}$/i;
+state.mx ??= {};
+async function mxOk(domain) {
+  const hit = state.mx[domain];
+  if (hit && Date.now() - Date.parse(hit.at) < 14 * DAY) return hit.ok;
+  let ok;
+  try {
+    const recs = await Promise.race([dns.resolveMx(domain), new Promise((_, rej) => setTimeout(() => rej(Object.assign(new Error('timeout'), { code: 'ETIMEOUT' })), 10000))]);
+    ok = recs.some(r => r.exchange && r.exchange !== '.');
+  } catch (e) {
+    ok = ['ENOTFOUND', 'ENODATA', 'NXDOMAIN'].includes(e.code) ? false : null; // null: DNS didn't answer, decide next run
+  }
+  if (ok !== null) state.mx[domain] = { ok, at: NOW };
+  return ok;
+}
+
+// ZeroBounce (optional): status per address, cached 60 days, within a daily credit cap.
+state.zb ??= {};
+async function zeroBounce(emails) {
+  if (!ZB_KEY) return { skipped: 'ZEROBOUNCE_API_KEY not set' };
+  state.zbCredits ??= {};
+  const cap = cfg.zerobounceDailyCredits ?? 100;
+  const todo = emails.filter(e => !state.zb[e] || Date.now() - Date.parse(state.zb[e].at) > 60 * DAY);
+  let checked = 0;
+  while (todo.length && (state.zbCredits[TODAY] || 0) < cap) {
+    const batch = todo.splice(0, Math.min(100, cap - (state.zbCredits[TODAY] || 0)));
+    let r;
+    try {
+      const res = await fetch('https://bulkapi.zerobounce.net/v2/validatebatch', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ api_key: ZB_KEY, email_batch: batch.map(email_address => ({ email_address })) }),
+        signal: AbortSignal.timeout(120000),
+      });
+      r = await res.json();
+      if (!res.ok || r.Message || r.error) throw new Error(`HTTP ${res.status} ${r.Message || r.error || ''}`);
+    } catch (e) { return { error: String(e.message || e).slice(0, 160), checked }; }
+    state.zbCredits[TODAY] = (state.zbCredits[TODAY] || 0) + batch.length;
+    for (const x of r.email_batch || []) state.zb[String(x.address).toLowerCase()] = { status: x.status, sub: x.sub_status || undefined, at: NOW };
+    checked += batch.length;
+  }
+  return { checked, creditsToday: state.zbCredits[TODAY] || 0, waiting: todo.length };
+}
+
+// A published email must: be well-formed, have a mail server, and be verified by Prospeo, listed on
+// the company's own site, or confirmed by ZeroBounce; ZeroBounce "invalid" / "spamtrap" / "abuse" /
+// "do_not_mail" always removes it. Removed addresses are remembered and never published again.
+const ZB_BAD = new Set(['invalid', 'spamtrap', 'abuse', 'do_not_mail']);
+async function validateEmails() {
+  const entries = [];
+  for (const c of db.companies) {
+    for (const p of c.contacts || []) if (p.email || p.emailPending) entries.push({ c, kind: 'person', holder: p, email: (p.email || p.emailPending).toLowerCase(), basis: p.emailStatus === 'VERIFIED' ? 'Prospeo verified' : null });
+    for (const e of c.channels?.emails || []) entries.push({ c, kind: 'mailbox', holder: e, email: e.email.toLowerCase(), basis: 'listed on the company website' });
+  }
+  const domains = [...new Set(entries.map(x => x.email.split('@')[1]))];
+  const mx = new Map();
+  for (const d of domains) mx.set(d, await mxOk(d));
+  const zb = await zeroBounce([...new Set(entries.filter(x => mx.get(x.email.split('@')[1]) === true).map(x => x.email))]);
+  let valid = 0, removed = 0, pending = 0;
+  const drop = (x, why) => {
+    state.badEmails[x.email] = { why, at: NOW };
+    delete x.holder.emailPending;
+    if (x.kind === 'mailbox') x.holder.remove = true; else { delete x.holder.email; x.holder.emailStatus = 'INVALID'; delete x.holder.emailCheck; }
+    removed++;
+  };
+  for (const x of entries) {
+    const z = state.zb[x.email];
+    const hasMx = mx.get(x.email.split('@')[1]);
+    if (state.badEmails[x.email]) { drop(x, state.badEmails[x.email].why); continue; }
+    if (!EMAIL_RE.test(x.email)) { drop(x, 'malformed'); continue; }
+    if (hasMx === false) { drop(x, 'domain has no mail server'); continue; }
+    if (z && ZB_BAD.has(z.status)) { drop(x, `ZeroBounce: ${z.status}${z.sub ? ` (${z.sub})` : ''}`); continue; }
+    const basis = z?.status === 'valid' ? 'ZeroBounce valid' : x.basis;
+    if (hasMx === true && basis) {
+      if (x.holder.emailPending) { x.holder.email = x.holder.emailPending; delete x.holder.emailPending; }
+      x.holder.emailCheck = { mx: true, basis, zeroBounce: z?.status, at: NOW };
+      valid++;
+    } else {
+      // Not confirmed yet (DNS didn't answer, or no verification): held back, not published.
+      if (x.holder.email) { x.holder.emailPending = x.holder.email; delete x.holder.email; }
+      delete x.holder.emailCheck;
+      pending++;
+    }
+  }
+  for (const c of db.companies) if (c.channels?.emails) c.channels.emails = c.channels.emails.filter(e => !e.remove && e.email && e.emailCheck);
+  report.emails = { valid, removed, heldBack: pending, zeroBounce: zb };
 }
 
 // Responses saved from the Prospeo connector (MCP) can be imported with --import.
@@ -444,16 +605,24 @@ async function importSaved(files) {
 // ---------------------------------------------------------------- run
 
 if (args.import) await importSaved(String(args.import).split(','));
+// Company lookup first: it fills in websites for companies only known by name, so they get scanned too.
+if (API_KEY) await prospeoCompanies();
 if (!args['skip-scan']) await scanSites();
 if (API_KEY) { await prospeoPeople(); await prospeoMobiles(); }
 else report.prospeo = { skipped: 'PROSPEO_API_KEY not set' };
 
-// Founders from YC / HN keep their team label too. US locations are never kept (site rule).
+// Contact rules (people.mjs): HR / talent, founders & CTOs, VPs, directors, heads only. Company
+// mailboxes: hiring / HR ones only. US locations are never kept (site rule).
 for (const c of db.companies) {
-  for (const p of c.contacts || []) if (p.location && /united states|\busa\b/i.test(p.location)) delete p.location;
-  for (const p of c.contacts || []) p.team ??= p.source === 'HN' ? 'Talent & HR' : teamOf(p.title);
+  c.contacts = (c.contacts || []).filter(p => (p.team = teamOf(p)));
+  for (const p of c.contacts) if (p.location && /united states|\busa\b/i.test(p.location)) delete p.location;
+  if (c.channels?.emails) c.channels.emails = c.channels.emails.filter(e => isTalentMailbox(e.email)).map(e => ({ ...e, team: 'Talent & HR' }));
+  pickLinkedIn(c);
+}
+await validateEmails();
+for (const c of db.companies) {
   const rank = p => (p.email ? 0 : 2) + (p.linkedin ? 0 : 1);
-  c.contacts?.sort((a, b) => TEAM_PRIORITY[a.team] - TEAM_PRIORITY[b.team] || rank(a) - rank(b));
+  c.contacts.sort((a, b) => TEAM_PRIORITY[a.team] - TEAM_PRIORITY[b.team] || rank(a) - rank(b));
 }
 
 const all = db.companies;
@@ -466,7 +635,7 @@ db.meta.totals = {
 db.meta.sources = { ...db.meta.sources, contacts: report };
 db.meta.lastContactsAt = NOW;
 // Keep only 30 days of the credit ledger.
-for (const ledger of [state.prospeo.credits, state.prospeo.mobileCredits || {}]) for (const d of Object.keys(ledger)) if (Date.now() - Date.parse(d) > 30 * DAY) delete ledger[d];
+for (const ledger of [state.prospeo.credits, state.prospeo.mobileCredits || {}, state.prospeo.companyCredits || {}, state.zbCredits || {}]) for (const d of Object.keys(ledger)) if (Date.now() - Date.parse(d) > 30 * DAY) delete ledger[d];
 
 await fs.writeFile(LEADS_FILE, JSON.stringify(db));
 await fs.writeFile(STATE_FILE, JSON.stringify(state, null, 1));

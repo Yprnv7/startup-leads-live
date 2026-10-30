@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Startup Leads · Remote tech roles in Australia, Europe, MEA, New Zealand, SEA and the UK</title>
-<meta name="description" content="100% remote, pure-tech jobs and internships at startups in Australia, Europe, MEA, New Zealand, SEA and the UK, with founder and C-Suite contacts. Updated hourly.">
+<title>Startup Leads · Remote tech internships in the UK, Germany, Australia, Singapore and the UAE</title>
+<meta name="description" content="100% remote, pure-tech internships open in the UK, Germany, Australia, Singapore and the UAE, with HR, founder and CTO contacts and validated emails. Updated hourly.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -145,6 +145,7 @@ select.sel { height: 36px; border: 1px solid var(--line); border-radius: var(--r
 .badge.new { background: var(--accent); color: var(--accent-ink); }
 .badge.intern { background: var(--amber-soft); color: var(--amber); }
 .badge.closed { background: var(--crimson-soft); color: var(--crimson); }
+.ok { color: var(--accent); font-weight: 600; font-size: 12px; cursor: help; }
 .badge.soft { background: var(--subtle); color: var(--ink-2); font-weight: 400; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--s2); }
 .tag { font-size: 12px; padding: 2px 8px; border-radius: 4px; background: var(--subtle); color: var(--ink-2); }
@@ -267,7 +268,7 @@ table.dir td.co .name { font-size: 18px; }
       <button role="menuitem" id="syncBtn"><span>Sync now</span><span class="hint" id="nextCheck"></span></button>
       <hr>
       <button role="menuitem" id="exportRolesBtn"><span>Export roles (CSV)</span><span class="hint">current filters</span></button>
-      <button role="menuitem" id="exportContactsBtn"><span>Export C-Suite contacts (CSV)</span><span class="hint">current filters</span></button>
+      <button role="menuitem" id="exportContactsBtn"><span>Export contacts (CSV)</span><span class="hint">current filters</span></button>
       <hr>
       <button role="menuitem" id="themeBtn"><span>Dark / Light</span><span class="hint" id="themeHint"></span></button>
       <a role="menuitem" href="rti/"><span>RTI tracker</span><span class="hint" aria-hidden="true">↗</span></a>
@@ -278,7 +279,7 @@ table.dir td.co .name { font-size: 18px; }
 
 <main class="wrap" id="main">
   <div class="tabs" role="tablist" aria-label="Views">
-    <button class="tab" role="tab" id="tab-jobs" aria-controls="view-jobs" aria-selected="true" data-tab="jobs">Jobs<span class="n" id="nJobs"></span></button>
+    <button class="tab" role="tab" id="tab-jobs" aria-controls="view-jobs" aria-selected="true" data-tab="jobs">Internships<span class="n" id="nJobs"></span></button>
     <button class="tab" role="tab" id="tab-outreach" aria-controls="view-outreach" aria-selected="false" tabindex="-1" data-tab="outreach">Outreach<span class="n" id="nOutreach"></span></button>
     <button class="tab" role="tab" id="tab-changes" aria-controls="view-changes" aria-selected="false" tabindex="-1" data-tab="changes">What changed<span class="n" id="nChanges"></span></button>
   </div>
@@ -289,8 +290,8 @@ table.dir td.co .name { font-size: 18px; }
       <div class="sheet-head"><strong>Filters</strong><button class="btn" id="sheetDone" type="button">Show results</button></div>
 
       <div class="anchor">
-        <button class="btn" id="regionBtn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="regionPop"><span id="regionLabel">All regions</span><span class="caret" aria-hidden="true">▼</span></button>
-        <div class="pop region-pop" id="regionPop" role="dialog" aria-label="Region and country" hidden></div>
+        <button class="btn" id="regionBtn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="regionPop"><span id="regionLabel">All 5 countries</span><span class="caret" aria-hidden="true">▼</span></button>
+        <div class="pop region-pop" id="regionPop" role="dialog" aria-label="Country" hidden></div>
       </div>
 
       <label class="sr-only" for="track">Engineering track</label>
@@ -304,10 +305,6 @@ table.dir td.co .name { font-size: 18px; }
         <option>Mobile &amp; Autonomous Systems</option>
       </select>
 
-      <div class="seg" role="group" aria-label="Role type" id="typeSeg">
-        <button type="button" aria-pressed="true" data-type="">All</button><button type="button" aria-pressed="false" data-type="job">Jobs</button><button type="button" aria-pressed="false" data-type="internship">Internships</button>
-      </div>
-
       <div class="anchor">
         <button class="btn" id="moreBtn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="morePop">More filters<span id="moreCount"></span><span class="caret" aria-hidden="true">▼</span></button>
         <div class="pop more-pop" id="morePop" role="dialog" aria-label="More filters" hidden>
@@ -319,16 +316,17 @@ table.dir td.co .name { font-size: 18px; }
             <option value="hn">HN Who's Hiring</option><option value="jobicy">Jobicy</option><option value="lever">Lever</option>
             <option value="linkedin">LinkedIn (profiles &amp; job links)</option><option value="yc">Y Combinator</option>
             <optgroup label="Others">
-              <option value="others">All others (6 job boards)</option>
-              <option value="nodesk">NoDesk</option><option value="jobfound">Jobfound</option><option value="remoteok">Remote OK</option>
+              <option value="others">All others (7 job boards)</option>
+              <option value="himalayas">Himalayas</option><option value="nodesk">NoDesk</option><option value="jobfound">Jobfound</option><option value="remoteok">Remote OK</option>
               <option value="remotive">Remotive</option><option value="weworkremotely">We Work Remotely</option><option value="workingnomads">Working Nomads</option>
             </optgroup>
           </select>
           <h4>Contact availability</h4>
           <label class="check"><input type="checkbox" value="email" name="has"> Has an email</label>
           <label class="check"><input type="checkbox" value="phone" name="has"> Has a phone number</label>
-          <label class="check"><input type="checkbox" value="linkedin" name="has"> Has LinkedIn</label>
-          <label class="check"><input type="checkbox" value="csuite" name="has"> C-Suite with email + phone + LinkedIn</label>
+          <label class="check"><input type="checkbox" value="linkedin" name="has"> Has a company LinkedIn page</label>
+          <label class="check"><input type="checkbox" value="hr" name="has"> HR / talent contact named</label>
+          <label class="check"><input type="checkbox" value="founder" name="has"> Founder or CTO with email + LinkedIn</label>
           <label class="check"><input type="checkbox" value="uncontacted" name="has"> Not contacted yet</label>
         </div>
       </div>
@@ -346,9 +344,9 @@ table.dir td.co .name { font-size: 18px; }
     <div class="summary">
       <button class="btn filters-toggle" id="filtersToggle" type="button" aria-controls="filters" aria-expanded="false">Filters<span id="filterCount"></span></button>
       <span id="summaryText" aria-live="polite"></span>
-      <span class="info" tabindex="0" role="button" aria-label="What's included and what isn't">i<span class="tip" role="tooltip">Every role is 100% remote (no hybrid or office-based roles) and pure tech: software, AI/ML, data, DevOps/cloud, security, mobile and tech internships. Roles must be open to Australia, Europe, MEA, New Zealand, SEA or the UK. No US-headquartered companies and no companies with an India office. Checked every hour; closed roles turn red.</span></span>
+      <span class="info" tabindex="0" role="button" aria-label="What's included and what isn't">i<span class="tip" role="tooltip">Internships only. Every one is 100% remote (no hybrid or office-based roles) and pure tech: software, AI/ML, data engineering, DevOps/cloud, security and mobile. Each is open to people in the UK, Germany, Australia, Singapore or the UAE. No US-headquartered companies and no companies with an India office. Contacts are HR / talent, founders, CTOs, VPs, directors and heads only, and every email shown has been validated. Checked every hour; closed internships turn red.</span></span>
       <span class="grow"></span>
-      <a class="btn sm" id="linkedinJobsBtn" href="https://www.linkedin.com/jobs/search/?keywords=software%20engineer&amp;f_WT=2" target="_blank" rel="noopener noreferrer">Search on LinkedIn Jobs ↗</a>
+      <a class="btn sm" id="linkedinJobsBtn" href="https://www.linkedin.com/jobs/search/?keywords=software%20intern&amp;f_WT=2&amp;f_JT=I" target="_blank" rel="noopener noreferrer">Search on LinkedIn Jobs ↗</a>
     </div>
     <div class="chips" id="chips" aria-label="Active filters"></div>
     <div class="list" id="results" tabindex="-1" aria-label="Companies"></div>
@@ -358,7 +356,7 @@ table.dir td.co .name { font-size: 18px; }
   <section id="view-outreach" role="tabpanel" aria-labelledby="tab-outreach" tabindex="-1" hidden>
     <div class="filters">
       <div class="seg" role="group" aria-label="Who" id="teamSeg">
-        <button type="button" aria-pressed="true" data-team="">Everyone</button><button type="button" aria-pressed="false" data-team="C-Suite">C-Suite</button><button type="button" aria-pressed="false" data-team="Talent &amp; HR">Talent &amp; HR</button><button type="button" aria-pressed="false" data-team="Partnerships">Partnerships</button>
+        <button type="button" aria-pressed="true" data-team="">Everyone</button><button type="button" aria-pressed="false" data-team="Talent &amp; HR">Talent &amp; HR</button><button type="button" aria-pressed="false" data-team="Founders &amp; CTO">Founders &amp; CTO</button><button type="button" aria-pressed="false" data-team="Leadership">VPs, directors &amp; heads</button>
       </div>
       <label class="check"><input type="checkbox" id="showEmpty"> Show companies with no open roles</label>
       <span class="spacer"></span>
@@ -386,9 +384,9 @@ table.dir td.co .name { font-size: 18px; }
 <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
 
 <footer class="wrap muted" style="font-size:13px;padding-bottom:32px">
-  Sources: Y Combinator, HN Who's Hiring, Greenhouse, Lever, Ashby, <a href="https://jobicy.com" target="_blank" rel="noopener">Jobicy</a>, <a href="https://www.arbeitnow.com" target="_blank" rel="noopener">Arbeitnow</a>, <a href="https://remotive.com" target="_blank" rel="noopener">Remotive</a>, <a href="https://remoteok.com" target="_blank" rel="noopener">Remote OK</a>, <a href="https://www.workingnomads.com" target="_blank" rel="noopener">Working Nomads</a>, <a href="https://weworkremotely.com" target="_blank" rel="noopener">We Work Remotely</a>, <a href="https://nodesk.co" target="_blank" rel="noopener">NoDesk</a>, <a href="https://jobfound.org" target="_blank" rel="noopener">Jobfound</a>. Updated hourly (0 * * * *).
+  Sources: Y Combinator, HN Who's Hiring, Greenhouse, Lever, Ashby, <a href="https://jobicy.com" target="_blank" rel="noopener">Jobicy</a>, <a href="https://www.arbeitnow.com" target="_blank" rel="noopener">Arbeitnow</a>, <a href="https://remotive.com" target="_blank" rel="noopener">Remotive</a>, <a href="https://remoteok.com" target="_blank" rel="noopener">Remote OK</a>, <a href="https://www.workingnomads.com" target="_blank" rel="noopener">Working Nomads</a>, <a href="https://weworkremotely.com" target="_blank" rel="noopener">We Work Remotely</a>, <a href="https://nodesk.co" target="_blank" rel="noopener">NoDesk</a>, <a href="https://jobfound.org" target="_blank" rel="noopener">Jobfound</a>, <a href="https://himalayas.app" target="_blank" rel="noopener">Himalayas</a>. Company data and verified emails: Prospeo. Updated hourly (0 * * * *).
 </footer>
 
-<script src="app.js?v=2026103102"></script>
+<script src="app.js?v=2026103103"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-// Startup Leads: 100% remote, pure-tech roles in Australia, Europe, MEA, New Zealand, SEA and the UK.
+// Startup Leads: 100% remote, pure-tech internships open in the UK, Germany, Australia, Singapore and the UAE.
 // Data comes from data/leads.json (rebuilt hourly by .github/workflows/hourly_sync.yml); this page only
 // reads it. Open roles are also re-checked against the live job boards from the browser every 60 minutes.
 //
@@ -13,24 +13,21 @@
   const STATUS_KEY = "startup_leads_contact_status_v6"; // same storage as before: contactKey -> status
   const THEME_KEY = "startup_leads_theme";
   const VISIT_KEY = "startup_leads_last_visit";
-  const REGIONS = ["Australia", "Europe", "MEA", "New Zealand", "SEA", "UK"];
-  const REGION_SHORT = { Australia: "AU", Europe: "EU", MEA: "MEA", "New Zealand": "NZ", SEA: "SEA", UK: "UK" };
-  const WIDE = { Worldwide: REGIONS, "Europe-wide": ["Europe", "UK"], EMEA: ["Europe", "MEA", "UK"], "APAC-wide": ["Australia", "New Zealand", "SEA"], "MENA-wide": ["MEA"], "Africa-wide": ["MEA"] };
+  const COUNTRIES = ["Australia", "Germany", "Singapore", "United Arab Emirates", "United Kingdom"];
+  const COUNTRY_SHORT = { Australia: "AU", Germany: "DE", Singapore: "SG", "United Arab Emirates": "UAE", "United Kingdom": "UK" };
   const STATUSES = ["Not Contacted", "Contacted", "Replied"];
-  const CSUITE_RE = /\b(ceo|cto|cpo|coo|cfo|chief|co-?founder|founder|president|vp,? (?:of )?engineering|vice president,? engineering|head of (?:engineering|ai|technology|machine learning|data|platform))\b/i;
-  const TALENT_RE = /recruit|talent|human resources|\bhr\b|people/i;
-  const PARTNER_RE = /partner(?:ship)?s?\b|alliance|business development/i;
   const STACK = ["Python", "TypeScript", "JavaScript", "Go", "Golang", "Rust", "Java", "Kotlin", "Swift", "Scala", "C++", "C#", "Ruby", "Elixir", "PHP", "Node.js", "React", "React Native", "Flutter", "Next.js", "Vue", "Django", "Rails", "PyTorch", "TensorFlow", "LLM", "Kubernetes", "AWS", "GCP", "Azure", "Terraform", "Postgres", "Kafka", "Spark", "dbt", "Snowflake", "Linux", "iOS", "Android", "Solidity", "Web3", "ROS", "CUDA"];
-  const TIER_ORDER = { "C-Suite": 0, "Talent & HR": 1, Partnerships: 2, Leadership: 3 };
+  // Contact groups come from the data (scripts/people.mjs): HR / talent, founders & CTOs, VPs / directors / heads.
+  const TIER_ORDER = { "Talent & HR": 0, "Founders & CTO": 1, Leadership: 2 };
+  const TIER_LABEL = { "Talent & HR": "Talent & HR", "Founders & CTO": "Founders & CTO", Leadership: "VPs, directors & heads" };
   const SOURCE_LABEL = { yc: "Y Combinator", hn: "HN Who's Hiring", greenhouse: "Greenhouse", lever: "Lever", ashby: "Ashby", jobicy: "Jobicy", arbeitnow: "Arbeitnow", manual: "Manual",
-    remotive: "Remotive", remoteok: "Remote OK", workingnomads: "Working Nomads", weworkremotely: "We Work Remotely", nodesk: "NoDesk", jobfound: "Jobfound", linkedin: "LinkedIn", others: "Other job boards" };
-  const OTHERS = ["remotive", "remoteok", "workingnomads", "weworkremotely", "nodesk", "jobfound"];
-  const TRACK_KEYWORDS = { "AI / ML & LLM Systems": "machine learning engineer", "Backend & Distributed Systems": "backend engineer", "Data & Quant Engineering": "data engineer",
-    "DevOps, Cloud & SRE": "devops engineer", "Full-Stack & Product Engineering": "full stack engineer", "Mobile & Autonomous Systems": "mobile engineer" };
+    remotive: "Remotive", remoteok: "Remote OK", himalayas: "Himalayas", workingnomads: "Working Nomads", weworkremotely: "We Work Remotely", nodesk: "NoDesk", jobfound: "Jobfound", linkedin: "LinkedIn", others: "Other job boards" };
+  const OTHERS = ["remotive", "remoteok", "workingnomads", "weworkremotely", "nodesk", "jobfound", "himalayas"];
+  const TRACK_KEYWORDS = { "AI / ML & LLM Systems": "machine learning", "Backend & Distributed Systems": "backend", "Data & Quant Engineering": "data engineering",
+    "DevOps, Cloud & SRE": "devops cloud", "Full-Stack & Product Engineering": "full stack", "Mobile & Autonomous Systems": "mobile" };
   const TRACK_SHORT = { "AI / ML & LLM Systems": "AI / ML", "Backend & Distributed Systems": "Backend", "Data & Quant Engineering": "Data", "DevOps, Cloud & SRE": "DevOps / Cloud",
     "Full-Stack & Product Engineering": "Full-stack", "Mobile & Autonomous Systems": "Mobile / Robotics" };
-  const REGION_LINKEDIN = { Australia: "Australia", Europe: "European Union", MEA: "Middle East", "New Zealand": "New Zealand", SEA: "Southeast Asia", UK: "United Kingdom" };
-  const HAS_LABEL = { email: "Has email", phone: "Has phone", linkedin: "Has LinkedIn", csuite: "C-Suite email + phone + LinkedIn", uncontacted: "Not contacted" };
+  const HAS_LABEL = { email: "Has email", phone: "Has phone", linkedin: "Company LinkedIn page", hr: "HR / talent named", founder: "Founder or CTO with email + LinkedIn", uncontacted: "Not contacted" };
   // Country → ISO code for flags (countries the data can contain).
   const ISO = { "United Kingdom": "GB", Germany: "DE", "United Arab Emirates": "AE", "Saudi Arabia": "SA", Qatar: "QA", Bahrain: "BH", Kuwait: "KW", Oman: "OM", Egypt: "EG", Jordan: "JO", Lebanon: "LB",
     Morocco: "MA", Tunisia: "TN", Algeria: "DZ", Israel: "IL", Turkey: "TR", Nigeria: "NG", Kenya: "KE", Ghana: "GH", "South Africa": "ZA", Rwanda: "RW", Uganda: "UG", Ethiopia: "ET", Tanzania: "TZ",
@@ -47,7 +44,7 @@
   const localEvents = [];
   let shown = 40, boardShown = { "Not Contacted": 60, Contacted: 60, Replied: 60 };
   let lastFocus = null;
-  const DEFAULTS = { tab: "jobs", q: "", region: "", country: "", track: "", type: "", source: "", has: [], sort: "newest", team: "", empty: false, layout: "board", kind: "" };
+  const DEFAULTS = { tab: "jobs", q: "", country: "", track: "", source: "", has: [], sort: "newest", team: "", empty: false, layout: "board", kind: "" };
   const S = { ...DEFAULTS, has: [] };
 
   const $ = id => document.getElementById(id);
@@ -89,6 +86,9 @@
   const plural = (n, one, many) => `${n.toLocaleString()} ${n === 1 ? one : many}`;
   const telHref = p => "tel:" + String(p).replace(/[^\d+]/g, "");
   const linkedInPeople = (company, role) => `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(`${role} ${company}`)}`;
+  // On the company's own LinkedIn page when we have it, else a LinkedIn search.
+  const coPeople = (item, kw) => item.linkedinPage ? `${item.linkedinPage}/people/?keywords=${encodeURIComponent(kw)}` : linkedInPeople(item.company, kw);
+  const roleOnLinkedIn = (item, title) => `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(`${item.company} ${title}`)}&f_JT=I`;
 
   // Salaries are shown as listed, with consistent separators. When units are unclear (e.g. "$100 - $165"
   // with no K, or "£80 - £150 GBP") nothing is invented: the value is marked "as listed".
@@ -101,13 +101,7 @@
   }
 
   // ---------------------------------------------------------------- data → view model
-  function contactTier(p) {
-    const t = p.title || "";
-    if (CSUITE_RE.test(t)) return "C-Suite";
-    if (p.source === "HN" || TALENT_RE.test(t)) return "Talent & HR";
-    if (PARTNER_RE.test(t)) return "Partnerships";
-    return "Leadership";
-  }
+  const contactTier = p => (TIER_ORDER[p.team] !== undefined ? p.team : "Leadership");
   const contactKey = (companyId, p) => companyId + "::" + (p.linkedin || p.email || p.name || "").toLowerCase();
   const statusOf = (item, p) => statusMap[contactKey(item.id, p)] || "Not Contacted";
 
@@ -116,9 +110,9 @@
       const closedLive = liveClosed.has(j.id) && j.status === "open";
       return {
         id: j.id, title: j.title, src: j.src, via: j.via,
-        category: j.type === "internship" ? "Internship" : "Job",
+        category: "Internship",
         remoteScope: j.remoteScope || "100% Remote", track: j.track || "Backend & Distributed Systems",
-        places: j.places || [], regions: j.regions || [],
+        places: j.places || [], worldwide: !!j.worldwide,
         url: j.url, applyUrl: j.applyUrl && j.applyUrl !== j.url ? j.applyUrl : null,
         salary: fmtSalary(j.salary), experience: j.experience, postedAt: j.postedAt, firstSeen: j.firstSeen,
         status: closedLive ? "closed" : j.status,
@@ -131,8 +125,8 @@
       .sort((a, b) => TIER_ORDER[a.tier] - TIER_ORDER[b.tier] || (b.email ? 1 : 0) - (a.email ? 1 : 0));
     const text = roles.map(r => r.title).join(" ") + " " + (c.oneLiner || "") + " " + (c.tags || []).join(" ");
     const techStack = STACK.filter(t => new RegExp(`(^|[^\\w])${t.replace(/[.+#]/g, m => "\\" + m)}([^\\w]|$)`, "i").test(text)).slice(0, 8);
-    const remoteScope = open.some(r => r.places.includes("Worldwide")) ? "100% Remote (Global)"
-      : `100% Remote (${REGIONS.filter(r => open.some(x => x.regions.includes(r))).map(r => REGION_SHORT[r]).join("/") || "—"})`;
+    const remoteScope = open.some(r => r.worldwide) ? "100% Remote (Global)"
+      : `100% Remote (${COUNTRIES.filter(c => open.some(x => x.places.includes(c))).map(c => COUNTRY_SHORT[c]).join("/") || "—"})`;
     return {
       id: c.id, company: c.name, country: c.country || null, region: c.region || null,
       website: c.website, logo: c.logo, oneLiner: c.oneLiner || "", batch: c.batch ? `YC ${shortBatch(c.batch)}` : "", techStack,
@@ -140,22 +134,15 @@
       status: open.length ? "open" : "closed", closedAt: c.closedAt,
       roles, openCount: open.length, remoteScope, contacts,
       hqPhone: c.channels?.phones?.[0]?.phone || null, companyEmails: c.channels?.emails || [], social: c.channels?.social || {}, pages: c.channels?.pages || {},
-      linkedinPage: c.linkedin || c.channels?.social?.linkedin || null,
+      linkedinPage: c.linkedin || null, linkedinVia: c.linkedinVia || "", hq: c.hq?.matchedBy ? c.hq : null,
       boardUrl: c.careersUrl || c.profileUrl || c.website || roles[0]?.url, careersUrl: c.careersUrl, profileUrl: c.profileUrl,
     };
   }
   const shortBatch = b => { const m = /(Winter|Spring|Summer|Fall)\s+20(\d\d)/.exec(b || ""); return m ? m[1][0] + m[2] : b; };
-  const regionOfCountry = c => raw?.meta?.regionOf?.[c];
 
   // ---------------------------------------------------------------- filtering
-  function roleCovers(role, region, country) {
-    if (country) return role.places.includes(country); // a country shows only roles that name it
-    if (region) return role.regions.includes(region);
-    return true;
-  }
   function roleMatches(role, f = S) {
-    if (f.type && (f.type === "internship") !== (role.category === "Internship")) return false;
-    if (!roleCovers(role, f.region, f.country)) return false;
+    if (f.country && !role.places.includes(f.country)) return false; // a country shows only internships open there
     if (f.track && role.track !== f.track) return false;
     return true;
   }
@@ -163,8 +150,9 @@
     for (const h of has) {
       if (h === "email" && !(item.contacts.some(p => p.email) || item.companyEmails.length)) return false;
       if (h === "phone" && !(item.contacts.some(p => p.phone) || item.hqPhone)) return false;
-      if (h === "linkedin" && !(item.contacts.some(p => p.linkedin) || item.linkedinPage)) return false;
-      if (h === "csuite" && !item.contacts.some(p => p.tier === "C-Suite" && p.email && (p.phone || item.hqPhone) && p.linkedin)) return false;
+      if (h === "linkedin" && !item.linkedinPage) return false;
+      if (h === "hr" && !item.contacts.some(p => p.tier === "Talent & HR")) return false;
+      if (h === "founder" && !item.contacts.some(p => p.tier === "Founders & CTO" && p.email && p.linkedin)) return false;
       if (h === "uncontacted" && item.contacts.some(p => statusOf(item, p) !== "Not Contacted")) return false;
     }
     return true;
@@ -203,31 +191,28 @@
     return rows.sort((a, b) => (a.status === "open" ? 0 : 1) - (b.status === "open" ? 0 : 1) || (sorters[f.sort] || sorters.newest)(a, b));
   }
 
-  // Region tree with counts (companies), using every filter except region/country.
-  function regionTree() {
-    const f = { ...S, region: "", country: "" };
+  // Companies hiring interns in each of the five countries, using every filter except the country.
+  function countryCounts() {
+    const f = { ...S, country: "" };
     const base = leads.filter(i => hasMatch(i, f.has) && sourceMatch(i, f.source) && searchMatch(i, f.q));
-    const countFor = (region, country) => base.filter(i => i.roles.some(r => r.status === "open" && roleMatches(r, { ...f, region, country }))).length;
-    const countries = {};
-    for (const i of base) for (const r of i.roles) if (r.status === "open") for (const p of r.places) if (regionOfCountry(p)) (countries[regionOfCountry(p)] ||= new Set()).add(p);
-    return REGIONS.map(region => ({
-      region, count: countFor(region, ""),
-      countries: [...(countries[region] || [])].sort((a, b) => a.localeCompare(b, "en")).map(c => ({ country: c, count: countFor("", c) })).filter(x => x.count),
-    }));
+    const countFor = country => base.filter(i => i.roles.some(r => r.status === "open" && roleMatches(r, { ...f, country }))).length;
+    return { all: countFor(""), countries: [...COUNTRIES].sort((a, b) => a.localeCompare(b, "en")).map(country => ({ country, count: countFor(country) })) };
   }
 
   // ---------------------------------------------------------------- URL state
   function readURL() {
     const p = new URLSearchParams(location.search);
     Object.assign(S, DEFAULTS, { has: [] });
-    for (const k of ["tab", "q", "region", "country", "track", "type", "source", "sort", "team", "layout", "kind"]) if (p.get(k)) S[k] = p.get(k);
+    for (const k of ["tab", "q", "country", "track", "source", "sort", "team", "layout", "kind"]) if (p.get(k)) S[k] = p.get(k);
+    if (!COUNTRIES.includes(S.country)) S.country = "";
+    if (S.team && TIER_ORDER[S.team] === undefined) S.team = "";
     if (p.get("has")) S.has = p.get("has").split(",").filter(h => HAS_LABEL[h]);
     S.empty = p.get("empty") === "1";
     if (!["jobs", "outreach", "changes"].includes(S.tab)) S.tab = "jobs";
   }
   function writeURL() {
     const p = new URLSearchParams();
-    for (const k of ["tab", "q", "region", "country", "track", "type", "source", "sort", "team", "layout", "kind"]) if (S[k] && S[k] !== DEFAULTS[k]) p.set(k, S[k]);
+    for (const k of ["tab", "q", "country", "track", "source", "sort", "team", "layout", "kind"]) if (S[k] && S[k] !== DEFAULTS[k]) p.set(k, S[k]);
     if (S.has.length) p.set("has", S.has.join(","));
     if (S.empty) p.set("empty", "1");
     const qs = p.toString();
@@ -260,13 +245,12 @@
     $("track").value = S.track;
     $("sort").value = S.sort;
     $("source").value = S.source;
-    document.querySelectorAll("#typeSeg button").forEach(b => b.setAttribute("aria-pressed", b.dataset.type === S.type));
     document.querySelectorAll("#teamSeg button").forEach(b => b.setAttribute("aria-pressed", b.dataset.team === S.team));
     document.querySelectorAll("#layoutSeg button").forEach(b => b.setAttribute("aria-pressed", b.dataset.layout === S.layout));
     document.querySelectorAll("#changeSeg button").forEach(b => b.setAttribute("aria-pressed", b.dataset.kind === S.kind));
     document.querySelectorAll('input[name="has"]').forEach(i => { i.checked = S.has.includes(i.value); });
     $("showEmpty").checked = S.empty;
-    $("regionLabel").textContent = S.country ? `${flag(S.country)} ${S.country}`.trim() : S.region || "All regions";
+    $("regionLabel").textContent = S.country ? `${flag(S.country)} ${S.country}`.trim() : "All 5 countries";
     const more = (S.source ? 1 : 0) + S.has.length;
     $("moreCount").textContent = more ? ` · ${more}` : "";
     const active = activeFilters().length;
@@ -276,9 +260,7 @@
   function activeFilters() {
     const out = [];
     if (S.country) out.push({ label: `${flag(S.country)} ${S.country}`.trim(), clear: { country: "" } });
-    else if (S.region) out.push({ label: S.region, clear: { region: "" } });
     if (S.track) out.push({ label: TRACK_SHORT[S.track] || S.track, clear: { track: "" } });
-    if (S.type) out.push({ label: S.type === "internship" ? "Internships" : "Jobs", clear: { type: "" } });
     if (S.source) out.push({ label: `Source: ${SOURCE_LABEL[S.source] || S.source}`, clear: { source: "" } });
     for (const h of S.has) out.push({ label: HAS_LABEL[h], clear: { has: S.has.filter(x => x !== h) } });
     if (S.q) out.push({ label: `“${S.q}”`, clear: { q: "" } });
@@ -291,13 +273,13 @@
     const roles = open.reduce((n, r) => n + r.visibleOpen, 0);
     const contacts = open.reduce((n, r) => n + r.contacts.length, 0);
     const closed = rows.length - open.length;
-    $("summaryText").innerHTML = `<b>${plural(open.length, "startup", "startups")}</b> · <b>${plural(roles, "role", "roles")}</b> · <b>${plural(contacts, "contact", "contacts")}</b>${closed ? ` · <span style="color:var(--crimson)">${closed} no longer hiring</span>` : ""}`;
+    $("summaryText").innerHTML = `<b>${plural(open.length, "startup", "startups")}</b> · <b>${plural(roles, "internship", "internships")}</b> · <b>${plural(contacts, "contact", "contacts")}</b>${closed ? ` · <span style="color:var(--crimson)">${closed} no longer hiring</span>` : ""}`;
     const chips = activeFilters();
     $("chips").innerHTML = chips.length ? chips.map((c, i) => `<span class="chip">${esc(c.label)}<button type="button" data-chip="${i}" aria-label="Remove filter ${esc(c.label)}">×</button></span>`).join("") + `<button type="button" class="linkbtn" id="clearAll">Clear all</button>` : "";
     updateLinkedInButton();
 
     if (!rows.length) {
-      $("results").innerHTML = `<div class="empty"><strong>No remote tech roles match.</strong>Try removing a filter${chips.length ? ', or <button type="button" class="linkbtn" data-clear-all>clear all filters</button>' : ""}.</div>`;
+      $("results").innerHTML = `<div class="empty"><strong>No remote tech internships match.</strong>Try removing a filter${chips.length ? ', or <button type="button" class="linkbtn" data-clear-all>clear all filters</button>' : ""}.</div>`;
       return;
     }
     $("results").innerHTML = rows.slice(0, shown).map(rowHtml).join("") +
@@ -307,17 +289,16 @@
   function rowHtml(r) {
     const closed = r.status === "closed";
     const tracks = [...new Set(r.visibleRoles.filter(x => x.status === "open").map(x => TRACK_SHORT[x.track] || x.track))].slice(0, 3);
-    const interns = r.visibleRoles.some(x => x.status === "open" && x.category === "Internship");
     const nw = isNew(r.firstSeen);
     const where = r.country ? `${flag(r.country)} ${esc(r.country)}` : "Global remote";
-    return `<button type="button" class="row${closed ? " closed" : ""}" data-open="${esc(r.id)}" aria-label="${esc(r.company)}, ${r.visibleOpen} open roles">
+    return `<button type="button" class="row${closed ? " closed" : ""}" data-open="${esc(r.id)}" aria-label="${esc(r.company)}, ${r.visibleOpen} open internships">
       <span class="logo" aria-hidden="true">${r.logo ? `<img src="${esc(r.logo)}" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode('${esc(initials(r.company))}'))">` : esc(initials(r.company))}</span>
       <span class="main">
         <span class="top"><span class="name">${esc(r.company)}</span>${nw ? '<span class="badge new">New</span>' : ""}${closed ? '<span class="badge closed">No longer hiring</span>' : ""}<span class="where">${where} · ${esc(r.remoteScope)}</span></span>
-        <span class="tags">${tracks.map(t => `<span class="tag">${esc(t)}</span>`).join("")}${interns ? '<span class="badge intern">Internship</span>' : ""}</span>
+        <span class="tags">${tracks.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</span>
       </span>
       <span class="facts">
-        <span class="fact"><b>${r.visibleOpen}</b><span>${r.visibleOpen === 1 ? "open role" : "open roles"}</span></span>
+        <span class="fact"><b>${r.visibleOpen}</b><span>${r.visibleOpen === 1 ? "internship" : "internships"}</span></span>
         <span class="fact"><b>${r.contacts.length}</b><span>${r.contacts.length === 1 ? "contact" : "contacts"}</span></span>
         <span class="fact"><b>${esc(fmtDate(r.newest) || "—")}</b><span>newest posting</span></span>
       </span>
@@ -325,21 +306,19 @@
   }
 
   function renderRegionPop() {
-    const tree = regionTree();
-    const opt = (label, count, patch, checked, cls) =>
-      `<button type="button" role="menuitemradio" class="opt ${cls}" aria-checked="${checked}" data-region-set='${esc(JSON.stringify(patch))}'><span>${label}</span><span class="c">${count}</span></button>`;
-    const all = leads.filter(i => i.roles.some(r => r.status === "open")).length;
-    $("regionPop").innerHTML = opt("All regions", all, { region: "", country: "" }, !S.region && !S.country, "") +
-      tree.map(t => opt(esc(t.region), t.count, { region: t.region, country: "" }, S.region === t.region && !S.country, "region") +
-        t.countries.map(c => opt(`${flag(c.country)} ${esc(c.country)}`.trim(), c.count, { region: "", country: c.country }, S.country === c.country, "country")).join("")).join("");
+    const { all, countries } = countryCounts();
+    const opt = (label, count, patch, checked) =>
+      `<button type="button" role="menuitemradio" class="opt" aria-checked="${checked}" data-region-set='${esc(JSON.stringify(patch))}'><span>${label}</span><span class="c">${count}</span></button>`;
+    $("regionPop").innerHTML = opt("All 5 countries", all, { country: "" }, !S.country) +
+      countries.map(c => opt(`${flag(c.country)} ${esc(c.country)}`, c.count, { country: c.country }, S.country === c.country)).join("");
   }
 
-  // LinkedIn Jobs search for the current filters: remote only (f_WT=2), posted in the last week.
+  // LinkedIn Jobs search for the current filters: internships (f_JT=I), remote (f_WT=2), last week.
   function updateLinkedInButton() {
-    const kw = [S.q || TRACK_KEYWORDS[S.track] || "software engineer", S.type === "internship" ? "intern" : ""].filter(Boolean).join(" ");
-    const loc = S.country || REGION_LINKEDIN[S.region] || "Worldwide";
-    $("linkedinJobsBtn").href = `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(kw)}&location=${encodeURIComponent(loc)}&f_WT=2&f_TPR=r604800`;
-    $("linkedinJobsBtn").title = `Remote ${S.type === "internship" ? "internships" : "jobs"} on LinkedIn · ${loc} · last 7 days`;
+    const kw = `${S.q || TRACK_KEYWORDS[S.track] || "software"} intern`;
+    const loc = S.country || "United Kingdom";
+    $("linkedinJobsBtn").href = `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(kw)}&location=${encodeURIComponent(loc)}&f_WT=2&f_JT=I&f_TPR=r604800`;
+    $("linkedinJobsBtn").title = `Remote internships on LinkedIn · ${loc} · last 7 days`;
   }
 
   // ---------------------------------------------------------------- Detail panel
@@ -370,7 +349,11 @@
     const open = item.roles.filter(r => r.status === "open");
     const links = [
       item.website && `<a href="${esc(item.website)}" target="_blank" rel="noopener noreferrer">Website ↗</a>`,
-      item.linkedinPage && `<a href="${esc(item.linkedinPage)}" target="_blank" rel="noopener noreferrer">Company LinkedIn ↗</a>`,
+      item.linkedinPage
+        ? `<a href="${esc(item.linkedinPage)}" target="_blank" rel="noopener noreferrer" title="${esc(item.linkedinVia ? `Source: ${item.linkedinVia}` : "")}">Company LinkedIn ↗</a>
+           <a href="${esc(item.linkedinPage)}/jobs/" target="_blank" rel="noopener noreferrer">LinkedIn jobs ↗</a>
+           <a href="${esc(coPeople(item, "recruiter"))}" target="_blank" rel="noopener noreferrer">LinkedIn: HR & recruiters ↗</a>`
+        : `<a href="https://www.linkedin.com/search/results/companies/?keywords=${encodeURIComponent(item.company)}" target="_blank" rel="noopener noreferrer" title="No verified company page yet">Find on LinkedIn ↗</a>`,
       item.boardUrl && `<a href="${esc(item.boardUrl)}" target="_blank" rel="noopener noreferrer">Job board ↗</a>`,
       item.profileUrl && item.profileUrl !== item.boardUrl && `<a href="${esc(item.profileUrl)}" target="_blank" rel="noopener noreferrer">YC profile ↗</a>`,
     ].filter(Boolean).join("");
@@ -388,9 +371,10 @@
           <button type="button" class="iconbtn close" id="panelClose" aria-label="Close details">×</button>
         </div>
         ${item.oneLiner ? `<p class="muted" style="margin:16px 0 0">${esc(item.oneLiner)}</p>` : ""}
+        ${item.hq && (item.hq.city || item.hq.country) ? `<p class="muted" style="margin:8px 0 0;font-size:13px">Headquarters: ${esc([item.hq.city, item.hq.country].filter(Boolean).join(", "))}${item.hq.employees ? ` · ${esc(item.hq.employees)} employees` : ""}${item.hq.founded ? ` · founded ${esc(item.hq.founded)}` : ""}</p>` : ""}
         ${item.techStack.length ? `<div class="tags">${item.techStack.map(t => `<span class="tag mono">${esc(t)}</span>`).join("")}</div>` : ""}
         <div class="links">${links}</div>
-        <div class="ptabs" role="tablist" aria-label="Company details">${tabBtn("roles", `Roles <span class="n">${open.length}</span>`)}${tabBtn("people", `People <span class="n">${item.contacts.length}</span>`)}${tabBtn("outreach", "Outreach")}</div>
+        <div class="ptabs" role="tablist" aria-label="Company details">${tabBtn("roles", `Internships <span class="n">${open.length}</span>`)}${tabBtn("people", `People <span class="n">${item.contacts.length}</span>`)}${tabBtn("outreach", "Outreach")}</div>
       </header>
       <div class="body" id="pbody" role="tabpanel" aria-labelledby="ptab-${panelTab}">${panelTab === "roles" ? rolesHtml(item) : panelTab === "people" ? peopleHtml(item) : outreachHtml(item)}</div>`;
     $("pbody").scrollTop = prevScroll;
@@ -398,20 +382,20 @@
   }
 
   function rolesHtml(item) {
-    if (!item.roles.length) return '<p class="muted">No roles on record.</p>';
+    if (!item.roles.length) return '<p class="muted">No internships on record.</p>';
     return item.roles.map(r => {
       const closed = r.status === "closed";
       const meta = [r.remoteScope, TRACK_SHORT[r.track] || r.track, r.experience, r.postedAt ? `posted ${fmtDate(r.postedAt)}` : `seen ${fmtDate(r.firstSeen)}`,
         OTHERS.includes(r.src) || ["jobicy", "arbeitnow"].includes(r.src) ? `via ${SOURCE_LABEL[r.src]}` : ""].filter(Boolean).map(esc).join(" · ");
       const sal = r.salary ? `<span class="mono" ${r.salary.unclear ? 'title="Units unclear in the source listing; shown exactly as listed"' : ""}>${esc(r.salary.text)}${r.salary.unclear ? ' <span class="muted">(as listed)</span>' : ""}</span>` : "";
       return `<div class="role${closed ? " closed" : ""}">
-        <div class="rt"><span class="title">${esc(r.title)}</span>${r.category === "Internship" ? '<span class="badge intern">Internship</span>' : '<span class="badge soft">Job</span>'}${!closed && isNew(r.firstSeen) ? '<span class="badge new">New</span>' : ""}</div>
+        <div class="rt"><span class="title">${esc(r.title)}</span>${!closed && isNew(r.firstSeen) ? '<span class="badge new">New</span>' : ""}</div>
         <div class="meta">${meta}${sal ? " · " + sal : ""}</div>
         ${closed ? `<div class="why">Closed: ${esc(r.closedReason || "no longer listed")}${r.closedAt ? ` · ${esc(fmtDate(r.closedAt))}` : ""}</div>` : ""}
         <div class="acts">
           ${r.url ? `<a class="btn sm${closed ? "" : " primary"}" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${closed ? "Listing" : "Apply"} ↗</a>` : ""}
           ${r.applyUrl ? `<a class="btn sm" href="${esc(r.applyUrl)}" target="_blank" rel="noopener noreferrer">Direct ↗</a>` : ""}
-          <a class="btn sm" href="https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(item.company + " " + r.title)}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="btn sm" href="${esc(roleOnLinkedIn(item, r.title))}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
         </div>
       </div>`;
     }).join("");
@@ -422,10 +406,12 @@
     return `<label class="sr-only" for="st-${esc(contactKey(item.id, p))}">Status for ${esc(p.name)}</label>
       <select class="statussel st-${st.split(" ")[0].toLowerCase()}" id="st-${esc(contactKey(item.id, p))}" data-status-key="${esc(contactKey(item.id, p))}">${STATUSES.map(s => `<option ${s === st ? "selected" : ""}>${s}</option>`).join("")}</select>`;
   }
+  // "✓ verified" next to an email, with what it was checked against.
+  const verified = chk => (chk ? `<span class="ok" title="${esc(`Validated: mail server found · ${chk.basis}${chk.zeroBounce ? ` · ZeroBounce: ${chk.zeroBounce}` : ""}`)}">✓ verified</span>` : "");
   function contactWays(item, p) {
     const phone = p.phone || item.hqPhone;
     return [
-      p.email ? `<span><button type="button" class="copy" data-copy="${esc(p.email)}" title="Copy email">${esc(p.email)}</button> · <a href="mailto:${esc(p.email)}">mail ↗</a></span>` : '<span class="muted">No email on record</span>',
+      p.email ? `<span><button type="button" class="copy" data-copy="${esc(p.email)}" title="Copy email">${esc(p.email)}</button> ${verified(p.emailCheck)} · <a href="mailto:${esc(p.email)}">mail ↗</a></span>` : '<span class="muted">No validated email</span>',
       phone ? `<span><button type="button" class="copy" data-copy="${esc(phone)}" title="Copy phone">${esc(phone)}</button> <span class="muted">${p.phone ? "direct" : "HQ line"}</span> · <a href="${esc(telHref(phone))}">call</a></span>` : "",
       p.linkedin ? `<a href="${esc(p.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>` : `<a href="${esc(linkedInPeople(item.company, p.name))}" target="_blank" rel="noopener noreferrer">Find on LinkedIn ↗</a>`,
       p.twitter ? `<a href="${esc(p.twitter)}" target="_blank" rel="noopener noreferrer">X ↗</a>` : "",
@@ -433,25 +419,25 @@
     ].filter(Boolean).join("");
   }
 
+  const FIND = [["HR & recruiters", "recruiter"], ["founders", "founder"], ["the CTO", "CTO"]];
   function peopleHtml(item) {
     const groups = {};
     for (const p of item.contacts) (groups[p.tier] ||= []).push(p);
-    const label = { "C-Suite": "C-Suite", "Talent & HR": "Talent & HR", Partnerships: "Partnerships", Leadership: "Leadership & other" };
-    let html = Object.keys(TIER_ORDER).filter(t => groups[t]).map(t => `<h3 class="sect">${label[t]} · ${groups[t].length}</h3>` +
+    let html = Object.keys(TIER_ORDER).filter(t => groups[t]).map(t => `<h3 class="sect">${TIER_LABEL[t]} · ${groups[t].length}</h3>` +
       groups[t].map(p => `<div class="person"><div><div class="pn">${esc(p.name)}</div><div class="pt">${esc(p.title || "")}${p.location ? ` · ${esc(p.location)}` : ""}</div></div>
         <div>${statusSelect(item, p)}</div><div class="pc">${contactWays(item, p)}</div></div>`).join("")).join("");
     if (!item.contacts.length) {
-      html = `<h3 class="sect">No named contact yet</h3><p class="muted">Find the decision-makers on LinkedIn:</p>
-        <div class="btnrow">${["CEO", "CTO", "founder"].map(r => `<a class="btn sm" href="${esc(linkedInPeople(item.company, r))}" target="_blank" rel="noopener noreferrer">Find ${r === "founder" ? "founders" : r} ↗</a>`).join("")}</div>`;
+      html = `<h3 class="sect">No named contact yet</h3><p class="muted">Find HR, founders and the CTO on LinkedIn:</p>
+        <div class="btnrow">${FIND.map(([label, kw]) => `<a class="btn sm" href="${esc(coPeople(item, kw))}" target="_blank" rel="noopener noreferrer">Find ${label} ↗</a>`).join("")}</div>`;
     }
     const channels = [
-      ...item.companyEmails.map(e => `<span><button type="button" class="copy" data-copy="${esc(e.email)}">${esc(e.email)}</button> <span class="muted">${esc(e.team)}</span></span>`),
+      ...item.companyEmails.map(e => `<span><button type="button" class="copy" data-copy="${esc(e.email)}">${esc(e.email)}</button> ${verified(e.emailCheck)} <span class="muted">hiring inbox</span></span>`),
       item.hqPhone ? `<span><button type="button" class="copy" data-copy="${esc(item.hqPhone)}">${esc(item.hqPhone)}</button> <span class="muted">HQ</span></span>` : "",
       ...Object.entries(item.social).filter(([k]) => k !== "linkedin").map(([k, v]) => `<a href="${esc(v)}" target="_blank" rel="noopener noreferrer">${esc(k[0].toUpperCase() + k.slice(1))} ↗</a>`),
-      ...Object.entries(item.pages).filter(([k]) => ["contact", "careers", "partners", "team"].includes(k)).map(([k, v]) => `<a href="${esc(v)}" target="_blank" rel="noopener noreferrer">${esc({ contact: "Contact page", careers: "Careers page", partners: "Partner page", team: "Team page" }[k])} ↗</a>`),
+      ...Object.entries(item.pages).filter(([k]) => ["contact", "careers", "team"].includes(k)).map(([k, v]) => `<a href="${esc(v)}" target="_blank" rel="noopener noreferrer">${esc({ contact: "Contact page", careers: "Careers page", team: "Team page" }[k])} ↗</a>`),
     ].filter(Boolean);
     if (channels.length) html += `<h3 class="sect">Company channels</h3><div class="person"><div class="pc" style="grid-column:1/-1">${channels.join("")}</div></div>`;
-    if (item.contacts.length) html += `<div class="btnrow">${["CEO", "CTO", "founder"].map(r => `<a class="linkbtn" href="${esc(linkedInPeople(item.company, r))}" target="_blank" rel="noopener noreferrer">Find more: ${r === "founder" ? "founders" : r} ↗</a>`).join(" · ")}</div>`;
+    if (item.contacts.length) html += `<div class="btnrow">${FIND.map(([label, kw]) => `<a class="linkbtn" href="${esc(coPeople(item, kw))}" target="_blank" rel="noopener noreferrer">Find more: ${label} ↗</a>`).join(" · ")}</div>`;
     return html;
   }
 
@@ -459,14 +445,13 @@
     const open = item.roles.filter(r => r.status === "open");
     const first = (target?.name || "there").split(/\s+/)[0];
     const roleTitles = open.slice(0, 3).map(r => r.title).join(", ");
-    const track = open[0]?.track || "engineering";
-    const subject = `Remote ${track} hiring at ${item.company}`;
-    const body = `Hi ${first},\n\nI saw that ${item.company} is hiring remotely for ${roleTitles || "engineering roles"}.\n\nWe work with pre-vetted software and AI engineers who are used to working fully remote across time zones${item.techStack.length ? `, including people shipping production code in ${item.techStack.slice(0, 4).join(", ")}` : ""}. I'd be glad to share a short list of profiles that match these roles.\n\nWould a 15-minute call this week or next be useful?\n\nBest regards,\n`;
+    const subject = `Remote interns for ${item.company}`;
+    const body = `Hi ${first},\n\nI saw that ${item.company} is looking for remote interns: ${roleTitles || "tech internships"}.\n\nWe work with pre-vetted computer-science students and recent graduates who are ready for fully remote internships across time zones${item.techStack.length ? `, including people building with ${item.techStack.slice(0, 4).join(", ")}` : ""}. I'd be glad to share a short list of candidates for these internships.\n\nWould a 15-minute call this week or next be useful?\n\nBest regards,\n`;
     return { subject, body };
   }
   function outreachHtml(item) {
     const withEmail = item.contacts.filter(p => p.email);
-    const target = withEmail.find(p => contactKey(item.id, p) === outreachTo) || withEmail.find(p => p.tier === "C-Suite") || withEmail[0] || item.contacts[0];
+    const target = withEmail.find(p => contactKey(item.id, p) === outreachTo) || withEmail.find(p => p.tier === "Talent & HR") || withEmail.find(p => p.tier === "Founders & CTO") || withEmail[0] || item.contacts[0];
     if (target) outreachTo = contactKey(item.id, target);
     const { subject, body } = pitchFor(item, target);
     const mailto = target?.email ? `mailto:${encodeURIComponent(target.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}` : "";
@@ -506,9 +491,9 @@
         const list = by(st);
         return `<section class="col" aria-label="${st}"><h3>${st}<span class="n">${list.length}</span></h3>
           ${list.slice(0, boardShown[st]).map(({ item, p }) => `<div class="card">
-            <div class="who">${esc(p.name)}</div><div class="ttl">${esc(p.title || p.tier)}</div>
-            <button type="button" class="co" data-open="${esc(item.id)}" data-open-tab="people">${esc(item.company)}${item.status === "closed" ? " (no open roles)" : ` · ${item.openCount} open`}</button>
-            <div class="ways">${p.email ? `<button type="button" class="copy" data-copy="${esc(p.email)}">${esc(p.email)}</button>` : ""}${(p.phone || item.hqPhone) ? `<button type="button" class="copy" data-copy="${esc(p.phone || item.hqPhone)}">${esc(p.phone || item.hqPhone)}</button>` : ""}${p.linkedin ? `<a href="${esc(p.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>` : ""}</div>
+            <div class="who">${esc(p.name)}</div><div class="ttl">${esc(p.title || TIER_LABEL[p.tier])}</div>
+            <button type="button" class="co" data-open="${esc(item.id)}" data-open-tab="people">${esc(item.company)}${item.status === "closed" ? " (no open internships)" : ` · ${plural(item.openCount, "internship", "internships")}`}</button>
+            <div class="ways">${p.email ? `<span><button type="button" class="copy" data-copy="${esc(p.email)}">${esc(p.email)}</button> ${verified(p.emailCheck)}</span>` : ""}${(p.phone || item.hqPhone) ? `<button type="button" class="copy" data-copy="${esc(p.phone || item.hqPhone)}">${esc(p.phone || item.hqPhone)}</button>` : ""}${p.linkedin ? `<a href="${esc(p.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>` : ""}</div>
             <div>${statusSelect(item, p)}</div>
           </div>`).join("")}
           ${list.length > boardShown[st] ? `<button type="button" class="btn sm" data-board-more="${st}">Show more (${list.length - boardShown[st]})</button>` : ""}
@@ -522,9 +507,9 @@
       for (const { item, list } of [...byCo.values()].sort((a, b) => a.item.company.localeCompare(b.item.company, "en"))) {
         list.forEach(({ p }, i) => {
           const phone = p.phone || item.hqPhone;
-          rows.push(`<tr>${i === 0 ? `<td class="co" rowspan="${list.length}"><button type="button" class="linkbtn" data-open="${esc(item.id)}" data-open-tab="people"><span class="name">${esc(item.company)}</span></button><div class="muted" style="font-size:13px">${item.country ? `${flag(item.country)} ${esc(item.country)}` : "Global remote"} · ${item.openCount} open roles</div></td>` : ""}
-            <td><strong>${esc(p.name)}</strong><div class="muted" style="font-size:13px">${esc(p.title || "")} · ${esc(p.tier)}</div></td>
-            <td>${p.email ? `<button type="button" class="copy" data-copy="${esc(p.email)}">${esc(p.email)}</button>` : "—"}</td>
+          rows.push(`<tr>${i === 0 ? `<td class="co" rowspan="${list.length}"><button type="button" class="linkbtn" data-open="${esc(item.id)}" data-open-tab="people"><span class="name">${esc(item.company)}</span></button><div class="muted" style="font-size:13px">${item.country ? `${flag(item.country)} ${esc(item.country)}` : "Global remote"} · ${plural(item.openCount, "internship", "internships")}${item.linkedinPage ? ` · <a href="${esc(item.linkedinPage)}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>` : ""}</div></td>` : ""}
+            <td><strong>${esc(p.name)}</strong><div class="muted" style="font-size:13px">${esc(p.title || "")} · ${esc(TIER_LABEL[p.tier])}</div></td>
+            <td>${p.email ? `<button type="button" class="copy" data-copy="${esc(p.email)}">${esc(p.email)}</button> ${verified(p.emailCheck)}` : "—"}</td>
             <td>${phone ? `<button type="button" class="copy" data-copy="${esc(phone)}">${esc(phone)}</button><div class="muted" style="font-size:12px">${p.phone ? "direct" : "HQ line"}</div>` : "—"}</td>
             <td>${p.linkedin ? `<a href="${esc(p.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>` : `<a href="${esc(linkedInPeople(item.company, p.name))}" target="_blank" rel="noopener noreferrer">Find ↗</a>`}</td>
             <td>${statusSelect(item, p)}</td></tr>`);
@@ -689,9 +674,9 @@
   }
 
   // ---------------------------------------------------------------- CSV exports (current Jobs filters)
-  function exportCsv(onlyCSuite) {
+  function exportCsv(contactsOnly) {
     const rows = jobRows();
-    const head = ["Country", "Region", "Startup", "Status", "Remote scope", "Open remote tech roles", "Tracks", "Contact name", "Contact title", "Tier", "Email", "Phone", "Phone type", "LinkedIn", "Company emails", "Company LinkedIn", "Job board", "Sources", "Contact status"];
+    const head = ["Country", "Region", "Startup", "Status", "Remote scope", "Open remote tech internships", "Tracks", "Contact name", "Contact title", "Team", "Email", "Phone", "Phone type", "LinkedIn", "Company emails", "Company LinkedIn", "Job board", "Sources", "Contact status", "Email validated by", "Company LinkedIn source"];
     const cell = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
     const out = [head.map(cell).join(",")];
     for (const item of rows) {
@@ -699,12 +684,12 @@
       const base = [item.country || "Global", item.region || "Global", item.company, item.status === "open" ? "Hiring" : "No longer hiring", item.remoteScope,
         roles.map(r => `${r.title} [${r.category}] <${r.url}>`).join(" | "), [...new Set(roles.map(r => r.track))].join(" | ")];
       const tail = [item.companyEmails.map(e => e.email).join(" | "), item.linkedinPage, item.boardUrl, item.sources.map(s => SOURCE_LABEL[s] || s).join(" | ")];
-      const people = onlyCSuite ? item.contacts.filter(p => p.tier === "C-Suite") : item.contacts;
-      if (!people.length) { if (!onlyCSuite) out.push([...base, "", "", "", "", item.hqPhone, item.hqPhone ? "HQ line" : "", "", ...tail, ""].map(cell).join(",")); continue; }
-      for (const p of people) out.push([...base, p.name, p.title, p.tier, p.email, p.phone || item.hqPhone, p.phone ? "Direct" : item.hqPhone ? "HQ line" : "", p.linkedin, ...tail, statusOf(item, p)].map(cell).join(","));
+      const people = item.contacts;
+      if (!people.length) { if (!contactsOnly) out.push([...base, "", "", "", "", item.hqPhone, item.hqPhone ? "HQ line" : "", "", ...tail, "", "", item.linkedinVia].map(cell).join(",")); continue; }
+      for (const p of people) out.push([...base, p.name, p.title, TIER_LABEL[p.tier], p.email, p.phone || item.hqPhone, p.phone ? "Direct" : item.hqPhone ? "HQ line" : "", p.linkedin, ...tail, statusOf(item, p), p.emailCheck ? `mail server + ${p.emailCheck.basis}` : "", item.linkedinVia].map(cell).join(","));
     }
     const blob = new Blob(["﻿" + out.join("\n")], { type: "text/csv;charset=utf-8;" });
-    const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(blob), download: onlyCSuite ? "startup_leads_csuite_contacts.csv" : "startup_leads_remote_tech.csv" });
+    const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(blob), download: contactsOnly ? "startup_leads_contacts.csv" : "startup_leads_remote_internships.csv" });
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 2000);
     toast(`Exported ${plural(out.length - 1, "row", "rows")}`);
@@ -747,7 +732,7 @@
     $("source").addEventListener("change", e => set({ source: e.target.value }));
     document.querySelectorAll('input[name="has"]').forEach(i => i.addEventListener("change", () => set({ has: [...document.querySelectorAll('input[name="has"]:checked')].map(x => x.value) })));
     $("showEmpty").addEventListener("change", e => set({ empty: e.target.checked }));
-    const segs = [["typeSeg", "type"], ["teamSeg", "team"], ["layoutSeg", "layout"], ["changeSeg", "kind"]];
+    const segs = [["teamSeg", "team"], ["layoutSeg", "layout"], ["changeSeg", "kind"]];
     for (const [id, key] of segs) $(id).addEventListener("click", e => { const b = e.target.closest("button"); if (b) set({ [key]: b.dataset[key === "kind" ? "kind" : key] ?? "" }); });
     document.querySelector('[role="tablist"]').addEventListener("click", e => { const t = e.target.closest("[data-tab]"); if (t) { set({ tab: t.dataset.tab }); t.focus(); } });
     document.querySelector('[role="tablist"]').addEventListener("keydown", e => {
@@ -781,7 +766,7 @@
       if (!e.target.closest(".anchor, #menu, #menuBtn")) closePops();
       const cp = e.target.closest("[data-copy]"); if (cp) { copy(cp.dataset.copy); return; }
       const chip = e.target.closest("[data-chip]"); if (chip) { set(activeFilters()[+chip.dataset.chip].clear); return; }
-      if (e.target.closest("#clearAll, [data-clear-all]")) { set({ q: "", region: "", country: "", track: "", type: "", source: "", has: [] }); return; }
+      if (e.target.closest("#clearAll, [data-clear-all]")) { set({ q: "", country: "", track: "", source: "", has: [] }); return; }
       if (e.target.closest("#showMore")) { shown += 40; renderJobs(jobRows()); return; }
       const bm = e.target.closest("[data-board-more]"); if (bm) { boardShown[bm.dataset.boardMore] += 60; renderOutreach(); return; }
       const op = e.target.closest("[data-open]"); if (op) { openPanel(op.dataset.open, op.dataset.openTab || "roles", op); return; }

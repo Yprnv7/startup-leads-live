@@ -221,3 +221,28 @@ export function remoteLabel(places) {
 
 export const isFocusPlaces = places => regionsOf(places).length > 0;
 export const INDIA_RE = /\bindia\b|bengaluru|bangalore|hyderabad|mumbai|\bpune\b|gurugram|gurgaon|noida|chennai|new delhi|kolkata|ahmedabad/i;
+
+// ---------------------------------------------------------------- the site's countries
+// Remote tech internships open to people in these five countries only (alphabetical).
+export const SCOPE_COUNTRIES = ['Australia', 'Germany', 'Singapore', 'United Arab Emirates', 'United Kingdom'];
+const COUNTRY_SHORT = { Australia: 'AU', Germany: 'DE', Singapore: 'SG', 'United Arab Emirates': 'UAE', 'United Kingdom': 'UK' };
+
+/**
+ * Which of the five countries a remote role is open to.
+ * A role counts for a country when it names that country, or when it is remote across a wider area
+ * (worldwide, Europe, EMEA, APAC, MENA) and the company is based in that country.
+ * @param places  countries / wide tokens from the role's location (remotePlaces)
+ * @param hq      countries the company is based in
+ */
+export function scopeCountries(places, hq = []) {
+  const out = new Set(places.filter(p => SCOPE_COUNTRIES.includes(p)));
+  for (const p of places) {
+    if (!WIDE[p]) continue;
+    for (const c of SCOPE_COUNTRIES) if (WIDE[p].covers.includes(REGION_OF[c]) && hq.includes(c)) out.add(c);
+  }
+  return SCOPE_COUNTRIES.filter(c => out.has(c));
+}
+
+// Badge text: "100% Remote (UK)", "100% Remote (UK/DE)"; "(Global)" when the posting is worldwide.
+export const countryLabel = (countries, places = []) =>
+  places.includes('Worldwide') ? '100% Remote (Global)' : `100% Remote (${countries.map(c => COUNTRY_SHORT[c]).join('/')})`;

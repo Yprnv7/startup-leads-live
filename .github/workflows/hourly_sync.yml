@@ -50,12 +50,13 @@ jobs:
       - name: Fetch, discover and verify remote tech roles
         run: node scripts/update.mjs --mode=${{ steps.mode.outputs.mode }} ${{ inputs.force_yc && '--force-yc' || '' }}
 
-      - name: Points of contact (website scan + Prospeo if configured)
+      - name: Points of contact (website scan, Prospeo, email validation)
         run: node scripts/contacts.mjs
         env:
           PROSPEO_API_KEY: ${{ secrets.PROSPEO_API_KEY }}
+          ZEROBOUNCE_API_KEY: ${{ secrets.ZEROBOUNCE_API_KEY }}
 
-      - name: Integrity tests (no USA, 100% remote, pure tech, A-Z countries)
+      - name: Integrity tests (5 countries, remote tech internships only, no USA, validated emails)
         run: python3 tests/test_site_integrity.py
 
       - name: Commit data

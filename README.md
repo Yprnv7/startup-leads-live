@@ -1,27 +1,34 @@
 # Startup Leads Live
 
-**100% remote, pure-tech jobs and internships at startups in Australia, Europe, MEA, New Zealand, SEA and the UK, with founder and C-Suite contacts.** It updates itself every hour.
+**100% remote, pure-tech internships open in the UK, Germany, Australia, Singapore and the UAE, with HR / talent, founder, CTO, VP, director and head-of contacts and validated emails.** It updates itself every hour.
 
 **Site:** https://yprnv7.github.io/startup-leads-live/
 
 ## What's on the site (enforced in the data, checked by tests every hour)
 
+- **Internships only.** The title must say intern / internship / co-op / Praktikum (or the company's own job board must list it as an internship). Full-time jobs, working-student (Werkstudent), thesis, apprentice and trainee posts are dropped.
 - **100% remote only.** A role must be remote by its job board's own flag (Ashby `workplaceType: Remote`, Lever `workplaceType: remote`) or by its stated location. Anything hybrid, in-office, "X days in office" or requiring relocation is dropped.
 - **Pure tech only.** Software (backend, frontend, full-stack, systems), AI/ML/LLM, data and quant, DevOps/SRE/cloud/platform, security, mobile, robotics/embedded, and tech internships. Sales, GTM, marketing, recruiting, HR, legal, compliance, ops, PM, design, support and non-software engineering are dropped.
-- **Six regions, no USA.** Each role must be workable from Australia, Europe, MEA, New Zealand, SEA or the UK. US-only roles are dropped. Companies are excluded if they are **headquartered in the US** (from the company's location, YC data, or Wikidata), **hire in the US** (job-feed companies with no known HQ), or are on the `excludeCompanies` list in `config.json`.
+- **Five countries, no USA.** Each internship must be open to people in the UK, Germany, Australia, Singapore or the UAE: the posting names the country, or it is remote across a wider area (worldwide, Europe, EMEA, APAC, MENA) and the company is based in that country. Everything else is dropped. Companies are excluded if they are **headquartered in the US** (from the company's location, YC data, Prospeo's company record, Wikidata's headquarters, or the posting itself saying "headquartered in …"), **hire in the US** (job-feed companies with no known HQ), or are on the `excludeCompanies` list in `config.json`.
 - **Posting text is checked.** Every posting's full text is read, and a role is dropped if:
   - it clearly requires office or hybrid work and offers no remote option (for example "This is an in-person role", "Hybrid (2 days a week in office)", "will transition to hybrid");
   - an agency is posting for an unnamed client ("Our client is…");
-  - its title names a country outside the six regions.
+  - its title names a country outside the five.
 
   Talent marketplaces (Proxify, Lemon.io and others) are excluded in `config.json`. The same role listed twice is shown once.
 - **No India offices.** A company is excluded if its location, YC regions or any of its job locations name an Indian city.
 - **Countries A → Z** everywhere, using `localeCompare('en')`.
 - **Closed roles turn red.** The server re-checks every role hourly. Open pages also re-check Greenhouse, Lever, Ashby and HN roles directly every 60 minutes (the ⋯ menu shows the countdown and has **Sync now**). A removed role is struck through in crimson with the reason, and a company with no open roles left turns red.
 
+## Contacts
+
+- **Who:** HR / talent acquisition / recruiting, founders and co-founders, CTOs, VPs, directors and heads of teams. Partnerships / business development contacts are removed, and so are CEOs, COOs and CFOs who aren't founders (YC-listed founders count as founders). Company mailboxes: hiring / HR ones only (careers@, jobs@, hr@, talent@…). Rules: `scripts/people.mjs`.
+- **Company LinkedIn:** every company is looked up in Prospeo (1 credit, `contacts.prospeoCompanyDailyCredits`) and its LinkedIn page is used only when Prospeo's record has the same website as ours, or (for companies known only by name) the same name plus one of our open internships or a headquarters in one of the five countries. Otherwise: YC's profile, then the link on the company's own website. Links are stored as `https://www.linkedin.com/company/<slug>`; the site also links that company's LinkedIn jobs and its HR / recruiters.
+- **Emails are validated before they are shown:** the domain must have a mail server (MX record), and the address must be verified by Prospeo, listed on the company's own site, or confirmed "valid" by [ZeroBounce](https://www.zerobounce.net) (set the `ZEROBOUNCE_API_KEY` repository secret to turn it on; `contacts.zerobounceDailyCredits`). ZeroBounce "invalid", "spamtrap", "abuse" or "do_not_mail" removes an address for good. Unconfirmed addresses are held back, not published.
+
 ## Sources
 
-Y Combinator (company pages: jobs and founders), HN "Who is hiring?", 60+ startup job boards on Greenhouse / Lever / Ashby (`config.json → ats.boards`, plus boards found in HN posts), [Jobicy](https://jobicy.com) (remote jobs by region) and [Arbeitnow](https://www.arbeitnow.com) (EU remote jobs).
+Y Combinator (company pages: jobs and founders), HN "Who is hiring?", 60+ startup job boards on Greenhouse / Lever / Ashby (`config.json → ats.boards`, plus boards found in HN posts), [Jobicy](https://jobicy.com) (remote jobs by region) and [Arbeitnow](https://www.arbeitnow.com) (EU remote jobs) and [Himalayas](https://himalayas.app) (remote-only board: every internship search for the five countries plus worldwide).
 
 **Others** (one group in the Source filter), read through each site's official feed and credited on every role:
 - [Remotive](https://remotive.com): API, at most 4 checks a day as Remotive asks
