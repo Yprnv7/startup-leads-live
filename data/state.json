@@ -8866,14 +8866,39 @@
    "at": "2026-10-30T18:00:15.028Z",
    "id": null,
    "us": false
+  },
+  "Primion Technology GmbH": {
+   "at": "2026-10-30T21:00:16.863Z",
+   "id": null,
+   "us": false
+  },
+  "SPREAD GmbH": {
+   "at": "2026-10-30T21:00:16.863Z",
+   "id": null,
+   "us": false
+  },
+  "STUR GmbH": {
+   "at": "2026-10-30T21:00:16.863Z",
+   "id": null,
+   "us": false
+  },
+  "WAITS Software- und Prozessberatungsgesellschaft mbH": {
+   "at": "2026-10-30T21:00:16.863Z",
+   "id": null,
+   "us": false
+  },
+  "Moniepoint": {
+   "at": "2026-10-30T21:00:16.863Z",
+   "id": "Q116873326",
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-10-30T18:00:15.028Z",
-  "remoteok": "2026-10-30T18:00:15.028Z",
-  "workingnomads": "2026-10-30T18:00:15.028Z",
-  "weworkremotely": "2026-10-30T18:00:15.028Z",
-  "nodesk": "2026-10-30T18:00:15.028Z",
+  "remoteok": "2026-10-30T21:00:16.863Z",
+  "workingnomads": "2026-10-30T21:00:16.863Z",
+  "weworkremotely": "2026-10-30T21:00:16.863Z",
+  "nodesk": "2026-10-30T21:00:16.863Z",
   "himalayas": "2026-10-30T19:57:43.418Z",
   "jobfound": "2026-10-30T18:00:15.028Z"
  },
@@ -8906,8 +8931,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-10-30T18:00:15.028Z",
- "arbeitnowAt": "2026-10-30T18:00:15.028Z",
+ "jobicyAt": "2026-10-30T21:00:16.863Z",
+ "arbeitnowAt": "2026-10-30T21:00:16.863Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,

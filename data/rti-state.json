@@ -332,7 +332,7 @@
  "zeroMiss": {},
  "prospeo": {
   "credits": {
-   "2026-10-30": 85
+   "2026-10-30": 87
   },
   "mobileCredits": {
    "2026-10-30": 136
@@ -4233,16 +4233,41 @@
    "at": "2026-10-30T18:03:14.751Z",
    "id": null,
    "us": false
+  },
+  "Primion Technology GmbH": {
+   "at": "2026-10-30T21:01:15.874Z",
+   "id": null,
+   "us": false
+  },
+  "SPREAD GmbH": {
+   "at": "2026-10-30T21:01:15.874Z",
+   "id": null,
+   "us": false
+  },
+  "STUR GmbH": {
+   "at": "2026-10-30T21:01:15.874Z",
+   "id": null,
+   "us": false
+  },
+  "WAITS Software- und Prozessberatungsgesellschaft mbH": {
+   "at": "2026-10-30T21:01:15.874Z",
+   "id": null,
+   "us": false
+  },
+  "Moniepoint": {
+   "at": "2026-10-30T21:01:15.874Z",
+   "id": "Q116873326",
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-10-30T19:58:15.391Z",
-  "remoteok": "2026-10-30T18:03:14.751Z",
-  "workingnomads": "2026-10-30T18:03:14.751Z",
-  "weworkremotely": "2026-10-30T18:03:14.751Z",
-  "nodesk": "2026-10-30T18:03:14.751Z",
+  "remoteok": "2026-10-30T21:01:15.874Z",
+  "workingnomads": "2026-10-30T21:01:15.874Z",
+  "weworkremotely": "2026-10-30T21:01:15.874Z",
+  "nodesk": "2026-10-30T21:01:15.874Z",
   "jobfound": "2026-10-30T18:03:14.751Z"
  },
- "jobicyAt": "2026-10-30T18:03:14.751Z",
- "arbeitnowAt": "2026-10-30T18:03:14.751Z"
+ "jobicyAt": "2026-10-30T21:01:15.874Z",
+ "arbeitnowAt": "2026-10-30T21:01:15.874Z"
 }
