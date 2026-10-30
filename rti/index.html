@@ -1,0 +1,500 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>RTI Tracker</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky header with region tabs, a filter strip, then a dense company table; a side drawer holds one company's timeline. */
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#18212f; --muted:#5d6878; --line:#dfe3ea; --soft:#eef1f6;
+  --accent:#2349c7; --accent-ink:#ffffff; --accent-soft:#e6ecff;
+  --ok:#1f7a4d; --ok-soft:#e3f4ea; --warn:#9a5b00; --warn-soft:#fdf0d8; --bad:#b3261e; --bad-soft:#fbe5e3; --cty:#6b3fa0; --cty-soft:#f1e8fb;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Public Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f141c; --panel:#161d28; --ink:#e6ebf2; --muted:#9aa6b6; --line:#2a3443; --soft:#1d2633;
+  --accent:#7d9bff; --accent-ink:#0f141c; --accent-soft:#1f2a4a;
+  --ok:#6fd39d; --ok-soft:#173326; --warn:#f0b75c; --warn-soft:#3a2c12; --bad:#ff8a80; --bad-soft:#3d1c1a; --cty:#c9a6f5; --cty-soft:#2e2140; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f141c; --panel:#161d28; --ink:#e6ebf2; --muted:#9aa6b6; --line:#2a3443; --soft:#1d2633;
+  --accent:#7d9bff; --accent-ink:#0f141c; --accent-soft:#1f2a4a;
+  --ok:#6fd39d; --ok-soft:#173326; --warn:#f0b75c; --warn-soft:#3a2c12; --bad:#ff8a80; --bad-soft:#3d1c1a; --cty:#c9a6f5; --cty-soft:#2e2140; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--panel)}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));max-width:1400px;margin:0 auto}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--panel);border-bottom:1px solid var(--line)}
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;padding-block:14px 10px}
+h1{font-family:var(--f-display);font-size:22px;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.sub{color:var(--muted);font-size:12.5px;margin-top:2px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+button,select,input,textarea{font:inherit;color:inherit}
+.btn{border:1px solid var(--line);background:var(--panel);border-radius:6px;padding:6px 12px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tabs{display:flex;gap:2px;overflow-x:auto;padding-bottom:0}
+.tab{border:0;background:none;padding:8px 14px;border-bottom:2px solid transparent;cursor:pointer;color:var(--muted);white-space:nowrap;font-weight:500}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tab .n{font-family:var(--f-mono);font-size:11.5px;margin-left:6px;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-block:12px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--panel)}
+.seg button{border:0;background:none;padding:6px 12px;cursor:pointer;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--accent-soft);color:var(--ink);font-weight:600}
+.bar select,.bar input[type=search]{border:1px solid var(--line);background:var(--panel);border-radius:6px;padding:6px 8px}
+.bar input[type=search]{min-width:200px;flex:1 1 200px;max-width:320px}
+.chk{display:inline-flex;gap:6px;align-items:center;color:var(--muted);font-size:13px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px}
+.tablewrap{overflow-x:auto}
+.ctype{display:inline-block;font-size:11px;font-weight:500;line-height:1.5;padding:0 7px;border-radius:999px;margin-left:6px;vertical-align:1px;white-space:nowrap}
+.ct-tech{background:var(--soft);color:var(--muted);border:1px solid var(--line)}
+.ct-non{background:var(--warn-soft);color:var(--warn);border:1px solid transparent}
+.ct-unk{color:var(--muted);border:1px dashed var(--line)}
+.src td small{display:block;color:var(--muted);font-size:12px;font-family:inherit}
+.src td.note{max-width:320px}
+table{border-collapse:collapse;width:100%;min-width:900px}
+th{text-align:left;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600;padding:9px 10px;border-bottom:1px solid var(--line);background:var(--soft);position:sticky;top:0}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+tr.row{cursor:pointer}
+tr.row:hover td{background:var(--soft)}
+.cname{font-weight:600}
+.cname small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.mono{font-family:var(--f-mono);font-size:12.5px;font-variant-numeric:tabular-nums}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{font-size:11.5px;padding:2px 7px;border-radius:999px;background:var(--soft);border:1px solid var(--line);white-space:nowrap}
+.chip.t-funding{background:var(--ok-soft);border-color:transparent;color:var(--ok)}
+.chip.t-job{background:var(--accent-soft);border-color:transparent;color:var(--accent)}
+.chip.t-caution{background:var(--bad-soft);border-color:transparent;color:var(--bad)}
+.chip.t-accel{background:var(--warn-soft);border-color:transparent;color:var(--warn)}
+.chip.t-free{background:transparent;border:1px dashed var(--accent);color:var(--accent)}
+.acc{font-size:11px;font-weight:600;padding:1px 6px;border-radius:4px;white-space:nowrap;display:inline-block}
+.acc-india{background:var(--ok-soft);color:var(--ok)}
+.acc-world{background:var(--accent-soft);color:var(--accent)}
+.acc-tz{background:var(--warn-soft);color:var(--warn)}
+.acc-region{background:var(--cty-soft);color:var(--cty)}
+.acc-unknown{background:transparent;color:var(--muted);border:1px dashed var(--line)}
+.acc-onsite{background:var(--soft);color:var(--muted);border:1px solid var(--line)}
+.fl-meta{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:12.5px;color:var(--muted)}
+.pill{font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:4px;white-space:nowrap}
+.p-clear{background:var(--ok-soft);color:var(--ok)}
+.p-verify{background:var(--warn-soft);color:var(--warn)}
+.p-india{background:var(--bad-soft);color:var(--bad)}
+.p-pending{background:var(--soft);color:var(--muted)}
+td select{border:1px solid var(--line);background:var(--panel);border-radius:5px;padding:3px 6px;font-size:13px}
+.empty{padding:40px 20px;text-align:center;color:var(--muted)}
+.empty strong{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
+.feed{list-style:none;margin:0;padding:0}
+.feed li{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.feed li > div{min-width:0}
+.newsbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line)}
+.newsbar .note{flex:1 1 260px;min-width:0}
+.headline{font-weight:600;font-size:15px;margin:4px 0 2px;text-wrap:pretty}
+.feed .when{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.feed a{color:var(--accent)}
+a{color:var(--accent)}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(520px,100%);background:var(--panel);border-left:1px solid var(--line);z-index:20;overflow-y:auto;box-shadow:-12px 0 30px rgba(0,0,0,.12);padding:calc(18px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) 20px}
+.drawer h2{font-family:var(--f-display);font-size:20px;margin:0 0 4px}
+.kv{display:grid;grid-template-columns:120px 1fr;gap:6px 12px;margin:14px 0;font-size:13.5px}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.drawer textarea{width:100%;min-height:90px;border:1px solid var(--line);border-radius:6px;padding:8px;background:var(--bg)}
+.sec{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:18px 0 8px;font-weight:600}
+.tl{list-style:none;padding:0;margin:0;border-left:2px solid var(--line)}
+.tl li{padding:0 0 12px 14px;position:relative}
+.tl li::before{content:"";position:absolute;left:-6px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.close{position:absolute;right:max(16px,env(safe-area-inset-right,0px));top:calc(14px + env(safe-area-inset-top,0px))}
+.scrim{position:fixed;inset:0;background:rgba(10,15,25,.35);z-index:19}
+.note{font-size:12.5px;color:var(--muted)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:6px;z-index:30;font-size:13px}
+.import{padding:16px}
+.import p{margin:0 0 8px}
+.ownerbtn{border:1px dashed var(--line);background:none;border-radius:5px;padding:3px 8px;cursor:pointer;font-size:12.5px;color:var(--muted)}
+.owner{display:inline-flex;align-items:center;gap:6px;font-size:13px}
+.owner img{width:20px;height:20px;border-radius:50%}
+footer{padding-block:20px 40px;color:var(--muted);font-size:12px}
+@media (max-width:640px){.feed li{grid-template-columns:1fr;gap:4px}.kv{grid-template-columns:1fr}.kv dt{margin-top:6px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <h1>RTI Tracker</h1>
+        <div class="sub">Remote Tech Internships · companies abroad with no India office, and the hiring and funding signals that point to them.</div>
+        <div class="sub" id="runinfo"></div>
+      </div>
+      <div class="actions">
+        <a class="btn" href="../" title="Back to the Startup Leads dashboard">← Startup Leads</a>
+        <a class="btn" href="https://claude.ai/artifact/SietoRHgP9n98DEat8djV7" target="_blank" rel="noopener" title="The original tracker with your team's shared data on claude.ai">Original on claude.ai ↗</a>
+        <select id="exportScope" aria-label="Which companies to download"><option value="all">All companies shown</option><option value="0">Added today</option><option value="1">Added yesterday</option><option value="7">Added in the last 7 days</option></select>
+        <button class="btn" id="exportBtn" type="button">Download Excel</button>
+        <button class="btn primary" id="importBtn" type="button">Upload CSV / Excel</button>
+      </div>
+    </div>
+    <nav class="tabs" role="tablist" id="regionTabs"></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="bar">
+    <div class="seg" role="group" aria-label="View">
+      <button type="button" data-view="companies" aria-pressed="true">Companies</button>
+      <button type="button" data-view="feed" aria-pressed="false">Signal feed</button>
+      <button type="button" data-view="news" aria-pressed="false">News</button>
+      <button type="button" data-view="freelance" aria-pressed="false">Freelance</button>
+      <button type="button" data-view="sources" aria-pressed="false">Sources</button>
+    </div>
+    <select id="fSignal" aria-label="Signal type"><option value="">All signals</option></select>
+    <select id="fWhen" aria-label="Signal date">
+      <option value="">Any time</option><option value="1">New today</option><option value="7">Last 7 days</option><option value="30">Last 30 days</option>
+    </select>
+    <select id="fAccess" aria-label="Who can apply">
+      <option value="">Any job location</option><option value="india">Open to India</option><option value="world">Remote worldwide</option><option value="tz">Time-zone only</option><option value="region">Country or region only</option><option value="unknown">Remote, country not stated</option><option value="onsite">Onsite</option>
+    </select>
+    <select id="fCountry" aria-label="Country"><option value="">All countries</option></select>
+    <select id="fSort" aria-label="Sort companies" title="Best outreach order: Open to India first, then Remote worldwide, time-zone only, companies with no job post (funding/news), region-only, location not stated, onsite. Newest signal first within each group."><option value="fit">Sort: best outreach order</option><option value="date">Sort: latest signal</option></select>
+    <select id="fType" aria-label="Company type"><option value="">All company types</option><option value="tech">Tech companies</option><option value="non-tech">Non-tech, hiring tech roles</option><option value="unk">Type not checked yet</option></select>
+    <select id="fIntern" aria-label="Role level"><option value="">All roles</option><option value="1">Internships &amp; student roles</option></select>
+    <select id="fStatus" aria-label="Status"><option value="">All statuses</option></select>
+    <select id="fCheck" aria-label="India-office check">
+      <option value="ok">None found + To verify</option><option value="clear">None found only</option><option value="verify">To verify only</option><option value="pending">Not checked yet</option><option value="india">Removed (India office or not a fit)</option>
+    </select>
+    <input type="search" id="fq" placeholder="Search company, country, notes" aria-label="Search">
+  </div>
+
+  <section class="panel" id="importPanel" hidden>
+    <div class="import">
+      <p><strong>Add companies from a scraped list</strong></p>
+      <p class="note">Upload a CSV or Excel file, for example one exported with Instant Data Scraper from Wellfound, LinkedIn Jobs, YC or Otta. The file needs a company column; job title, link and location columns are picked up if present. Imported companies are saved in this browser and show as "Not checked yet" for the India-office check.</p>
+      <p><label>Region for these rows
+        <select id="impRegion"><option value="AU">Australia</option><option value="EU">Europe</option><option value="ME">MEA</option><option value="NZ">New Zealand</option><option value="SG">SEA</option><option value="UK">UK</option></select></label>
+        &nbsp;<label>Source name <input id="impSource" placeholder="e.g. Wellfound" style="border:1px solid var(--line);border-radius:5px;padding:4px 6px;background:var(--panel)"></label></p>
+      <p><input type="file" id="impFile" accept=".csv,.xlsx,.xls,text/csv"></p>
+      <p class="note" id="impMsg"></p>
+    </div>
+  </section>
+
+  <section class="panel" id="companiesView">
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Company</th><th>Company type</th><th>HQ</th><th>Headcount</th><th>Signals</th><th>Last signal</th><th>India office</th><th>Status</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <div class="empty" id="emptyCompanies" hidden><strong>No companies match these filters.</strong>Loosen a filter, or wait for the next daily run to add new ones.</div>
+    <div class="empty" id="loading"><strong>Loading the tracker…</strong>Companies and signals appear here once the shared store answers.</div>
+  </section>
+
+  <section class="panel" id="newsView" hidden>
+    <div class="newsbar"><div class="seg" role="group" aria-label="News type"><button type="button" data-nk="all" aria-pressed="true">All news</button><button type="button" data-nk="company" aria-pressed="false">Company news</button><button type="button" data-nk="market" aria-pressed="false">Market news</button></div><span class="note">Company news is about companies in the tracker. Market news covers funding trends, new accelerators and government programmes in each region.</span></div>
+    <ul class="feed news" id="newsList"></ul>
+    <div class="empty" id="emptyNews" hidden><strong>No news here.</strong>Startup Leads doesn't collect news; it's in the original tracker on claude.ai.</div>
+  </section>
+
+  <section class="panel" id="freelanceView" hidden>
+    <div class="newsbar"><span class="note">Freelance projects posted on marketplaces (Free-Work, Codeur.com, PeoplePerHour and others). Many clients post without their name, so these are listed here on their own; a project from a named company in your regions also appears on that company's row as a "Freelance project" signal.</span></div>
+    <ul class="feed" id="freelanceList"></ul>
+    <div class="empty" id="emptyFreelance" hidden><strong>No freelance projects here.</strong>Startup Leads doesn't collect freelance projects; they're in the original tracker on claude.ai.</div>
+  </section>
+
+  <section class="panel" id="sourcesView" hidden>
+    <div class="newsbar"><span class="note">How each job board did in the 3-hourly scans over the last 7 days. "Read" is postings seen in the time window; "Kept" is postings that passed the filters (tech role, target region, named employer, not an agency or Big Tech). A board with many reads and nothing kept is mostly agencies or non-tech roles; a board marked Failed could not be opened.</span></div>
+    <div class="tablewrap"><table class="src"><thead><tr><th>Source</th><th>Checked</th><th>Last result</th><th class="mono">Read (7 days)</th><th class="mono">Kept (7 days)</th><th class="mono">Saved postings</th><th>Last note</th></tr></thead><tbody id="srcRows"></tbody></table></div>
+    <div class="empty" id="emptySources" hidden><strong>No scan history yet.</strong>Each 3-hourly scan now records how every board did; the first records appear after the next scan.</div>
+  </section>
+
+  <section class="panel" id="feedView" hidden>
+    <ul class="feed" id="feed"></ul>
+    <div class="empty" id="emptyFeed" hidden><strong>No signals match these filters.</strong>Each daily run adds new job posts, funding news and accelerator batches.</div>
+  </section>
+  <footer class="wrap" style="padding-left:0;padding-right:0">This tracker shows Startup Leads data: every hiring company and its open 100% remote tech roles in Australia, Europe, MEA, New Zealand, SEA and the UK, with no US companies and no India offices, refreshed every hour. Status, notes, India-office changes and imported lists are saved in this browser only. Your team's original tracker, with its shared data, news and freelance projects, stays on <a href="https://claude.ai/artifact/SietoRHgP9n98DEat8djV7" target="_blank" rel="noopener">claude.ai</a>.</footer>
+</main>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-label="Company details"></aside>
+<div class="toast" id="toast" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="adapter.js"></script>
+<script>
+// Startup Leads regions (no US): Australia, Europe, MEA, New Zealand, SEA, UK, plus roles open worldwide.
+const REGIONS=[["ALL","All"],["AU","Australia"],["EU","Europe"],["ME","MEA"],["NZ","New Zealand"],["SG","SEA"],["UK","UK"],["GL","Global remote"]];
+const STATUSES=["New","Researching","Contacted","Replied","In talks","Not a fit"];
+const TYPES={"Job posting":"t-job","Funding":"t-funding","Accelerator":"t-accel","Grant":"t-funding","News":"","Hired Indian talent":"t-accel","Hires remotely":"t-job","Caution":"t-caution","Imported list":"t-job","Freelance project":"t-free"};
+const ACC={india:["acc-india","Open to India"],world:["acc-world","Remote worldwide"],onsite:["acc-onsite","Onsite"]};
+function access(s){if(!s||(s.type!=="Job posting"&&s.type!=="Freelance project"))return null;const a=s.access||"";if(a==="india"||a==="world"||a==="onsite")return a;if(a.startsWith("region"))return a;const t=s.summary||"";if(/open to india/i.test(t))return"india";let z=t.match(/(?:in|within) ([A-Z][A-Za-z\/ ]*?) time ?zones?/);if(z)return"region:"+z[1]+" time zones only";let m=t.match(/\b((?:EU|EEA|UK|US|USA|Europe|[A-Z][a-z]+(?: [A-Z][a-z]+)?)(?:\/[A-Z][A-Za-z]+)*)(?: residents)? only\b/);if(m)return"region:"+m[1]+" only";m=t.match(/remote (?:in|within) ([A-Z][A-Za-z\/ ]*?[A-Za-z])(?=\)|,|;|$| or )/);if(m)return"region:"+m[1]+" only";if(/worldwide|anywhere/i.test(t))return"world";if(/on-?site|in-office|in office/i.test(t))return"onsite";if(/remote/i.test(t))return"region:Remote, country not stated";return null}
+function accKind(a){if(!a)return"";if(ACC[a])return a;const l=a.slice(a.indexOf(":")+1);if(/country not stated/i.test(l))return"unknown";if(/time ?zones?|hours|overlap|\b(CET|CEST|EET|WET|GMT|UTC|BST|PST|EST|CST|JST|AEST|IST)\b|±/i.test(l))return"tz";return"region"}
+function accTag(s){const a=access(s);if(!a)return"";const k=accKind(a);if(ACC[a])return`<span class="acc ${ACC[a][0]}" title="Who can apply to this job posting">${ACC[a][1]}</span>`;const tips={tz:"Remote, but working hours must overlap this time zone. India may be fine if the hours match: check the posting.",region:"Remote, but only for people based in (or allowed to work in) this country or region. People in India cannot apply for this job.",unknown:"Remote, but the posting does not say which countries can apply. Open the job to check."};return`<span class="acc acc-${k}" title="${tips[k]}">${esc(accLabel(a))}</span>`}
+function accLabel(a){return a.slice(a.indexOf(":")+1).replace(/^(EU\/EEA|EEA|EU|European Union)(?=[ \/]|$)/,"Europe")}
+const CHECK={clear:["p-clear","None found"],verify:["p-verify","To verify"],india:["p-india","India office"],pending:["p-pending","Not checked"],unfit:["p-india","Not a fit"]};
+const S={region:"ALL",view:"companies",companies:[],signals:[],open:null,me:null,canWrite:true,db:null,user:null,profiles:{}};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const today=()=>new Date().toISOString().slice(0,10);
+const daysAgo=d=>{if(!d)return 9999;return Math.floor((Date.now()-new Date(d+"T00:00:00Z").getTime())/864e5)};
+const fmtDate=d=>{if(!d)return"";const n=daysAgo(d);if(n<=0)return"Today";if(n===1)return"Yesterday";if(n<7)return n+" days ago";return new Date(d+"T00:00:00Z").toLocaleDateString(undefined,{day:"numeric",month:"short"})};
+function toast(t){const el=$("toast");el.textContent=t;el.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>el.hidden=true,2600)}
+function safeUrl(u){try{const x=new URL(u);return /^https?:$/.test(x.protocol)?x.href:""}catch(e){return""}}
+
+/* filters */
+STATUSES.forEach(s=>$("fStatus").insertAdjacentHTML("beforeend",`<option>${esc(s)}</option>`));
+let shownTypes="";
+function syncTypeOptions(){const present=Object.keys(TYPES).filter(t=>S.signals.some(s=>s.type===t));const key=present.join("|");if(key===shownTypes)return;shownTypes=key;const sel=$("fSignal"),cur=sel.value;sel.innerHTML='<option value="">All signals</option>'+present.map(t=>`<option>${esc(t)}</option>`).join("");if(cur&&present.includes(cur))sel.value=cur;else if(cur){sel.value=""}}
+Object.keys(TYPES).forEach(s=>$("fSignal").insertAdjacentHTML("beforeend",`<option>${esc(s)}</option>`));
+try{const saved=JSON.parse(localStorage.getItem("radar.f")||"{}");if(saved.region)S.region=saved.region;if(saved.fCountry)S.wantCountry=saved.fCountry;["fSignal","fWhen","fStatus","fCheck","fAccess","fIntern","fCountry","fType"].forEach(k=>{if(saved[k]!=null&&$(k))$(k).value=saved[k]})}catch(e){}
+function saveF(){try{localStorage.setItem("radar.f",JSON.stringify({region:S.region,fSignal:$("fSignal").value,fWhen:$("fWhen").value,fStatus:$("fStatus").value,fCheck:$("fCheck").value,fAccess:$("fAccess").value,fIntern:$("fIntern").value,fType:$("fType").value,fCountry:$("fCountry").value||S.wantCountry||""}))}catch(e){}}
+const INTERN=/\b(intern(ship)?s?|praktik\w*|werkstudent\w*|working student|student (role|job|assistant)|trainee|graduate|stagiaire|becari[oa]|tirocin\w*|インターン)\b/i;
+const ctypeOf=(c,sigs)=>{if(c.companyType==="tech"||c.companyType==="non-tech")return c.companyType;if((sigs||c._sigs||[]).some(s=>s.type==="Funding"||s.type==="Accelerator"||s.type==="Grant"))return"tech";return""};
+const CT_TIP={tech:"Tech company: builds a software or tech product, or sells tech services.","non-tech":"Not a tech company. It is in the tracker because it is hiring for its own tech role (developer, data, AI, design) - team rule: genuine in-house tech roles count in any industry.","":"Company type not checked yet; the 2:30 PM and 5:30 PM checks fill it in."};
+function ctypeTag(t){return t==="tech"?`<span class="ctype ct-tech" title="${CT_TIP.tech}">Tech</span>`:t==="non-tech"?`<span class="ctype ct-non" title="${CT_TIP["non-tech"]}">Non-tech · hiring tech roles</span>`:`<span class="ctype ct-unk" title="${CT_TIP[""]}">Type not checked</span>`}
+function ctypeCell(t){return t==="tech"?`<span title="${CT_TIP.tech}">Tech</span>`:t==="non-tech"?`<span title="${CT_TIP["non-tech"]}">Non-tech</span><small class="note" style="display:block">hiring tech roles</small>`:`<span class="note" title="${CT_TIP[""]}">Not checked yet</span>`}
+const WS_LABEL={verified:"Verified",corrected:"Corrected",unsure:"Unsure - check by hand"};
+const isIntern=s=>s&&(s.type==="Job posting"||s.type==="Freelance project")&&INTERN.test(s.summary||"");
+const ctry=c=>{const v=(c.country||"").trim();if(v)return v;const l=(c.location||"").split(",");return l.length>1?l[l.length-1].trim():""};
+let shownCountries="";
+function syncCountries(){const pool=S.companies.filter(c=>S.region==="ALL"||c.region===S.region);const set=[...new Set(pool.map(ctry).filter(Boolean))].sort();const key=set.join("|");if(key===shownCountries)return;shownCountries=key;const sel=$("fCountry");const cur=sel.value||S.wantCountry||"";sel.innerHTML='<option value="">All countries</option>'+set.map(x=>`<option>${esc(x)}</option>`).join("");if(cur&&set.includes(cur)){sel.value=cur;S.wantCountry=""}else if(cur){S.wantCountry=cur}}
+["fSignal","fWhen","fStatus","fCheck","fAccess","fIntern","fCountry","fType","fSort"].forEach(k=>$(k).addEventListener("change",()=>{saveF();render()}));
+$("fq").addEventListener("input",render);
+document.querySelectorAll("[data-view]").forEach(b=>b.addEventListener("click",()=>{S.view=b.dataset.view;document.querySelectorAll("[data-view]").forEach(x=>x.setAttribute("aria-pressed",x===b));render()}));
+$("exportBtn").addEventListener("click",async()=>{
+  const scope=$("exportScope").value;const dayAgo=n=>{const d=new Date();d.setDate(d.getDate()-n);return d.toLocaleDateString("en-CA")};
+  let list=filtered();
+  if(scope==="0")list=list.filter(c=>c.firstSeen===dayAgo(0));else if(scope==="1")list=list.filter(c=>c.firstSeen===dayAgo(1));else if(scope==="7")list=list.filter(c=>(c.firstSeen||"")>=dayAgo(6));
+  const scopeTag={"0":"added-"+dayAgo(0),"1":"added-"+dayAgo(1),"7":"added-last-7-days"}[scope];
+  if(!list.length){toast(scope==="all"?"No companies match the current filters.":"No companies added in that period match the current filters.");return}
+  const regionName=Object.fromEntries(REGIONS);
+  const head=["Company","Website","Website verified?","LinkedIn","Region","Location (State, Country)","Company type","Headcount","India office","India-office evidence","Status","Signal types","Latest signal","Latest signal date","Latest signal link","First seen","Notes"];
+  const rows=list.map(c=>{const s=c._sigs[0]||{};return[c.name,c.website||"",WS_LABEL[c.websiteCheck]||(c.website?"Not checked yet":"No website"),c.linkedin||"",regionName[c.region]||c.region||"",c.location||c.country||"",({tech:"Tech","non-tech":"Non-tech (hiring tech roles)"})[ctypeOf(c)]||"Not checked yet",c.headcount||"",(CHECK[c.check||"pending"]||CHECK.pending)[1],c.checkNote||"",c.status||"New",[...new Set(c._sigs.map(x=>x.type))].join(", "),s.summary||"",s.date||"",s.url||"",c.firstSeen||"",c.notes||""]});
+  const tag=(S.region==="ALL"?"All":regionName[S.region]||S.region).replace(/\s+/g,"-");
+  const fname=scopeTag?`RTI-Tracker-${tag}-${scopeTag}`:`RTI-Tracker-${tag}-${today()}`;
+  let file,name;
+  if(window.XLSX){const ws=XLSX.utils.aoa_to_sheet([head,...rows]);ws["!cols"]=[28,26,40,12,28,12,14,50,12,22,60,14,40,12,40].map(w=>({wch:w}));ws["!autofilter"]={ref:XLSX.utils.encode_range({s:{r:0,c:0},e:{r:rows.length,c:head.length-1}})};const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,"Companies");file=XLSX.write(wb,{type:"array",bookType:"xlsx"});name=fname+".xlsx"}
+  else{const q=v=>`"${String(v).replace(/"/g,'""')}"`;file="﻿"+[head,...rows].map(r=>r.map(q).join(",")).join("\r\n");name=fname+".csv"}
+  const dl=window.claude?await claude.use("downloads"):null;
+  if(!dl){toast("Downloads don't work in this view. Open the tracker on claude.ai in a browser (not a preview, incognito or shared link) and try again.");return}
+  const MSG={declined:"Download cancelled.",rate_limited:"A download prompt is already open, or too many in a row. Close it, wait a few seconds and try again.",extension_not_enabled:"Excel files can't be downloaded in this view right now. Open the tracker on claude.ai in a browser and try again.",rejected_extension:"This file type is not allowed here.",too_large:"The file is too large. Narrow the filters (region, date added) and try again.",bad_request:"The file could not be built. Reload the page and try again.",unavailable:"Downloads are not available in this view. Open the tracker on claude.ai in a browser and try again.",not_granted:"Downloads are switched off for this page. Check the page's Permissions menu.",capability_disabled:"Downloads are switched off for this page."};
+  try{await dl.save({filename:name,data:new Blob([file])});toast(`Downloaded ${list.length} companies`)}catch(e){const c=e&&e.code;toast((MSG[c]||"The download did not complete. Try again.")+(c&&c!=="declined"?` (reason: ${c})`:""));console.warn("download failed",e)}
+});
+$("importBtn").addEventListener("click",()=>{const p=$("importPanel");p.hidden=!p.hidden;if(!p.hidden)p.scrollIntoView({block:"nearest"})});
+
+/* Outreach order: companies whose postings show they already take people from India or anywhere come first */
+const OPEN_ORDER={india:0,world:1,tz:2,none:3,region:4,unknown:5,onsite:6};
+function openRank(c){const kinds=(c._sigs||[]).map(s=>access(s)).filter(Boolean).map(accKind);if(!kinds.length)return OPEN_ORDER.none;return Math.min(...kinds.map(k=>OPEN_ORDER[k]??OPEN_ORDER.none))}
+function sigByCompany(){const m=Object.create(null);for(const s of S.signals){(m[s.companyId]||(m[s.companyId]=[])).push(s)}for(const k in m)m[k].sort((a,b)=>(b.date||"").localeCompare(a.date||""));return m}
+function checkOk(c,f){const k=c.check||"pending";if(f==="ok")return k==="clear"||k==="verify";if(f==="india")return k==="india"||k==="unfit";return k===f}
+
+function renderTabs(){
+  const shown=S.companies.filter(c=>checkOk(c,$("fCheck").value));
+  $("regionTabs").innerHTML=REGIONS.map(([k,l])=>{const n=k==="ALL"?shown.length:shown.filter(c=>c.region===k).length;return`<button class="tab" role="tab" data-r="${k}" aria-selected="${S.region===k}">${l}<span class="n">${n}</span></button>`}).join("");
+  $("regionTabs").querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{S.region=b.dataset.r;saveF();render()}));
+}
+
+function filtered(){
+  const q=$("fq").value.trim().toLowerCase(),st=$("fStatus").value,ty=$("fSignal").value,wh=$("fWhen").value,ck=$("fCheck").value,mine=false;
+  const sbc=sigByCompany();
+  let list=S.companies.filter(c=>{
+    if(S.region!=="ALL"&&c.region!==S.region)return false;
+    const cf=$("fCountry").value;if(cf&&ctry(c)!==cf)return false;
+    if(!checkOk(c,ck))return false;
+    if($("fIntern").value&&!(sbc[c.id]||[]).some(isIntern))return false;
+    const ft=$("fType").value;if(ft){const t=ctypeOf(c,sbc[c.id]||[]);if(ft==="unk"?t!=="":t!==ft)return false}
+    if(st&&(c.status||"New")!==st)return false;
+    if(mine&&(!S.me||c.ownerId!==S.me))return false;
+    const sigs=sbc[c.id]||[];
+    if(ty&&!sigs.some(s=>s.type===ty))return false;
+    if(wh&&!sigs.some(s=>!s.found&&daysAgo(s.date)<Number(wh)))return false;
+    const ac=$("fAccess").value;if(ac&&!sigs.some(s=>accKind(access(s))===ac))return false;
+    if(q&&!(`${c.name} ${c.country} ${c.location} ${c.notes||""} ${c.website||""}`.toLowerCase().includes(q)))return false;
+    return true});
+  list.forEach(c=>c._sigs=sbc[c.id]||[]);
+  const byDate=(a,b)=>((b._sigs[0]?.date)||b.firstSeen||"").localeCompare((a._sigs[0]?.date)||a.firstSeen||"")||a.name.localeCompare(b.name);
+  if(($("fSort")?.value||"fit")==="fit"){list.forEach(c=>c._rank=openRank(c));list.sort((a,b)=>(a._rank-b._rank)||byDate(a,b))}else list.sort(byDate);
+  return list;
+}
+
+async function render(){
+  if(S.signals.length)syncTypeOptions();
+  if(S.companies.length)syncCountries();
+  renderTabs();
+  $("companiesView").hidden=S.view!=="companies";$("feedView").hidden=S.view!=="feed";$("newsView").hidden=S.view!=="news";$("freelanceView").hidden=S.view!=="freelance";$("sourcesView").hidden=S.view!=="sources";
+  const noF=S.view==="news"||S.view==="freelance"||S.view==="sources";
+  ["fSignal","fStatus","fCheck","fAccess","fCountry","fIntern","fType"].forEach(k=>{$(k).hidden=noF});
+  if(S.view==="companies")renderCompanies();else if(S.view==="news")renderNews();else if(S.view==="freelance")renderFreelance();else if(S.view==="sources")renderSources();else renderFeed();
+  if(S.open)renderDrawer();
+}
+async function ownerNames(ids){if(!S.user||!ids.length)return{};try{return await S.user.profiles(ids)}catch(e){return{}}}
+
+async function renderCompanies(){
+  const list=filtered().slice(0,600);
+  $("emptyCompanies").hidden=!(list.length===0&&!$("loading").offsetParent);
+  $("rows").innerHTML=list.map(c=>{
+    const types=[...new Set(c._sigs.map(s=>s.type))];
+    const [pc,pl]=CHECK[c.check||"pending"]||CHECK.pending;
+    const last=c._sigs.find(s=>!s.found)||c._sigs[0];
+    return`<tr class="row" data-id="${esc(c.id)}">
+      <td class="cname">${esc(c.name)}<small>${esc((c.website||"").replace(/^https?:\/\/(www\.)?/,"").replace(/\/$/,""))}${c.website&&c.websiteCheck==="unsure"?" · website unsure":""}</small></td>
+      <td>${ctypeCell(ctypeOf(c))}</td>
+      <td>${esc(c.location||c.country||"Not listed")}</td>
+      <td class="mono">${esc(c.headcount||"—")}</td>
+      <td><div class="chips">${types.map(t=>`<span class="chip ${TYPES[t]||""}">${esc(t)}</span>`).join("")||'<span class="note">—</span>'}${(()=>{const order=["india","world","tz","region","unknown","onsite"];const best=c._sigs.filter(s=>access(s)).sort((a,b)=>order.indexOf(accKind(access(a)))-order.indexOf(accKind(access(b))))[0];return best?accTag(best):""})()}</div></td>
+      <td class="mono">${last?(last.found?`<span class="note" title="Date of the event is not known; this is when we found it">Found ${esc(fmtDate(last.date).toLowerCase())}</span>`:esc(fmtDate(last.date))):"—"}</td>
+      <td><span class="pill ${pc}">${pl}</span></td>
+      <td><select data-status="${esc(c.id)}" aria-label="Status for ${esc(c.name)}" ${S.canWrite?"":"disabled"}>${STATUSES.map(s=>`<option ${s===(c.status||"New")?"selected":""}>${s}</option>`).join("")}</select></td></tr>`}).join("");
+  $("rows").querySelectorAll("tr.row").forEach(tr=>tr.addEventListener("click",e=>{if(e.target.closest("select"))return;openDrawer(tr.dataset.id)}));
+  $("rows").querySelectorAll("select[data-status]").forEach(sel=>sel.addEventListener("change",()=>setField(sel.dataset.status,{status:sel.value})));
+}
+
+function renderFeed(){
+  const ty=$("fSignal").value,wh=$("fWhen").value,q=$("fq").value.trim().toLowerCase();
+  const comp=Object.assign(Object.create(null),Object.fromEntries(S.companies.map(c=>[c.id,c])));
+  const ck=$("fCheck").value;
+  const cf=$("fCountry").value,fi=$("fIntern").value;
+  const list=S.signals.filter(s=>{const c=comp[s.companyId];if(c&&!checkOk(c,ck))return false;if(cf&&(!c||ctry(c)!==cf))return false;if(fi&&!isIntern(s))return false;
+    if(S.region!=="ALL"&&s.region!==S.region)return false;if(ty&&s.type!==ty)return false;if(wh&&(s.found||daysAgo(s.date)>=Number(wh)))return false;const ac=$("fAccess").value;if(ac&&accKind(access(s))!==ac)return false;
+    if(q&&!(`${s.companyName} ${s.summary}`.toLowerCase().includes(q)))return false;return true}).slice(0,400);
+  $("emptyFeed").hidden=list.length>0;
+  $("feed").innerHTML=list.map(s=>{const u=safeUrl(s.url);return`<li><div class="when">${s.found?"Found "+esc(fmtDate(s.date).toLowerCase()):esc(fmtDate(s.date))}</div><div>
+    <div><span class="chip ${TYPES[s.type]||""}">${esc(s.type)}</span> <a href="#" data-open="${esc(s.companyId)}"><strong>${esc(s.companyName)}</strong></a> ${accTag(s)}</div>
+    <div>${esc(s.summary)}</div><div class="note">${esc(s.source||"")}${u?` · <a href="${esc(u)}" target="_blank" rel="noopener">Open source</a>`:""}</div></div></li>`}).join("");
+  $("feed").querySelectorAll("[data-open]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();openDrawer(a.dataset.open)}));
+}
+
+S.freelance=[];
+function renderFreelance(){
+  const wh=$("fWhen").value,q=$("fq").value.trim().toLowerCase();
+  const regionName=Object.fromEntries(REGIONS);
+  const list=S.freelance.filter(f=>{if(S.region!=="ALL"&&f.region&&f.region!==S.region)return false;if(wh&&(f.found||daysAgo(f.date)>=Number(wh)))return false;if(q&&!(`${f.title} ${f.client||""} ${f.skills||""} ${f.summary||""}`.toLowerCase().includes(q)))return false;return true}).slice(0,400);
+  $("emptyFreelance").hidden=list.length>0;
+  $("freelanceList").innerHTML=list.map(f=>{const u=safeUrl(f.url);return`<li><div class="when">${f.found?"Found "+esc(fmtDate(f.date).toLowerCase()):esc(fmtDate(f.date))}</div><div>
+    <div><span class="chip t-free">Freelance</span> ${f.region?`<span class="chip">${esc(regionName[f.region]||f.region)}</span>`:""} ${f.companyId?`<a href="#" data-open="${esc(f.companyId)}"><strong>${esc(f.client)}</strong></a>`:`<span class="note">${esc(f.client||"Client not named")}</span>`} ${accTag({type:"Freelance project",access:f.access,summary:f.summary||""})}</div>
+    <div class="headline">${esc(f.title)}</div>${f.summary?`<div>${esc(f.summary)}</div>`:""}
+    <div class="fl-meta">${f.budget?`<span>Budget: ${esc(f.budget)}</span>`:""}${f.skills?`<span>Skills: ${esc(f.skills)}</span>`:""}${f.country?`<span>Client country: ${esc(f.country)}</span>`:""}</div>
+    <div class="note">${esc(f.source||"")}${u?` · <a href="${esc(u)}" target="_blank" rel="noopener">Open project</a>`:""}</div></div></li>`}).join("");
+  $("freelanceList").querySelectorAll("[data-open]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();openDrawer(a.dataset.open)}));
+}
+
+S.runs=[];
+function renderSources(){
+  const cut=Date.now()-7*864e5,agg={};
+  const runs=S.runs.filter(r=>r.at&&new Date(r.at).getTime()>=cut).sort((a,b)=>a.at<b.at?1:-1);
+  runs.forEach(r=>Object.entries(r.sources||{}).forEach(([name,v])=>{const a=agg[name]||(agg[name]={name,checks:0,read:0,kept:0,fails:0,last:null,lastAt:"",note:""});a.checks++;a.read+=Number(v.read)||0;a.kept+=Number(v.kept)||0;if(v.status==="failed")a.fails++;if(!a.last){a.last=v.status||"";a.lastAt=r.at;a.note=v.note||""}}));
+  const saved={};[...S.signals,...S.freelance].forEach(s=>{if(s.source)saved[s.source]=(saved[s.source]||0)+1});
+  const rows=Object.values(agg).sort((a,b)=>(b.kept-a.kept)||a.name.localeCompare(b.name));
+  $("emptySources").hidden=rows.length>0;
+  const lab={ok:["p-clear","Kept postings"],empty:["p-verify","Nothing kept"],failed:["p-india","Failed"],skipped:["p-pending","Skipped"]};
+  $("srcRows").innerHTML=rows.map(a=>{const [pc,pl]=lab[a.last]||["p-pending",a.last||"—"];const when=new Date(a.lastAt);return`<tr><td class="cname">${esc(a.name)}</td><td class="mono">${a.checks} scan${a.checks===1?"":"s"}<small>last ${esc(when.toLocaleString(undefined,{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"}))}</small></td><td><span class="pill ${pc}">${esc(pl)}</span>${a.fails?` <span class="note">${a.fails} failed</span>`:""}</td><td class="mono">${a.read}</td><td class="mono">${a.kept}</td><td class="mono">${saved[a.name]||0}</td><td class="note">${esc(a.note)}</td></tr>`}).join("");
+}
+
+const histCache=Object.create(null);
+async function loadHistory(id){if(!S.db||histCache[id])return;histCache[id]="loading";try{const snap=await S.db.collection("signals").where("companyId","==",id).limit(500).get();histCache[id]=snap.docs.map(d=>({id:d.id,...d.data()}));if(S.open===id)renderDrawer()}catch(e){histCache[id]=null}}
+S.news=[];S.nk="all";
+document.querySelectorAll("[data-nk]").forEach(b=>b.addEventListener("click",()=>{S.nk=b.dataset.nk;document.querySelectorAll("[data-nk]").forEach(x=>x.setAttribute("aria-pressed",x===b));render()}));
+function renderNews(){
+  const wh=$("fWhen").value,q=$("fq").value.trim().toLowerCase();
+  const comp=Object.assign(Object.create(null),Object.fromEntries(S.companies.map(c=>[c.id,c])));
+  const items=[];
+  if(S.nk!=="market")S.signals.filter(s=>s.type==="News").forEach(s=>{const c=comp[s.companyId];if(c&&(c.check==="india"||c.check==="unfit"))return;items.push({kind:"company",title:s.summary,company:s.companyName,companyId:s.companyId,region:s.region,date:s.date,url:s.url,source:s.source})});
+  if(S.nk!=="company")S.news.forEach(n=>items.push({kind:"market",title:n.title,summary:n.summary,region:n.region,date:n.date,url:n.url,source:n.source}));
+  const regionName=Object.fromEntries(REGIONS);
+  const list=items.filter(it=>{if(S.region!=="ALL"&&it.region!==S.region&&it.region!=="GLOBAL")return false;if(wh&&daysAgo(it.date)>=Number(wh))return false;if(q&&!(`${it.title} ${it.summary||""} ${it.company||""}`.toLowerCase().includes(q)))return false;return true}).sort((a,b)=>(b.date||"").localeCompare(a.date||"")).slice(0,400);
+  $("emptyNews").hidden=list.length>0;
+  $("newsList").innerHTML=list.map(it=>{const u=safeUrl(it.url);return`<li><div class="when">${esc(fmtDate(it.date))}</div><div>
+    <div><span class="chip ${it.kind==="market"?"t-accel":"t-job"}">${it.kind==="market"?"Market":"Company"}</span> <span class="chip">${esc(regionName[it.region]||(it.region==="GLOBAL"?"Global":it.region||""))}</span> ${it.companyId?`<a href="#" data-open="${esc(it.companyId)}"><strong>${esc(it.company)}</strong></a>`:""}</div>
+    <div class="headline">${esc(it.title)}</div>${it.summary?`<div>${esc(it.summary)}</div>`:""}
+    <div class="note">${esc(it.source||"")}${u?` · <a href="${esc(u)}" target="_blank" rel="noopener">Read article</a>`:""}</div></div></li>`}).join("");
+  $("newsList").querySelectorAll("[data-open]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();openDrawer(a.dataset.open)}));
+}
+function openDrawer(id){S.open=id;$("drawer").hidden=false;$("scrim").hidden=false;renderDrawer();loadHistory(id)}
+function closeDrawer(){S.open=null;$("drawer").hidden=true;$("scrim").hidden=true}
+$("scrim").addEventListener("click",closeDrawer);
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&S.open)closeDrawer()});
+
+async function renderDrawer(){
+  const c=S.companies.find(x=>x.id===S.open);if(!c){closeDrawer();return}
+  const seen=new Set();const sigs=[...(Array.isArray(histCache[c.id])?histCache[c.id]:[]),...S.signals.filter(s=>s.companyId===c.id)].filter(s=>!seen.has(s.id)&&seen.add(s.id)).sort((a,b)=>(b.date||"").localeCompare(a.date||""));
+  const [pc,pl]=CHECK[c.check||"pending"]||CHECK.pending;
+  const web=safeUrl(c.website),li=safeUrl(c.linkedin);
+  const active=document.activeElement&&document.activeElement.id==="dNotes";
+  const notesVal=active?$("dNotes").value:(c.notes||"");
+  $("drawer").innerHTML=`<button class="btn close" type="button" id="dClose">Close</button>
+    <h2>${esc(c.name)}</h2><div class="note">${esc(c.location||c.country||"")}</div>${ctypeOf(c,sigs)==="non-tech"?`<p class="note">${CT_TIP["non-tech"]}</p>`:""}
+    <dl class="kv">
+      <dt>Company type</dt><dd>${({tech:"Tech","non-tech":"Non-tech (hiring tech roles)"})[ctypeOf(c,sigs)]||"Not checked yet"}</dd>
+      <dt>Website</dt><dd>${web?`<a href="${esc(web)}" target="_blank" rel="noopener">${esc(web.replace(/^https?:\/\/(www\.)?/,""))}</a>`:"Not found"}${web?`<div class="note">${esc(WS_LABEL[c.websiteCheck]||"Not checked yet")}${c.websiteNote?": "+esc(c.websiteNote):""}</div>`:""}</dd>
+      <dt>LinkedIn</dt><dd>${li?`<a href="${esc(li)}" target="_blank" rel="noopener">Company page</a>`:"Not found"}</dd>
+      <dt>Headcount</dt><dd>${esc(c.headcount||"Not listed")}</dd>
+      <dt>India office</dt><dd><span class="pill ${pc}">${pl}</span> ${S.canWrite?`<select id="dCheck" aria-label="Change India-office result"><option value="">Change to…</option><option value="clear">None found</option><option value="verify">To verify</option><option value="india">India office</option></select>`:""}<div class="note" style="margin-top:4px">${esc(c.checkNote||"")}</div></dd>
+      <dt>Status</dt><dd><select id="dStatus" ${S.canWrite?"":"disabled"}>${STATUSES.map(s=>`<option ${s===(c.status||"New")?"selected":""}>${s}</option>`).join("")}</select></dd>
+      <dt>First seen</dt><dd class="mono">${esc(c.firstSeen||"")} · via ${esc(c.source||"")}</dd>
+    </dl>
+    <div class="sec">Notes</div>
+    <textarea id="dNotes" ${S.canWrite?"":"readonly"} placeholder="Who to contact, what they build, what you sent">${esc(notesVal)}</textarea>
+    <div class="note" id="dNoteMsg">Saves when you click away.</div>
+    <div class="sec">Signals (${sigs.length})</div>
+    <ul class="tl">${sigs.map(s=>{const u=safeUrl(s.url);return`<li><div class="mono note">${s.found?"Found "+esc(s.date||"")+" (event date not known)":esc(s.date||"")}</div><div><span class="chip ${TYPES[s.type]||""}">${esc(s.type)}</span> ${accTag(s)} ${esc(s.summary)}</div><div class="note">${esc(s.source||"")}${u?` · <a href="${esc(u)}" target="_blank" rel="noopener">Source</a>`:""}</div></li>`}).join("")||'<li class="note">No signals yet.</li>'}</ul>`;
+  $("dClose").onclick=closeDrawer;
+  $("dStatus").onchange=e=>setField(c.id,{status:e.target.value});
+  $("dCheck")&&($("dCheck").onchange=e=>{const v=e.target.value;if(!v||v===c.check)return;const lbl=(CHECK[v]||[])[1]||v;const prev=(c.checkNote||"").replace(/^Team marked .*?\. Earlier: /,"");setField(c.id,{check:v,checkBy:"team",checkNote:`Team marked \"${lbl}\" on ${today()}. Earlier: ${prev}`.slice(0,500)})});
+  const ta=$("dNotes");if(active){ta.focus();ta.selectionStart=ta.selectionEnd=ta.value.length}
+  ta.onblur=()=>{if(ta.value!==(c.notes||""))setField(c.id,{notes:ta.value}).then(()=>{const m=$("dNoteMsg");if(m)m.textContent="Saved."})};
+}
+
+const pending={};
+async function setField(id,patch){
+  if(!S.db){toast("The shared store is not available in this view.");return}
+  if(pending[id])await pending[id];
+  pending[id]=(async()=>{try{await S.db.doc("companies/"+id).update({...patch,updatedAt:new Date().toISOString()});toast("Saved")}
+    catch(e){if(e&&e.code==="invalid_argument"){S.canWrite=false;toast("You have view-only access to this tracker.");render()}else toast("Could not save. Try again.")}})();
+  await pending[id];pending[id]=null;
+}
+
+/* CSV import (Instant Data Scraper exports) */
+function parseCSV(t){const rows=[];let r=[],f="",q=false;for(let i=0;i<t.length;i++){const ch=t[i];if(q){if(ch==='"'){if(t[i+1]==='"'){f+='"';i++}else q=false}else f+=ch}else if(ch==='"')q=true;else if(ch===","){r.push(f);f=""}else if(ch==="\n"||ch==="\r"){if(ch==="\r"&&t[i+1]==="\n")i++;r.push(f);rows.push(r);r=[];f=""}else f+=ch}if(f||r.length){r.push(f);rows.push(r)}return rows.filter(x=>x.some(v=>v.trim()))}
+const slug=s=>String(s).toLowerCase().replace(/^https?:\/\/(www\.)?/,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,80)||"x";
+$("impFile").addEventListener("change",async e=>{
+  const file=e.target.files[0];if(!file)return;const msg=$("impMsg");
+  if(!S.db){msg.textContent="The shared store is not available in this view, so nothing was imported.";return}
+  let rows;
+  try{if(/\.xlsx?$/i.test(file.name)){if(!window.XLSX){msg.textContent="Excel reading did not load. Save the file as CSV and upload that instead.";return}const wb=XLSX.read(await file.arrayBuffer(),{type:"array"});rows=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{header:1,defval:""}).map(r=>r.map(v=>String(v??""))).filter(r=>r.some(v=>v.trim()))}else rows=parseCSV(await file.text())}catch(err){msg.textContent="That file could not be read. Check it is a CSV or Excel file.";return}
+  if(rows.length<2){msg.textContent="That file has no data rows.";return}
+  const head=rows[0].map(h=>h.toLowerCase());
+  const col=(...keys)=>head.findIndex(h=>keys.some(k=>h.includes(k)));
+  const ci=col("company","employer","organization","org"),ti=col("title","position","role","job"),li=col("href","link","url"),lo=col("location","place");
+  if(ci<0){msg.textContent="No company column found. Rename the column holding company names to “Company” and try again.";return}
+  const region=$("impRegion").value,source=$("impSource").value.trim()||"Imported list",d=today();
+  const known=new Set(S.companies.map(c=>c.id));let nc=0,ns=0;msg.textContent="Importing…";
+  try{
+    for(const r of rows.slice(1,501)){
+      const name=(r[ci]||"").trim();if(!name)continue;const id=slug(name);
+      if(!known.has(id)){await S.db.doc("companies/"+id).set({name,website:"",linkedin:"",region,country:"",location:"",headcount:"",check:"pending",checkNote:"Added from an imported list; checked on the next daily run",status:"New",ownerId:null,notes:"",firstSeen:d,source,updatedAt:new Date().toISOString()});known.add(id);nc++}
+      const title=ti>=0?(r[ti]||"").trim():"",loc=lo>=0?(r[lo]||"").trim():"",url=li>=0?(r[li]||"").trim():"";
+      await S.db.collection("signals").add({companyId:id,companyName:name,region,type:"Imported list",summary:(title?`Hiring: ${title}`:"Listed")+(loc?` (${loc})`:""),date:d,url:safeUrl(url),source});ns++;
+    }
+    msg.textContent=`Added ${nc} new companies and ${ns} signals from ${source}.`;e.target.value="";
+  }catch(err){msg.textContent=err&&err.code==="quota_exceeded"?"The tracker is full. Ask the owner to clear old signals.":err&&err.code==="invalid_argument"?"You have view-only access, so nothing more was imported.":"The import stopped partway. Rows added so far are kept."}
+});
+
+/* boot */
+render();
+(async()=>{
+  if(!window.claude){$("loading").innerHTML="<strong>The shared tracker is not available here.</strong>Open this page on claude.ai to see the companies.";return}
+  const [db,user]=await Promise.all([claude.use("db"),claude.use("user")]);
+  S.db=db;S.user=user;
+  if(user){try{S.me=await user.id();const w=await user.can("data.write");if(w===false)S.canWrite=false}catch(e){}}
+  if(!db){$("loading").innerHTML="<strong>Sign in to claude.ai to see the tracker.</strong>The companies live in a shared store that needs a signed-in viewer.";return}
+  const byRegion={};let firstLoad=true;
+  REGIONS.filter(r=>r[0]!=="ALL").forEach(([code])=>{
+    db.collection("companies").where("region","==",code).limit(1000).onSnapshot(snap=>{byRegion[code]=snap.docs.map(d=>({id:d.id,...d.data()}));S.companies=Object.values(byRegion).flat();$("loading").hidden=true;render()},err=>{if(firstLoad){firstLoad=false;$("loading").innerHTML="<strong>The tracker could not load.</strong>Reload the page to try again."}});
+  });
+  db.collection("signals").orderBy("date","desc").limit(3000).onSnapshot(snap=>{S.signals=snap.docs.map(d=>({id:d.id,...d.data()}));render()},()=>{});
+  db.collection("news").orderBy("date","desc").limit(500).onSnapshot(snap=>{S.news=snap.docs.map(d=>({id:d.id,...d.data()}));if(S.view==="news")render()},()=>{});
+  db.collection("freelance").orderBy("date","desc").limit(500).onSnapshot(snap=>{S.freelance=snap.docs.map(d=>({id:d.id,...d.data()}));if(S.view==="freelance")render()},()=>{});
+  db.collection("jobruns").orderBy("at","desc").limit(80).onSnapshot(snap=>{S.runs=snap.docs.map(d=>({id:d.id,...d.data()}));if(S.view==="sources")render()},()=>{});
+  db.doc("meta/run").onSnapshot(s=>{const d=s.exists?s.data():null;if(d&&d.lastRun)$("runinfo").textContent=`Last updated ${fmtDate(d.lastRun.slice(0,10))} · ${d.summary||""}`},()=>{});
+})();
+</script>
+
+</body></html>

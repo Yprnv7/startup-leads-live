@@ -23,7 +23,6 @@
     const SOURCE_LABEL = { yc: "Y Combinator", hn: "HN Who's Hiring", greenhouse: "Greenhouse", lever: "Lever", ashby: "Ashby", jobicy: "Jobicy", arbeitnow: "Arbeitnow", manual: "Manual",
       remotive: "Remotive", remoteok: "Remote OK", workingnomads: "Working Nomads", weworkremotely: "We Work Remotely", nodesk: "NoDesk", jobfound: "Jobfound" };
     const OTHERS = ["remotive", "remoteok", "workingnomads", "weworkremotely", "nodesk", "jobfound"];
-    const RTI_TRACKER_URL = "https://claude.ai/artifact/SietoRHgP9n98DEat8djV7";
     // LinkedIn Jobs search terms per engineering track, and LinkedIn location names per region.
     const TRACK_KEYWORDS = { "AI / ML & LLM Systems": "machine learning engineer", "Backend & Distributed Systems": "backend engineer", "Data & Quant Engineering": "data engineer",
       "DevOps, Cloud & SRE": "devops engineer", "Full-Stack & Product Engineering": "full stack engineer", "Mobile & Autonomous Systems": "mobile engineer" };
@@ -714,7 +713,6 @@
       await load(true);
       if (raw) {
         $("updaterLink").href = `https://github.com/${raw.meta.repo}/actions/workflows/hourly_sync.yml`;
-        $("rtiTrackerBtn").href = RTI_TRACKER_URL;
         runLiveHourlyVerification(false);
       }
     });

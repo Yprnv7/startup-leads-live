@@ -31,7 +31,7 @@ Remote.co refuses automated connections, so it isn't included.
 
 **Country filter:** picking a country shows only roles that name that country. Region-wide and worldwide remote roles appear under the region buttons, not under a country.
 
-**RTI tracker:** the header button opens the RTI tracker.
+**RTI tracker** (`/rti/`): the header button opens your team's RTI Tracker screen, running on this site's live data. It shows every hiring company and its open remote tech roles as "Job posting" signals, with region tabs for Australia, Europe, MEA, New Zealand, SEA, UK and Global remote. Status, notes, India-office changes and CSV/Excel imports are saved in each person's browser, and Download Excel works. The original tracker, with its shared team data, news and freelance projects, lives in a claude.ai shared store that only works on claude.ai, so it's linked from the page rather than copied. `rti/adapter.js` connects the tracker to `data/leads.json`.
 
 ## Contacts
 
