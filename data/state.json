@@ -5309,6 +5309,18 @@
   "nodesk:nylas": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-10-30T23:54:58.343Z"
+  },
+  "weworkremotely:gitlab": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-10-31T08:51:48.065Z"
+  },
+  "arbeitnow:duck-duck-go": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-31T08:51:48.065Z"
+  },
+  "weworkremotely:dropbox": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-10-31T08:51:48.065Z"
   }
  },
  "wikidata": {
@@ -8966,14 +8978,34 @@
    "at": "2026-10-31T05:51:38.828Z",
    "id": null,
    "us": false
+  },
+  "saas.group": {
+   "at": "2026-10-31T08:51:48.065Z",
+   "id": null,
+   "us": false
+  },
+  "Playson": {
+   "at": "2026-10-31T08:51:48.065Z",
+   "id": null,
+   "us": false
+  },
+  "Fenie AI": {
+   "at": "2026-10-31T08:51:48.065Z",
+   "id": null,
+   "us": false
+  },
+  "Digital Evolution": {
+   "at": "2026-10-31T08:51:48.065Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-10-31T05:51:38.828Z",
-  "remoteok": "2026-10-31T05:51:38.828Z",
-  "workingnomads": "2026-10-31T05:51:38.828Z",
-  "weworkremotely": "2026-10-31T05:51:38.828Z",
-  "nodesk": "2026-10-31T05:51:38.828Z",
+  "remoteok": "2026-10-31T08:51:48.065Z",
+  "workingnomads": "2026-10-31T08:51:48.065Z",
+  "weworkremotely": "2026-10-31T08:51:48.065Z",
+  "nodesk": "2026-10-31T08:51:48.065Z",
   "himalayas": "2026-10-31T07:51:40.988Z",
   "jobfound": "2026-10-31T05:51:38.828Z"
  },
@@ -9006,8 +9038,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-10-31T05:51:38.828Z",
- "arbeitnowAt": "2026-10-31T05:51:38.828Z",
+ "jobicyAt": "2026-10-31T08:51:48.065Z",
+ "arbeitnowAt": "2026-10-31T08:51:48.065Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
