@@ -8941,14 +8941,29 @@
    "at": "2026-10-30T23:54:58.343Z",
    "id": null,
    "us": false
+  },
+  "GEV Wind Power": {
+   "at": "2026-10-31T02:56:23.887Z",
+   "id": null,
+   "us": false
+  },
+  "Polaroid": {
+   "at": "2026-10-31T02:56:23.887Z",
+   "id": "Q431361",
+   "us": false
+  },
+  "Destination Careers": {
+   "at": "2026-10-31T02:56:23.887Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-10-30T23:54:58.343Z",
-  "remoteok": "2026-10-30T23:54:58.343Z",
-  "workingnomads": "2026-10-30T23:54:58.343Z",
-  "weworkremotely": "2026-10-30T23:54:58.343Z",
-  "nodesk": "2026-10-30T23:54:58.343Z",
+  "remoteok": "2026-10-31T02:56:23.887Z",
+  "workingnomads": "2026-10-31T02:56:23.887Z",
+  "weworkremotely": "2026-10-31T02:56:23.887Z",
+  "nodesk": "2026-10-31T02:56:23.887Z",
   "himalayas": "2026-10-31T01:56:22.569Z",
   "jobfound": "2026-10-30T23:54:58.343Z"
  },
@@ -8981,8 +8996,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-10-30T23:54:58.343Z",
- "arbeitnowAt": "2026-10-30T23:54:58.343Z",
+ "jobicyAt": "2026-10-31T02:56:23.887Z",
+ "arbeitnowAt": "2026-10-31T02:56:23.887Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
