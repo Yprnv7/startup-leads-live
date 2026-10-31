@@ -9013,14 +9013,44 @@
    "at": "2026-10-31T12:50:19.025Z",
    "id": null,
    "us": false
+  },
+  "LevelUp": {
+   "at": "2026-10-31T16:31:45.929Z",
+   "id": "Q136771836",
+   "us": false
+  },
+  "Cara Care": {
+   "at": "2026-10-31T16:31:45.929Z",
+   "id": null,
+   "us": false
+  },
+  "CAI": {
+   "at": "2026-10-31T16:31:45.929Z",
+   "id": null,
+   "us": false
+  },
+  "Cloudary SAS": {
+   "at": "2026-10-31T16:31:45.929Z",
+   "id": null,
+   "us": false
+  },
+  "Anduril Industries": {
+   "at": "2026-10-31T16:31:45.929Z",
+   "id": null,
+   "us": false
+  },
+  "TekSynap": {
+   "at": "2026-10-31T16:31:45.929Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-10-31T12:50:19.025Z",
-  "remoteok": "2026-10-31T12:50:19.025Z",
-  "workingnomads": "2026-10-31T12:50:19.025Z",
-  "weworkremotely": "2026-10-31T12:50:19.025Z",
-  "nodesk": "2026-10-31T12:50:19.025Z",
+  "remoteok": "2026-10-31T16:31:45.929Z",
+  "workingnomads": "2026-10-31T16:31:45.929Z",
+  "weworkremotely": "2026-10-31T16:31:45.929Z",
+  "nodesk": "2026-10-31T16:31:45.929Z",
   "himalayas": "2026-10-31T15:31:47.989Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -9053,8 +9083,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-10-31T12:50:19.025Z",
- "arbeitnowAt": "2026-10-31T12:50:19.025Z",
+ "jobicyAt": "2026-10-31T16:31:45.929Z",
+ "arbeitnowAt": "2026-10-31T16:31:45.929Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
