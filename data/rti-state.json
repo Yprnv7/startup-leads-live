@@ -446,7 +446,7 @@
  "prospeo": {
   "credits": {
    "2026-10-30": 91,
-   "2026-10-31": 23
+   "2026-10-31": 24
   },
   "mobileCredits": {
    "2026-10-30": 136,
@@ -4499,10 +4499,15 @@
    "at": "2026-10-31T12:51:16.268Z",
    "id": null,
    "us": false
+  },
+  "Fluence International, Inc.": {
+   "at": "2026-10-31T14:26:52.587Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-10-31T07:52:13.205Z",
+  "remotive": "2026-10-31T14:26:52.587Z",
   "remoteok": "2026-10-31T12:51:16.268Z",
   "workingnomads": "2026-10-31T12:51:16.268Z",
   "weworkremotely": "2026-10-31T12:51:16.268Z",
