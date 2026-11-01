@@ -565,7 +565,7 @@
   "credits": {
    "2026-10-30": 91,
    "2026-10-31": 41,
-   "2026-11-01": 20
+   "2026-11-01": 21
   },
   "mobileCredits": {
    "2026-10-30": 136,
@@ -2669,6 +2669,14 @@
   "yc:venu-ai": {
    "reason": "US headquarters",
    "at": "2026-11-01T01:20:05.290Z"
+  },
+  "weworkremotely:knock": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-11-01T15:10:11.131Z"
+  },
+  "jobicy:workwave": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-11-01T15:10:11.131Z"
   }
  },
  "wikidata": {
@@ -4941,16 +4949,31 @@
    "at": "2026-11-01T04:22:50.821Z",
    "id": null,
    "us": false
+  },
+  "WorkWave": {
+   "at": "2026-11-01T15:08:48.631Z",
+   "id": null,
+   "us": false
+  },
+  "Wimex-Gruppe": {
+   "at": "2026-11-01T15:08:48.631Z",
+   "id": null,
+   "us": false
+  },
+  "Knock": {
+   "at": "2026-11-01T15:08:48.631Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-01T08:12:35.710Z",
-  "remoteok": "2026-11-01T07:23:46.382Z",
-  "workingnomads": "2026-11-01T07:23:46.382Z",
-  "weworkremotely": "2026-11-01T07:23:46.382Z",
-  "nodesk": "2026-11-01T07:23:46.382Z",
+  "remotive": "2026-11-01T15:08:48.631Z",
+  "remoteok": "2026-11-01T15:08:48.631Z",
+  "workingnomads": "2026-11-01T15:08:48.631Z",
+  "weworkremotely": "2026-11-01T15:08:48.631Z",
+  "nodesk": "2026-11-01T15:08:48.631Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-01T07:23:46.382Z",
- "arbeitnowAt": "2026-11-01T07:23:46.382Z"
+ "jobicyAt": "2026-11-01T15:08:48.631Z",
+ "arbeitnowAt": "2026-11-01T15:08:48.631Z"
 }
