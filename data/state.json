@@ -9369,14 +9369,19 @@
    "at": "2026-11-01T01:17:31.062Z",
    "id": null,
    "us": false
+  },
+  "Trustedhousesitters.com": {
+   "at": "2026-11-01T04:22:16.248Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-01T01:17:31.062Z",
-  "remoteok": "2026-11-01T01:17:31.062Z",
-  "workingnomads": "2026-11-01T01:17:31.062Z",
-  "weworkremotely": "2026-11-01T01:17:31.062Z",
-  "nodesk": "2026-11-01T01:17:31.062Z",
+  "remoteok": "2026-11-01T04:22:16.248Z",
+  "workingnomads": "2026-11-01T04:22:16.248Z",
+  "weworkremotely": "2026-11-01T04:22:16.248Z",
+  "nodesk": "2026-11-01T04:22:16.248Z",
   "himalayas": "2026-11-01T03:22:16.355Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -9409,8 +9414,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-01T01:17:31.062Z",
- "arbeitnowAt": "2026-11-01T01:17:31.062Z",
+ "jobicyAt": "2026-11-01T04:22:16.248Z",
+ "arbeitnowAt": "2026-11-01T04:22:16.248Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
