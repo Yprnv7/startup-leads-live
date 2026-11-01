@@ -565,7 +565,7 @@
   "credits": {
    "2026-10-30": 91,
    "2026-10-31": 41,
-   "2026-11-01": 26
+   "2026-11-01": 27
   },
   "mobileCredits": {
    "2026-10-30": 136,
@@ -2677,6 +2677,10 @@
   "jobicy:workwave": {
    "reason": "US headquarters (Prospeo)",
    "at": "2026-11-01T15:10:11.131Z"
+  },
+  "weworkremotely:general-dynamics-information-technology": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-01T18:07:29.958Z"
   }
  },
  "wikidata": {
@@ -4964,16 +4968,36 @@
    "at": "2026-11-01T15:08:48.631Z",
    "id": null,
    "us": false
+  },
+  "Email Marketing Agentur": {
+   "at": "2026-11-01T18:07:29.958Z",
+   "id": null,
+   "us": false
+  },
+  "MAIA": {
+   "at": "2026-11-01T18:07:29.958Z",
+   "id": null,
+   "us": false
+  },
+  "AnywhereNow": {
+   "at": "2026-11-01T18:07:29.958Z",
+   "id": null,
+   "us": false
+  },
+  "CPG Beyond": {
+   "at": "2026-11-01T18:07:29.958Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-01T15:08:48.631Z",
-  "remoteok": "2026-11-01T15:08:48.631Z",
-  "workingnomads": "2026-11-01T15:08:48.631Z",
-  "weworkremotely": "2026-11-01T15:08:48.631Z",
-  "nodesk": "2026-11-01T15:08:48.631Z",
+  "remoteok": "2026-11-01T18:07:29.958Z",
+  "workingnomads": "2026-11-01T18:07:29.958Z",
+  "weworkremotely": "2026-11-01T18:07:29.958Z",
+  "nodesk": "2026-11-01T18:07:29.958Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-01T15:08:48.631Z",
- "arbeitnowAt": "2026-11-01T15:08:48.631Z"
+ "jobicyAt": "2026-11-01T18:07:29.958Z",
+ "arbeitnowAt": "2026-11-01T18:07:29.958Z"
 }
