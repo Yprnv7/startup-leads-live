@@ -5753,6 +5753,18 @@
   "hn:humans": {
    "reason": "US headquarters",
    "at": "2026-11-02T17:16:02.802Z"
+  },
+  "hn:rune-labs": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-02T17:27:48.603Z"
+  },
+  "hn:jpmorganchase": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-02T17:27:48.603Z"
+  },
+  "hn:stratirus": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T17:27:48.603Z"
   }
  },
  "wikidata": {
@@ -9895,6 +9907,21 @@
    "at": "2026-11-02T17:16:02.802Z",
    "id": null,
    "us": false
+  },
+  "Stratirus": {
+   "at": "2026-11-02T17:27:48.603Z",
+   "id": null,
+   "us": false
+  },
+  "Rune Labs": {
+   "at": "2026-11-02T17:27:48.603Z",
+   "id": "Q139407612",
+   "us": true
+  },
+  "JPMorganChase": {
+   "at": "2026-11-02T17:27:48.603Z",
+   "id": "Q192314",
+   "us": true
   }
  },
  "othersAt": {

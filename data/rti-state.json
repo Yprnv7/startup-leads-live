@@ -668,7 +668,7 @@
    "2026-10-30": 91,
    "2026-10-31": 41,
    "2026-11-01": 37,
-   "2026-11-02": 17
+   "2026-11-02": 18
   },
   "mobileCredits": {
    "2026-10-30": 136,
@@ -3101,6 +3101,18 @@
   "hn:humans": {
    "reason": "US headquarters",
    "at": "2026-11-02T17:17:59.272Z"
+  },
+  "hn:rune-labs": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-02T17:27:57.468Z"
+  },
+  "hn:jpmorganchase": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-02T17:27:57.468Z"
+  },
+  "hn:stratirus": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T17:27:57.468Z"
   }
  },
  "wikidata": {
@@ -5623,6 +5635,21 @@
    "at": "2026-11-02T17:17:59.272Z",
    "id": null,
    "us": false
+  },
+  "Stratirus": {
+   "at": "2026-11-02T17:27:57.468Z",
+   "id": null,
+   "us": false
+  },
+  "Rune Labs": {
+   "at": "2026-11-02T17:27:57.468Z",
+   "id": "Q139407612",
+   "us": true
+  },
+  "JPMorganChase": {
+   "at": "2026-11-02T17:27:57.468Z",
+   "id": "Q192314",
+   "us": true
   }
  },
  "othersAt": {
