@@ -3303,6 +3303,14 @@
    "name": "Mozilla",
    "discovered": "2026-11-02T18:21:34.776Z",
    "active": false
+  },
+  {
+   "ats": "ashby",
+   "token": "reducto",
+   "companyId": "hn:reducto",
+   "name": "Reducto",
+   "discovered": "2026-11-02T19:21:37.520Z",
+   "active": false
   }
  ],
  "boardNames": {},
@@ -5805,6 +5813,18 @@
   "hn:memorang": {
    "reason": "US headquarters",
    "at": "2026-11-02T18:21:34.776Z"
+  },
+  "hn:artcraft": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-02T19:21:37.520Z"
+  },
+  "hn:zed-industries": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T19:21:37.520Z"
+  },
+  "hn:reducto": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T19:21:37.520Z"
   }
  },
  "wikidata": {
@@ -10017,6 +10037,51 @@
    "at": "2026-11-02T18:21:34.776Z",
    "id": null,
    "us": false
+  },
+  "SadServers": {
+   "at": "2026-11-02T19:21:37.520Z",
+   "id": null,
+   "us": false
+  },
+  "Spanish National Cancer Research Centre": {
+   "at": "2026-11-02T19:21:37.520Z",
+   "id": null,
+   "us": false
+  },
+  "Return": {
+   "at": "2026-11-02T19:21:37.520Z",
+   "id": null,
+   "us": false
+  },
+  "Zed Industries": {
+   "at": "2026-11-02T19:21:37.520Z",
+   "id": null,
+   "us": false
+  },
+  "Reducto": {
+   "at": "2026-11-02T19:21:37.520Z",
+   "id": null,
+   "us": false
+  },
+  "Strello Health": {
+   "at": "2026-11-02T19:21:37.520Z",
+   "id": null,
+   "us": false
+  },
+  "Data Micro Technologies": {
+   "at": "2026-11-02T19:21:37.520Z",
+   "id": null,
+   "us": false
+  },
+  "Evaboot": {
+   "at": "2026-11-02T19:21:37.520Z",
+   "id": null,
+   "us": false
+  },
+  "ArtCraft": {
+   "at": "2026-11-02T19:21:37.520Z",
+   "id": "Q141674505",
+   "us": true
   }
  },
  "othersAt": {
@@ -10025,7 +10090,7 @@
   "workingnomads": "2026-11-02T17:16:02.802Z",
   "weworkremotely": "2026-11-02T17:16:02.802Z",
   "nodesk": "2026-11-02T17:16:02.802Z",
-  "himalayas": "2026-11-02T17:16:02.802Z",
+  "himalayas": "2026-11-02T19:21:37.520Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},

@@ -667,6 +667,14 @@
    "name": "Mozilla",
    "discovered": "2026-11-02T18:21:54.733Z",
    "active": false
+  },
+  {
+   "ats": "ashby",
+   "token": "reducto",
+   "companyId": "hn:reducto",
+   "name": "Reducto",
+   "discovered": "2026-11-02T19:22:19.957Z",
+   "active": false
   }
  ],
  "boardNames": {},
@@ -676,7 +684,7 @@
    "2026-10-30": 91,
    "2026-10-31": 41,
    "2026-11-01": 37,
-   "2026-11-02": 20
+   "2026-11-02": 21
   },
   "mobileCredits": {
    "2026-10-30": 136,
@@ -3153,6 +3161,18 @@
   "hn:memorang": {
    "reason": "US headquarters",
    "at": "2026-11-02T18:21:54.733Z"
+  },
+  "hn:artcraft": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-02T19:22:19.957Z"
+  },
+  "hn:zed-industries": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T19:22:19.957Z"
+  },
+  "hn:reducto": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T19:22:19.957Z"
   }
  },
  "wikidata": {
@@ -5745,6 +5765,51 @@
    "at": "2026-11-02T18:21:54.733Z",
    "id": null,
    "us": false
+  },
+  "SadServers": {
+   "at": "2026-11-02T19:22:19.957Z",
+   "id": null,
+   "us": false
+  },
+  "Spanish National Cancer Research Centre": {
+   "at": "2026-11-02T19:22:19.957Z",
+   "id": null,
+   "us": false
+  },
+  "Return": {
+   "at": "2026-11-02T19:22:19.957Z",
+   "id": null,
+   "us": false
+  },
+  "Zed Industries": {
+   "at": "2026-11-02T19:22:19.957Z",
+   "id": null,
+   "us": false
+  },
+  "Reducto": {
+   "at": "2026-11-02T19:22:19.957Z",
+   "id": null,
+   "us": false
+  },
+  "Strello Health": {
+   "at": "2026-11-02T19:22:19.957Z",
+   "id": null,
+   "us": false
+  },
+  "Data Micro Technologies": {
+   "at": "2026-11-02T19:22:19.957Z",
+   "id": null,
+   "us": false
+  },
+  "Evaboot": {
+   "at": "2026-11-02T19:22:19.957Z",
+   "id": null,
+   "us": false
+  },
+  "ArtCraft": {
+   "at": "2026-11-02T19:22:19.957Z",
+   "id": "Q141674505",
+   "us": true
   }
  },
  "othersAt": {
