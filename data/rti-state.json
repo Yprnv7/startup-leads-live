@@ -644,7 +644,7 @@
    "2026-10-30": 91,
    "2026-10-31": 41,
    "2026-11-01": 37,
-   "2026-11-02": 11
+   "2026-11-02": 12
   },
   "mobileCredits": {
    "2026-10-30": 136,
@@ -2996,6 +2996,22 @@
   "yc:mixrank": {
    "reason": "US headquarters (Prospeo)",
    "at": "2026-11-02T01:04:01.580Z"
+  },
+  "jobicy:spotify": {
+   "reason": "Hires in the US",
+   "at": "2026-11-02T09:00:49.067Z"
+  },
+  "jobicy:quicknode": {
+   "reason": "Hires in the US",
+   "at": "2026-11-02T09:00:49.067Z"
+  },
+  "weworkremotely:descript": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-02T09:00:49.067Z"
+  },
+  "jobicy:upguard": {
+   "reason": "US headquarters (Prospeo)",
+   "at": "2026-11-02T09:01:31.852Z"
   }
  },
  "wikidata": {
@@ -5318,16 +5334,26 @@
    "at": "2026-11-02T06:03:15.891Z",
    "id": null,
    "us": false
+  },
+  "Spotify": {
+   "at": "2026-11-02T09:00:49.067Z",
+   "id": "Q87067874",
+   "us": false
+  },
+  "UpGuard": {
+   "at": "2026-11-02T09:00:49.067Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-02T06:03:15.891Z",
-  "remoteok": "2026-11-02T06:03:15.891Z",
-  "workingnomads": "2026-11-02T06:03:15.891Z",
-  "weworkremotely": "2026-11-02T06:03:15.891Z",
-  "nodesk": "2026-11-02T06:03:15.891Z",
+  "remoteok": "2026-11-02T09:00:49.067Z",
+  "workingnomads": "2026-11-02T09:00:49.067Z",
+  "weworkremotely": "2026-11-02T09:00:49.067Z",
+  "nodesk": "2026-11-02T09:00:49.067Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-02T06:03:15.891Z",
- "arbeitnowAt": "2026-11-02T06:03:15.891Z"
+ "jobicyAt": "2026-11-02T09:00:49.067Z",
+ "arbeitnowAt": "2026-11-02T09:00:49.067Z"
 }

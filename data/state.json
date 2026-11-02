@@ -5653,6 +5653,18 @@
   "weworkremotely:general-dynamics-information-technology": {
    "reason": "US headquarters (We Work Remotely)",
    "at": "2026-11-01T18:06:50.253Z"
+  },
+  "jobicy:spotify": {
+   "reason": "Hires in the US",
+   "at": "2026-11-02T08:59:56.844Z"
+  },
+  "jobicy:quicknode": {
+   "reason": "Hires in the US",
+   "at": "2026-11-02T08:59:56.844Z"
+  },
+  "weworkremotely:descript": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-02T08:59:56.844Z"
   }
  },
  "wikidata": {
@@ -9600,14 +9612,19 @@
    "at": "2026-11-02T05:59:50.695Z",
    "id": null,
    "us": false
+  },
+  "UpGuard": {
+   "at": "2026-11-02T08:59:56.844Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-02T05:59:50.695Z",
-  "remoteok": "2026-11-02T05:59:50.695Z",
-  "workingnomads": "2026-11-02T05:59:50.695Z",
-  "weworkremotely": "2026-11-02T05:59:50.695Z",
-  "nodesk": "2026-11-02T05:59:50.695Z",
+  "remoteok": "2026-11-02T08:59:56.844Z",
+  "workingnomads": "2026-11-02T08:59:56.844Z",
+  "weworkremotely": "2026-11-02T08:59:56.844Z",
+  "nodesk": "2026-11-02T08:59:56.844Z",
   "himalayas": "2026-11-02T08:00:07.995Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -9648,8 +9665,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-02T05:59:50.695Z",
- "arbeitnowAt": "2026-11-02T05:59:50.695Z",
+ "jobicyAt": "2026-11-02T08:59:56.844Z",
+ "arbeitnowAt": "2026-11-02T08:59:56.844Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
