@@ -5825,6 +5825,26 @@
   "hn:reducto": {
    "reason": "US headquarters",
    "at": "2026-11-02T19:21:37.520Z"
+  },
+  "hn:datadog": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-02T20:21:38.257Z"
+  },
+  "hn:fly-io": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-02T20:21:38.257Z"
+  },
+  "hn:revnode": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T20:21:38.257Z"
+  },
+  "hn:blackbird": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T20:21:38.257Z"
+  },
+  "hn:creativelens": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T20:21:38.257Z"
   }
  },
  "wikidata": {
@@ -10082,14 +10102,84 @@
    "at": "2026-11-02T19:21:37.520Z",
    "id": "Q141674505",
    "us": true
+  },
+  "REVNODE": {
+   "at": "2026-11-02T20:21:38.257Z",
+   "id": null,
+   "us": false
+  },
+  "Blackbird": {
+   "at": "2026-11-02T20:21:38.257Z",
+   "id": null,
+   "us": false
+  },
+  "CreativeLens": {
+   "at": "2026-11-02T20:21:38.257Z",
+   "id": null,
+   "us": false
+  },
+  "Fly.io": {
+   "at": "2026-11-02T20:21:38.257Z",
+   "id": "Q133943318",
+   "us": true
+  },
+  "Curiosity": {
+   "at": "2026-11-02T20:21:38.257Z",
+   "id": null,
+   "us": false
+  },
+  "Apply here: https://tally.so/r/BzrbN7?source=hn": {
+   "at": "2026-11-02T20:21:38.257Z",
+   "id": null,
+   "us": false
+  },
+  "Bg Prevent": {
+   "at": "2026-11-02T20:21:38.257Z",
+   "id": null,
+   "us": false
+  },
+  "relokate HR GmbH": {
+   "at": "2026-11-02T20:21:38.257Z",
+   "id": null,
+   "us": false
+  },
+  "MPU Klar": {
+   "at": "2026-11-02T20:21:38.257Z",
+   "id": null,
+   "us": false
+  },
+  "Recare Deutschland GmbH": {
+   "at": "2026-11-02T20:21:38.257Z",
+   "id": null,
+   "us": false
+  },
+  "V-HEAL GmbH": {
+   "at": "2026-11-02T20:21:38.257Z",
+   "id": null,
+   "us": false
+  },
+  "ReSus Consult GmbH": {
+   "at": "2026-11-02T20:21:38.257Z",
+   "id": null,
+   "us": false
+  },
+  "TPnet Marktforschung": {
+   "at": "2026-11-02T20:21:38.257Z",
+   "id": null,
+   "us": false
+  },
+  "purestorage": {
+   "at": "2026-11-02T20:21:38.257Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-02T17:16:02.802Z",
-  "remoteok": "2026-11-02T17:16:02.802Z",
-  "workingnomads": "2026-11-02T17:16:02.802Z",
-  "weworkremotely": "2026-11-02T17:16:02.802Z",
-  "nodesk": "2026-11-02T17:16:02.802Z",
+  "remoteok": "2026-11-02T20:21:38.257Z",
+  "workingnomads": "2026-11-02T20:21:38.257Z",
+  "weworkremotely": "2026-11-02T20:21:38.257Z",
+  "nodesk": "2026-11-02T20:21:38.257Z",
   "himalayas": "2026-11-02T19:21:37.520Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -10130,8 +10220,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-02T17:16:02.802Z",
- "arbeitnowAt": "2026-11-02T17:16:02.802Z",
+ "jobicyAt": "2026-11-02T20:21:38.257Z",
+ "arbeitnowAt": "2026-11-02T20:21:38.257Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
