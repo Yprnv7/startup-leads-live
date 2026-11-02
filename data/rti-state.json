@@ -668,7 +668,7 @@
    "2026-10-30": 91,
    "2026-10-31": 41,
    "2026-11-01": 37,
-   "2026-11-02": 18
+   "2026-11-02": 19
   },
   "mobileCredits": {
    "2026-10-30": 136,
@@ -3113,6 +3113,14 @@
   "hn:stratirus": {
    "reason": "US headquarters",
    "at": "2026-11-02T17:27:57.468Z"
+  },
+  "hn:opsin-security": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T17:38:46.363Z"
+  },
+  "hn:confidential-fintech-ai-startup": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T17:38:46.363Z"
   }
  },
  "wikidata": {
@@ -5650,6 +5658,21 @@
    "at": "2026-11-02T17:27:57.468Z",
    "id": "Q192314",
    "us": true
+  },
+  "Opsin Security": {
+   "at": "2026-11-02T17:38:46.363Z",
+   "id": null,
+   "us": false
+  },
+  "Confidential fintech AI startup": {
+   "at": "2026-11-02T17:38:46.363Z",
+   "id": null,
+   "us": false
+  },
+  "Voluntas": {
+   "at": "2026-11-02T17:38:46.363Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {

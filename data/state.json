@@ -5765,6 +5765,14 @@
   "hn:stratirus": {
    "reason": "US headquarters",
    "at": "2026-11-02T17:27:48.603Z"
+  },
+  "hn:opsin-security": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T17:38:37.386Z"
+  },
+  "hn:confidential-fintech-ai-startup": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T17:38:37.386Z"
   }
  },
  "wikidata": {
@@ -9922,6 +9930,21 @@
    "at": "2026-11-02T17:27:48.603Z",
    "id": "Q192314",
    "us": true
+  },
+  "Opsin Security": {
+   "at": "2026-11-02T17:38:37.386Z",
+   "id": null,
+   "us": false
+  },
+  "Confidential fintech AI startup": {
+   "at": "2026-11-02T17:38:37.386Z",
+   "id": null,
+   "us": false
+  },
+  "Voluntas": {
+   "at": "2026-11-02T17:38:37.386Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
