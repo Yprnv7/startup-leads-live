@@ -635,6 +635,30 @@
    "name": "ICEYE",
    "discovered": "2026-10-29T10:32:13.751Z",
    "active": true
+  },
+  {
+   "ats": "lever",
+   "token": "auw",
+   "companyId": "hn:united-risk",
+   "name": "United Risk",
+   "discovered": "2026-11-02T17:17:59.272Z",
+   "active": false
+  },
+  {
+   "ats": "ashby",
+   "token": "equall",
+   "companyId": "hn:equall",
+   "name": "Equall",
+   "discovered": "2026-11-02T17:17:59.272Z",
+   "active": false
+  },
+  {
+   "ats": "ashby",
+   "token": "stream",
+   "companyId": "hn:stream",
+   "name": "Stream",
+   "discovered": "2026-11-02T17:17:59.272Z",
+   "active": false
   }
  ],
  "boardNames": {},
@@ -644,12 +668,13 @@
    "2026-10-30": 91,
    "2026-10-31": 41,
    "2026-11-01": 37,
-   "2026-11-02": 14
+   "2026-11-02": 17
   },
   "mobileCredits": {
    "2026-10-30": 136,
    "2026-10-31": 56,
-   "2026-11-01": 20
+   "2026-11-01": 20,
+   "2026-11-02": 18
   }
  },
  "excluded": {
@@ -3012,6 +3037,70 @@
   "jobicy:upguard": {
    "reason": "US headquarters (Prospeo)",
    "at": "2026-11-02T09:01:31.852Z"
+  },
+  "weworkremotely:crowdstrike": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-02T17:17:59.272Z"
+  },
+  "weworkremotely:american-straight-a-academy": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-02T17:17:59.272Z"
+  },
+  "weworkremotely:welcomehome-software": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-02T17:17:59.272Z"
+  },
+  "hn:equall": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-02T17:17:59.272Z"
+  },
+  "hn:synteq": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T17:17:59.272Z"
+  },
+  "hn:university-of-cambridge-university-of-manchester": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T17:17:59.272Z"
+  },
+  "hn:bridge-ai-consulting": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T17:17:59.272Z"
+  },
+  "hn:united-risk": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T17:17:59.272Z"
+  },
+  "hn:kanmon": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T17:17:59.272Z"
+  },
+  "hn:neo-holdings": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T17:17:59.272Z"
+  },
+  "hn:orff-maestra": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T17:17:59.272Z"
+  },
+  "hn:kraus-hamdani-aerospace": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T17:17:59.272Z"
+  },
+  "hn:lyra": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T17:17:59.272Z"
+  },
+  "hn:cnh": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T17:17:59.272Z"
+  },
+  "hn:stream": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T17:17:59.272Z"
+  },
+  "hn:humans": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T17:17:59.272Z"
   }
  },
  "wikidata": {
@@ -5344,16 +5433,206 @@
    "at": "2026-11-02T09:00:49.067Z",
    "id": null,
    "us": false
+  },
+  "Simple Analytics": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "Synteq": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "University of Cambridge, University of Manchester": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "Bridge AI Consulting": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "United Risk": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "We The Flywheel": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "Kanmon": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "NEO Holdings": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "Fusionality": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "ORFF Maestra": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "Confidential": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "FutureSearch": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "myDataValue": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "Kraus Hamdani Aerospace": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "Lyra": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "Equall": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": "Q16927844",
+   "us": true
+  },
+  "Juro": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "CNH": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": "Q695329",
+   "us": false
+  },
+  "Stream": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "Canopy Connect": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "Cologne, Germany": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "humans&": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "Envato": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": "Q5380906",
+   "us": false
+  },
+  "Luxury Presence": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "remove": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "Wavestone Germany AG": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "U-Glow GmbH": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "FFG FINANZCHECK Finanzportale GmbH": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "Growing Imaginations GmbH": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "SchemeServe Limited": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "ConformIT Solutions": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "Your Software Supplier": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "New Monday GmbH": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "COLMENA GmbH & Co. KG": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "RONIN Research GmbH": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "JawBuddy": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "Leadeffect GmbH": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
+  },
+  "RiseBeyond.Today": {
+   "at": "2026-11-02T17:17:59.272Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-02T06:03:15.891Z",
-  "remoteok": "2026-11-02T09:00:49.067Z",
-  "workingnomads": "2026-11-02T09:00:49.067Z",
-  "weworkremotely": "2026-11-02T09:00:49.067Z",
-  "nodesk": "2026-11-02T09:00:49.067Z",
+  "remotive": "2026-11-02T17:17:59.272Z",
+  "remoteok": "2026-11-02T17:17:59.272Z",
+  "workingnomads": "2026-11-02T17:17:59.272Z",
+  "weworkremotely": "2026-11-02T17:17:59.272Z",
+  "nodesk": "2026-11-02T17:17:59.272Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-02T09:00:49.067Z",
- "arbeitnowAt": "2026-11-02T09:00:49.067Z"
+ "jobicyAt": "2026-11-02T17:17:59.272Z",
+ "arbeitnowAt": "2026-11-02T17:17:59.272Z"
 }
