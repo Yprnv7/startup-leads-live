@@ -3295,6 +3295,14 @@
    "name": "Stream",
    "discovered": "2026-11-02T17:16:02.802Z",
    "active": false
+  },
+  {
+   "ats": "greenhouse",
+   "token": "mozilla",
+   "companyId": "hn:mozilla",
+   "name": "Mozilla",
+   "discovered": "2026-11-02T18:21:34.776Z",
+   "active": false
   }
  ],
  "boardNames": {},
@@ -5773,6 +5781,30 @@
   "hn:confidential-fintech-ai-startup": {
    "reason": "US headquarters",
    "at": "2026-11-02T17:38:37.386Z"
+  },
+  "hn:helmsted": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T18:21:34.776Z"
+  },
+  "hn:mozilla": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T18:21:34.776Z"
+  },
+  "hn:ledgebrook": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T18:21:34.776Z"
+  },
+  "hn:jump": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T18:21:34.776Z"
+  },
+  "hn:viva-finance": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T18:21:34.776Z"
+  },
+  "hn:memorang": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T18:21:34.776Z"
   }
  },
  "wikidata": {
@@ -9943,6 +9975,46 @@
   },
   "Voluntas": {
    "at": "2026-11-02T17:38:37.386Z",
+   "id": null,
+   "us": false
+  },
+  "Mesmer": {
+   "at": "2026-11-02T18:21:34.776Z",
+   "id": null,
+   "us": false
+  },
+  "Helmsted": {
+   "at": "2026-11-02T18:21:34.776Z",
+   "id": null,
+   "us": false
+  },
+  "Albs Labs": {
+   "at": "2026-11-02T18:21:34.776Z",
+   "id": null,
+   "us": false
+  },
+  "Distru": {
+   "at": "2026-11-02T18:21:34.776Z",
+   "id": null,
+   "us": false
+  },
+  "Ledgebrook": {
+   "at": "2026-11-02T18:21:34.776Z",
+   "id": null,
+   "us": false
+  },
+  "Jump": {
+   "at": "2026-11-02T18:21:34.776Z",
+   "id": null,
+   "us": false
+  },
+  "VIVA Finance": {
+   "at": "2026-11-02T18:21:34.776Z",
+   "id": null,
+   "us": false
+  },
+  "Memorang": {
+   "at": "2026-11-02T18:21:34.776Z",
    "id": null,
    "us": false
   }

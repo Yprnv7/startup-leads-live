@@ -659,6 +659,14 @@
    "name": "Stream",
    "discovered": "2026-11-02T17:17:59.272Z",
    "active": false
+  },
+  {
+   "ats": "greenhouse",
+   "token": "mozilla",
+   "companyId": "hn:mozilla",
+   "name": "Mozilla",
+   "discovered": "2026-11-02T18:21:54.733Z",
+   "active": false
   }
  ],
  "boardNames": {},
@@ -668,7 +676,7 @@
    "2026-10-30": 91,
    "2026-10-31": 41,
    "2026-11-01": 37,
-   "2026-11-02": 19
+   "2026-11-02": 20
   },
   "mobileCredits": {
    "2026-10-30": 136,
@@ -3121,6 +3129,30 @@
   "hn:confidential-fintech-ai-startup": {
    "reason": "US headquarters",
    "at": "2026-11-02T17:38:46.363Z"
+  },
+  "hn:mozilla": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-02T18:21:54.733Z"
+  },
+  "hn:helmsted": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T18:21:54.733Z"
+  },
+  "hn:ledgebrook": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T18:21:54.733Z"
+  },
+  "hn:jump": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T18:21:54.733Z"
+  },
+  "hn:viva-finance": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T18:21:54.733Z"
+  },
+  "hn:memorang": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T18:21:54.733Z"
   }
  },
  "wikidata": {
@@ -5671,6 +5703,46 @@
   },
   "Voluntas": {
    "at": "2026-11-02T17:38:46.363Z",
+   "id": null,
+   "us": false
+  },
+  "Mesmer": {
+   "at": "2026-11-02T18:21:54.733Z",
+   "id": null,
+   "us": false
+  },
+  "Helmsted": {
+   "at": "2026-11-02T18:21:54.733Z",
+   "id": null,
+   "us": false
+  },
+  "Albs Labs": {
+   "at": "2026-11-02T18:21:54.733Z",
+   "id": null,
+   "us": false
+  },
+  "Distru": {
+   "at": "2026-11-02T18:21:54.733Z",
+   "id": null,
+   "us": false
+  },
+  "Ledgebrook": {
+   "at": "2026-11-02T18:21:54.733Z",
+   "id": null,
+   "us": false
+  },
+  "Jump": {
+   "at": "2026-11-02T18:21:54.733Z",
+   "id": null,
+   "us": false
+  },
+  "VIVA Finance": {
+   "at": "2026-11-02T18:21:54.733Z",
+   "id": null,
+   "us": false
+  },
+  "Memorang": {
+   "at": "2026-11-02T18:21:54.733Z",
    "id": null,
    "us": false
   }
