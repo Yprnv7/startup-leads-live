@@ -5845,6 +5845,18 @@
   "hn:creativelens": {
    "reason": "US headquarters",
    "at": "2026-11-02T20:21:38.257Z"
+  },
+  "hn:enthought": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-02T21:21:40.506Z"
+  },
+  "hn:nivelo": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T21:21:40.506Z"
+  },
+  "hn:subimage": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T21:21:40.506Z"
   }
  },
  "wikidata": {
@@ -10172,6 +10184,36 @@
    "at": "2026-11-02T20:21:38.257Z",
    "id": null,
    "us": false
+  },
+  "MixRank": {
+   "at": "2026-11-02T21:21:40.506Z",
+   "id": null,
+   "us": false
+  },
+  "Nivelo": {
+   "at": "2026-11-02T21:21:40.506Z",
+   "id": null,
+   "us": false
+  },
+  "Enthought": {
+   "at": "2026-11-02T21:21:40.506Z",
+   "id": "Q5380524",
+   "us": true
+  },
+  "Eleshop": {
+   "at": "2026-11-02T21:21:40.506Z",
+   "id": null,
+   "us": false
+  },
+  "Subimage": {
+   "at": "2026-11-02T21:21:40.506Z",
+   "id": null,
+   "us": false
+  },
+  "Virtusan": {
+   "at": "2026-11-02T21:21:40.506Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
@@ -10180,7 +10222,7 @@
   "workingnomads": "2026-11-02T20:21:38.257Z",
   "weworkremotely": "2026-11-02T20:21:38.257Z",
   "nodesk": "2026-11-02T20:21:38.257Z",
-  "himalayas": "2026-11-02T19:21:37.520Z",
+  "himalayas": "2026-11-02T21:21:40.506Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},

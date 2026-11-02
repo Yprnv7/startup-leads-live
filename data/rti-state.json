@@ -3193,6 +3193,18 @@
   "hn:creativelens": {
    "reason": "US headquarters",
    "at": "2026-11-02T20:22:29.260Z"
+  },
+  "hn:enthought": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-02T21:21:57.586Z"
+  },
+  "hn:nivelo": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T21:21:57.586Z"
+  },
+  "hn:subimage": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T21:21:57.586Z"
   }
  },
  "wikidata": {
@@ -5898,6 +5910,36 @@
   },
   "purestorage": {
    "at": "2026-11-02T20:22:29.260Z",
+   "id": null,
+   "us": false
+  },
+  "MixRank": {
+   "at": "2026-11-02T21:21:57.586Z",
+   "id": null,
+   "us": false
+  },
+  "Nivelo": {
+   "at": "2026-11-02T21:21:57.586Z",
+   "id": null,
+   "us": false
+  },
+  "Enthought": {
+   "at": "2026-11-02T21:21:57.586Z",
+   "id": "Q5380524",
+   "us": true
+  },
+  "Eleshop": {
+   "at": "2026-11-02T21:21:57.586Z",
+   "id": null,
+   "us": false
+  },
+  "Subimage": {
+   "at": "2026-11-02T21:21:57.586Z",
+   "id": null,
+   "us": false
+  },
+  "Virtusan": {
+   "at": "2026-11-02T21:21:57.586Z",
    "id": null,
    "us": false
   }
