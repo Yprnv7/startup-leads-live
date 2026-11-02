@@ -3245,6 +3245,18 @@
   "hn:quantum-rise": {
    "reason": "US headquarters",
    "at": "2026-11-02T22:22:05.602Z"
+  },
+  "hn:meta": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-02T23:23:20.515Z"
+  },
+  "hn:yeet": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T23:23:20.515Z"
+  },
+  "hn:silkline": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T23:23:20.515Z"
   }
  },
  "wikidata": {
@@ -6022,16 +6034,36 @@
    "at": "2026-11-02T22:22:05.602Z",
    "id": "Q102264760",
    "us": false
+  },
+  "yeet": {
+   "at": "2026-11-02T23:23:20.515Z",
+   "id": null,
+   "us": false
+  },
+  "Silkline": {
+   "at": "2026-11-02T23:23:20.515Z",
+   "id": null,
+   "us": false
+  },
+  "Meta": {
+   "at": "2026-11-02T23:23:20.515Z",
+   "id": "Q380",
+   "us": true
+  },
+  "Railway": {
+   "at": "2026-11-02T23:23:20.515Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-02T17:17:59.272Z",
-  "remoteok": "2026-11-02T20:22:29.260Z",
-  "workingnomads": "2026-11-02T20:22:29.260Z",
-  "weworkremotely": "2026-11-02T20:22:29.260Z",
-  "nodesk": "2026-11-02T20:22:29.260Z",
+  "remotive": "2026-11-02T23:23:20.515Z",
+  "remoteok": "2026-11-02T23:23:20.515Z",
+  "workingnomads": "2026-11-02T23:23:20.515Z",
+  "weworkremotely": "2026-11-02T23:23:20.515Z",
+  "nodesk": "2026-11-02T23:23:20.515Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-02T20:22:29.260Z",
- "arbeitnowAt": "2026-11-02T20:22:29.260Z"
+ "jobicyAt": "2026-11-02T23:23:20.515Z",
+ "arbeitnowAt": "2026-11-02T23:23:20.515Z"
 }
