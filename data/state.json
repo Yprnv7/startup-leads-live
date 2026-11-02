@@ -3311,6 +3311,22 @@
    "name": "Reducto",
    "discovered": "2026-11-02T19:21:37.520Z",
    "active": false
+  },
+  {
+   "ats": "ashby",
+   "token": "Scholarly",
+   "companyId": "hn:scholarly",
+   "name": "Scholarly",
+   "discovered": "2026-11-02T22:21:44.870Z",
+   "active": false
+  },
+  {
+   "ats": "ashby",
+   "token": "creditgenie",
+   "companyId": "hn:credit-genie",
+   "name": "Credit Genie",
+   "discovered": "2026-11-02T22:21:44.870Z",
+   "active": false
   }
  ],
  "boardNames": {},
@@ -5857,6 +5873,30 @@
   "hn:subimage": {
    "reason": "US headquarters",
    "at": "2026-11-02T21:21:40.506Z"
+  },
+  "hn:don-t-use-this-code-https-dutc-io": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T22:21:44.870Z"
+  },
+  "hn:scholarly": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T22:21:44.870Z"
+  },
+  "hn:credit-genie": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T22:21:44.870Z"
+  },
+  "hn:kanurra": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T22:21:44.870Z"
+  },
+  "hn:data-engineer": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T22:21:44.870Z"
+  },
+  "hn:quantum-rise": {
+   "reason": "US headquarters",
+   "at": "2026-11-02T22:21:44.870Z"
   }
  },
  "wikidata": {
@@ -10213,6 +10253,46 @@
   "Virtusan": {
    "at": "2026-11-02T21:21:40.506Z",
    "id": null,
+   "us": false
+  },
+  "Don't Use This Code: https://dutc.io": {
+   "at": "2026-11-02T22:21:44.870Z",
+   "id": null,
+   "us": false
+  },
+  "Scholarly": {
+   "at": "2026-11-02T22:21:44.870Z",
+   "id": null,
+   "us": false
+  },
+  "Credit Genie": {
+   "at": "2026-11-02T22:21:44.870Z",
+   "id": null,
+   "us": false
+  },
+  "Kanurra": {
+   "at": "2026-11-02T22:21:44.870Z",
+   "id": null,
+   "us": false
+  },
+  "*Data Engineer": {
+   "at": "2026-11-02T22:21:44.870Z",
+   "id": null,
+   "us": false
+  },
+  "We": {
+   "at": "2026-11-02T22:21:44.870Z",
+   "id": null,
+   "us": false
+  },
+  "Vivral": {
+   "at": "2026-11-02T22:21:44.870Z",
+   "id": null,
+   "us": false
+  },
+  "Quantum Rise": {
+   "at": "2026-11-02T22:21:44.870Z",
+   "id": "Q102264760",
    "us": false
   }
  },
