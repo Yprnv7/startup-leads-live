@@ -3317,6 +3317,18 @@
   "hn:perry": {
    "reason": "US headquarters",
    "at": "2026-11-03T11:56:17.723Z"
+  },
+  "hn:marker-learning": {
+   "reason": "US headquarters",
+   "at": "2026-11-03T12:55:30.416Z"
+  },
+  "hn:stealth": {
+   "reason": "US headquarters",
+   "at": "2026-11-03T12:55:30.416Z"
+  },
+  "hn:prophetx": {
+   "reason": "US headquarters",
+   "at": "2026-11-03T12:55:30.416Z"
   }
  },
  "wikidata": {
@@ -6267,6 +6279,21 @@
   },
   "Docusketch": {
    "at": "2026-11-03T11:56:17.723Z",
+   "id": null,
+   "us": false
+  },
+  "Marker Learning": {
+   "at": "2026-11-03T12:55:30.416Z",
+   "id": null,
+   "us": false
+  },
+  "Stealth": {
+   "at": "2026-11-03T12:55:30.416Z",
+   "id": null,
+   "us": false
+  },
+  "ProphetX": {
+   "at": "2026-11-03T12:55:30.416Z",
    "id": null,
    "us": false
   }
