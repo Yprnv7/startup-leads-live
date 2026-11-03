@@ -5949,6 +5949,10 @@
   "hn:valis": {
    "reason": "US headquarters",
    "at": "2026-11-03T05:18:32.631Z"
+  },
+  "hn:blockrotate": {
+   "reason": "US headquarters",
+   "at": "2026-11-03T07:18:00.807Z"
   }
  },
  "wikidata": {
@@ -10425,6 +10429,11 @@
   "India": {
    "at": "2026-11-03T07:00:32.836Z",
    "id": "Q819425",
+   "us": false
+  },
+  "Blockrotate": {
+   "at": "2026-11-03T07:18:00.807Z",
+   "id": null,
    "us": false
   }
  },
