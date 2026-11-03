@@ -3327,6 +3327,14 @@
    "name": "Credit Genie",
    "discovered": "2026-11-02T22:21:44.870Z",
    "active": false
+  },
+  {
+   "ats": "greenhouse",
+   "token": "justworks",
+   "companyId": "hn:justworks",
+   "name": "Justworks",
+   "discovered": "2026-11-03T02:18:21.984Z",
+   "active": false
   }
  ],
  "boardNames": {},
@@ -5917,6 +5925,10 @@
   "hn:hatch": {
    "reason": "US headquarters",
    "at": "2026-11-03T00:16:58.127Z"
+  },
+  "hn:certara": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-03T02:18:21.984Z"
   }
  },
  "wikidata": {
@@ -10339,15 +10351,40 @@
    "at": "2026-11-03T00:16:58.127Z",
    "id": null,
    "us": false
+  },
+  "Telescope Partners": {
+   "at": "2026-11-03T02:18:21.984Z",
+   "id": null,
+   "us": false
+  },
+  "Justworks": {
+   "at": "2026-11-03T02:18:21.984Z",
+   "id": null,
+   "us": false
+  },
+  "Certara": {
+   "at": "2026-11-03T02:18:21.984Z",
+   "id": "Q30283378",
+   "us": true
+  },
+  "Sodalis, Inc.": {
+   "at": "2026-11-03T02:18:21.984Z",
+   "id": null,
+   "us": false
+  },
+  "Capmo": {
+   "at": "2026-11-03T02:18:21.984Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-02T23:21:44.748Z",
-  "remoteok": "2026-11-02T23:21:44.748Z",
-  "workingnomads": "2026-11-02T23:21:44.748Z",
-  "weworkremotely": "2026-11-02T23:21:44.748Z",
-  "nodesk": "2026-11-02T23:21:44.748Z",
-  "himalayas": "2026-11-02T23:21:44.748Z",
+  "remoteok": "2026-11-03T02:18:21.984Z",
+  "workingnomads": "2026-11-03T02:18:21.984Z",
+  "weworkremotely": "2026-11-03T02:18:21.984Z",
+  "nodesk": "2026-11-03T02:18:21.984Z",
+  "himalayas": "2026-11-03T02:18:21.984Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -10387,8 +10424,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-02T23:21:44.748Z",
- "arbeitnowAt": "2026-11-02T23:21:44.748Z",
+ "jobicyAt": "2026-11-03T02:18:21.984Z",
+ "arbeitnowAt": "2026-11-03T02:18:21.984Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
