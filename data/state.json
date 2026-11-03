@@ -3343,6 +3343,14 @@
    "name": "Reddit",
    "discovered": "2026-11-03T03:18:24.282Z",
    "active": false
+  },
+  {
+   "ats": "greenhouse",
+   "token": "controlplane",
+   "companyId": "hn:controlplane",
+   "name": "ControlPlane",
+   "discovered": "2026-11-03T15:41:14.104Z",
+   "active": false
   }
  ],
  "boardNames": {},
@@ -10673,6 +10681,11 @@
   },
   "Clad": {
    "at": "2026-11-03T15:29:21.643Z",
+   "id": null,
+   "us": false
+  },
+  "ControlPlane": {
+   "at": "2026-11-03T15:41:14.104Z",
    "id": null,
    "us": false
   }
