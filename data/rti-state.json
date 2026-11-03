@@ -3301,6 +3301,22 @@
   "hn:blockrotate": {
    "reason": "US headquarters",
    "at": "2026-11-03T07:18:25.414Z"
+  },
+  "jobicy:codepath": {
+   "reason": "Hires in the US",
+   "at": "2026-11-03T11:56:17.723Z"
+  },
+  "arbeitnow:replug": {
+   "reason": "Recruitment agency (posts for unnamed clients)",
+   "at": "2026-11-03T11:56:17.723Z"
+  },
+  "jobicy:affirm": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-03T11:56:17.723Z"
+  },
+  "hn:perry": {
+   "reason": "US headquarters",
+   "at": "2026-11-03T11:56:17.723Z"
   }
  },
  "wikidata": {
@@ -6163,16 +6179,106 @@
    "at": "2026-11-03T07:18:25.414Z",
    "id": null,
    "us": false
+  },
+  "Opsfleet": {
+   "at": "2026-11-03T11:56:17.723Z",
+   "id": null,
+   "us": false
+  },
+  "Scento": {
+   "at": "2026-11-03T11:56:17.723Z",
+   "id": "Q141736041",
+   "us": false
+  },
+  "DigitalTolk": {
+   "at": "2026-11-03T11:56:17.723Z",
+   "id": null,
+   "us": false
+  },
+  "UNICEF": {
+   "at": "2026-11-03T11:56:17.723Z",
+   "id": null,
+   "us": false
+  },
+  "Perry": {
+   "at": "2026-11-03T11:56:17.723Z",
+   "id": null,
+   "us": false
+  },
+  "Encube": {
+   "at": "2026-11-03T11:56:17.723Z",
+   "id": "Q109608706",
+   "us": false
+  },
+  "Proofline": {
+   "at": "2026-11-03T11:56:17.723Z",
+   "id": null,
+   "us": false
+  },
+  "Sporty Group": {
+   "at": "2026-11-03T11:56:17.723Z",
+   "id": null,
+   "us": false
+  },
+  "JIRO CONSULTING": {
+   "at": "2026-11-03T11:56:17.723Z",
+   "id": null,
+   "us": false
+  },
+  "wingmaite GmbH": {
+   "at": "2026-11-03T11:56:17.723Z",
+   "id": null,
+   "us": false
+  },
+  "We Love X GmbH": {
+   "at": "2026-11-03T11:56:17.723Z",
+   "id": null,
+   "us": false
+  },
+  "Zimmer Consulting GmbH": {
+   "at": "2026-11-03T11:56:17.723Z",
+   "id": null,
+   "us": false
+  },
+  "Medialine EuroTrade AG": {
+   "at": "2026-11-03T11:56:17.723Z",
+   "id": null,
+   "us": false
+  },
+  "YourCasa": {
+   "at": "2026-11-03T11:56:17.723Z",
+   "id": null,
+   "us": false
+  },
+  "Performancepixel GmbH": {
+   "at": "2026-11-03T11:56:17.723Z",
+   "id": null,
+   "us": false
+  },
+  "moinAI [by knowhere]": {
+   "at": "2026-11-03T11:56:17.723Z",
+   "id": null,
+   "us": false
+  },
+  "REPLUG": {
+   "at": "2026-11-03T11:56:17.723Z",
+   "id": null,
+   "us": false
+  },
+  "Docusketch": {
+   "at": "2026-11-03T11:56:17.723Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-03T05:19:13.908Z",
-  "remoteok": "2026-11-03T05:19:13.908Z",
-  "workingnomads": "2026-11-03T05:19:13.908Z",
-  "weworkremotely": "2026-11-03T05:19:13.908Z",
-  "nodesk": "2026-11-03T05:19:13.908Z",
+  "remotive": "2026-11-03T11:56:17.723Z",
+  "remoteok": "2026-11-03T11:56:17.723Z",
+  "workingnomads": "2026-11-03T11:56:17.723Z",
+  "weworkremotely": "2026-11-03T11:56:17.723Z",
+  "nodesk": "2026-11-03T11:56:17.723Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-03T05:19:13.908Z",
- "arbeitnowAt": "2026-11-03T05:19:13.908Z"
+ "jobicyAt": "2026-11-03T11:56:17.723Z",
+ "arbeitnowAt": "2026-11-03T11:56:17.723Z"
 }
