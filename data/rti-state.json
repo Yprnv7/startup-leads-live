@@ -3293,6 +3293,10 @@
   "hn:vohuman": {
    "reason": "US headquarters",
    "at": "2026-11-03T03:18:38.196Z"
+  },
+  "hn:valis": {
+   "reason": "US headquarters",
+   "at": "2026-11-03T05:19:13.908Z"
   }
  },
  "wikidata": {
@@ -6125,16 +6129,31 @@
    "at": "2026-11-03T03:18:38.196Z",
    "id": null,
    "us": false
+  },
+  "Splash Tech": {
+   "at": "2026-11-03T05:19:13.908Z",
+   "id": null,
+   "us": false
+  },
+  "VALIS": {
+   "at": "2026-11-03T05:19:13.908Z",
+   "id": null,
+   "us": false
+  },
+  "DeepHealth": {
+   "at": "2026-11-03T05:19:13.908Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-02T23:23:20.515Z",
-  "remoteok": "2026-11-03T02:19:41.925Z",
-  "workingnomads": "2026-11-03T02:19:41.925Z",
-  "weworkremotely": "2026-11-03T02:19:41.925Z",
-  "nodesk": "2026-11-03T02:19:41.925Z",
+  "remotive": "2026-11-03T05:19:13.908Z",
+  "remoteok": "2026-11-03T05:19:13.908Z",
+  "workingnomads": "2026-11-03T05:19:13.908Z",
+  "weworkremotely": "2026-11-03T05:19:13.908Z",
+  "nodesk": "2026-11-03T05:19:13.908Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-03T02:19:41.925Z",
- "arbeitnowAt": "2026-11-03T02:19:41.925Z"
+ "jobicyAt": "2026-11-03T05:19:13.908Z",
+ "arbeitnowAt": "2026-11-03T05:19:13.908Z"
 }
