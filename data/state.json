@@ -5977,6 +5977,10 @@
   "hn:prophetx": {
    "reason": "US headquarters",
    "at": "2026-11-03T12:55:22.944Z"
+  },
+  "hn:antithesis": {
+   "reason": "US headquarters",
+   "at": "2026-11-03T13:55:25.557Z"
   }
  },
  "wikidata": {
@@ -10564,6 +10568,16 @@
    "at": "2026-11-03T12:55:22.944Z",
    "id": null,
    "us": false
+  },
+  "Taxnova": {
+   "at": "2026-11-03T13:55:25.557Z",
+   "id": null,
+   "us": false
+  },
+  "Antithesis": {
+   "at": "2026-11-03T13:55:25.557Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
@@ -10572,7 +10586,7 @@
   "workingnomads": "2026-11-03T11:55:20.403Z",
   "weworkremotely": "2026-11-03T11:55:20.403Z",
   "nodesk": "2026-11-03T11:55:20.403Z",
-  "himalayas": "2026-11-03T11:55:20.403Z",
+  "himalayas": "2026-11-03T13:55:25.557Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},

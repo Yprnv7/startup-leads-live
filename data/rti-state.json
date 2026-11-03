@@ -3329,6 +3329,10 @@
   "hn:prophetx": {
    "reason": "US headquarters",
    "at": "2026-11-03T12:55:30.416Z"
+  },
+  "hn:antithesis": {
+   "reason": "US headquarters",
+   "at": "2026-11-03T13:56:08.836Z"
   }
  },
  "wikidata": {
@@ -6294,6 +6298,16 @@
   },
   "ProphetX": {
    "at": "2026-11-03T12:55:30.416Z",
+   "id": null,
+   "us": false
+  },
+  "Taxnova": {
+   "at": "2026-11-03T13:56:08.836Z",
+   "id": null,
+   "us": false
+  },
+  "Antithesis": {
+   "at": "2026-11-03T13:56:08.836Z",
    "id": null,
    "us": false
   }
