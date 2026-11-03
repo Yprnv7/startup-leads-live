@@ -3353,6 +3353,14 @@
   "hn:clad": {
    "reason": "US headquarters",
    "at": "2026-11-03T15:29:27.713Z"
+  },
+  "hn:exponent": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-03T16:55:52.640Z"
+  },
+  "hn:special": {
+   "reason": "US headquarters",
+   "at": "2026-11-03T16:55:52.640Z"
   }
  },
  "wikidata": {
@@ -6425,6 +6433,21 @@
    "at": "2026-11-03T15:57:03.415Z",
    "id": null,
    "us": false
+  },
+  "Special": {
+   "at": "2026-11-03T16:55:52.640Z",
+   "id": null,
+   "us": false
+  },
+  "ThreatMark": {
+   "at": "2026-11-03T16:55:52.640Z",
+   "id": "Q102261616",
+   "us": false
+  },
+  "Exponent": {
+   "at": "2026-11-03T16:55:52.640Z",
+   "id": "Q5421507",
+   "us": true
   }
  },
  "othersAt": {
