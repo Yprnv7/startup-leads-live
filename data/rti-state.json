@@ -3337,6 +3337,10 @@
   "hn:avoca": {
    "reason": "US headquarters",
    "at": "2026-11-03T14:56:19.822Z"
+  },
+  "hn:theraplug": {
+   "reason": "US headquarters",
+   "at": "2026-11-03T15:22:30.029Z"
   }
  },
  "wikidata": {
@@ -6378,6 +6382,21 @@
   "Centric": {
    "at": "2026-11-03T14:56:19.822Z",
    "id": "Q259013",
+   "us": false
+  },
+  "TheraPlug": {
+   "at": "2026-11-03T15:22:30.029Z",
+   "id": null,
+   "us": false
+  },
+  "SEEKING FREELANCER": {
+   "at": "2026-11-03T15:22:30.029Z",
+   "id": null,
+   "us": false
+  },
+  "EIOU": {
+   "at": "2026-11-03T15:22:30.029Z",
+   "id": null,
    "us": false
   }
  },
