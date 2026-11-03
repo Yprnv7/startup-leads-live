@@ -715,6 +715,14 @@
    "name": "ControlPlane",
    "discovered": "2026-11-03T15:41:19.235Z",
    "active": false
+  },
+  {
+   "ats": "lever",
+   "token": "apolloresearch",
+   "companyId": "hn:apollo-research",
+   "name": "Apollo Research",
+   "discovered": "2026-11-03T21:11:50.860Z",
+   "active": false
   }
  ],
  "boardNames": {},
@@ -6557,6 +6565,16 @@
   },
   "Thankly": {
    "at": "2026-11-03T20:30:23.558Z",
+   "id": null,
+   "us": false
+  },
+  "Apollo Research": {
+   "at": "2026-11-03T21:11:50.860Z",
+   "id": null,
+   "us": false
+  },
+  "Cocient": {
+   "at": "2026-11-03T21:11:50.860Z",
    "id": null,
    "us": false
   }
