@@ -3261,6 +3261,10 @@
   "hn:sendery": {
    "reason": "US headquarters",
    "at": "2026-11-02T23:56:42.436Z"
+  },
+  "hn:hatch": {
+   "reason": "US headquarters",
+   "at": "2026-11-03T00:17:03.502Z"
   }
  },
  "wikidata": {
@@ -6056,6 +6060,11 @@
   },
   "Railway": {
    "at": "2026-11-02T23:23:20.515Z",
+   "id": null,
+   "us": false
+  },
+  "Hatch": {
+   "at": "2026-11-03T00:17:03.502Z",
    "id": null,
    "us": false
   }

@@ -5913,6 +5913,10 @@
   "hn:sendery": {
    "reason": "US headquarters",
    "at": "2026-11-02T23:56:27.907Z"
+  },
+  "hn:hatch": {
+   "reason": "US headquarters",
+   "at": "2026-11-03T00:16:58.127Z"
   }
  },
  "wikidata": {
@@ -10328,6 +10332,11 @@
   },
   "Railway": {
    "at": "2026-11-02T23:21:44.748Z",
+   "id": null,
+   "us": false
+  },
+  "Hatch": {
+   "at": "2026-11-03T00:16:58.127Z",
    "id": null,
    "us": false
   }
