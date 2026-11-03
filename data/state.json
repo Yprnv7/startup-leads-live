@@ -3335,6 +3335,14 @@
    "name": "Justworks",
    "discovered": "2026-11-03T02:18:21.984Z",
    "active": false
+  },
+  {
+   "ats": "greenhouse",
+   "token": "reddit",
+   "companyId": "hn:reddit",
+   "name": "Reddit",
+   "discovered": "2026-11-03T03:18:24.282Z",
+   "active": false
   }
  ],
  "boardNames": {},
@@ -5929,6 +5937,14 @@
   "hn:certara": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-03T02:18:21.984Z"
+  },
+  "hn:reddit": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-03T03:18:24.282Z"
+  },
+  "hn:vohuman": {
+   "reason": "US headquarters",
+   "at": "2026-11-03T03:18:24.282Z"
   }
  },
  "wikidata": {
@@ -10374,6 +10390,11 @@
   },
   "Capmo": {
    "at": "2026-11-03T02:18:21.984Z",
+   "id": null,
+   "us": false
+  },
+  "Vohuman": {
+   "at": "2026-11-03T03:18:24.282Z",
    "id": null,
    "us": false
   }
