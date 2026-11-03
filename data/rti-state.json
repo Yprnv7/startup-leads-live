@@ -3361,6 +3361,18 @@
   "hn:special": {
    "reason": "US headquarters",
    "at": "2026-11-03T16:55:52.640Z"
+  },
+  "weworkremotely:mantech": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-03T19:31:20.619Z"
+  },
+  "jobicy:getty-images": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-03T19:31:20.619Z"
+  },
+  "hn:solution-street": {
+   "reason": "US headquarters",
+   "at": "2026-11-03T19:31:20.619Z"
   }
  },
  "wikidata": {
@@ -6448,16 +6460,106 @@
    "at": "2026-11-03T16:55:52.640Z",
    "id": "Q5421507",
    "us": true
+  },
+  "Solution Street": {
+   "at": "2026-11-03T19:31:20.619Z",
+   "id": null,
+   "us": false
+  },
+  "Ruby Labs": {
+   "at": "2026-11-03T19:31:20.619Z",
+   "id": null,
+   "us": false
+  },
+  "Getty Images": {
+   "at": "2026-11-03T19:31:20.619Z",
+   "id": "Q1520122",
+   "us": true
+  },
+  "Right Search": {
+   "at": "2026-11-03T19:31:20.619Z",
+   "id": null,
+   "us": false
+  },
+  "mi.ro Personalvermittlung": {
+   "at": "2026-11-03T19:31:20.619Z",
+   "id": null,
+   "us": false
+  },
+  "Neurawork GmbH & Co. KG": {
+   "at": "2026-11-03T19:31:20.619Z",
+   "id": null,
+   "us": false
+  },
+  "CHAPTERS Group AG": {
+   "at": "2026-11-03T19:31:20.619Z",
+   "id": null,
+   "us": false
+  },
+  "BeNeering GmbH": {
+   "at": "2026-11-03T19:31:20.619Z",
+   "id": null,
+   "us": false
+  },
+  "Cryptory GmbH": {
+   "at": "2026-11-03T19:31:20.619Z",
+   "id": null,
+   "us": false
+  },
+  "Neuphonic": {
+   "at": "2026-11-03T19:31:20.619Z",
+   "id": null,
+   "us": false
+  },
+  "Higgsfield": {
+   "at": "2026-11-03T19:31:20.619Z",
+   "id": null,
+   "us": false
+  },
+  "Recruitment Circle GmbH": {
+   "at": "2026-11-03T19:31:20.619Z",
+   "id": null,
+   "us": false
+  },
+  "Saleshead Recruiting": {
+   "at": "2026-11-03T19:31:20.619Z",
+   "id": null,
+   "us": false
+  },
+  "Pennylane SAS": {
+   "at": "2026-11-03T19:31:20.619Z",
+   "id": null,
+   "us": false
+  },
+  "ParkEfficient": {
+   "at": "2026-11-03T19:31:20.619Z",
+   "id": null,
+   "us": false
+  },
+  "Windhoff Group": {
+   "at": "2026-11-03T19:31:20.619Z",
+   "id": "Q141134869",
+   "us": false
+  },
+  "Hozah": {
+   "at": "2026-11-03T19:31:20.619Z",
+   "id": null,
+   "us": false
+  },
+  "Custom Mechanical Solutions": {
+   "at": "2026-11-03T19:31:20.619Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-03T11:56:17.723Z",
-  "remoteok": "2026-11-03T14:56:19.822Z",
-  "workingnomads": "2026-11-03T14:56:19.822Z",
-  "weworkremotely": "2026-11-03T14:56:19.822Z",
-  "nodesk": "2026-11-03T14:56:19.822Z",
+  "remotive": "2026-11-03T19:31:20.619Z",
+  "remoteok": "2026-11-03T19:31:20.619Z",
+  "workingnomads": "2026-11-03T19:31:20.619Z",
+  "weworkremotely": "2026-11-03T19:31:20.619Z",
+  "nodesk": "2026-11-03T19:31:20.619Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-03T14:56:19.822Z",
- "arbeitnowAt": "2026-11-03T14:56:19.822Z"
+ "jobicyAt": "2026-11-03T19:31:20.619Z",
+ "arbeitnowAt": "2026-11-03T19:31:20.619Z"
 }
