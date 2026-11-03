@@ -5989,6 +5989,10 @@
   "hn:theraplug": {
    "reason": "US headquarters",
    "at": "2026-11-03T15:22:09.283Z"
+  },
+  "hn:clad": {
+   "reason": "US headquarters",
+   "at": "2026-11-03T15:29:21.643Z"
   }
  },
  "wikidata": {
@@ -10664,6 +10668,11 @@
   },
   "EIOU": {
    "at": "2026-11-03T15:22:09.283Z",
+   "id": null,
+   "us": false
+  },
+  "Clad": {
+   "at": "2026-11-03T15:29:21.643Z",
    "id": null,
    "us": false
   }
