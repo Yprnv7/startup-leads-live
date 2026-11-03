@@ -6023,6 +6023,10 @@
   "hn:solution-street": {
    "reason": "US headquarters",
    "at": "2026-11-03T19:30:07.998Z"
+  },
+  "hn:thankly": {
+   "reason": "US headquarters",
+   "at": "2026-11-03T20:30:09.558Z"
   }
  },
  "wikidata": {
@@ -10833,6 +10837,11 @@
   },
   "Custom Mechanical Solutions": {
    "at": "2026-11-03T19:30:07.998Z",
+   "id": null,
+   "us": false
+  },
+  "Thankly": {
+   "at": "2026-11-03T20:30:09.558Z",
    "id": null,
    "us": false
   }
