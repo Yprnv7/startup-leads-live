@@ -5981,6 +5981,10 @@
   "hn:antithesis": {
    "reason": "US headquarters",
    "at": "2026-11-03T13:55:25.557Z"
+  },
+  "hn:avoca": {
+   "reason": "US headquarters",
+   "at": "2026-11-03T14:55:38.983Z"
   }
  },
  "wikidata": {
@@ -10578,14 +10582,79 @@
    "at": "2026-11-03T13:55:25.557Z",
    "id": null,
    "us": false
+  },
+  "Avoca": {
+   "at": "2026-11-03T14:55:38.983Z",
+   "id": null,
+   "us": false
+  },
+  "IMC Trading": {
+   "at": "2026-11-03T14:55:38.983Z",
+   "id": null,
+   "us": false
+  },
+  "RedSeal": {
+   "at": "2026-11-03T14:55:38.983Z",
+   "id": null,
+   "us": false
+  },
+  "Yes Technology GmbH": {
+   "at": "2026-11-03T14:55:38.983Z",
+   "id": null,
+   "us": false
+  },
+  "AIM": {
+   "at": "2026-11-03T14:55:38.983Z",
+   "id": null,
+   "us": false
+  },
+  "Matchmatch": {
+   "at": "2026-11-03T14:55:38.983Z",
+   "id": null,
+   "us": false
+  },
+  "Valova": {
+   "at": "2026-11-03T14:55:38.983Z",
+   "id": null,
+   "us": false
+  },
+  "Q Media World": {
+   "at": "2026-11-03T14:55:38.983Z",
+   "id": null,
+   "us": false
+  },
+  "Rain for Rent International": {
+   "at": "2026-11-03T14:55:38.983Z",
+   "id": null,
+   "us": false
+  },
+  "LB Firmengruppe": {
+   "at": "2026-11-03T14:55:38.983Z",
+   "id": null,
+   "us": false
+  },
+  "Patrique Mercier Recruitment Fr": {
+   "at": "2026-11-03T14:55:38.983Z",
+   "id": null,
+   "us": false
+  },
+  "Imnoo AG": {
+   "at": "2026-11-03T14:55:38.983Z",
+   "id": null,
+   "us": false
+  },
+  "Centric": {
+   "at": "2026-11-03T14:55:38.983Z",
+   "id": "Q13458793",
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-03T11:55:20.403Z",
-  "remoteok": "2026-11-03T11:55:20.403Z",
-  "workingnomads": "2026-11-03T11:55:20.403Z",
-  "weworkremotely": "2026-11-03T11:55:20.403Z",
-  "nodesk": "2026-11-03T11:55:20.403Z",
+  "remoteok": "2026-11-03T14:55:38.983Z",
+  "workingnomads": "2026-11-03T14:55:38.983Z",
+  "weworkremotely": "2026-11-03T14:55:38.983Z",
+  "nodesk": "2026-11-03T14:55:38.983Z",
   "himalayas": "2026-11-03T13:55:25.557Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -10626,8 +10695,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-03T11:55:20.403Z",
- "arbeitnowAt": "2026-11-03T11:55:20.403Z",
+ "jobicyAt": "2026-11-03T14:55:38.983Z",
+ "arbeitnowAt": "2026-11-03T14:55:38.983Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,

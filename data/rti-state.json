@@ -3333,6 +3333,10 @@
   "hn:antithesis": {
    "reason": "US headquarters",
    "at": "2026-11-03T13:56:08.836Z"
+  },
+  "hn:avoca": {
+   "reason": "US headquarters",
+   "at": "2026-11-03T14:56:19.822Z"
   }
  },
  "wikidata": {
@@ -6310,16 +6314,81 @@
    "at": "2026-11-03T13:56:08.836Z",
    "id": null,
    "us": false
+  },
+  "Avoca": {
+   "at": "2026-11-03T14:56:19.822Z",
+   "id": null,
+   "us": false
+  },
+  "IMC Trading": {
+   "at": "2026-11-03T14:56:19.822Z",
+   "id": null,
+   "us": false
+  },
+  "RedSeal": {
+   "at": "2026-11-03T14:56:19.822Z",
+   "id": null,
+   "us": false
+  },
+  "Yes Technology GmbH": {
+   "at": "2026-11-03T14:56:19.822Z",
+   "id": null,
+   "us": false
+  },
+  "AIM": {
+   "at": "2026-11-03T14:56:19.822Z",
+   "id": null,
+   "us": false
+  },
+  "Matchmatch": {
+   "at": "2026-11-03T14:56:19.822Z",
+   "id": null,
+   "us": false
+  },
+  "Valova": {
+   "at": "2026-11-03T14:56:19.822Z",
+   "id": null,
+   "us": false
+  },
+  "Q Media World": {
+   "at": "2026-11-03T14:56:19.822Z",
+   "id": null,
+   "us": false
+  },
+  "Rain for Rent International": {
+   "at": "2026-11-03T14:56:19.822Z",
+   "id": null,
+   "us": false
+  },
+  "LB Firmengruppe": {
+   "at": "2026-11-03T14:56:19.822Z",
+   "id": null,
+   "us": false
+  },
+  "Patrique Mercier Recruitment Fr": {
+   "at": "2026-11-03T14:56:19.822Z",
+   "id": null,
+   "us": false
+  },
+  "Imnoo AG": {
+   "at": "2026-11-03T14:56:19.822Z",
+   "id": null,
+   "us": false
+  },
+  "Centric": {
+   "at": "2026-11-03T14:56:19.822Z",
+   "id": "Q259013",
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-03T11:56:17.723Z",
-  "remoteok": "2026-11-03T11:56:17.723Z",
-  "workingnomads": "2026-11-03T11:56:17.723Z",
-  "weworkremotely": "2026-11-03T11:56:17.723Z",
-  "nodesk": "2026-11-03T11:56:17.723Z",
+  "remoteok": "2026-11-03T14:56:19.822Z",
+  "workingnomads": "2026-11-03T14:56:19.822Z",
+  "weworkremotely": "2026-11-03T14:56:19.822Z",
+  "nodesk": "2026-11-03T14:56:19.822Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-03T11:56:17.723Z",
- "arbeitnowAt": "2026-11-03T11:56:17.723Z"
+ "jobicyAt": "2026-11-03T14:56:19.822Z",
+ "arbeitnowAt": "2026-11-03T14:56:19.822Z"
 }
