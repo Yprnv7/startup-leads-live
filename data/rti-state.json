@@ -3399,6 +3399,10 @@
   "remoteok:tremendous": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-04T01:26:39.011Z"
+  },
+  "hn:lumen-labs": {
+   "reason": "US headquarters",
+   "at": "2026-11-04T04:26:37.630Z"
   }
  },
  "wikidata": {
@@ -6671,16 +6675,41 @@
    "at": "2026-11-04T01:26:39.011Z",
    "id": null,
    "us": false
+  },
+  "Lumen Labs": {
+   "at": "2026-11-04T04:26:37.630Z",
+   "id": null,
+   "us": false
+  },
+  "SOFTGAMES": {
+   "at": "2026-11-04T04:26:37.630Z",
+   "id": null,
+   "us": false
+  },
+  "Montu Uk": {
+   "at": "2026-11-04T04:26:37.630Z",
+   "id": null,
+   "us": false
+  },
+  "AlmavivA de Belgique": {
+   "at": "2026-11-04T04:26:37.630Z",
+   "id": null,
+   "us": false
+  },
+  "Agentur für Haushaltshilfe GmbH": {
+   "at": "2026-11-04T04:26:37.630Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-04T01:26:39.011Z",
-  "remoteok": "2026-11-04T01:26:39.011Z",
-  "workingnomads": "2026-11-04T01:26:39.011Z",
-  "weworkremotely": "2026-11-04T01:26:39.011Z",
-  "nodesk": "2026-11-04T01:26:39.011Z",
+  "remoteok": "2026-11-04T04:26:37.630Z",
+  "workingnomads": "2026-11-04T04:26:37.630Z",
+  "weworkremotely": "2026-11-04T04:26:37.630Z",
+  "nodesk": "2026-11-04T04:26:37.630Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-04T01:26:39.011Z",
- "arbeitnowAt": "2026-11-04T01:26:39.011Z"
+ "jobicyAt": "2026-11-04T04:26:37.630Z",
+ "arbeitnowAt": "2026-11-04T04:26:37.630Z"
 }

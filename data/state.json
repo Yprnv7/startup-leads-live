@@ -6049,6 +6049,10 @@
   "remoteok:tremendous": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-04T01:25:45.289Z"
+  },
+  "hn:lumen-labs": {
+   "reason": "US headquarters",
+   "at": "2026-11-04T04:25:51.015Z"
   }
  },
  "wikidata": {
@@ -10956,14 +10960,39 @@
    "at": "2026-11-04T01:25:45.289Z",
    "id": null,
    "us": false
+  },
+  "Lumen Labs": {
+   "at": "2026-11-04T04:25:51.015Z",
+   "id": null,
+   "us": false
+  },
+  "SOFTGAMES": {
+   "at": "2026-11-04T04:25:51.015Z",
+   "id": null,
+   "us": false
+  },
+  "Montu Uk": {
+   "at": "2026-11-04T04:25:51.015Z",
+   "id": null,
+   "us": false
+  },
+  "AlmavivA de Belgique": {
+   "at": "2026-11-04T04:25:51.015Z",
+   "id": null,
+   "us": false
+  },
+  "Agentur für Haushaltshilfe GmbH": {
+   "at": "2026-11-04T04:25:51.015Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-04T01:25:45.289Z",
-  "remoteok": "2026-11-04T01:25:45.289Z",
-  "workingnomads": "2026-11-04T01:25:45.289Z",
-  "weworkremotely": "2026-11-04T01:25:45.289Z",
-  "nodesk": "2026-11-04T01:25:45.289Z",
+  "remoteok": "2026-11-04T04:25:51.015Z",
+  "workingnomads": "2026-11-04T04:25:51.015Z",
+  "weworkremotely": "2026-11-04T04:25:51.015Z",
+  "nodesk": "2026-11-04T04:25:51.015Z",
   "himalayas": "2026-11-04T03:25:50.102Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -11016,8 +11045,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-04T01:25:45.289Z",
- "arbeitnowAt": "2026-11-04T01:25:45.289Z",
+ "jobicyAt": "2026-11-04T04:25:51.015Z",
+ "arbeitnowAt": "2026-11-04T04:25:51.015Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
