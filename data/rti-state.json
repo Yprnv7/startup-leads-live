@@ -6831,10 +6831,15 @@
    "at": "2026-11-04T18:07:39.197Z",
    "id": null,
    "us": false
+  },
+  "Kaida": {
+   "at": "2026-11-04T20:45:00.237Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-04T14:08:53.880Z",
+  "remotive": "2026-11-04T20:45:00.237Z",
   "remoteok": "2026-11-04T18:07:39.197Z",
   "workingnomads": "2026-11-04T18:07:39.197Z",
   "weworkremotely": "2026-11-04T18:07:39.197Z",
