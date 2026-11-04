@@ -6075,6 +6075,10 @@
   "arbeitnow:clickup": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-04T21:44:42.439Z"
+  },
+  "hn:furtim-modus": {
+   "reason": "US headquarters",
+   "at": "2026-11-04T23:44:40.994Z"
   }
  },
  "wikidata": {
@@ -11155,6 +11159,11 @@
   },
   "GP SOFTWARE": {
    "at": "2026-11-04T21:44:42.439Z",
+   "id": null,
+   "us": false
+  },
+  "Furtim Modus": {
+   "at": "2026-11-04T23:44:40.994Z",
    "id": null,
    "us": false
   }
