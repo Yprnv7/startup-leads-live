@@ -3419,6 +3419,10 @@
   "jobicy:fivetran": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-04T18:07:39.197Z"
+  },
+  "arbeitnow:clickup": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-04T21:45:27.409Z"
   }
  },
  "wikidata": {
@@ -6836,16 +6840,61 @@
    "at": "2026-11-04T20:45:00.237Z",
    "id": null,
    "us": false
+  },
+  "BeginnerBudget": {
+   "at": "2026-11-04T21:45:27.409Z",
+   "id": null,
+   "us": false
+  },
+  "Clickup": {
+   "at": "2026-11-04T21:45:27.409Z",
+   "id": "Q123524232",
+   "us": true
+  },
+  "Augmented Energy": {
+   "at": "2026-11-04T21:45:27.409Z",
+   "id": null,
+   "us": false
+  },
+  "STEINEL FRANCE": {
+   "at": "2026-11-04T21:45:27.409Z",
+   "id": null,
+   "us": false
+  },
+  "B3tsi-Nantes": {
+   "at": "2026-11-04T21:45:27.409Z",
+   "id": null,
+   "us": false
+  },
+  "Cocons du bassin": {
+   "at": "2026-11-04T21:45:27.409Z",
+   "id": null,
+   "us": false
+  },
+  "FORREST": {
+   "at": "2026-11-04T21:45:27.409Z",
+   "id": null,
+   "us": false
+  },
+  "CHASR": {
+   "at": "2026-11-04T21:45:27.409Z",
+   "id": null,
+   "us": false
+  },
+  "GP SOFTWARE": {
+   "at": "2026-11-04T21:45:27.409Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-04T20:45:00.237Z",
-  "remoteok": "2026-11-04T18:07:39.197Z",
-  "workingnomads": "2026-11-04T18:07:39.197Z",
-  "weworkremotely": "2026-11-04T18:07:39.197Z",
-  "nodesk": "2026-11-04T18:07:39.197Z",
+  "remoteok": "2026-11-04T21:45:27.409Z",
+  "workingnomads": "2026-11-04T21:45:27.409Z",
+  "weworkremotely": "2026-11-04T21:45:27.409Z",
+  "nodesk": "2026-11-04T21:45:27.409Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-04T18:07:39.197Z",
- "arbeitnowAt": "2026-11-04T18:07:39.197Z"
+ "jobicyAt": "2026-11-04T21:45:27.409Z",
+ "arbeitnowAt": "2026-11-04T21:45:27.409Z"
 }
