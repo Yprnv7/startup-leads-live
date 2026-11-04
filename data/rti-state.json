@@ -3407,6 +3407,18 @@
   "hn:bikky": {
    "reason": "US headquarters",
    "at": "2026-11-04T12:08:03.316Z"
+  },
+  "weworkremotely:mindrift": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-04T18:07:39.197Z"
+  },
+  "weworkremotely:crazy-maple-studio": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-04T18:07:39.197Z"
+  },
+  "jobicy:fivetran": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-04T18:07:39.197Z"
   }
  },
  "wikidata": {
@@ -6779,16 +6791,56 @@
    "at": "2026-11-04T15:08:08.373Z",
    "id": null,
    "us": false
+  },
+  "tecRacer Germany GmbH": {
+   "at": "2026-11-04T18:07:39.197Z",
+   "id": null,
+   "us": false
+  },
+  "Entrepreneurs": {
+   "at": "2026-11-04T18:07:39.197Z",
+   "id": null,
+   "us": false
+  },
+  "WHOLE PEAR": {
+   "at": "2026-11-04T18:07:39.197Z",
+   "id": null,
+   "us": false
+  },
+  "Agemia": {
+   "at": "2026-11-04T18:07:39.197Z",
+   "id": null,
+   "us": false
+  },
+  "Ops Clean": {
+   "at": "2026-11-04T18:07:39.197Z",
+   "id": null,
+   "us": false
+  },
+  "Vogel": {
+   "at": "2026-11-04T18:07:39.197Z",
+   "id": null,
+   "us": false
+  },
+  "Kyra": {
+   "at": "2026-11-04T18:07:39.197Z",
+   "id": null,
+   "us": false
+  },
+  "Calabrio": {
+   "at": "2026-11-04T18:07:39.197Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-04T14:08:53.880Z",
-  "remoteok": "2026-11-04T15:08:08.373Z",
-  "workingnomads": "2026-11-04T15:08:08.373Z",
-  "weworkremotely": "2026-11-04T15:08:08.373Z",
-  "nodesk": "2026-11-04T15:08:08.373Z",
+  "remoteok": "2026-11-04T18:07:39.197Z",
+  "workingnomads": "2026-11-04T18:07:39.197Z",
+  "weworkremotely": "2026-11-04T18:07:39.197Z",
+  "nodesk": "2026-11-04T18:07:39.197Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-04T15:08:08.373Z",
- "arbeitnowAt": "2026-11-04T15:08:08.373Z"
+ "jobicyAt": "2026-11-04T18:07:39.197Z",
+ "arbeitnowAt": "2026-11-04T18:07:39.197Z"
 }

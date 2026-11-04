@@ -3369,7 +3369,8 @@
   "credits": {
    "2026-10-30": 105,
    "2026-11-01": 6,
-   "2026-11-03": 10
+   "2026-11-03": 10,
+   "2026-11-04": 1
   },
   "mobileCredits": {
    "2026-10-30": 136,
@@ -3379,7 +3380,8 @@
   "companyCredits": {
    "2026-10-30": 5,
    "2026-11-01": 4,
-   "2026-11-03": 1
+   "2026-11-03": 1,
+   "2026-11-04": 1
   },
   "discoveryCredits": {
    "2026-10-30": 30
@@ -6057,6 +6059,18 @@
   "hn:bikky": {
    "reason": "US headquarters",
    "at": "2026-11-04T12:07:14.734Z"
+  },
+  "weworkremotely:mindrift": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-04T18:06:28.911Z"
+  },
+  "weworkremotely:crazy-maple-studio": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-04T18:06:28.911Z"
+  },
+  "jobicy:fivetran": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-04T18:06:28.911Z"
   }
  },
  "wikidata": {
@@ -11059,15 +11073,50 @@
    "at": "2026-11-04T15:07:23.151Z",
    "id": null,
    "us": false
+  },
+  "tecRacer Germany GmbH": {
+   "at": "2026-11-04T18:06:28.911Z",
+   "id": null,
+   "us": false
+  },
+  "Entrepreneurs": {
+   "at": "2026-11-04T18:06:28.911Z",
+   "id": null,
+   "us": false
+  },
+  "WHOLE PEAR": {
+   "at": "2026-11-04T18:06:28.911Z",
+   "id": null,
+   "us": false
+  },
+  "Agemia": {
+   "at": "2026-11-04T18:06:28.911Z",
+   "id": null,
+   "us": false
+  },
+  "Ops Clean": {
+   "at": "2026-11-04T18:06:28.911Z",
+   "id": null,
+   "us": false
+  },
+  "Vogel": {
+   "at": "2026-11-04T18:06:28.911Z",
+   "id": null,
+   "us": false
+  },
+  "Calabrio": {
+   "at": "2026-11-04T18:06:28.911Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-04T14:07:22.179Z",
-  "remoteok": "2026-11-04T15:07:23.151Z",
-  "workingnomads": "2026-11-04T15:07:23.151Z",
-  "weworkremotely": "2026-11-04T15:07:23.151Z",
-  "nodesk": "2026-11-04T15:07:23.151Z",
-  "himalayas": "2026-11-04T16:07:26.674Z",
+  "remoteok": "2026-11-04T18:06:28.911Z",
+  "workingnomads": "2026-11-04T18:06:28.911Z",
+  "weworkremotely": "2026-11-04T18:06:28.911Z",
+  "nodesk": "2026-11-04T18:06:28.911Z",
+  "himalayas": "2026-11-04T18:06:28.911Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -11119,8 +11168,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-04T15:07:23.151Z",
- "arbeitnowAt": "2026-11-04T15:07:23.151Z",
+ "jobicyAt": "2026-11-04T18:06:28.911Z",
+ "arbeitnowAt": "2026-11-04T18:06:28.911Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
