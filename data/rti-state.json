@@ -6700,16 +6700,36 @@
    "at": "2026-11-04T04:26:37.630Z",
    "id": null,
    "us": false
+  },
+  "Softgic": {
+   "at": "2026-11-04T08:07:39.692Z",
+   "id": null,
+   "us": false
+  },
+  "Precisionmedicinegroup": {
+   "at": "2026-11-04T08:07:39.692Z",
+   "id": null,
+   "us": false
+  },
+  "RH Partners": {
+   "at": "2026-11-04T08:07:39.692Z",
+   "id": null,
+   "us": false
+  },
+  "StaffRight": {
+   "at": "2026-11-04T08:07:39.692Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-04T01:26:39.011Z",
-  "remoteok": "2026-11-04T04:26:37.630Z",
-  "workingnomads": "2026-11-04T04:26:37.630Z",
-  "weworkremotely": "2026-11-04T04:26:37.630Z",
-  "nodesk": "2026-11-04T04:26:37.630Z",
+  "remotive": "2026-11-04T08:07:39.692Z",
+  "remoteok": "2026-11-04T08:07:39.692Z",
+  "workingnomads": "2026-11-04T08:07:39.692Z",
+  "weworkremotely": "2026-11-04T08:07:39.692Z",
+  "nodesk": "2026-11-04T08:07:39.692Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-04T04:26:37.630Z",
- "arbeitnowAt": "2026-11-04T04:26:37.630Z"
+ "jobicyAt": "2026-11-04T08:07:39.692Z",
+ "arbeitnowAt": "2026-11-04T08:07:39.692Z"
 }
