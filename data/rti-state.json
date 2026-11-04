@@ -3403,6 +3403,10 @@
   "hn:lumen-labs": {
    "reason": "US headquarters",
    "at": "2026-11-04T04:26:37.630Z"
+  },
+  "hn:bikky": {
+   "reason": "US headquarters",
+   "at": "2026-11-04T12:08:03.316Z"
   }
  },
  "wikidata": {
@@ -6720,16 +6724,46 @@
    "at": "2026-11-04T08:07:39.692Z",
    "id": null,
    "us": false
+  },
+  "Bubblehouse": {
+   "at": "2026-11-04T12:08:03.316Z",
+   "id": null,
+   "us": false
+  },
+  "Bikky": {
+   "at": "2026-11-04T12:08:03.316Z",
+   "id": null,
+   "us": false
+  },
+  "Hearr Media UG (haftungsbeschränkt)": {
+   "at": "2026-11-04T12:08:03.316Z",
+   "id": null,
+   "us": false
+  },
+  "Buro Happold": {
+   "at": "2026-11-04T12:08:03.316Z",
+   "id": "Q2928594",
+   "us": false
+  },
+  "Beglaubigt.de": {
+   "at": "2026-11-04T12:08:03.316Z",
+   "id": null,
+   "us": false
+  },
+  "Cashlink Technologies GmbH": {
+   "at": "2026-11-04T12:08:03.316Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-04T08:07:39.692Z",
-  "remoteok": "2026-11-04T08:07:39.692Z",
-  "workingnomads": "2026-11-04T08:07:39.692Z",
-  "weworkremotely": "2026-11-04T08:07:39.692Z",
-  "nodesk": "2026-11-04T08:07:39.692Z",
+  "remoteok": "2026-11-04T12:08:03.316Z",
+  "workingnomads": "2026-11-04T12:08:03.316Z",
+  "weworkremotely": "2026-11-04T12:08:03.316Z",
+  "nodesk": "2026-11-04T12:08:03.316Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-04T08:07:39.692Z",
- "arbeitnowAt": "2026-11-04T08:07:39.692Z"
+ "jobicyAt": "2026-11-04T12:08:03.316Z",
+ "arbeitnowAt": "2026-11-04T12:08:03.316Z"
 }
