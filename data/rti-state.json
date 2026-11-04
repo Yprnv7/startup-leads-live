@@ -321,7 +321,9 @@
   "zapier": "2026-11-02T01:02:52.201Z",
   "classdojo": "2026-11-02T01:02:52.201Z",
   "apollo": "2026-11-02T01:02:52.201Z",
-  "streak": "2026-11-02T01:02:52.201Z"
+  "streak": "2026-11-02T01:02:52.201Z",
+  "inferedge": "2026-11-04T01:26:39.011Z",
+  "legalos": "2026-11-04T01:26:39.011Z"
  },
  "boards": [
   {
@@ -642,7 +644,7 @@
    "companyId": "hn:united-risk",
    "name": "United Risk",
    "discovered": "2026-11-02T17:17:59.272Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "ashby",
@@ -650,7 +652,7 @@
    "companyId": "hn:equall",
    "name": "Equall",
    "discovered": "2026-11-02T17:17:59.272Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "ashby",
@@ -658,7 +660,7 @@
    "companyId": "hn:stream",
    "name": "Stream",
    "discovered": "2026-11-02T17:17:59.272Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "greenhouse",
@@ -666,7 +668,7 @@
    "companyId": "hn:mozilla",
    "name": "Mozilla",
    "discovered": "2026-11-02T18:21:54.733Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "ashby",
@@ -674,7 +676,7 @@
    "companyId": "hn:reducto",
    "name": "Reducto",
    "discovered": "2026-11-02T19:22:19.957Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "ashby",
@@ -682,7 +684,7 @@
    "companyId": "hn:scholarly",
    "name": "Scholarly",
    "discovered": "2026-11-02T22:22:05.602Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "ashby",
@@ -690,7 +692,7 @@
    "companyId": "hn:credit-genie",
    "name": "Credit Genie",
    "discovered": "2026-11-02T22:22:05.602Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "greenhouse",
@@ -698,7 +700,7 @@
    "companyId": "hn:justworks",
    "name": "Justworks",
    "discovered": "2026-11-03T02:19:41.925Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "greenhouse",
@@ -706,7 +708,7 @@
    "companyId": "hn:reddit",
    "name": "Reddit",
    "discovered": "2026-11-03T03:18:38.196Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "greenhouse",
@@ -714,7 +716,7 @@
    "companyId": "hn:controlplane",
    "name": "ControlPlane",
    "discovered": "2026-11-03T15:41:19.235Z",
-   "active": false
+   "active": true
   },
   {
    "ats": "lever",
@@ -722,7 +724,7 @@
    "companyId": "hn:apollo-research",
    "name": "Apollo Research",
    "discovered": "2026-11-03T21:11:50.860Z",
-   "active": false
+   "active": true
   }
  ],
  "boardNames": {},
@@ -3385,6 +3387,18 @@
   "hn:thankly": {
    "reason": "US headquarters",
    "at": "2026-11-03T20:30:23.558Z"
+  },
+  "yc:inferedge": {
+   "reason": "India office",
+   "at": "2026-11-04T01:26:39.011Z"
+  },
+  "yc:legalos": {
+   "reason": "US headquarters",
+   "at": "2026-11-04T01:26:39.011Z"
+  },
+  "remoteok:tremendous": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-04T01:26:39.011Z"
   }
  },
  "wikidata": {
@@ -6597,16 +6611,76 @@
    "at": "2026-11-03T22:31:14.416Z",
    "id": null,
    "us": false
+  },
+  "Itze-Bits GmbH": {
+   "at": "2026-11-04T01:26:39.011Z",
+   "id": null,
+   "us": false
+  },
+  "Digitale Leute School": {
+   "at": "2026-11-04T01:26:39.011Z",
+   "id": null,
+   "us": false
+  },
+  "Turnover Recruitment GmbH": {
+   "at": "2026-11-04T01:26:39.011Z",
+   "id": null,
+   "us": false
+  },
+  "Hypertrics GmbH": {
+   "at": "2026-11-04T01:26:39.011Z",
+   "id": null,
+   "us": false
+  },
+  "Distribusion Technologies": {
+   "at": "2026-11-04T01:26:39.011Z",
+   "id": null,
+   "us": false
+  },
+  "Burkland Associates": {
+   "at": "2026-11-04T01:26:39.011Z",
+   "id": null,
+   "us": false
+  },
+  "MultiplyMii": {
+   "at": "2026-11-04T01:26:39.011Z",
+   "id": null,
+   "us": false
+  },
+  "Shapr3D": {
+   "at": "2026-11-04T01:26:39.011Z",
+   "id": "Q132385232",
+   "us": false
+  },
+  "Sophie's Flats Inc.": {
+   "at": "2026-11-04T01:26:39.011Z",
+   "id": null,
+   "us": false
+  },
+  "Control Shift Video": {
+   "at": "2026-11-04T01:26:39.011Z",
+   "id": null,
+   "us": false
+  },
+  "Tremendous": {
+   "at": "2026-11-04T01:26:39.011Z",
+   "id": "Q140281024",
+   "us": true
+  },
+  "AWeber": {
+   "at": "2026-11-04T01:26:39.011Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-03T19:31:20.619Z",
-  "remoteok": "2026-11-03T22:31:14.416Z",
-  "workingnomads": "2026-11-03T22:31:14.416Z",
-  "weworkremotely": "2026-11-03T22:31:14.416Z",
-  "nodesk": "2026-11-03T22:31:14.416Z",
+  "remotive": "2026-11-04T01:26:39.011Z",
+  "remoteok": "2026-11-04T01:26:39.011Z",
+  "workingnomads": "2026-11-04T01:26:39.011Z",
+  "weworkremotely": "2026-11-04T01:26:39.011Z",
+  "nodesk": "2026-11-04T01:26:39.011Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-03T22:31:14.416Z",
- "arbeitnowAt": "2026-11-03T22:31:14.416Z"
+ "jobicyAt": "2026-11-04T01:26:39.011Z",
+ "arbeitnowAt": "2026-11-04T01:26:39.011Z"
 }
