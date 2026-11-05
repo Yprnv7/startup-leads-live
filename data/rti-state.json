@@ -3457,6 +3457,10 @@
   "hn:victoriametrics": {
    "reason": "US headquarters",
    "at": "2026-11-05T15:38:42.639Z"
+  },
+  "weworkremotely:vertican": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-05T17:21:46.605Z"
   }
  },
  "wikidata": {
@@ -7094,16 +7098,31 @@
    "at": "2026-11-05T15:38:42.639Z",
    "id": null,
    "us": false
+  },
+  "Haste": {
+   "at": "2026-11-05T17:21:46.605Z",
+   "id": null,
+   "us": false
+  },
+  "USUMA GmbH": {
+   "at": "2026-11-05T17:21:46.605Z",
+   "id": null,
+   "us": false
+  },
+  "Claims": {
+   "at": "2026-11-05T17:21:46.605Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-05T10:36:46.212Z",
-  "remoteok": "2026-11-05T14:20:39.685Z",
-  "workingnomads": "2026-11-05T14:20:39.685Z",
-  "weworkremotely": "2026-11-05T14:20:39.685Z",
-  "nodesk": "2026-11-05T14:20:39.685Z",
+  "remotive": "2026-11-05T17:21:46.605Z",
+  "remoteok": "2026-11-05T17:21:46.605Z",
+  "workingnomads": "2026-11-05T17:21:46.605Z",
+  "weworkremotely": "2026-11-05T17:21:46.605Z",
+  "nodesk": "2026-11-05T17:21:46.605Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-05T14:20:39.685Z",
- "arbeitnowAt": "2026-11-05T14:20:39.685Z"
+ "jobicyAt": "2026-11-05T17:21:46.605Z",
+ "arbeitnowAt": "2026-11-05T17:21:46.605Z"
 }
