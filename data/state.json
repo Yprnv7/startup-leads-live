@@ -6099,6 +6099,14 @@
   "hn:coi-rubber-products": {
    "reason": "US headquarters",
    "at": "2026-11-05T10:35:32.762Z"
+  },
+  "weworkremotely:exl": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-05T14:19:46.330Z"
+  },
+  "weworkremotely:drfirst-com-inc": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-05T14:19:46.330Z"
   }
  },
  "wikidata": {
@@ -11306,14 +11314,74 @@
    "at": "2026-11-05T10:35:32.762Z",
    "id": null,
    "us": false
+  },
+  "Honda Bank GmbH": {
+   "at": "2026-11-05T14:19:46.330Z",
+   "id": null,
+   "us": false
+  },
+  "4creatives GmbH": {
+   "at": "2026-11-05T14:19:46.330Z",
+   "id": null,
+   "us": false
+  },
+  "node.energy": {
+   "at": "2026-11-05T14:19:46.330Z",
+   "id": null,
+   "us": false
+  },
+  "AndCompany GmbH": {
+   "at": "2026-11-05T14:19:46.330Z",
+   "id": null,
+   "us": false
+  },
+  "Global Treats GmbH": {
+   "at": "2026-11-05T14:19:46.330Z",
+   "id": null,
+   "us": false
+  },
+  "audius SE": {
+   "at": "2026-11-05T14:19:46.330Z",
+   "id": null,
+   "us": false
+  },
+  "CTG Consulting GmbH": {
+   "at": "2026-11-05T14:19:46.330Z",
+   "id": null,
+   "us": false
+  },
+  "MAC LLOYD": {
+   "at": "2026-11-05T14:19:46.330Z",
+   "id": null,
+   "us": false
+  },
+  "NextGenLearning": {
+   "at": "2026-11-05T14:19:46.330Z",
+   "id": null,
+   "us": false
+  },
+  "Pennylane GmbH": {
+   "at": "2026-11-05T14:19:46.330Z",
+   "id": null,
+   "us": false
+  },
+  "Kiavi": {
+   "at": "2026-11-05T14:19:46.330Z",
+   "id": null,
+   "us": false
+  },
+  "Secure Privacy": {
+   "at": "2026-11-05T14:19:46.330Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-05T10:35:32.762Z",
-  "remoteok": "2026-11-05T10:35:32.762Z",
-  "workingnomads": "2026-11-05T10:35:32.762Z",
-  "weworkremotely": "2026-11-05T10:35:32.762Z",
-  "nodesk": "2026-11-05T10:35:32.762Z",
+  "remoteok": "2026-11-05T14:19:46.330Z",
+  "workingnomads": "2026-11-05T14:19:46.330Z",
+  "weworkremotely": "2026-11-05T14:19:46.330Z",
+  "nodesk": "2026-11-05T14:19:46.330Z",
   "himalayas": "2026-11-05T13:19:44.046Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -11366,8 +11434,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-05T10:35:32.762Z",
- "arbeitnowAt": "2026-11-05T10:35:32.762Z",
+ "jobicyAt": "2026-11-05T14:19:46.330Z",
+ "arbeitnowAt": "2026-11-05T14:19:46.330Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,

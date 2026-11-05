@@ -3445,6 +3445,14 @@
   "hn:coi-rubber-products": {
    "reason": "US headquarters",
    "at": "2026-11-05T10:36:46.212Z"
+  },
+  "weworkremotely:exl": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-05T14:20:39.685Z"
+  },
+  "weworkremotely:drfirst-com-inc": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-05T14:20:39.685Z"
   }
  },
  "wikidata": {
@@ -7017,16 +7025,76 @@
    "at": "2026-11-05T10:36:46.212Z",
    "id": null,
    "us": false
+  },
+  "Honda Bank GmbH": {
+   "at": "2026-11-05T14:20:39.685Z",
+   "id": null,
+   "us": false
+  },
+  "4creatives GmbH": {
+   "at": "2026-11-05T14:20:39.685Z",
+   "id": null,
+   "us": false
+  },
+  "node.energy": {
+   "at": "2026-11-05T14:20:39.685Z",
+   "id": null,
+   "us": false
+  },
+  "AndCompany GmbH": {
+   "at": "2026-11-05T14:20:39.685Z",
+   "id": null,
+   "us": false
+  },
+  "Global Treats GmbH": {
+   "at": "2026-11-05T14:20:39.685Z",
+   "id": null,
+   "us": false
+  },
+  "audius SE": {
+   "at": "2026-11-05T14:20:39.685Z",
+   "id": null,
+   "us": false
+  },
+  "CTG Consulting GmbH": {
+   "at": "2026-11-05T14:20:39.685Z",
+   "id": null,
+   "us": false
+  },
+  "MAC LLOYD": {
+   "at": "2026-11-05T14:20:39.685Z",
+   "id": null,
+   "us": false
+  },
+  "NextGenLearning": {
+   "at": "2026-11-05T14:20:39.685Z",
+   "id": null,
+   "us": false
+  },
+  "Pennylane GmbH": {
+   "at": "2026-11-05T14:20:39.685Z",
+   "id": null,
+   "us": false
+  },
+  "Kiavi": {
+   "at": "2026-11-05T14:20:39.685Z",
+   "id": null,
+   "us": false
+  },
+  "Secure Privacy": {
+   "at": "2026-11-05T14:20:39.685Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-05T10:36:46.212Z",
-  "remoteok": "2026-11-05T10:36:46.212Z",
-  "workingnomads": "2026-11-05T10:36:46.212Z",
-  "weworkremotely": "2026-11-05T10:36:46.212Z",
-  "nodesk": "2026-11-05T10:36:46.212Z",
+  "remoteok": "2026-11-05T14:20:39.685Z",
+  "workingnomads": "2026-11-05T14:20:39.685Z",
+  "weworkremotely": "2026-11-05T14:20:39.685Z",
+  "nodesk": "2026-11-05T14:20:39.685Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-05T10:36:46.212Z",
- "arbeitnowAt": "2026-11-05T10:36:46.212Z"
+ "jobicyAt": "2026-11-05T14:20:39.685Z",
+ "arbeitnowAt": "2026-11-05T14:20:39.685Z"
 }
