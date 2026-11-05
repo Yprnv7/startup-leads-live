@@ -3453,6 +3453,10 @@
   "weworkremotely:drfirst-com-inc": {
    "reason": "US headquarters (We Work Remotely)",
    "at": "2026-11-05T14:20:39.685Z"
+  },
+  "hn:victoriametrics": {
+   "reason": "US headquarters",
+   "at": "2026-11-05T15:38:42.639Z"
   }
  },
  "wikidata": {
@@ -7083,6 +7087,11 @@
   },
   "Secure Privacy": {
    "at": "2026-11-05T14:20:39.685Z",
+   "id": null,
+   "us": false
+  },
+  "VictoriaMetrics": {
+   "at": "2026-11-05T15:38:42.639Z",
    "id": null,
    "us": false
   }
