@@ -323,7 +323,9 @@
   "apollo": "2026-11-02T01:02:52.201Z",
   "streak": "2026-11-02T01:02:52.201Z",
   "inferedge": "2026-11-04T01:26:39.011Z",
-  "legalos": "2026-11-04T01:26:39.011Z"
+  "legalos": "2026-11-04T01:26:39.011Z",
+  "shortloop": "2026-11-05T01:41:21.694Z",
+  "unravel-carbon": "2026-11-05T01:41:21.694Z"
  },
  "boards": [
   {
@@ -3427,6 +3429,10 @@
   "hn:furtim-modus": {
    "reason": "US headquarters",
    "at": "2026-11-04T23:44:46.446Z"
+  },
+  "yc:shortloop": {
+   "reason": "India office",
+   "at": "2026-11-05T01:41:21.694Z"
   }
  },
  "wikidata": {
