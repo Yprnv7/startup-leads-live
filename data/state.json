@@ -6087,6 +6087,10 @@
   "yc:shortloop": {
    "reason": "India office",
    "at": "2026-11-05T01:40:59.611Z"
+  },
+  "jobicy:netbox-labs": {
+   "reason": "Hires in the US",
+   "at": "2026-11-05T06:41:03.767Z"
   }
  },
  "wikidata": {
@@ -11269,15 +11273,20 @@
    "at": "2026-11-05T03:40:56.219Z",
    "id": null,
    "us": false
+  },
+  "Prosci": {
+   "at": "2026-11-05T06:41:03.767Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-05T02:40:55.381Z",
-  "remoteok": "2026-11-05T03:40:56.219Z",
-  "workingnomads": "2026-11-05T03:40:56.219Z",
-  "weworkremotely": "2026-11-05T03:40:56.219Z",
-  "nodesk": "2026-11-05T03:40:56.219Z",
-  "himalayas": "2026-11-05T04:40:57.928Z",
+  "remoteok": "2026-11-05T06:41:03.767Z",
+  "workingnomads": "2026-11-05T06:41:03.767Z",
+  "weworkremotely": "2026-11-05T06:41:03.767Z",
+  "nodesk": "2026-11-05T06:41:03.767Z",
+  "himalayas": "2026-11-05T06:41:03.767Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -11329,8 +11338,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-05T03:40:56.219Z",
- "arbeitnowAt": "2026-11-05T03:40:56.219Z",
+ "jobicyAt": "2026-11-05T06:41:03.767Z",
+ "arbeitnowAt": "2026-11-05T06:41:03.767Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,

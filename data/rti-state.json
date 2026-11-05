@@ -3433,6 +3433,10 @@
   "yc:shortloop": {
    "reason": "India office",
    "at": "2026-11-05T01:41:21.694Z"
+  },
+  "jobicy:netbox-labs": {
+   "reason": "Hires in the US",
+   "at": "2026-11-05T06:41:48.843Z"
   }
  },
  "wikidata": {
@@ -6980,16 +6984,21 @@
    "at": "2026-11-05T03:41:35.845Z",
    "id": null,
    "us": false
+  },
+  "Prosci": {
+   "at": "2026-11-05T06:41:48.843Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-05T02:42:17.385Z",
-  "remoteok": "2026-11-05T03:41:35.845Z",
-  "workingnomads": "2026-11-05T03:41:35.845Z",
-  "weworkremotely": "2026-11-05T03:41:35.845Z",
-  "nodesk": "2026-11-05T03:41:35.845Z",
+  "remoteok": "2026-11-05T06:41:48.843Z",
+  "workingnomads": "2026-11-05T06:41:48.843Z",
+  "weworkremotely": "2026-11-05T06:41:48.843Z",
+  "nodesk": "2026-11-05T06:41:48.843Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-05T03:41:35.845Z",
- "arbeitnowAt": "2026-11-05T03:41:35.845Z"
+ "jobicyAt": "2026-11-05T06:41:48.843Z",
+ "arbeitnowAt": "2026-11-05T06:41:48.843Z"
 }
