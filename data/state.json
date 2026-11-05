@@ -11166,15 +11166,95 @@
    "at": "2026-11-04T23:44:40.994Z",
    "id": null,
    "us": false
+  },
+  "ProviPanda GmbH": {
+   "at": "2026-11-05T00:44:42.131Z",
+   "id": null,
+   "us": false
+  },
+  "BeginnerBudget": {
+   "at": "2026-11-05T00:44:42.131Z",
+   "id": null,
+   "us": false
+  },
+  "VIA HealthTech": {
+   "at": "2026-11-05T00:44:42.131Z",
+   "id": null,
+   "us": false
+  },
+  "INNERGY": {
+   "at": "2026-11-05T00:44:42.131Z",
+   "id": null,
+   "us": false
+  },
+  "SEAhub Asia": {
+   "at": "2026-11-05T00:44:42.131Z",
+   "id": null,
+   "us": false
+  },
+  "Enable Dental": {
+   "at": "2026-11-05T00:44:42.131Z",
+   "id": null,
+   "us": false
+  },
+  "Arabian Private Holdings": {
+   "at": "2026-11-05T00:44:42.131Z",
+   "id": null,
+   "us": false
+  },
+  "GROW10X": {
+   "at": "2026-11-05T00:44:42.131Z",
+   "id": null,
+   "us": false
+  },
+  "FindTutors": {
+   "at": "2026-11-05T00:44:42.131Z",
+   "id": null,
+   "us": false
+  },
+  "PFAS (Personal Functional Assessment Services)": {
+   "at": "2026-11-05T00:44:42.131Z",
+   "id": null,
+   "us": false
+  },
+  "Resource Guru": {
+   "at": "2026-11-05T00:44:42.131Z",
+   "id": null,
+   "us": false
+  },
+  "Berni and Mick Ireland": {
+   "at": "2026-11-05T00:44:42.131Z",
+   "id": null,
+   "us": false
+  },
+  "BMWL": {
+   "at": "2026-11-05T00:44:42.131Z",
+   "id": null,
+   "us": false
+  },
+  "Nearform": {
+   "at": "2026-11-05T00:44:42.131Z",
+   "id": null,
+   "us": false
+  },
+  "Close": {
+   "at": "2026-11-05T00:44:42.131Z",
+   "id": null,
+   "us": false
+  },
+  "ASG Company": {
+   "at": "2026-11-05T00:44:42.131Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-04T20:44:35.211Z",
-  "remoteok": "2026-11-04T21:44:42.439Z",
-  "workingnomads": "2026-11-04T21:44:42.439Z",
-  "weworkremotely": "2026-11-04T21:44:42.439Z",
-  "nodesk": "2026-11-04T21:44:42.439Z",
-  "himalayas": "2026-11-04T22:44:40.760Z",
+  "remoteok": "2026-11-05T00:44:42.131Z",
+  "workingnomads": "2026-11-05T00:44:42.131Z",
+  "weworkremotely": "2026-11-05T00:44:42.131Z",
+  "nodesk": "2026-11-05T00:44:42.131Z",
+  "himalayas": "2026-11-05T00:44:42.131Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -11226,8 +11306,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-04T21:44:42.439Z",
- "arbeitnowAt": "2026-11-04T21:44:42.439Z",
+ "jobicyAt": "2026-11-05T00:44:42.131Z",
+ "arbeitnowAt": "2026-11-05T00:44:42.131Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
@@ -19248,6 +19328,13 @@
    "at": "2026-10-30T13:33:44.379Z",
    "lookedAt": "2026-10-30T15:08:07.186Z",
    "result": "not confirmed"
+  },
+  "asgcompany": {
+   "name": "ASG Company",
+   "titles": [
+    "Full Stack Developer Intern"
+   ],
+   "at": "2026-11-05T00:44:42.131Z"
   }
  }
 }
