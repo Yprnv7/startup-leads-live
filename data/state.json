@@ -6115,6 +6115,38 @@
   "weworkremotely:vertican": {
    "reason": "US headquarters (We Work Remotely)",
    "at": "2026-11-05T17:19:53.000Z"
+  },
+  "weworkremotely:golden-1-credit-union": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-05T21:58:52.122Z"
+  },
+  "weworkremotely:horizon3": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-05T21:58:52.122Z"
+  },
+  "arbeitnow:uni-systems": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-05T21:58:52.122Z"
+  },
+  "weworkremotely:epam-systems": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-05T21:58:52.122Z"
+  },
+  "nodesk:livekit": {
+   "reason": "US headquarters (config)",
+   "at": "2026-11-05T21:58:52.122Z"
+  },
+  "hn:nirvana-robotics": {
+   "reason": "US headquarters",
+   "at": "2026-11-05T21:58:52.122Z"
+  },
+  "hn:piramidal": {
+   "reason": "US headquarters",
+   "at": "2026-11-05T21:58:52.122Z"
+  },
+  "hn:odette-technologies": {
+   "reason": "US headquarters",
+   "at": "2026-11-05T21:58:52.122Z"
   }
  },
  "wikidata": {
@@ -11402,15 +11434,80 @@
    "at": "2026-11-05T17:19:53.000Z",
    "id": null,
    "us": false
+  },
+  "Nirvana Robotics": {
+   "at": "2026-11-05T21:58:52.122Z",
+   "id": null,
+   "us": false
+  },
+  "Sortrace": {
+   "at": "2026-11-05T21:58:52.122Z",
+   "id": null,
+   "us": false
+  },
+  "Piramidal": {
+   "at": "2026-11-05T21:58:52.122Z",
+   "id": null,
+   "us": false
+  },
+  "Odette Technologies": {
+   "at": "2026-11-05T21:58:52.122Z",
+   "id": null,
+   "us": false
+  },
+  "SBR International GmbH": {
+   "at": "2026-11-05T21:58:52.122Z",
+   "id": null,
+   "us": false
+  },
+  "Uni Systems": {
+   "at": "2026-11-05T21:58:52.122Z",
+   "id": "Q7884617",
+   "us": true
+  },
+  "WeVote": {
+   "at": "2026-11-05T21:58:52.122Z",
+   "id": null,
+   "us": false
+  },
+  "EPAM Systems": {
+   "at": "2026-11-05T21:58:52.122Z",
+   "id": "Q1275613",
+   "us": true
+  },
+  "LiveKit": {
+   "at": "2026-11-05T21:58:52.122Z",
+   "id": null,
+   "us": false
+  },
+  "AutoMQ": {
+   "at": "2026-11-05T21:58:52.122Z",
+   "id": null,
+   "us": false
+  },
+  "Temporal": {
+   "at": "2026-11-05T21:58:52.122Z",
+   "id": null,
+   "us": false
+  },
+  "CIVICUS": {
+   "at": "2026-11-05T21:58:52.122Z",
+   "id": null,
+   "us": false
+  },
+  "DYGITIZED®": {
+   "at": "2026-11-05T21:58:52.122Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-05T17:19:53.000Z",
-  "remoteok": "2026-11-05T17:19:53.000Z",
-  "workingnomads": "2026-11-05T17:19:53.000Z",
-  "weworkremotely": "2026-11-05T17:19:53.000Z",
-  "nodesk": "2026-11-05T17:19:53.000Z",
-  "himalayas": "2026-11-05T17:19:53.000Z",
+  "remoteok": "2026-11-05T21:58:52.122Z",
+  "workingnomads": "2026-11-05T21:58:52.122Z",
+  "weworkremotely": "2026-11-05T21:58:52.122Z",
+  "nodesk": "2026-11-05T21:58:52.122Z",
+  "himalayas": "2026-11-05T21:58:52.122Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -11462,8 +11559,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-05T17:19:53.000Z",
- "arbeitnowAt": "2026-11-05T17:19:53.000Z",
+ "jobicyAt": "2026-11-05T21:58:52.122Z",
+ "arbeitnowAt": "2026-11-05T21:58:52.122Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
