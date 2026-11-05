@@ -11254,14 +11254,29 @@
    "at": "2026-11-05T00:44:42.131Z",
    "id": null,
    "us": false
+  },
+  "Hopae": {
+   "at": "2026-11-05T03:40:56.219Z",
+   "id": null,
+   "us": false
+  },
+  "Nomagic": {
+   "at": "2026-11-05T03:40:56.219Z",
+   "id": null,
+   "us": false
+  },
+  "Workmotion": {
+   "at": "2026-11-05T03:40:56.219Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-05T02:40:55.381Z",
-  "remoteok": "2026-11-05T00:44:42.131Z",
-  "workingnomads": "2026-11-05T00:44:42.131Z",
-  "weworkremotely": "2026-11-05T00:44:42.131Z",
-  "nodesk": "2026-11-05T00:44:42.131Z",
+  "remoteok": "2026-11-05T03:40:56.219Z",
+  "workingnomads": "2026-11-05T03:40:56.219Z",
+  "weworkremotely": "2026-11-05T03:40:56.219Z",
+  "nodesk": "2026-11-05T03:40:56.219Z",
   "himalayas": "2026-11-05T02:40:55.381Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -11314,8 +11329,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-05T00:44:42.131Z",
- "arbeitnowAt": "2026-11-05T00:44:42.131Z",
+ "jobicyAt": "2026-11-05T03:40:56.219Z",
+ "arbeitnowAt": "2026-11-05T03:40:56.219Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,

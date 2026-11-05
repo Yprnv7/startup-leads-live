@@ -6970,16 +6970,26 @@
    "at": "2026-11-05T00:45:58.935Z",
    "id": null,
    "us": false
+  },
+  "Nomagic": {
+   "at": "2026-11-05T03:41:35.845Z",
+   "id": null,
+   "us": false
+  },
+  "Workmotion": {
+   "at": "2026-11-05T03:41:35.845Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-05T02:42:17.385Z",
-  "remoteok": "2026-11-05T00:45:58.935Z",
-  "workingnomads": "2026-11-05T00:45:58.935Z",
-  "weworkremotely": "2026-11-05T00:45:58.935Z",
-  "nodesk": "2026-11-05T00:45:58.935Z",
+  "remoteok": "2026-11-05T03:41:35.845Z",
+  "workingnomads": "2026-11-05T03:41:35.845Z",
+  "weworkremotely": "2026-11-05T03:41:35.845Z",
+  "nodesk": "2026-11-05T03:41:35.845Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-05T00:45:58.935Z",
- "arbeitnowAt": "2026-11-05T00:45:58.935Z"
+ "jobicyAt": "2026-11-05T03:41:35.845Z",
+ "arbeitnowAt": "2026-11-05T03:41:35.845Z"
 }
