@@ -3522,6 +3522,14 @@
   "hn:sparcle": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-06T21:06:25.644Z"
+  },
+  "weworkremotely:opentrain-ai": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-06T21:51:50.611Z"
+  },
+  "remoteok:cambridge-information-group": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-06T21:51:50.611Z"
   }
  },
  "wikidata": {
@@ -7389,16 +7397,26 @@
    "at": "2026-11-06T21:06:25.644Z",
    "id": null,
    "us": false
+  },
+  "DocCheck AG": {
+   "at": "2026-11-06T21:51:50.611Z",
+   "id": null,
+   "us": false
+  },
+  "Cambridge Information Group": {
+   "at": "2026-11-06T21:51:50.611Z",
+   "id": "Q5025452",
+   "us": true
   }
  },
  "othersAt": {
   "remotive": "2026-11-06T18:56:21.138Z",
-  "remoteok": "2026-11-06T18:56:21.138Z",
-  "workingnomads": "2026-11-06T18:56:21.138Z",
-  "weworkremotely": "2026-11-06T18:56:21.138Z",
-  "nodesk": "2026-11-06T18:56:21.138Z",
+  "remoteok": "2026-11-06T21:51:50.611Z",
+  "workingnomads": "2026-11-06T21:51:50.611Z",
+  "weworkremotely": "2026-11-06T21:51:50.611Z",
+  "nodesk": "2026-11-06T21:51:50.611Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-06T18:56:21.138Z",
- "arbeitnowAt": "2026-11-06T18:56:21.138Z"
+ "jobicyAt": "2026-11-06T21:51:50.611Z",
+ "arbeitnowAt": "2026-11-06T21:51:50.611Z"
 }
