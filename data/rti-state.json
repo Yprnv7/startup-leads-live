@@ -3498,6 +3498,10 @@
   "hn:zefr": {
    "reason": "US headquarters",
    "at": "2026-11-06T01:59:20.443Z"
+  },
+  "hn:icallidus": {
+   "reason": "US headquarters",
+   "at": "2026-11-06T08:43:36.095Z"
   }
  },
  "wikidata": {
@@ -7233,6 +7237,11 @@
   },
   "epilot GmbH": {
    "at": "2026-11-06T07:27:55.593Z",
+   "id": null,
+   "us": false
+  },
+  "iCallidus": {
+   "at": "2026-11-06T08:43:36.095Z",
    "id": null,
    "us": false
   }

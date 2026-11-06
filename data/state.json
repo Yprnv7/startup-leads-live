@@ -6156,6 +6156,10 @@
   "himalayas:wabtec": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-06T04:33:47.144Z"
+  },
+  "hn:icallidus": {
+   "reason": "US headquarters",
+   "at": "2026-11-06T08:43:01.495Z"
   }
  },
  "wikidata": {
@@ -11558,6 +11562,11 @@
    "at": "2026-11-06T07:27:22.611Z",
    "id": null,
    "us": false
+  },
+  "iCallidus": {
+   "at": "2026-11-06T08:43:01.495Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
@@ -11566,7 +11575,7 @@
   "workingnomads": "2026-11-06T07:27:22.611Z",
   "weworkremotely": "2026-11-06T07:27:22.611Z",
   "nodesk": "2026-11-06T07:27:22.611Z",
-  "himalayas": "2026-11-06T06:42:56.374Z",
+  "himalayas": "2026-11-06T08:43:01.495Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
