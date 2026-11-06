@@ -3390,7 +3390,7 @@
   "discoveryCredits": {
    "2026-10-30": 30,
    "2026-11-05": 1,
-   "2026-11-06": 25
+   "2026-11-06": 29
   }
  },
  "excluded": {
@@ -6161,6 +6161,14 @@
   "hn:icallidus": {
    "reason": "US headquarters",
    "at": "2026-11-06T08:43:01.495Z"
+  },
+  "remoteok:toptal": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-06T15:25:09.895Z"
+  },
+  "himalayas:ge-aerospace": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-06T15:25:09.895Z"
   }
  },
  "wikidata": {
@@ -11578,15 +11586,85 @@
    "at": "2026-11-06T10:43:03.132Z",
    "id": "Q139587498",
    "us": false
+  },
+  "Machine Age": {
+   "at": "2026-11-06T15:25:09.895Z",
+   "id": null,
+   "us": false
+  },
+  "Arsipa GmbH": {
+   "at": "2026-11-06T15:25:09.895Z",
+   "id": null,
+   "us": false
+  },
+  "Noerr Solutions | Digital Recruitment": {
+   "at": "2026-11-06T15:25:09.895Z",
+   "id": null,
+   "us": false
+  },
+  "LogaRec GmbH": {
+   "at": "2026-11-06T15:25:09.895Z",
+   "id": null,
+   "us": false
+  },
+  "TecFox GmbH": {
+   "at": "2026-11-06T15:25:09.895Z",
+   "id": null,
+   "us": false
+  },
+  "Sidekick Network GmbH & Co. KG": {
+   "at": "2026-11-06T15:25:09.895Z",
+   "id": null,
+   "us": false
+  },
+  "StellDirVor GmbH": {
+   "at": "2026-11-06T15:25:09.895Z",
+   "id": null,
+   "us": false
+  },
+  "Internationales E-Commerce-Unternehmen": {
+   "at": "2026-11-06T15:25:09.895Z",
+   "id": null,
+   "us": false
+  },
+  "wibzo": {
+   "at": "2026-11-06T15:25:09.895Z",
+   "id": null,
+   "us": false
+  },
+  "Access Destination Services": {
+   "at": "2026-11-06T15:25:09.895Z",
+   "id": null,
+   "us": false
+  },
+  "AYLASHES": {
+   "at": "2026-11-06T15:25:09.895Z",
+   "id": null,
+   "us": false
+  },
+  "Bad Man Betting": {
+   "at": "2026-11-06T15:25:09.895Z",
+   "id": null,
+   "us": false
+  },
+  "Delta Capita": {
+   "at": "2026-11-06T15:25:09.895Z",
+   "id": "Q61959663",
+   "us": false
+  },
+  "GE Aerospace": {
+   "at": "2026-11-06T15:25:09.895Z",
+   "id": "Q5513251",
+   "us": true
   }
  },
  "othersAt": {
   "remotive": "2026-11-06T12:39:08.821Z",
-  "remoteok": "2026-11-06T10:43:03.132Z",
-  "workingnomads": "2026-11-06T10:43:03.132Z",
-  "weworkremotely": "2026-11-06T10:43:03.132Z",
-  "nodesk": "2026-11-06T10:43:03.132Z",
-  "himalayas": "2026-11-06T12:39:08.821Z",
+  "remoteok": "2026-11-06T15:25:09.895Z",
+  "workingnomads": "2026-11-06T15:25:09.895Z",
+  "weworkremotely": "2026-11-06T15:25:09.895Z",
+  "nodesk": "2026-11-06T15:25:09.895Z",
+  "himalayas": "2026-11-06T15:25:09.895Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -11638,10 +11716,10 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-06T10:43:03.132Z",
- "arbeitnowAt": "2026-11-06T10:43:03.132Z",
+ "jobicyAt": "2026-11-06T15:25:09.895Z",
+ "arbeitnowAt": "2026-11-06T15:25:09.895Z",
  "discovery": {
-  "page": 25,
+  "page": 29,
   "totalPages": 29,
   "cycleAt": "2026-11-06T12:38:32.198Z",
   "companies": {

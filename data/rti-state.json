@@ -3502,6 +3502,10 @@
   "hn:icallidus": {
    "reason": "US headquarters",
    "at": "2026-11-06T08:43:36.095Z"
+  },
+  "remoteok:toptal": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-06T15:27:49.872Z"
   }
  },
  "wikidata": {
@@ -7254,16 +7258,81 @@
    "at": "2026-11-06T10:44:17.558Z",
    "id": "Q139587498",
    "us": false
+  },
+  "Machine Age": {
+   "at": "2026-11-06T15:27:49.872Z",
+   "id": null,
+   "us": false
+  },
+  "Arsipa GmbH": {
+   "at": "2026-11-06T15:27:49.872Z",
+   "id": null,
+   "us": false
+  },
+  "Noerr Solutions | Digital Recruitment": {
+   "at": "2026-11-06T15:27:49.872Z",
+   "id": null,
+   "us": false
+  },
+  "LogaRec GmbH": {
+   "at": "2026-11-06T15:27:49.872Z",
+   "id": null,
+   "us": false
+  },
+  "TecFox GmbH": {
+   "at": "2026-11-06T15:27:49.872Z",
+   "id": null,
+   "us": false
+  },
+  "Sidekick Network GmbH & Co. KG": {
+   "at": "2026-11-06T15:27:49.872Z",
+   "id": null,
+   "us": false
+  },
+  "StellDirVor GmbH": {
+   "at": "2026-11-06T15:27:49.872Z",
+   "id": null,
+   "us": false
+  },
+  "Internationales E-Commerce-Unternehmen": {
+   "at": "2026-11-06T15:27:49.872Z",
+   "id": null,
+   "us": false
+  },
+  "wibzo": {
+   "at": "2026-11-06T15:27:49.872Z",
+   "id": null,
+   "us": false
+  },
+  "Access Destination Services": {
+   "at": "2026-11-06T15:27:49.872Z",
+   "id": null,
+   "us": false
+  },
+  "AYLASHES": {
+   "at": "2026-11-06T15:27:49.872Z",
+   "id": null,
+   "us": false
+  },
+  "Bad Man Betting": {
+   "at": "2026-11-06T15:27:49.872Z",
+   "id": null,
+   "us": false
+  },
+  "Delta Capita": {
+   "at": "2026-11-06T15:27:49.872Z",
+   "id": "Q61959663",
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-06T12:39:38.166Z",
-  "remoteok": "2026-11-06T10:44:17.558Z",
-  "workingnomads": "2026-11-06T10:44:17.558Z",
-  "weworkremotely": "2026-11-06T10:44:17.558Z",
-  "nodesk": "2026-11-06T10:44:17.558Z",
+  "remoteok": "2026-11-06T15:27:49.872Z",
+  "workingnomads": "2026-11-06T15:27:49.872Z",
+  "weworkremotely": "2026-11-06T15:27:49.872Z",
+  "nodesk": "2026-11-06T15:27:49.872Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-06T10:44:17.558Z",
- "arbeitnowAt": "2026-11-06T10:44:17.558Z"
+ "jobicyAt": "2026-11-06T15:27:49.872Z",
+ "arbeitnowAt": "2026-11-06T15:27:49.872Z"
 }
