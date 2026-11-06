@@ -325,7 +325,8 @@
   "inferedge": "2026-11-04T01:26:39.011Z",
   "legalos": "2026-11-04T01:26:39.011Z",
   "shortloop": "2026-11-05T01:41:21.694Z",
-  "unravel-carbon": "2026-11-05T01:41:21.694Z"
+  "unravel-carbon": "2026-11-05T01:41:21.694Z",
+  "armature": "2026-11-06T01:59:20.443Z"
  },
  "boards": [
   {
@@ -3493,6 +3494,10 @@
   "hn:odette-technologies": {
    "reason": "US headquarters",
    "at": "2026-11-05T22:00:31.647Z"
+  },
+  "hn:zefr": {
+   "reason": "US headquarters",
+   "at": "2026-11-06T01:59:20.443Z"
   }
  },
  "wikidata": {
@@ -7208,6 +7213,11 @@
   },
   "iMerit": {
    "at": "2026-11-06T00:59:38.097Z",
+   "id": null,
+   "us": false
+  },
+  "Zefr": {
+   "at": "2026-11-06T01:59:20.443Z",
    "id": null,
    "us": false
   }

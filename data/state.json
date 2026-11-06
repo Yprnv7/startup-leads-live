@@ -349,7 +349,8 @@
   "legalos": "2026-11-04T01:25:45.289Z",
   "unravel-carbon": "2026-11-05T01:40:59.611Z",
   "shortloop": "2026-11-05T01:40:59.611Z",
-  "erad": "2026-11-05T01:40:59.611Z"
+  "erad": "2026-11-05T01:40:59.611Z",
+  "armature": "2026-11-06T01:58:59.731Z"
  },
  "boards": [
   {
@@ -6147,6 +6148,10 @@
   "hn:odette-technologies": {
    "reason": "US headquarters",
    "at": "2026-11-05T21:58:52.122Z"
+  },
+  "hn:zefr": {
+   "reason": "US headquarters",
+   "at": "2026-11-06T01:58:59.731Z"
   }
  },
  "wikidata": {
@@ -11514,6 +11519,16 @@
    "at": "2026-11-06T00:58:58.682Z",
    "id": null,
    "us": false
+  },
+  "Zefr": {
+   "at": "2026-11-06T01:58:59.731Z",
+   "id": null,
+   "us": false
+  },
+  "Krombacher": {
+   "at": "2026-11-06T01:58:59.731Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
@@ -11522,7 +11537,7 @@
   "workingnomads": "2026-11-06T00:58:58.682Z",
   "weworkremotely": "2026-11-06T00:58:58.682Z",
   "nodesk": "2026-11-06T00:58:58.682Z",
-  "himalayas": "2026-11-05T23:55:06.276Z",
+  "himalayas": "2026-11-06T01:58:59.731Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
