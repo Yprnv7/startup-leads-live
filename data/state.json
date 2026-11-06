@@ -11567,15 +11567,25 @@
    "at": "2026-11-06T08:43:01.495Z",
    "id": null,
    "us": false
+  },
+  "Circuithub": {
+   "at": "2026-11-06T10:43:03.132Z",
+   "id": null,
+   "us": false
+  },
+  "Aikido Security": {
+   "at": "2026-11-06T10:43:03.132Z",
+   "id": "Q139587498",
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-06T06:42:56.374Z",
-  "remoteok": "2026-11-06T07:27:22.611Z",
-  "workingnomads": "2026-11-06T07:27:22.611Z",
-  "weworkremotely": "2026-11-06T07:27:22.611Z",
-  "nodesk": "2026-11-06T07:27:22.611Z",
-  "himalayas": "2026-11-06T08:43:01.495Z",
+  "remoteok": "2026-11-06T10:43:03.132Z",
+  "workingnomads": "2026-11-06T10:43:03.132Z",
+  "weworkremotely": "2026-11-06T10:43:03.132Z",
+  "nodesk": "2026-11-06T10:43:03.132Z",
+  "himalayas": "2026-11-06T10:43:03.132Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -11627,8 +11637,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-06T07:27:22.611Z",
- "arbeitnowAt": "2026-11-06T07:27:22.611Z",
+ "jobicyAt": "2026-11-06T10:43:03.132Z",
+ "arbeitnowAt": "2026-11-06T10:43:03.132Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
