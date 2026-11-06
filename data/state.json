@@ -6152,6 +6152,10 @@
   "hn:zefr": {
    "reason": "US headquarters",
    "at": "2026-11-06T01:58:59.731Z"
+  },
+  "himalayas:wabtec": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-06T04:33:47.144Z"
   }
  },
  "wikidata": {
@@ -11529,15 +11533,35 @@
    "at": "2026-11-06T01:58:59.731Z",
    "id": null,
    "us": false
+  },
+  "Avomind": {
+   "at": "2026-11-06T04:33:47.144Z",
+   "id": null,
+   "us": false
+  },
+  "Testlio": {
+   "at": "2026-11-06T04:33:47.144Z",
+   "id": null,
+   "us": false
+  },
+  "Wabtec": {
+   "at": "2026-11-06T04:33:47.144Z",
+   "id": "Q741707",
+   "us": true
+  },
+  "iwoca": {
+   "at": "2026-11-06T04:33:47.144Z",
+   "id": "Q6100964",
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-05T23:55:06.276Z",
-  "remoteok": "2026-11-06T00:58:58.682Z",
-  "workingnomads": "2026-11-06T00:58:58.682Z",
-  "weworkremotely": "2026-11-06T00:58:58.682Z",
-  "nodesk": "2026-11-06T00:58:58.682Z",
-  "himalayas": "2026-11-06T01:58:59.731Z",
+  "remoteok": "2026-11-06T04:33:47.144Z",
+  "workingnomads": "2026-11-06T04:33:47.144Z",
+  "weworkremotely": "2026-11-06T04:33:47.144Z",
+  "nodesk": "2026-11-06T04:33:47.144Z",
+  "himalayas": "2026-11-06T04:33:47.144Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -11589,8 +11613,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-06T00:58:58.682Z",
- "arbeitnowAt": "2026-11-06T00:58:58.682Z",
+ "jobicyAt": "2026-11-06T04:33:47.144Z",
+ "arbeitnowAt": "2026-11-06T04:33:47.144Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
