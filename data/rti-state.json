@@ -728,6 +728,14 @@
    "name": "Apollo Research",
    "discovered": "2026-11-03T21:11:50.860Z",
    "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "3ive",
+   "companyId": "hn:3ive",
+   "name": "3ive",
+   "discovered": "2026-11-06T21:06:25.644Z",
+   "active": false
   }
  ],
  "boardNames": {},
@@ -3510,6 +3518,10 @@
   "weworkremotely:karat": {
    "reason": "US headquarters (We Work Remotely)",
    "at": "2026-11-06T18:56:21.138Z"
+  },
+  "hn:sparcle": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-06T21:06:25.644Z"
   }
  },
  "wikidata": {
@@ -7365,6 +7377,16 @@
   },
   "Silver.dev": {
    "at": "2026-11-06T18:56:21.138Z",
+   "id": null,
+   "us": false
+  },
+  "Sparcle": {
+   "at": "2026-11-06T21:06:25.644Z",
+   "id": "Q141742381",
+   "us": true
+  },
+  "3ive": {
+   "at": "2026-11-06T21:06:25.644Z",
    "id": null,
    "us": false
   }
