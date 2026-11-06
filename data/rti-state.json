@@ -3506,6 +3506,10 @@
   "remoteok:toptal": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-06T15:27:49.872Z"
+  },
+  "weworkremotely:karat": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-06T18:56:21.138Z"
   }
  },
  "wikidata": {
@@ -7323,16 +7327,56 @@
    "at": "2026-11-06T15:27:49.872Z",
    "id": "Q61959663",
    "us": false
+  },
+  "Elevenlabs": {
+   "at": "2026-11-06T18:56:21.138Z",
+   "id": null,
+   "us": false
+  },
+  "BuildQ": {
+   "at": "2026-11-06T18:56:21.138Z",
+   "id": null,
+   "us": false
+  },
+  "capital.com": {
+   "at": "2026-11-06T18:56:21.138Z",
+   "id": "Q110461223",
+   "us": false
+  },
+  "noris network AG": {
+   "at": "2026-11-06T18:56:21.138Z",
+   "id": null,
+   "us": false
+  },
+  "Right People Group GmbH": {
+   "at": "2026-11-06T18:56:21.138Z",
+   "id": null,
+   "us": false
+  },
+  "Green-Got": {
+   "at": "2026-11-06T18:56:21.138Z",
+   "id": "Q113232090",
+   "us": false
+  },
+  "gaea21": {
+   "at": "2026-11-06T18:56:21.138Z",
+   "id": null,
+   "us": false
+  },
+  "Silver.dev": {
+   "at": "2026-11-06T18:56:21.138Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-06T12:39:38.166Z",
-  "remoteok": "2026-11-06T15:27:49.872Z",
-  "workingnomads": "2026-11-06T15:27:49.872Z",
-  "weworkremotely": "2026-11-06T15:27:49.872Z",
-  "nodesk": "2026-11-06T15:27:49.872Z",
+  "remotive": "2026-11-06T18:56:21.138Z",
+  "remoteok": "2026-11-06T18:56:21.138Z",
+  "workingnomads": "2026-11-06T18:56:21.138Z",
+  "weworkremotely": "2026-11-06T18:56:21.138Z",
+  "nodesk": "2026-11-06T18:56:21.138Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-06T15:27:49.872Z",
- "arbeitnowAt": "2026-11-06T15:27:49.872Z"
+ "jobicyAt": "2026-11-06T18:56:21.138Z",
+ "arbeitnowAt": "2026-11-06T18:56:21.138Z"
 }
