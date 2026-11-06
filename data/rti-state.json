@@ -7195,16 +7195,31 @@
    "at": "2026-11-05T22:00:31.647Z",
    "id": null,
    "us": false
+  },
+  "Bendt Brothers": {
+   "at": "2026-11-06T00:59:38.097Z",
+   "id": null,
+   "us": false
+  },
+  "CivilGrid": {
+   "at": "2026-11-06T00:59:38.097Z",
+   "id": null,
+   "us": false
+  },
+  "iMerit": {
+   "at": "2026-11-06T00:59:38.097Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-05T23:55:34.402Z",
-  "remoteok": "2026-11-05T22:00:31.647Z",
-  "workingnomads": "2026-11-05T22:00:31.647Z",
-  "weworkremotely": "2026-11-05T22:00:31.647Z",
-  "nodesk": "2026-11-05T22:00:31.647Z",
+  "remoteok": "2026-11-06T00:59:38.097Z",
+  "workingnomads": "2026-11-06T00:59:38.097Z",
+  "weworkremotely": "2026-11-06T00:59:38.097Z",
+  "nodesk": "2026-11-06T00:59:38.097Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-05T22:00:31.647Z",
- "arbeitnowAt": "2026-11-05T22:00:31.647Z"
+ "jobicyAt": "2026-11-06T00:59:38.097Z",
+ "arbeitnowAt": "2026-11-06T00:59:38.097Z"
 }

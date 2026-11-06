@@ -11499,14 +11499,29 @@
    "at": "2026-11-05T21:58:52.122Z",
    "id": null,
    "us": false
+  },
+  "Bendt Brothers": {
+   "at": "2026-11-06T00:58:58.682Z",
+   "id": null,
+   "us": false
+  },
+  "CivilGrid": {
+   "at": "2026-11-06T00:58:58.682Z",
+   "id": null,
+   "us": false
+  },
+  "iMerit": {
+   "at": "2026-11-06T00:58:58.682Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-05T23:55:06.276Z",
-  "remoteok": "2026-11-05T21:58:52.122Z",
-  "workingnomads": "2026-11-05T21:58:52.122Z",
-  "weworkremotely": "2026-11-05T21:58:52.122Z",
-  "nodesk": "2026-11-05T21:58:52.122Z",
+  "remoteok": "2026-11-06T00:58:58.682Z",
+  "workingnomads": "2026-11-06T00:58:58.682Z",
+  "weworkremotely": "2026-11-06T00:58:58.682Z",
+  "nodesk": "2026-11-06T00:58:58.682Z",
   "himalayas": "2026-11-05T23:55:06.276Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -11559,8 +11574,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-05T21:58:52.122Z",
- "arbeitnowAt": "2026-11-05T21:58:52.122Z",
+ "jobicyAt": "2026-11-06T00:58:58.682Z",
+ "arbeitnowAt": "2026-11-06T00:58:58.682Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
