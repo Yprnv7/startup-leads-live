@@ -6208,6 +6208,10 @@
   "yc:third-chair": {
    "reason": "US headquarters",
    "at": "2026-11-07T01:18:31.389Z"
+  },
+  "arbeitnow:certa": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-07T17:53:53.540Z"
   }
  },
  "wikidata": {
@@ -11845,14 +11849,29 @@
    "at": "2026-11-07T16:53:51.229Z",
    "id": "Q1022796",
    "us": false
+  },
+  "Certa": {
+   "at": "2026-11-07T17:53:53.540Z",
+   "id": "Q5065045",
+   "us": true
+  },
+  "Engagedmd": {
+   "at": "2026-11-07T17:53:53.540Z",
+   "id": null,
+   "us": false
+  },
+  "OneImaging": {
+   "at": "2026-11-07T17:53:53.540Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-07T14:53:49.118Z",
-  "remoteok": "2026-11-07T14:53:49.118Z",
-  "workingnomads": "2026-11-07T14:53:49.118Z",
-  "weworkremotely": "2026-11-07T14:53:49.118Z",
-  "nodesk": "2026-11-07T14:53:49.118Z",
+  "remoteok": "2026-11-07T17:53:53.540Z",
+  "workingnomads": "2026-11-07T17:53:53.540Z",
+  "weworkremotely": "2026-11-07T17:53:53.540Z",
+  "nodesk": "2026-11-07T17:53:53.540Z",
   "himalayas": "2026-11-07T16:53:51.229Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -11905,8 +11924,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-07T14:53:49.118Z",
- "arbeitnowAt": "2026-11-07T14:53:49.118Z",
+ "jobicyAt": "2026-11-07T17:53:53.540Z",
+ "arbeitnowAt": "2026-11-07T17:53:53.540Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,

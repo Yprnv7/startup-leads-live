@@ -3549,6 +3549,10 @@
   "yc:third-chair": {
    "reason": "US headquarters",
    "at": "2026-11-07T01:18:48.416Z"
+  },
+  "arbeitnow:certa": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-07T17:54:18.214Z"
   }
  },
  "wikidata": {
@@ -7516,16 +7520,31 @@
    "at": "2026-11-07T14:54:41.000Z",
    "id": null,
    "us": false
+  },
+  "Certa": {
+   "at": "2026-11-07T17:54:18.214Z",
+   "id": "Q5065045",
+   "us": true
+  },
+  "Engagedmd": {
+   "at": "2026-11-07T17:54:18.214Z",
+   "id": null,
+   "us": false
+  },
+  "OneImaging": {
+   "at": "2026-11-07T17:54:18.214Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-07T14:54:41.000Z",
-  "remoteok": "2026-11-07T14:54:41.000Z",
-  "workingnomads": "2026-11-07T14:54:41.000Z",
-  "weworkremotely": "2026-11-07T14:54:41.000Z",
-  "nodesk": "2026-11-07T14:54:41.000Z",
+  "remoteok": "2026-11-07T17:54:18.214Z",
+  "workingnomads": "2026-11-07T17:54:18.214Z",
+  "weworkremotely": "2026-11-07T17:54:18.214Z",
+  "nodesk": "2026-11-07T17:54:18.214Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-07T14:54:41.000Z",
- "arbeitnowAt": "2026-11-07T14:54:41.000Z"
+ "jobicyAt": "2026-11-07T17:54:18.214Z",
+ "arbeitnowAt": "2026-11-07T17:54:18.214Z"
 }
