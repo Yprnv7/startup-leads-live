@@ -11790,15 +11790,35 @@
    "at": "2026-11-07T07:49:37.413Z",
    "id": null,
    "us": false
+  },
+  "Lambda": {
+   "at": "2026-11-07T09:57:35.617Z",
+   "id": null,
+   "us": false
+  },
+  "Pineapple Recruiting GmbH": {
+   "at": "2026-11-07T09:57:35.617Z",
+   "id": null,
+   "us": false
+  },
+  "Duna": {
+   "at": "2026-11-07T09:57:35.617Z",
+   "id": null,
+   "us": false
+  },
+  "Caringhand Home Health Solutions, Inc.": {
+   "at": "2026-11-07T09:57:35.617Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-07T06:57:29.522Z",
-  "remoteok": "2026-11-07T06:57:29.522Z",
-  "workingnomads": "2026-11-07T06:57:29.522Z",
-  "weworkremotely": "2026-11-07T06:57:29.522Z",
-  "nodesk": "2026-11-07T06:57:29.522Z",
-  "himalayas": "2026-11-07T07:49:37.413Z",
+  "remoteok": "2026-11-07T09:57:35.617Z",
+  "workingnomads": "2026-11-07T09:57:35.617Z",
+  "weworkremotely": "2026-11-07T09:57:35.617Z",
+  "nodesk": "2026-11-07T09:57:35.617Z",
+  "himalayas": "2026-11-07T09:57:35.617Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -11850,8 +11870,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-07T06:57:29.522Z",
- "arbeitnowAt": "2026-11-07T06:57:29.522Z",
+ "jobicyAt": "2026-11-07T09:57:35.617Z",
+ "arbeitnowAt": "2026-11-07T09:57:35.617Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
