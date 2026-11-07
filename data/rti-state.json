@@ -7535,16 +7535,36 @@
    "at": "2026-11-07T17:54:18.214Z",
    "id": null,
    "us": false
+  },
+  "Fyxer": {
+   "at": "2026-11-07T20:49:48.205Z",
+   "id": null,
+   "us": false
+  },
+  "cbs Corporate Business Solutions GmbH": {
+   "at": "2026-11-07T20:49:48.205Z",
+   "id": null,
+   "us": false
+  },
+  "Decentralized Masters": {
+   "at": "2026-11-07T20:49:48.205Z",
+   "id": "Q137969739",
+   "us": false
+  },
+  "Siena": {
+   "at": "2026-11-07T20:49:48.205Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-07T14:54:41.000Z",
-  "remoteok": "2026-11-07T17:54:18.214Z",
-  "workingnomads": "2026-11-07T17:54:18.214Z",
-  "weworkremotely": "2026-11-07T17:54:18.214Z",
-  "nodesk": "2026-11-07T17:54:18.214Z",
+  "remotive": "2026-11-07T20:49:48.205Z",
+  "remoteok": "2026-11-07T20:49:48.205Z",
+  "workingnomads": "2026-11-07T20:49:48.205Z",
+  "weworkremotely": "2026-11-07T20:49:48.205Z",
+  "nodesk": "2026-11-07T20:49:48.205Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-07T17:54:18.214Z",
- "arbeitnowAt": "2026-11-07T17:54:18.214Z"
+ "jobicyAt": "2026-11-07T20:49:48.205Z",
+ "arbeitnowAt": "2026-11-07T20:49:48.205Z"
 }
