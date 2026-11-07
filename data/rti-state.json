@@ -3530,6 +3530,14 @@
   "remoteok:cambridge-information-group": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-06T21:51:50.611Z"
+  },
+  "weworkremotely:cambridge-information-group-inc": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-07T00:51:23.603Z"
+  },
+  "remoteok:serve-robotics": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-07T00:51:23.603Z"
   }
  },
  "wikidata": {
@@ -7407,16 +7415,31 @@
    "at": "2026-11-06T21:51:50.611Z",
    "id": "Q5025452",
    "us": true
+  },
+  "Zeotap": {
+   "at": "2026-11-07T00:51:23.603Z",
+   "id": "Q140674007",
+   "us": false
+  },
+  "Serve Robotics": {
+   "at": "2026-11-07T00:51:23.603Z",
+   "id": "Q112583437",
+   "us": true
+  },
+  "Thumbtack": {
+   "at": "2026-11-07T00:51:23.603Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-06T18:56:21.138Z",
-  "remoteok": "2026-11-06T21:51:50.611Z",
-  "workingnomads": "2026-11-06T21:51:50.611Z",
-  "weworkremotely": "2026-11-06T21:51:50.611Z",
-  "nodesk": "2026-11-06T21:51:50.611Z",
+  "remotive": "2026-11-07T00:51:23.603Z",
+  "remoteok": "2026-11-07T00:51:23.603Z",
+  "workingnomads": "2026-11-07T00:51:23.603Z",
+  "weworkremotely": "2026-11-07T00:51:23.603Z",
+  "nodesk": "2026-11-07T00:51:23.603Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-06T21:51:50.611Z",
- "arbeitnowAt": "2026-11-06T21:51:50.611Z"
+ "jobicyAt": "2026-11-07T00:51:23.603Z",
+ "arbeitnowAt": "2026-11-07T00:51:23.603Z"
 }
