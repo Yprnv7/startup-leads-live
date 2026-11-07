@@ -326,7 +326,10 @@
   "legalos": "2026-11-04T01:26:39.011Z",
   "shortloop": "2026-11-05T01:41:21.694Z",
   "unravel-carbon": "2026-11-05T01:41:21.694Z",
-  "armature": "2026-11-06T01:59:20.443Z"
+  "armature": "2026-11-06T01:59:20.443Z",
+  "adalat-ai": "2026-11-07T01:18:48.416Z",
+  "clicks-health": "2026-11-07T01:18:48.416Z",
+  "third-chair": "2026-11-07T01:18:48.416Z"
  },
  "boards": [
   {
@@ -735,7 +738,7 @@
    "companyId": "hn:3ive",
    "name": "3ive",
    "discovered": "2026-11-06T21:06:25.644Z",
-   "active": false
+   "active": true
   }
  ],
  "boardNames": {},
@@ -3538,6 +3541,14 @@
   "remoteok:serve-robotics": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-07T00:51:23.603Z"
+  },
+  "yc:adalat-ai": {
+   "reason": "India office",
+   "at": "2026-11-07T01:18:48.416Z"
+  },
+  "yc:third-chair": {
+   "reason": "US headquarters",
+   "at": "2026-11-07T01:18:48.416Z"
   }
  },
  "wikidata": {

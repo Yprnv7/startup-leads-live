@@ -350,7 +350,10 @@
   "unravel-carbon": "2026-11-05T01:40:59.611Z",
   "shortloop": "2026-11-05T01:40:59.611Z",
   "erad": "2026-11-05T01:40:59.611Z",
-  "armature": "2026-11-06T01:58:59.731Z"
+  "armature": "2026-11-06T01:58:59.731Z",
+  "adalat-ai": "2026-11-07T01:18:31.389Z",
+  "clicks-health": "2026-11-07T01:18:31.389Z",
+  "third-chair": "2026-11-07T01:18:31.389Z"
  },
  "boards": [
   {
@@ -3372,7 +3375,7 @@
    "companyId": "hn:3ive",
    "name": "3ive",
    "discovered": "2026-11-06T21:06:03.717Z",
-   "active": false
+   "active": true
   }
  ],
  "boardNames": {},
@@ -6197,6 +6200,14 @@
   "weworkremotely:cambridge-information-group-inc": {
    "reason": "US headquarters (We Work Remotely)",
    "at": "2026-11-07T00:50:40.573Z"
+  },
+  "yc:adalat-ai": {
+   "reason": "India office",
+   "at": "2026-11-07T01:18:31.389Z"
+  },
+  "yc:third-chair": {
+   "reason": "US headquarters",
+   "at": "2026-11-07T01:18:31.389Z"
   }
  },
  "wikidata": {
