@@ -11765,15 +11765,30 @@
    "at": "2026-11-07T00:50:40.573Z",
    "id": null,
    "us": false
+  },
+  "Npv": {
+   "at": "2026-11-07T03:59:01.971Z",
+   "id": null,
+   "us": false
+  },
+  "qinX": {
+   "at": "2026-11-07T03:59:01.971Z",
+   "id": null,
+   "us": false
+  },
+  "Valiantys": {
+   "at": "2026-11-07T03:59:01.971Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-07T00:50:40.573Z",
-  "remoteok": "2026-11-07T00:50:40.573Z",
-  "workingnomads": "2026-11-07T00:50:40.573Z",
-  "weworkremotely": "2026-11-07T00:50:40.573Z",
-  "nodesk": "2026-11-07T00:50:40.573Z",
-  "himalayas": "2026-11-07T01:50:43.181Z",
+  "remoteok": "2026-11-07T03:59:01.971Z",
+  "workingnomads": "2026-11-07T03:59:01.971Z",
+  "weworkremotely": "2026-11-07T03:59:01.971Z",
+  "nodesk": "2026-11-07T03:59:01.971Z",
+  "himalayas": "2026-11-07T03:59:01.971Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -11825,8 +11840,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-07T00:50:40.573Z",
- "arbeitnowAt": "2026-11-07T00:50:40.573Z",
+ "jobicyAt": "2026-11-07T03:59:01.971Z",
+ "arbeitnowAt": "2026-11-07T03:59:01.971Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
