@@ -3557,6 +3557,10 @@
   "jobicy:padsplit": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-08T08:59:59.886Z"
+  },
+  "jobicy:infisical": {
+   "reason": "Hires in the US",
+   "at": "2026-11-08T14:01:42.123Z"
   }
  },
  "wikidata": {
@@ -7579,16 +7583,21 @@
    "at": "2026-11-08T08:59:59.886Z",
    "id": null,
    "us": false
+  },
+  "enomyc GmbH": {
+   "at": "2026-11-08T14:01:42.123Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-08T08:59:59.886Z",
-  "remoteok": "2026-11-08T08:59:59.886Z",
-  "workingnomads": "2026-11-08T08:59:59.886Z",
-  "weworkremotely": "2026-11-08T08:59:59.886Z",
-  "nodesk": "2026-11-08T08:59:59.886Z",
+  "remoteok": "2026-11-08T14:01:42.123Z",
+  "workingnomads": "2026-11-08T14:01:42.123Z",
+  "weworkremotely": "2026-11-08T14:01:42.123Z",
+  "nodesk": "2026-11-08T14:01:42.123Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-08T08:59:59.886Z",
- "arbeitnowAt": "2026-11-08T08:59:59.886Z"
+ "jobicyAt": "2026-11-08T14:01:42.123Z",
+ "arbeitnowAt": "2026-11-08T14:01:42.123Z"
 }
