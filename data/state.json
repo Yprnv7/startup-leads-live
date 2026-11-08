@@ -6212,6 +6212,10 @@
   "arbeitnow:certa": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-07T17:53:53.540Z"
+  },
+  "jobicy:clickup": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-08T05:59:13.389Z"
   }
  },
  "wikidata": {
@@ -11884,15 +11888,25 @@
    "at": "2026-11-08T02:44:45.182Z",
    "id": null,
    "us": false
+  },
+  "ClickUp": {
+   "at": "2026-11-08T05:59:13.389Z",
+   "id": "Q123524232",
+   "us": true
+  },
+  "Adapty.io": {
+   "at": "2026-11-08T05:59:13.389Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-08T02:44:45.182Z",
-  "remoteok": "2026-11-08T02:44:45.182Z",
-  "workingnomads": "2026-11-08T02:44:45.182Z",
-  "weworkremotely": "2026-11-08T02:44:45.182Z",
-  "nodesk": "2026-11-08T02:44:45.182Z",
-  "himalayas": "2026-11-08T02:44:45.182Z",
+  "remoteok": "2026-11-08T05:59:13.389Z",
+  "workingnomads": "2026-11-08T05:59:13.389Z",
+  "weworkremotely": "2026-11-08T05:59:13.389Z",
+  "nodesk": "2026-11-08T05:59:13.389Z",
+  "himalayas": "2026-11-08T05:59:13.389Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -11944,8 +11958,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-08T02:44:45.182Z",
- "arbeitnowAt": "2026-11-08T02:44:45.182Z",
+ "jobicyAt": "2026-11-08T05:59:13.389Z",
+ "arbeitnowAt": "2026-11-08T05:59:13.389Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
