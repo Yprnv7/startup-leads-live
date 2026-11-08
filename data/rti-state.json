@@ -3561,6 +3561,10 @@
   "jobicy:infisical": {
    "reason": "Hires in the US",
    "at": "2026-11-08T14:01:42.123Z"
+  },
+  "weworkremotely:true-talent-solutions-partners": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-08T17:11:55.432Z"
   }
  },
  "wikidata": {
@@ -7588,16 +7592,21 @@
    "at": "2026-11-08T14:01:42.123Z",
    "id": null,
    "us": false
+  },
+  "FAIR IDEA EXHIBITS": {
+   "at": "2026-11-08T17:11:55.432Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-08T15:11:42.901Z",
-  "remoteok": "2026-11-08T14:01:42.123Z",
-  "workingnomads": "2026-11-08T14:01:42.123Z",
-  "weworkremotely": "2026-11-08T14:01:42.123Z",
-  "nodesk": "2026-11-08T14:01:42.123Z",
+  "remoteok": "2026-11-08T17:11:55.432Z",
+  "workingnomads": "2026-11-08T17:11:55.432Z",
+  "weworkremotely": "2026-11-08T17:11:55.432Z",
+  "nodesk": "2026-11-08T17:11:55.432Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-08T14:01:42.123Z",
- "arbeitnowAt": "2026-11-08T14:01:42.123Z"
+ "jobicyAt": "2026-11-08T17:11:55.432Z",
+ "arbeitnowAt": "2026-11-08T17:11:55.432Z"
 }
