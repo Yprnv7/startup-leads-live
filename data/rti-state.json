@@ -3553,6 +3553,10 @@
   "arbeitnow:certa": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-07T17:54:18.214Z"
+  },
+  "jobicy:padsplit": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-08T08:59:59.886Z"
   }
  },
  "wikidata": {
@@ -7565,16 +7569,26 @@
    "at": "2026-11-08T06:00:57.622Z",
    "id": null,
    "us": false
+  },
+  "PadSplit": {
+   "at": "2026-11-08T08:59:59.886Z",
+   "id": "Q114078408",
+   "us": true
+  },
+  "Project Bay Workation Hotel UG (haftungsbeschränkt)": {
+   "at": "2026-11-08T08:59:59.886Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-08T02:45:30.683Z",
-  "remoteok": "2026-11-08T06:00:57.622Z",
-  "workingnomads": "2026-11-08T06:00:57.622Z",
-  "weworkremotely": "2026-11-08T06:00:57.622Z",
-  "nodesk": "2026-11-08T06:00:57.622Z",
+  "remotive": "2026-11-08T08:59:59.886Z",
+  "remoteok": "2026-11-08T08:59:59.886Z",
+  "workingnomads": "2026-11-08T08:59:59.886Z",
+  "weworkremotely": "2026-11-08T08:59:59.886Z",
+  "nodesk": "2026-11-08T08:59:59.886Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-08T06:00:57.622Z",
- "arbeitnowAt": "2026-11-08T06:00:57.622Z"
+ "jobicyAt": "2026-11-08T08:59:59.886Z",
+ "arbeitnowAt": "2026-11-08T08:59:59.886Z"
 }
