@@ -11935,6 +11935,11 @@
    "at": "2026-11-08T20:11:35.833Z",
    "id": null,
    "us": false
+  },
+  "zusatzvers": {
+   "at": "2026-11-08T22:06:43.753Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
@@ -11943,7 +11948,7 @@
   "workingnomads": "2026-11-08T20:11:35.833Z",
   "weworkremotely": "2026-11-08T20:11:35.833Z",
   "nodesk": "2026-11-08T20:11:35.833Z",
-  "himalayas": "2026-11-08T20:11:35.833Z",
+  "himalayas": "2026-11-08T22:06:43.753Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
