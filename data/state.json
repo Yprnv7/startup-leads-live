@@ -11930,15 +11930,20 @@
    "at": "2026-11-08T17:11:29.746Z",
    "id": null,
    "us": false
+  },
+  "viral.app": {
+   "at": "2026-11-08T20:11:35.833Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-08T15:11:27.535Z",
-  "remoteok": "2026-11-08T17:11:29.746Z",
-  "workingnomads": "2026-11-08T17:11:29.746Z",
-  "weworkremotely": "2026-11-08T17:11:29.746Z",
-  "nodesk": "2026-11-08T17:11:29.746Z",
-  "himalayas": "2026-11-08T18:11:30.748Z",
+  "remoteok": "2026-11-08T20:11:35.833Z",
+  "workingnomads": "2026-11-08T20:11:35.833Z",
+  "weworkremotely": "2026-11-08T20:11:35.833Z",
+  "nodesk": "2026-11-08T20:11:35.833Z",
+  "himalayas": "2026-11-08T20:11:35.833Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -11990,8 +11995,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-08T17:11:29.746Z",
- "arbeitnowAt": "2026-11-08T17:11:29.746Z",
+ "jobicyAt": "2026-11-08T20:11:35.833Z",
+ "arbeitnowAt": "2026-11-08T20:11:35.833Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
