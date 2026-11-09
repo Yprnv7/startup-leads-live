@@ -3586,6 +3586,10 @@
   "arbeitnow:watchguard": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-09T06:27:03.011Z"
+  },
+  "weworkremotely:terac": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-09T09:26:09.061Z"
   }
  },
  "wikidata": {
@@ -7648,16 +7652,26 @@
    "at": "2026-11-09T06:27:03.011Z",
    "id": "Q1476967",
    "us": true
+  },
+  "squadt GmbH": {
+   "at": "2026-11-09T09:26:09.061Z",
+   "id": null,
+   "us": false
+  },
+  "Bugaga Werbeagentur e.K.": {
+   "at": "2026-11-09T09:26:09.061Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-09T06:27:03.011Z",
-  "remoteok": "2026-11-09T06:27:03.011Z",
-  "workingnomads": "2026-11-09T06:27:03.011Z",
-  "weworkremotely": "2026-11-09T06:27:03.011Z",
-  "nodesk": "2026-11-09T06:27:03.011Z",
+  "remoteok": "2026-11-09T09:26:09.061Z",
+  "workingnomads": "2026-11-09T09:26:09.061Z",
+  "weworkremotely": "2026-11-09T09:26:09.061Z",
+  "nodesk": "2026-11-09T09:26:09.061Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-09T06:27:03.011Z",
- "arbeitnowAt": "2026-11-09T06:27:03.011Z"
+ "jobicyAt": "2026-11-09T09:26:09.061Z",
+ "arbeitnowAt": "2026-11-09T09:26:09.061Z"
 }
