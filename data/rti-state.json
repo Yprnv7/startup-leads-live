@@ -7773,16 +7773,26 @@
    "at": "2026-11-09T19:13:07.714Z",
    "id": null,
    "us": false
+  },
+  "Quantum-Systems GmbH": {
+   "at": "2026-11-09T21:48:35.962Z",
+   "id": null,
+   "us": false
+  },
+  "Tester Work": {
+   "at": "2026-11-09T21:48:35.962Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-09T18:49:36.976Z",
-  "remoteok": "2026-11-09T18:49:36.976Z",
-  "workingnomads": "2026-11-09T18:49:36.976Z",
-  "weworkremotely": "2026-11-09T18:49:36.976Z",
-  "nodesk": "2026-11-09T18:49:36.976Z",
+  "remoteok": "2026-11-09T21:48:35.962Z",
+  "workingnomads": "2026-11-09T21:48:35.962Z",
+  "weworkremotely": "2026-11-09T21:48:35.962Z",
+  "nodesk": "2026-11-09T21:48:35.962Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-09T18:49:36.976Z",
- "arbeitnowAt": "2026-11-09T18:49:36.976Z"
+ "jobicyAt": "2026-11-09T21:48:35.962Z",
+ "arbeitnowAt": "2026-11-09T21:48:35.962Z"
 }

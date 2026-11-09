@@ -12115,14 +12115,29 @@
    "at": "2026-11-09T19:12:59.911Z",
    "id": null,
    "us": false
+  },
+  "Quantum-Systems GmbH": {
+   "at": "2026-11-09T21:47:59.562Z",
+   "id": null,
+   "us": false
+  },
+  "Tester Work": {
+   "at": "2026-11-09T21:47:59.562Z",
+   "id": null,
+   "us": false
+  },
+  "IndieKidz GmbH": {
+   "at": "2026-11-09T21:47:59.562Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-09T18:47:46.577Z",
-  "remoteok": "2026-11-09T18:47:46.577Z",
-  "workingnomads": "2026-11-09T18:47:46.577Z",
-  "weworkremotely": "2026-11-09T18:47:46.577Z",
-  "nodesk": "2026-11-09T18:47:46.577Z",
+  "remoteok": "2026-11-09T21:47:59.562Z",
+  "workingnomads": "2026-11-09T21:47:59.562Z",
+  "weworkremotely": "2026-11-09T21:47:59.562Z",
+  "nodesk": "2026-11-09T21:47:59.562Z",
   "himalayas": "2026-11-09T20:47:53.058Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -12175,8 +12190,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-09T18:47:46.577Z",
- "arbeitnowAt": "2026-11-09T18:47:46.577Z",
+ "jobicyAt": "2026-11-09T21:47:59.562Z",
+ "arbeitnowAt": "2026-11-09T21:47:59.562Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
