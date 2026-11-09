@@ -3606,6 +3606,10 @@
   "hn:stealth-health-tech-startup": {
    "reason": "US headquarters",
    "at": "2026-11-09T19:13:07.714Z"
+  },
+  "hn:polymath": {
+   "reason": "US headquarters",
+   "at": "2026-11-09T22:49:26.752Z"
   }
  },
  "wikidata": {
@@ -7781,6 +7785,11 @@
   },
   "Tester Work": {
    "at": "2026-11-09T21:48:35.962Z",
+   "id": null,
+   "us": false
+  },
+  "Polymath": {
+   "at": "2026-11-09T22:49:26.752Z",
    "id": null,
    "us": false
   }

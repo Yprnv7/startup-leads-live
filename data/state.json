@@ -6273,6 +6273,10 @@
   "hn:stealth-health-tech-startup": {
    "reason": "US headquarters",
    "at": "2026-11-09T19:12:59.911Z"
+  },
+  "hn:polymath": {
+   "reason": "US headquarters",
+   "at": "2026-11-09T22:47:57.288Z"
   }
  },
  "wikidata": {
@@ -12130,6 +12134,11 @@
    "at": "2026-11-09T21:47:59.562Z",
    "id": null,
    "us": false
+  },
+  "Polymath": {
+   "at": "2026-11-09T22:47:57.288Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
@@ -12138,7 +12147,7 @@
   "workingnomads": "2026-11-09T21:47:59.562Z",
   "weworkremotely": "2026-11-09T21:47:59.562Z",
   "nodesk": "2026-11-09T21:47:59.562Z",
-  "himalayas": "2026-11-09T20:47:53.058Z",
+  "himalayas": "2026-11-09T22:47:57.288Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
