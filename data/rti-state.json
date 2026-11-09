@@ -3602,6 +3602,10 @@
   "jobicy:databricks": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-09T18:49:36.976Z"
+  },
+  "hn:stealth-health-tech-startup": {
+   "reason": "US headquarters",
+   "at": "2026-11-09T19:13:07.714Z"
   }
  },
  "wikidata": {
@@ -7762,6 +7766,11 @@
   },
   "RainFocus": {
    "at": "2026-11-09T18:49:36.976Z",
+   "id": null,
+   "us": false
+  },
+  "Stealth Health-Tech Startup": {
+   "at": "2026-11-09T19:13:07.714Z",
    "id": null,
    "us": false
   }
