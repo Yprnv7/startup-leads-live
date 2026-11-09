@@ -3566,6 +3566,14 @@
   "weworkremotely:true-talent-solutions-partners": {
    "reason": "US headquarters (We Work Remotely)",
    "at": "2026-11-08T17:11:55.432Z"
+  },
+  "weworkremotely:edgewater-federal-solutions-inc": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-09T02:07:39.005Z"
+  },
+  "weworkremotely:halcyon": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-09T02:07:39.005Z"
   }
  },
  "wikidata": {
@@ -7608,16 +7616,21 @@
    "at": "2026-11-08T23:07:10.574Z",
    "id": null,
    "us": false
+  },
+  "Harvey": {
+   "at": "2026-11-09T02:07:39.005Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-08T21:07:00.556Z",
-  "remoteok": "2026-11-08T23:07:10.574Z",
-  "workingnomads": "2026-11-08T23:07:10.574Z",
-  "weworkremotely": "2026-11-08T23:07:10.574Z",
-  "nodesk": "2026-11-08T23:07:10.574Z",
+  "remoteok": "2026-11-09T02:07:39.005Z",
+  "workingnomads": "2026-11-09T02:07:39.005Z",
+  "weworkremotely": "2026-11-09T02:07:39.005Z",
+  "nodesk": "2026-11-09T02:07:39.005Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-08T23:07:10.574Z",
- "arbeitnowAt": "2026-11-08T23:07:10.574Z"
+ "jobicyAt": "2026-11-09T02:07:39.005Z",
+ "arbeitnowAt": "2026-11-09T02:07:39.005Z"
 }
