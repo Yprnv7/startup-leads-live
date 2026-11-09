@@ -3590,6 +3590,18 @@
   "weworkremotely:terac": {
    "reason": "US headquarters (We Work Remotely)",
    "at": "2026-11-09T09:26:09.061Z"
+  },
+  "jobicy:teamworks": {
+   "reason": "Hires in the US",
+   "at": "2026-11-09T18:49:36.976Z"
+  },
+  "jobicy:clipboard": {
+   "reason": "Hires in the US",
+   "at": "2026-11-09T18:49:36.976Z"
+  },
+  "jobicy:databricks": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-09T18:49:36.976Z"
   }
  },
  "wikidata": {
@@ -7667,16 +7679,101 @@
    "at": "2026-11-09T10:44:27.390Z",
    "id": null,
    "us": false
+  },
+  "Seal": {
+   "at": "2026-11-09T18:49:36.976Z",
+   "id": null,
+   "us": false
+  },
+  "Amodo Design": {
+   "at": "2026-11-09T18:49:36.976Z",
+   "id": null,
+   "us": false
+  },
+  "Tecla IO": {
+   "at": "2026-11-09T18:49:36.976Z",
+   "id": null,
+   "us": false
+  },
+  "Sunsave": {
+   "at": "2026-11-09T18:49:36.976Z",
+   "id": null,
+   "us": false
+  },
+  "Collabify": {
+   "at": "2026-11-09T18:49:36.976Z",
+   "id": null,
+   "us": false
+  },
+  "Databricks": {
+   "at": "2026-11-09T18:49:36.976Z",
+   "id": "Q18350420",
+   "us": true
+  },
+  "HyperHug": {
+   "at": "2026-11-09T18:49:36.976Z",
+   "id": null,
+   "us": false
+  },
+  "uNaice GmbH": {
+   "at": "2026-11-09T18:49:36.976Z",
+   "id": null,
+   "us": false
+  },
+  "IndieKidz GmbH": {
+   "at": "2026-11-09T18:49:36.976Z",
+   "id": null,
+   "us": false
+  },
+  "planqor.ai": {
+   "at": "2026-11-09T18:49:36.976Z",
+   "id": null,
+   "us": false
+  },
+  "Deutscher Hilfsbund e.V.": {
+   "at": "2026-11-09T18:49:36.976Z",
+   "id": null,
+   "us": false
+  },
+  "Milengo GmbH": {
+   "at": "2026-11-09T18:49:36.976Z",
+   "id": null,
+   "us": false
+  },
+  "DSEV Consulting & Akademie GmbH": {
+   "at": "2026-11-09T18:49:36.976Z",
+   "id": null,
+   "us": false
+  },
+  "cysmo®": {
+   "at": "2026-11-09T18:49:36.976Z",
+   "id": null,
+   "us": false
+  },
+  "Adaptive Innovations": {
+   "at": "2026-11-09T18:49:36.976Z",
+   "id": null,
+   "us": false
+  },
+  "Pencil": {
+   "at": "2026-11-09T18:49:36.976Z",
+   "id": null,
+   "us": false
+  },
+  "RainFocus": {
+   "at": "2026-11-09T18:49:36.976Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-09T06:27:03.011Z",
-  "remoteok": "2026-11-09T09:26:09.061Z",
-  "workingnomads": "2026-11-09T09:26:09.061Z",
-  "weworkremotely": "2026-11-09T09:26:09.061Z",
-  "nodesk": "2026-11-09T09:26:09.061Z",
+  "remotive": "2026-11-09T18:49:36.976Z",
+  "remoteok": "2026-11-09T18:49:36.976Z",
+  "workingnomads": "2026-11-09T18:49:36.976Z",
+  "weworkremotely": "2026-11-09T18:49:36.976Z",
+  "nodesk": "2026-11-09T18:49:36.976Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-09T09:26:09.061Z",
- "arbeitnowAt": "2026-11-09T09:26:09.061Z"
+ "jobicyAt": "2026-11-09T18:49:36.976Z",
+ "arbeitnowAt": "2026-11-09T18:49:36.976Z"
 }
