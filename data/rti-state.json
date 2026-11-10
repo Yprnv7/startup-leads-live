@@ -3626,6 +3626,18 @@
   "hn:epsilon": {
    "reason": "US headquarters",
    "at": "2026-11-10T15:39:08.209Z"
+  },
+  "arbeitnow:intelance": {
+   "reason": "Recruitment agency (posts for unnamed clients)",
+   "at": "2026-11-10T16:40:43.294Z"
+  },
+  "remoteok:gt": {
+   "reason": "Recruitment agency (posts for unnamed clients)",
+   "at": "2026-11-10T16:40:43.294Z"
+  },
+  "hn:toolkit-llc": {
+   "reason": "US headquarters",
+   "at": "2026-11-10T16:40:43.294Z"
   }
  },
  "wikidata": {
@@ -7928,16 +7940,61 @@
    "at": "2026-11-10T15:39:08.209Z",
    "id": null,
    "us": false
+  },
+  "Toolkit LLC": {
+   "at": "2026-11-10T16:40:43.294Z",
+   "id": null,
+   "us": false
+  },
+  "Reedsy": {
+   "at": "2026-11-10T16:40:43.294Z",
+   "id": null,
+   "us": false
+  },
+  "Firework": {
+   "at": "2026-11-10T16:40:43.294Z",
+   "id": null,
+   "us": false
+  },
+  "Digital Loop GmbH": {
+   "at": "2026-11-10T16:40:43.294Z",
+   "id": null,
+   "us": false
+  },
+  "Merge": {
+   "at": "2026-11-10T16:40:43.294Z",
+   "id": null,
+   "us": false
+  },
+  "Emplyfy": {
+   "at": "2026-11-10T16:40:43.294Z",
+   "id": null,
+   "us": false
+  },
+  "Intelance": {
+   "at": "2026-11-10T16:40:43.294Z",
+   "id": "Q140606148",
+   "us": false
+  },
+  "Extend Your Team": {
+   "at": "2026-11-10T16:40:43.294Z",
+   "id": null,
+   "us": false
+  },
+  "Allara": {
+   "at": "2026-11-10T16:40:43.294Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-10T10:07:40.044Z",
-  "remoteok": "2026-11-10T13:39:11.154Z",
-  "workingnomads": "2026-11-10T13:39:11.154Z",
-  "weworkremotely": "2026-11-10T13:39:11.154Z",
-  "nodesk": "2026-11-10T13:39:11.154Z",
+  "remotive": "2026-11-10T16:40:43.294Z",
+  "remoteok": "2026-11-10T16:40:43.294Z",
+  "workingnomads": "2026-11-10T16:40:43.294Z",
+  "weworkremotely": "2026-11-10T16:40:43.294Z",
+  "nodesk": "2026-11-10T16:40:43.294Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-10T13:39:11.154Z",
- "arbeitnowAt": "2026-11-10T13:39:11.154Z"
+ "jobicyAt": "2026-11-10T16:40:43.294Z",
+ "arbeitnowAt": "2026-11-10T16:40:43.294Z"
 }
