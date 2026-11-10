@@ -6289,6 +6289,10 @@
   "jobicy:cantina-labs": {
    "reason": "Hires in the US",
    "at": "2026-11-10T13:38:39.292Z"
+  },
+  "hn:epsilon": {
+   "reason": "US headquarters",
+   "at": "2026-11-10T15:38:43.461Z"
   }
  },
  "wikidata": {
@@ -12264,6 +12268,11 @@
   },
   "Tretmann": {
    "at": "2026-11-10T13:38:39.292Z",
+   "id": null,
+   "us": false
+  },
+  "Epsilon": {
+   "at": "2026-11-10T15:38:43.461Z",
    "id": null,
    "us": false
   }
