@@ -3610,6 +3610,14 @@
   "hn:polymath": {
    "reason": "US headquarters",
    "at": "2026-11-09T22:49:26.752Z"
+  },
+  "jobicy:xbow": {
+   "reason": "Hires in the US",
+   "at": "2026-11-10T10:07:40.044Z"
+  },
+  "jobicy:duckduckgo": {
+   "reason": "Hires in the US",
+   "at": "2026-11-10T10:07:40.044Z"
   }
  },
  "wikidata": {
@@ -7822,16 +7830,41 @@
    "at": "2026-11-10T02:19:40.864Z",
    "id": null,
    "us": false
+  },
+  "ALPHA Software GmbH": {
+   "at": "2026-11-10T10:07:40.044Z",
+   "id": null,
+   "us": false
+  },
+  "FALKRAFT": {
+   "at": "2026-11-10T10:07:40.044Z",
+   "id": null,
+   "us": false
+  },
+  "OKTAGON MMA": {
+   "at": "2026-11-10T10:07:40.044Z",
+   "id": null,
+   "us": false
+  },
+  "Pebl": {
+   "at": "2026-11-10T10:07:40.044Z",
+   "id": null,
+   "us": false
+  },
+  "CertiK": {
+   "at": "2026-11-10T10:07:40.044Z",
+   "id": "Q116425349",
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-10T02:19:40.864Z",
-  "remoteok": "2026-11-10T05:44:28.822Z",
-  "workingnomads": "2026-11-10T05:44:28.822Z",
-  "weworkremotely": "2026-11-10T05:44:28.822Z",
-  "nodesk": "2026-11-10T05:44:28.822Z",
+  "remotive": "2026-11-10T10:07:40.044Z",
+  "remoteok": "2026-11-10T10:07:40.044Z",
+  "workingnomads": "2026-11-10T10:07:40.044Z",
+  "weworkremotely": "2026-11-10T10:07:40.044Z",
+  "nodesk": "2026-11-10T10:07:40.044Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-10T05:44:28.822Z",
- "arbeitnowAt": "2026-11-10T05:44:28.822Z"
+ "jobicyAt": "2026-11-10T10:07:40.044Z",
+ "arbeitnowAt": "2026-11-10T10:07:40.044Z"
 }
