@@ -6285,6 +6285,10 @@
   "jobicy:duckduckgo": {
    "reason": "Hires in the US",
    "at": "2026-11-10T10:05:59.017Z"
+  },
+  "jobicy:cantina-labs": {
+   "reason": "Hires in the US",
+   "at": "2026-11-10T13:38:39.292Z"
   }
  },
  "wikidata": {
@@ -12202,14 +12206,74 @@
    "at": "2026-11-10T10:05:59.017Z",
    "id": null,
    "us": false
+  },
+  "Orkes": {
+   "at": "2026-11-10T13:38:39.292Z",
+   "id": null,
+   "us": false
+  },
+  "PubNub": {
+   "at": "2026-11-10T13:38:39.292Z",
+   "id": null,
+   "us": false
+  },
+  "Think3DDD GbR": {
+   "at": "2026-11-10T13:38:39.292Z",
+   "id": null,
+   "us": false
+  },
+  "ANGEHEUERT GmbH Personalberatung": {
+   "at": "2026-11-10T13:38:39.292Z",
+   "id": null,
+   "us": false
+  },
+  "Nelta GmbH": {
+   "at": "2026-11-10T13:38:39.292Z",
+   "id": null,
+   "us": false
+  },
+  "dyve GmbH": {
+   "at": "2026-11-10T13:38:39.292Z",
+   "id": null,
+   "us": false
+  },
+  "Corominas Consulting GmbH": {
+   "at": "2026-11-10T13:38:39.292Z",
+   "id": null,
+   "us": false
+  },
+  "Best Talents Consulting GmbH": {
+   "at": "2026-11-10T13:38:39.292Z",
+   "id": null,
+   "us": false
+  },
+  "paywise GmbH": {
+   "at": "2026-11-10T13:38:39.292Z",
+   "id": "Q140324847",
+   "us": false
+  },
+  "Klar": {
+   "at": "2026-11-10T13:38:39.292Z",
+   "id": null,
+   "us": false
+  },
+  "Schulz.codes GmbH": {
+   "at": "2026-11-10T13:38:39.292Z",
+   "id": null,
+   "us": false
+  },
+  "Tretmann": {
+   "at": "2026-11-10T13:38:39.292Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-10T10:05:59.017Z",
-  "remoteok": "2026-11-10T10:05:59.017Z",
-  "workingnomads": "2026-11-10T10:05:59.017Z",
-  "weworkremotely": "2026-11-10T10:05:59.017Z",
-  "nodesk": "2026-11-10T10:05:59.017Z",
+  "remoteok": "2026-11-10T13:38:39.292Z",
+  "workingnomads": "2026-11-10T13:38:39.292Z",
+  "weworkremotely": "2026-11-10T13:38:39.292Z",
+  "nodesk": "2026-11-10T13:38:39.292Z",
   "himalayas": "2026-11-10T11:59:11.012Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -12262,8 +12326,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-10T10:05:59.017Z",
- "arbeitnowAt": "2026-11-10T10:05:59.017Z",
+ "jobicyAt": "2026-11-10T13:38:39.292Z",
+ "arbeitnowAt": "2026-11-10T13:38:39.292Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,

@@ -3618,6 +3618,10 @@
   "jobicy:duckduckgo": {
    "reason": "Hires in the US",
    "at": "2026-11-10T10:07:40.044Z"
+  },
+  "jobicy:cantina-labs": {
+   "reason": "Hires in the US",
+   "at": "2026-11-10T13:39:11.154Z"
   }
  },
  "wikidata": {
@@ -7855,16 +7859,76 @@
    "at": "2026-11-10T10:07:40.044Z",
    "id": "Q116425349",
    "us": false
+  },
+  "Orkes": {
+   "at": "2026-11-10T13:39:11.154Z",
+   "id": null,
+   "us": false
+  },
+  "PubNub": {
+   "at": "2026-11-10T13:39:11.154Z",
+   "id": null,
+   "us": false
+  },
+  "Think3DDD GbR": {
+   "at": "2026-11-10T13:39:11.154Z",
+   "id": null,
+   "us": false
+  },
+  "ANGEHEUERT GmbH Personalberatung": {
+   "at": "2026-11-10T13:39:11.154Z",
+   "id": null,
+   "us": false
+  },
+  "Nelta GmbH": {
+   "at": "2026-11-10T13:39:11.154Z",
+   "id": null,
+   "us": false
+  },
+  "dyve GmbH": {
+   "at": "2026-11-10T13:39:11.154Z",
+   "id": null,
+   "us": false
+  },
+  "Corominas Consulting GmbH": {
+   "at": "2026-11-10T13:39:11.154Z",
+   "id": null,
+   "us": false
+  },
+  "Best Talents Consulting GmbH": {
+   "at": "2026-11-10T13:39:11.154Z",
+   "id": null,
+   "us": false
+  },
+  "paywise GmbH": {
+   "at": "2026-11-10T13:39:11.154Z",
+   "id": "Q140324847",
+   "us": false
+  },
+  "Klar": {
+   "at": "2026-11-10T13:39:11.154Z",
+   "id": null,
+   "us": false
+  },
+  "Schulz.codes GmbH": {
+   "at": "2026-11-10T13:39:11.154Z",
+   "id": null,
+   "us": false
+  },
+  "Tretmann": {
+   "at": "2026-11-10T13:39:11.154Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-10T10:07:40.044Z",
-  "remoteok": "2026-11-10T10:07:40.044Z",
-  "workingnomads": "2026-11-10T10:07:40.044Z",
-  "weworkremotely": "2026-11-10T10:07:40.044Z",
-  "nodesk": "2026-11-10T10:07:40.044Z",
+  "remoteok": "2026-11-10T13:39:11.154Z",
+  "workingnomads": "2026-11-10T13:39:11.154Z",
+  "weworkremotely": "2026-11-10T13:39:11.154Z",
+  "nodesk": "2026-11-10T13:39:11.154Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-10T10:07:40.044Z",
- "arbeitnowAt": "2026-11-10T10:07:40.044Z"
+ "jobicyAt": "2026-11-10T13:39:11.154Z",
+ "arbeitnowAt": "2026-11-10T13:39:11.154Z"
 }
