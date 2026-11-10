@@ -6297,6 +6297,14 @@
   "hn:toolkit-llc": {
    "reason": "US headquarters",
    "at": "2026-11-10T16:38:45.556Z"
+  },
+  "weworkremotely:edgeq-technologies-private-limited": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-10T19:29:10.908Z"
+  },
+  "jobicy:roboflow": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-10T19:29:10.908Z"
   }
  },
  "wikidata": {
@@ -12329,15 +12337,30 @@
    "at": "2026-11-10T16:38:45.556Z",
    "id": null,
    "us": false
+  },
+  "Roboflow": {
+   "at": "2026-11-10T19:29:10.908Z",
+   "id": "Q133043238",
+   "us": true
+  },
+  "actago GmbH": {
+   "at": "2026-11-10T19:29:10.908Z",
+   "id": null,
+   "us": false
+  },
+  "Many Hands": {
+   "at": "2026-11-10T19:29:10.908Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-10T16:38:45.556Z",
-  "remoteok": "2026-11-10T16:38:45.556Z",
-  "workingnomads": "2026-11-10T16:38:45.556Z",
-  "weworkremotely": "2026-11-10T16:38:45.556Z",
-  "nodesk": "2026-11-10T16:38:45.556Z",
-  "himalayas": "2026-11-10T16:38:45.556Z",
+  "remoteok": "2026-11-10T19:29:10.908Z",
+  "workingnomads": "2026-11-10T19:29:10.908Z",
+  "weworkremotely": "2026-11-10T19:29:10.908Z",
+  "nodesk": "2026-11-10T19:29:10.908Z",
+  "himalayas": "2026-11-10T19:29:10.908Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -12389,8 +12412,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-10T16:38:45.556Z",
- "arbeitnowAt": "2026-11-10T16:38:45.556Z",
+ "jobicyAt": "2026-11-10T19:29:10.908Z",
+ "arbeitnowAt": "2026-11-10T19:29:10.908Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
