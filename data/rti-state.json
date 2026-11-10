@@ -739,6 +739,14 @@
    "name": "3ive",
    "discovered": "2026-11-06T21:06:25.644Z",
    "active": true
+  },
+  {
+   "ats": "greenhouse",
+   "token": "odinlabs",
+   "companyId": "hn:odin",
+   "name": "Odin",
+   "discovered": "2026-11-10T22:48:24.542Z",
+   "active": false
   }
  ],
  "boardNames": {},
@@ -8008,10 +8016,15 @@
    "at": "2026-11-10T21:48:08.611Z",
    "id": null,
    "us": false
+  },
+  "Odin": {
+   "at": "2026-11-10T22:48:24.542Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-10T16:40:43.294Z",
+  "remotive": "2026-11-10T22:48:24.542Z",
   "remoteok": "2026-11-10T21:48:08.611Z",
   "workingnomads": "2026-11-10T21:48:08.611Z",
   "weworkremotely": "2026-11-10T21:48:08.611Z",
