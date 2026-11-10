@@ -7792,16 +7792,46 @@
    "at": "2026-11-09T22:49:26.752Z",
    "id": null,
    "us": false
+  },
+  "Notabene": {
+   "at": "2026-11-10T02:19:40.864Z",
+   "id": null,
+   "us": false
+  },
+  "Wellhub": {
+   "at": "2026-11-10T02:19:40.864Z",
+   "id": null,
+   "us": false
+  },
+  "FreeBalance": {
+   "at": "2026-11-10T02:19:40.864Z",
+   "id": null,
+   "us": false
+  },
+  "Filigran": {
+   "at": "2026-11-10T02:19:40.864Z",
+   "id": null,
+   "us": false
+  },
+  "Cloudbeds": {
+   "at": "2026-11-10T02:19:40.864Z",
+   "id": null,
+   "us": false
+  },
+  "Harzspots GmbH": {
+   "at": "2026-11-10T02:19:40.864Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-09T18:49:36.976Z",
-  "remoteok": "2026-11-09T21:48:35.962Z",
-  "workingnomads": "2026-11-09T21:48:35.962Z",
-  "weworkremotely": "2026-11-09T21:48:35.962Z",
-  "nodesk": "2026-11-09T21:48:35.962Z",
+  "remotive": "2026-11-10T02:19:40.864Z",
+  "remoteok": "2026-11-10T02:19:40.864Z",
+  "workingnomads": "2026-11-10T02:19:40.864Z",
+  "weworkremotely": "2026-11-10T02:19:40.864Z",
+  "nodesk": "2026-11-10T02:19:40.864Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-09T21:48:35.962Z",
- "arbeitnowAt": "2026-11-09T21:48:35.962Z"
+ "jobicyAt": "2026-11-10T02:19:40.864Z",
+ "arbeitnowAt": "2026-11-10T02:19:40.864Z"
 }
