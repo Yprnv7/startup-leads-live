@@ -3638,6 +3638,14 @@
   "hn:toolkit-llc": {
    "reason": "US headquarters",
    "at": "2026-11-10T16:40:43.294Z"
+  },
+  "weworkremotely:edgeq-technologies-private-limited": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-10T21:48:08.611Z"
+  },
+  "jobicy:roboflow": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-10T21:48:08.611Z"
   }
  },
  "wikidata": {
@@ -7985,16 +7993,31 @@
    "at": "2026-11-10T16:40:43.294Z",
    "id": null,
    "us": false
+  },
+  "Roboflow": {
+   "at": "2026-11-10T21:48:08.611Z",
+   "id": "Q133043238",
+   "us": true
+  },
+  "actago GmbH": {
+   "at": "2026-11-10T21:48:08.611Z",
+   "id": null,
+   "us": false
+  },
+  "Many Hands": {
+   "at": "2026-11-10T21:48:08.611Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-10T16:40:43.294Z",
-  "remoteok": "2026-11-10T16:40:43.294Z",
-  "workingnomads": "2026-11-10T16:40:43.294Z",
-  "weworkremotely": "2026-11-10T16:40:43.294Z",
-  "nodesk": "2026-11-10T16:40:43.294Z",
+  "remoteok": "2026-11-10T21:48:08.611Z",
+  "workingnomads": "2026-11-10T21:48:08.611Z",
+  "weworkremotely": "2026-11-10T21:48:08.611Z",
+  "nodesk": "2026-11-10T21:48:08.611Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-10T16:40:43.294Z",
- "arbeitnowAt": "2026-11-10T16:40:43.294Z"
+ "jobicyAt": "2026-11-10T21:48:08.611Z",
+ "arbeitnowAt": "2026-11-10T21:48:08.611Z"
 }
