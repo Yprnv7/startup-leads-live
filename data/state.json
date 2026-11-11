@@ -6334,6 +6334,10 @@
   "hn:hemant-singh": {
    "reason": "India office",
    "at": "2026-11-11T15:27:40.061Z"
+  },
+  "hn:erica-holloway": {
+   "reason": "US headquarters",
+   "at": "2026-11-11T18:10:29.106Z"
   }
  },
  "wikidata": {
@@ -12501,6 +12505,11 @@
    "at": "2026-11-11T15:27:40.061Z",
    "id": null,
    "us": false
+  },
+  "Erica Holloway": {
+   "at": "2026-11-11T18:10:29.106Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
@@ -12509,7 +12518,7 @@
   "workingnomads": "2026-11-11T15:27:40.061Z",
   "weworkremotely": "2026-11-11T15:27:40.061Z",
   "nodesk": "2026-11-11T15:27:40.061Z",
-  "himalayas": "2026-11-11T15:27:40.061Z",
+  "himalayas": "2026-11-11T18:10:29.106Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},

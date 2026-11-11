@@ -3674,6 +3674,10 @@
   "hn:hemant-singh": {
    "reason": "India office",
    "at": "2026-11-11T15:29:08.461Z"
+  },
+  "hn:erica-holloway": {
+   "reason": "US headquarters",
+   "at": "2026-11-11T18:11:06.459Z"
   }
  },
  "wikidata": {
@@ -8154,6 +8158,11 @@
   },
   "HILLSIDE ASSETS LIMITED": {
    "at": "2026-11-11T15:29:08.461Z",
+   "id": null,
+   "us": false
+  },
+  "Erica Holloway": {
+   "at": "2026-11-11T18:11:06.459Z",
    "id": null,
    "us": false
   }
