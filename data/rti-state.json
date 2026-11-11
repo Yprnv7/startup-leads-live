@@ -3670,6 +3670,10 @@
   "arbeitnow:muckrack": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-11T06:18:18.312Z"
+  },
+  "hn:hemant-singh": {
+   "reason": "India office",
+   "at": "2026-11-11T15:29:08.461Z"
   }
  },
  "wikidata": {
@@ -8087,16 +8091,81 @@
    "at": "2026-11-11T11:17:03.175Z",
    "id": null,
    "us": false
+  },
+  "Quaisr": {
+   "at": "2026-11-11T15:29:08.461Z",
+   "id": null,
+   "us": false
+  },
+  "Hemant Singh": {
+   "at": "2026-11-11T15:29:08.461Z",
+   "id": null,
+   "us": false
+  },
+  "Emission Partner GmbH": {
+   "at": "2026-11-11T15:29:08.461Z",
+   "id": null,
+   "us": false
+  },
+  "parasus GmbH": {
+   "at": "2026-11-11T15:29:08.461Z",
+   "id": null,
+   "us": false
+  },
+  "mammaly": {
+   "at": "2026-11-11T15:29:08.461Z",
+   "id": null,
+   "us": false
+  },
+  "Just Hiring": {
+   "at": "2026-11-11T15:29:08.461Z",
+   "id": null,
+   "us": false
+  },
+  "Techtive Games GmbH": {
+   "at": "2026-11-11T15:29:08.461Z",
+   "id": null,
+   "us": false
+  },
+  "fairafric AG": {
+   "at": "2026-11-11T15:29:08.461Z",
+   "id": null,
+   "us": false
+  },
+  "Bonoboo GmbH": {
+   "at": "2026-11-11T15:29:08.461Z",
+   "id": null,
+   "us": false
+  },
+  "Nextcloud": {
+   "at": "2026-11-11T15:29:08.461Z",
+   "id": "Q110707544",
+   "us": false
+  },
+  "Impledio GmbH": {
+   "at": "2026-11-11T15:29:08.461Z",
+   "id": null,
+   "us": false
+  },
+  "allaboutHRLaw GmbH": {
+   "at": "2026-11-11T15:29:08.461Z",
+   "id": null,
+   "us": false
+  },
+  "HILLSIDE ASSETS LIMITED": {
+   "at": "2026-11-11T15:29:08.461Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-11T06:18:18.312Z",
-  "remoteok": "2026-11-11T09:17:32.578Z",
-  "workingnomads": "2026-11-11T09:17:32.578Z",
-  "weworkremotely": "2026-11-11T09:17:32.578Z",
-  "nodesk": "2026-11-11T09:17:32.578Z",
+  "remotive": "2026-11-11T15:29:08.461Z",
+  "remoteok": "2026-11-11T15:29:08.461Z",
+  "workingnomads": "2026-11-11T15:29:08.461Z",
+  "weworkremotely": "2026-11-11T15:29:08.461Z",
+  "nodesk": "2026-11-11T15:29:08.461Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-11T09:17:32.578Z",
- "arbeitnowAt": "2026-11-11T09:17:32.578Z"
+ "jobicyAt": "2026-11-11T15:29:08.461Z",
+ "arbeitnowAt": "2026-11-11T15:29:08.461Z"
 }
