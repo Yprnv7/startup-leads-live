@@ -3384,7 +3384,7 @@
    "companyId": "hn:odin",
    "name": "Odin",
    "discovered": "2026-11-10T22:47:50.242Z",
-   "active": false
+   "active": true
   }
  ],
  "boardNames": {},
@@ -12387,11 +12387,11 @@
  },
  "othersAt": {
   "remotive": "2026-11-10T22:47:50.242Z",
-  "remoteok": "2026-11-10T22:47:50.242Z",
-  "workingnomads": "2026-11-10T22:47:50.242Z",
-  "weworkremotely": "2026-11-10T22:47:50.242Z",
-  "nodesk": "2026-11-10T22:47:50.242Z",
-  "himalayas": "2026-11-10T23:45:23.782Z",
+  "remoteok": "2026-11-11T01:47:55.113Z",
+  "workingnomads": "2026-11-11T01:47:55.113Z",
+  "weworkremotely": "2026-11-11T01:47:55.113Z",
+  "nodesk": "2026-11-11T01:47:55.113Z",
+  "himalayas": "2026-11-11T01:47:55.113Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -12443,8 +12443,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-10T22:47:50.242Z",
- "arbeitnowAt": "2026-11-10T22:47:50.242Z",
+ "jobicyAt": "2026-11-11T01:47:55.113Z",
+ "arbeitnowAt": "2026-11-11T01:47:55.113Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
