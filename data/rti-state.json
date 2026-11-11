@@ -3662,6 +3662,14 @@
   "remoteok:buoyant": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-11T00:47:59.780Z"
+  },
+  "jobicy:polar": {
+   "reason": "Hires in the US",
+   "at": "2026-11-11T06:18:18.312Z"
+  },
+  "arbeitnow:muckrack": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-11T06:18:18.312Z"
   }
  },
  "wikidata": {
@@ -8044,16 +8052,46 @@
    "at": "2026-11-11T02:48:02.058Z",
    "id": null,
    "us": false
+  },
+  "Nash": {
+   "at": "2026-11-11T06:18:18.312Z",
+   "id": null,
+   "us": false
+  },
+  "Kairos Project": {
+   "at": "2026-11-11T06:18:18.312Z",
+   "id": null,
+   "us": false
+  },
+  "Muckrack": {
+   "at": "2026-11-11T06:18:18.312Z",
+   "id": "Q57500196",
+   "us": true
+  },
+  "Reactive Markets": {
+   "at": "2026-11-11T06:18:18.312Z",
+   "id": null,
+   "us": false
+  },
+  "SkyCell AG": {
+   "at": "2026-11-11T06:18:18.312Z",
+   "id": null,
+   "us": false
+  },
+  "Hostaway": {
+   "at": "2026-11-11T06:18:18.312Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-10T22:48:24.542Z",
-  "remoteok": "2026-11-11T00:47:59.780Z",
-  "workingnomads": "2026-11-11T00:47:59.780Z",
-  "weworkremotely": "2026-11-11T00:47:59.780Z",
-  "nodesk": "2026-11-11T00:47:59.780Z",
+  "remotive": "2026-11-11T06:18:18.312Z",
+  "remoteok": "2026-11-11T06:18:18.312Z",
+  "workingnomads": "2026-11-11T06:18:18.312Z",
+  "weworkremotely": "2026-11-11T06:18:18.312Z",
+  "nodesk": "2026-11-11T06:18:18.312Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-11T00:47:59.780Z",
- "arbeitnowAt": "2026-11-11T00:47:59.780Z"
+ "jobicyAt": "2026-11-11T06:18:18.312Z",
+ "arbeitnowAt": "2026-11-11T06:18:18.312Z"
 }
