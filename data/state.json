@@ -6338,6 +6338,26 @@
   "hn:erica-holloway": {
    "reason": "US headquarters",
    "at": "2026-11-11T18:10:29.106Z"
+  },
+  "weworkremotely:sezzle": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-11T18:53:07.427Z"
+  },
+  "hn:steven-hobbs": {
+   "reason": "US headquarters",
+   "at": "2026-11-11T18:53:07.427Z"
+  },
+  "weworkremotely:changing-lives-productions-llc": {
+   "reason": "India office",
+   "at": "2026-11-11T18:53:07.427Z"
+  },
+  "weworkremotely:apadcode": {
+   "reason": "India office",
+   "at": "2026-11-11T18:53:07.427Z"
+  },
+  "weworkremotely:proarch": {
+   "reason": "India office",
+   "at": "2026-11-11T18:53:07.427Z"
   }
  },
  "wikidata": {
@@ -12510,14 +12530,69 @@
    "at": "2026-11-11T18:10:29.106Z",
    "id": null,
    "us": false
+  },
+  "Steven Hobbs": {
+   "at": "2026-11-11T18:53:07.427Z",
+   "id": null,
+   "us": false
+  },
+  "proetzl executive search": {
+   "at": "2026-11-11T18:53:07.427Z",
+   "id": null,
+   "us": false
+  },
+  "parasus GmbH": {
+   "at": "2026-11-11T18:53:07.427Z",
+   "id": null,
+   "us": false
+  },
+  "Surplex GmbH": {
+   "at": "2026-11-11T18:53:07.427Z",
+   "id": null,
+   "us": false
+  },
+  "Brixio": {
+   "at": "2026-11-11T18:53:07.427Z",
+   "id": "Q138772310",
+   "us": false
+  },
+  "Addepto": {
+   "at": "2026-11-11T18:53:07.427Z",
+   "id": null,
+   "us": false
+  },
+  "Sezzle": {
+   "at": "2026-11-11T18:53:07.427Z",
+   "id": "Q85800542",
+   "us": true
+  },
+  "University of the People": {
+   "at": "2026-11-11T18:53:07.427Z",
+   "id": null,
+   "us": false
+  },
+  "Changing Lives Productions LLC": {
+   "at": "2026-11-11T18:53:07.427Z",
+   "id": null,
+   "us": false
+  },
+  "APADCode": {
+   "at": "2026-11-11T18:53:07.427Z",
+   "id": null,
+   "us": false
+  },
+  "ProArch": {
+   "at": "2026-11-11T18:53:07.427Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-11T15:27:40.061Z",
-  "remoteok": "2026-11-11T15:27:40.061Z",
-  "workingnomads": "2026-11-11T15:27:40.061Z",
-  "weworkremotely": "2026-11-11T15:27:40.061Z",
-  "nodesk": "2026-11-11T15:27:40.061Z",
+  "remoteok": "2026-11-11T18:53:07.427Z",
+  "workingnomads": "2026-11-11T18:53:07.427Z",
+  "weworkremotely": "2026-11-11T18:53:07.427Z",
+  "nodesk": "2026-11-11T18:53:07.427Z",
   "himalayas": "2026-11-11T18:10:29.106Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -12570,8 +12645,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-11T15:27:40.061Z",
- "arbeitnowAt": "2026-11-11T15:27:40.061Z",
+ "jobicyAt": "2026-11-11T18:53:07.427Z",
+ "arbeitnowAt": "2026-11-11T18:53:07.427Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,

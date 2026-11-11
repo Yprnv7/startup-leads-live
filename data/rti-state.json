@@ -3678,6 +3678,26 @@
   "hn:erica-holloway": {
    "reason": "US headquarters",
    "at": "2026-11-11T18:11:06.459Z"
+  },
+  "weworkremotely:sezzle": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-11T18:53:33.053Z"
+  },
+  "hn:steven-hobbs": {
+   "reason": "US headquarters",
+   "at": "2026-11-11T18:53:33.053Z"
+  },
+  "weworkremotely:changing-lives-productions-llc": {
+   "reason": "India office",
+   "at": "2026-11-11T18:53:33.053Z"
+  },
+  "weworkremotely:apadcode": {
+   "reason": "India office",
+   "at": "2026-11-11T18:53:33.053Z"
+  },
+  "weworkremotely:proarch": {
+   "reason": "India office",
+   "at": "2026-11-11T18:53:33.053Z"
   }
  },
  "wikidata": {
@@ -8165,16 +8185,66 @@
    "at": "2026-11-11T18:11:06.459Z",
    "id": null,
    "us": false
+  },
+  "Steven Hobbs": {
+   "at": "2026-11-11T18:53:33.053Z",
+   "id": null,
+   "us": false
+  },
+  "proetzl executive search": {
+   "at": "2026-11-11T18:53:33.053Z",
+   "id": null,
+   "us": false
+  },
+  "Surplex GmbH": {
+   "at": "2026-11-11T18:53:33.053Z",
+   "id": null,
+   "us": false
+  },
+  "Brixio": {
+   "at": "2026-11-11T18:53:33.053Z",
+   "id": "Q138772310",
+   "us": false
+  },
+  "Addepto": {
+   "at": "2026-11-11T18:53:33.053Z",
+   "id": null,
+   "us": false
+  },
+  "Sezzle": {
+   "at": "2026-11-11T18:53:33.053Z",
+   "id": "Q85800542",
+   "us": true
+  },
+  "University of the People": {
+   "at": "2026-11-11T18:53:33.053Z",
+   "id": null,
+   "us": false
+  },
+  "Changing Lives Productions LLC": {
+   "at": "2026-11-11T18:53:33.053Z",
+   "id": null,
+   "us": false
+  },
+  "APADCode": {
+   "at": "2026-11-11T18:53:33.053Z",
+   "id": null,
+   "us": false
+  },
+  "ProArch": {
+   "at": "2026-11-11T18:53:33.053Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-11T15:29:08.461Z",
-  "remoteok": "2026-11-11T15:29:08.461Z",
-  "workingnomads": "2026-11-11T15:29:08.461Z",
-  "weworkremotely": "2026-11-11T15:29:08.461Z",
-  "nodesk": "2026-11-11T15:29:08.461Z",
+  "remoteok": "2026-11-11T18:53:33.053Z",
+  "workingnomads": "2026-11-11T18:53:33.053Z",
+  "weworkremotely": "2026-11-11T18:53:33.053Z",
+  "nodesk": "2026-11-11T18:53:33.053Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-11T15:29:08.461Z",
- "arbeitnowAt": "2026-11-11T15:29:08.461Z"
+ "jobicyAt": "2026-11-11T18:53:33.053Z",
+ "arbeitnowAt": "2026-11-11T18:53:33.053Z"
 }
