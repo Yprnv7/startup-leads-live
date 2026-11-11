@@ -3698,6 +3698,10 @@
   "weworkremotely:proarch": {
    "reason": "India office",
    "at": "2026-11-11T18:53:33.053Z"
+  },
+  "jobicy:toptal": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-11T22:25:32.623Z"
   }
  },
  "wikidata": {
@@ -8235,16 +8239,31 @@
    "at": "2026-11-11T18:53:33.053Z",
    "id": null,
    "us": false
+  },
+  "Peoplecert": {
+   "at": "2026-11-11T22:25:32.623Z",
+   "id": null,
+   "us": false
+  },
+  "Shiftmove": {
+   "at": "2026-11-11T22:25:32.623Z",
+   "id": null,
+   "us": false
+  },
+  "The Trainee Company": {
+   "at": "2026-11-11T22:25:32.623Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-11T15:29:08.461Z",
-  "remoteok": "2026-11-11T18:53:33.053Z",
-  "workingnomads": "2026-11-11T18:53:33.053Z",
-  "weworkremotely": "2026-11-11T18:53:33.053Z",
-  "nodesk": "2026-11-11T18:53:33.053Z",
+  "remotive": "2026-11-11T22:25:32.623Z",
+  "remoteok": "2026-11-11T22:25:32.623Z",
+  "workingnomads": "2026-11-11T22:25:32.623Z",
+  "weworkremotely": "2026-11-11T22:25:32.623Z",
+  "nodesk": "2026-11-11T22:25:32.623Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-11T18:53:33.053Z",
- "arbeitnowAt": "2026-11-11T18:53:33.053Z"
+ "jobicyAt": "2026-11-11T22:25:32.623Z",
+ "arbeitnowAt": "2026-11-11T22:25:32.623Z"
 }
