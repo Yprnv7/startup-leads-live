@@ -3654,6 +3654,14 @@
   "jobicy:roboflow": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-10T21:48:08.611Z"
+  },
+  "weworkremotely:knack": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-11T00:47:59.780Z"
+  },
+  "remoteok:buoyant": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-11T00:47:59.780Z"
   }
  },
  "wikidata": {
@@ -8021,16 +8029,26 @@
    "at": "2026-11-10T22:48:24.542Z",
    "id": null,
    "us": false
+  },
+  "Buoyant": {
+   "at": "2026-11-11T00:47:59.780Z",
+   "id": "Q141292823",
+   "us": true
+  },
+  "We Work Remotely": {
+   "at": "2026-11-11T00:47:59.780Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-10T22:48:24.542Z",
-  "remoteok": "2026-11-10T21:48:08.611Z",
-  "workingnomads": "2026-11-10T21:48:08.611Z",
-  "weworkremotely": "2026-11-10T21:48:08.611Z",
-  "nodesk": "2026-11-10T21:48:08.611Z",
+  "remoteok": "2026-11-11T00:47:59.780Z",
+  "workingnomads": "2026-11-11T00:47:59.780Z",
+  "weworkremotely": "2026-11-11T00:47:59.780Z",
+  "nodesk": "2026-11-11T00:47:59.780Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-10T21:48:08.611Z",
- "arbeitnowAt": "2026-11-10T21:48:08.611Z"
+ "jobicyAt": "2026-11-11T00:47:59.780Z",
+ "arbeitnowAt": "2026-11-11T00:47:59.780Z"
 }
