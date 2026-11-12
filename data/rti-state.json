@@ -8307,16 +8307,36 @@
    "at": "2026-11-12T01:43:08.620Z",
    "id": null,
    "us": false
+  },
+  "Cresta": {
+   "at": "2026-11-12T07:10:06.425Z",
+   "id": null,
+   "us": false
+  },
+  "Innova Market Insights": {
+   "at": "2026-11-12T07:10:06.425Z",
+   "id": null,
+   "us": false
+  },
+  "LOGEX": {
+   "at": "2026-11-12T07:10:06.425Z",
+   "id": null,
+   "us": false
+  },
+  "Loftorbital": {
+   "at": "2026-11-12T07:10:06.425Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-11T22:25:32.623Z",
-  "remoteok": "2026-11-12T01:43:08.620Z",
-  "workingnomads": "2026-11-12T01:43:08.620Z",
-  "weworkremotely": "2026-11-12T01:43:08.620Z",
-  "nodesk": "2026-11-12T01:43:08.620Z",
+  "remotive": "2026-11-12T07:10:06.425Z",
+  "remoteok": "2026-11-12T07:10:06.425Z",
+  "workingnomads": "2026-11-12T07:10:06.425Z",
+  "weworkremotely": "2026-11-12T07:10:06.425Z",
+  "nodesk": "2026-11-12T07:10:06.425Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-12T01:43:08.620Z",
- "arbeitnowAt": "2026-11-12T01:43:08.620Z"
+ "jobicyAt": "2026-11-12T07:10:06.425Z",
+ "arbeitnowAt": "2026-11-12T07:10:06.425Z"
 }
