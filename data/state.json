@@ -6395,6 +6395,18 @@
   "hn:native": {
    "reason": "US headquarters",
    "at": "2026-11-12T12:58:53.926Z"
+  },
+  "jobicy:actian": {
+   "reason": "Hires in the US",
+   "at": "2026-11-12T16:47:57.028Z"
+  },
+  "jobicy:samsara": {
+   "reason": "US headquarters (config)",
+   "at": "2026-11-12T16:47:57.028Z"
+  },
+  "hn:ksc-trading": {
+   "reason": "US headquarters",
+   "at": "2026-11-12T16:47:57.028Z"
   }
  },
  "wikidata": {
@@ -12752,15 +12764,55 @@
    "at": "2026-11-12T12:58:53.926Z",
    "id": null,
    "us": false
+  },
+  "Fever": {
+   "at": "2026-11-12T16:47:57.028Z",
+   "id": null,
+   "us": false
+  },
+  "Samsara": {
+   "at": "2026-11-12T16:47:57.028Z",
+   "id": null,
+   "us": false
+  },
+  "Deep Blue Recruitment": {
+   "at": "2026-11-12T16:47:57.028Z",
+   "id": null,
+   "us": false
+  },
+  "Ruby GmbH": {
+   "at": "2026-11-12T16:47:57.028Z",
+   "id": null,
+   "us": false
+  },
+  "H. Wagner + Partner": {
+   "at": "2026-11-12T16:47:57.028Z",
+   "id": null,
+   "us": false
+  },
+  "Refinery89": {
+   "at": "2026-11-12T16:47:57.028Z",
+   "id": null,
+   "us": false
+  },
+  "GuestReady": {
+   "at": "2026-11-12T16:47:57.028Z",
+   "id": "Q63985151",
+   "us": false
+  },
+  "Launchmetrics": {
+   "at": "2026-11-12T16:47:57.028Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-12T12:58:53.926Z",
-  "remoteok": "2026-11-12T12:58:53.926Z",
-  "workingnomads": "2026-11-12T12:58:53.926Z",
-  "weworkremotely": "2026-11-12T12:58:53.926Z",
-  "nodesk": "2026-11-12T12:58:53.926Z",
-  "himalayas": "2026-11-12T12:58:53.926Z",
+  "remoteok": "2026-11-12T16:47:57.028Z",
+  "workingnomads": "2026-11-12T16:47:57.028Z",
+  "weworkremotely": "2026-11-12T16:47:57.028Z",
+  "nodesk": "2026-11-12T16:47:57.028Z",
+  "himalayas": "2026-11-12T16:47:57.028Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -12812,8 +12864,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-12T12:58:53.926Z",
- "arbeitnowAt": "2026-11-12T12:58:53.926Z",
+ "jobicyAt": "2026-11-12T16:47:57.028Z",
+ "arbeitnowAt": "2026-11-12T16:47:57.028Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
