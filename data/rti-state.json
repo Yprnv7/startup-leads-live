@@ -3719,6 +3719,10 @@
   "remoteok:boston-scientific": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-12T10:09:04.245Z"
+  },
+  "hn:native": {
+   "reason": "US headquarters",
+   "at": "2026-11-12T13:00:16.073Z"
   }
  },
  "wikidata": {
@@ -8351,16 +8355,41 @@
    "at": "2026-11-12T10:09:04.245Z",
    "id": "Q894585",
    "us": true
+  },
+  "Native": {
+   "at": "2026-11-12T13:00:16.073Z",
+   "id": null,
+   "us": false
+  },
+  "Nivoda": {
+   "at": "2026-11-12T13:00:16.073Z",
+   "id": null,
+   "us": false
+  },
+  "BEFORE EIGHT Group GmbH": {
+   "at": "2026-11-12T13:00:16.073Z",
+   "id": null,
+   "us": false
+  },
+  "Simpson Strong-Tie GmbH": {
+   "at": "2026-11-12T13:00:16.073Z",
+   "id": null,
+   "us": false
+  },
+  "evoila Frankfurt GmbH": {
+   "at": "2026-11-12T13:00:16.073Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-12T07:10:06.425Z",
-  "remoteok": "2026-11-12T10:09:04.245Z",
-  "workingnomads": "2026-11-12T10:09:04.245Z",
-  "weworkremotely": "2026-11-12T10:09:04.245Z",
-  "nodesk": "2026-11-12T10:09:04.245Z",
+  "remotive": "2026-11-12T13:00:16.073Z",
+  "remoteok": "2026-11-12T13:00:16.073Z",
+  "workingnomads": "2026-11-12T13:00:16.073Z",
+  "weworkremotely": "2026-11-12T13:00:16.073Z",
+  "nodesk": "2026-11-12T13:00:16.073Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-12T10:09:04.245Z",
- "arbeitnowAt": "2026-11-12T10:09:04.245Z"
+ "jobicyAt": "2026-11-12T13:00:16.073Z",
+ "arbeitnowAt": "2026-11-12T13:00:16.073Z"
 }
