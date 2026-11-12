@@ -6387,6 +6387,10 @@
   "remoteok:boston-scientific": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-12T10:08:42.374Z"
+  },
+  "himalayas:beigene": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-12T11:08:44.113Z"
   }
  },
  "wikidata": {
@@ -12714,6 +12718,11 @@
    "at": "2026-11-12T10:08:42.374Z",
    "id": "Q894585",
    "us": true
+  },
+  "BeiGene": {
+   "at": "2026-11-12T11:08:44.113Z",
+   "id": "Q30260298",
+   "us": true
   }
  },
  "othersAt": {
@@ -12722,7 +12731,7 @@
   "workingnomads": "2026-11-12T10:08:42.374Z",
   "weworkremotely": "2026-11-12T10:08:42.374Z",
   "nodesk": "2026-11-12T10:08:42.374Z",
-  "himalayas": "2026-11-12T09:08:39.120Z",
+  "himalayas": "2026-11-12T11:08:44.113Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
