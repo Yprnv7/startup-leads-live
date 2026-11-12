@@ -329,7 +329,8 @@
   "armature": "2026-11-06T01:59:20.443Z",
   "adalat-ai": "2026-11-07T01:18:48.416Z",
   "clicks-health": "2026-11-07T01:18:48.416Z",
-  "third-chair": "2026-11-07T01:18:48.416Z"
+  "third-chair": "2026-11-07T01:18:48.416Z",
+  "paasa": "2026-11-12T01:43:08.620Z"
  },
  "boards": [
   {
@@ -3702,6 +3703,18 @@
   "jobicy:toptal": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-11T22:25:32.623Z"
+  },
+  "yc:paasa": {
+   "reason": "India office",
+   "at": "2026-11-12T01:43:08.620Z"
+  },
+  "hn:kroo": {
+   "reason": "US headquarters",
+   "at": "2026-11-12T01:43:08.620Z"
+  },
+  "hn:foji": {
+   "reason": "US headquarters",
+   "at": "2026-11-12T01:43:08.620Z"
   }
  },
  "wikidata": {
@@ -8254,16 +8267,56 @@
    "at": "2026-11-11T22:25:32.623Z",
    "id": null,
    "us": false
+  },
+  "Kroo": {
+   "at": "2026-11-12T01:43:08.620Z",
+   "id": null,
+   "us": false
+  },
+  "Foji": {
+   "at": "2026-11-12T01:43:08.620Z",
+   "id": null,
+   "us": false
+  },
+  "Landlord": {
+   "at": "2026-11-12T01:43:08.620Z",
+   "id": null,
+   "us": false
+  },
+  "Mento": {
+   "at": "2026-11-12T01:43:08.620Z",
+   "id": null,
+   "us": false
+  },
+  "Sprinter Health": {
+   "at": "2026-11-12T01:43:08.620Z",
+   "id": null,
+   "us": false
+  },
+  "Airwallex": {
+   "at": "2026-11-12T01:43:08.620Z",
+   "id": "Q112228127",
+   "us": false
+  },
+  "Docker": {
+   "at": "2026-11-12T01:43:08.620Z",
+   "id": null,
+   "us": false
+  },
+  "Directive Consulting": {
+   "at": "2026-11-12T01:43:08.620Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-11T22:25:32.623Z",
-  "remoteok": "2026-11-11T22:25:32.623Z",
-  "workingnomads": "2026-11-11T22:25:32.623Z",
-  "weworkremotely": "2026-11-11T22:25:32.623Z",
-  "nodesk": "2026-11-11T22:25:32.623Z",
+  "remoteok": "2026-11-12T01:43:08.620Z",
+  "workingnomads": "2026-11-12T01:43:08.620Z",
+  "weworkremotely": "2026-11-12T01:43:08.620Z",
+  "nodesk": "2026-11-12T01:43:08.620Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-11T22:25:32.623Z",
- "arbeitnowAt": "2026-11-11T22:25:32.623Z"
+ "jobicyAt": "2026-11-12T01:43:08.620Z",
+ "arbeitnowAt": "2026-11-12T01:43:08.620Z"
 }

@@ -354,7 +354,8 @@
   "adalat-ai": "2026-11-07T01:18:31.389Z",
   "clicks-health": "2026-11-07T01:18:31.389Z",
   "third-chair": "2026-11-07T01:18:31.389Z",
-  "e2e": "2026-11-09T01:01:50.967Z"
+  "e2e": "2026-11-09T01:01:50.967Z",
+  "paasa": "2026-11-12T01:41:52.603Z"
  },
  "boards": [
   {
@@ -6366,6 +6367,22 @@
   "arbeitnow:transperfect": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-11T22:24:08.604Z"
+  },
+  "yc:paasa": {
+   "reason": "India office",
+   "at": "2026-11-12T01:41:52.603Z"
+  },
+  "nodesk:airwallex": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-12T01:41:52.603Z"
+  },
+  "hn:kroo": {
+   "reason": "US headquarters",
+   "at": "2026-11-12T01:41:52.603Z"
+  },
+  "hn:foji": {
+   "reason": "US headquarters",
+   "at": "2026-11-12T01:41:52.603Z"
   }
  },
  "wikidata": {
@@ -12613,15 +12630,55 @@
    "at": "2026-11-11T22:24:08.604Z",
    "id": null,
    "us": false
+  },
+  "Kroo": {
+   "at": "2026-11-12T01:41:52.603Z",
+   "id": null,
+   "us": false
+  },
+  "Foji": {
+   "at": "2026-11-12T01:41:52.603Z",
+   "id": null,
+   "us": false
+  },
+  "Landlord": {
+   "at": "2026-11-12T01:41:52.603Z",
+   "id": null,
+   "us": false
+  },
+  "Mento": {
+   "at": "2026-11-12T01:41:52.603Z",
+   "id": null,
+   "us": false
+  },
+  "Sprinter Health": {
+   "at": "2026-11-12T01:41:52.603Z",
+   "id": null,
+   "us": false
+  },
+  "Airwallex": {
+   "at": "2026-11-12T01:41:52.603Z",
+   "id": "Q112228127",
+   "us": true
+  },
+  "Docker": {
+   "at": "2026-11-12T01:41:52.603Z",
+   "id": null,
+   "us": false
+  },
+  "Directive Consulting": {
+   "at": "2026-11-12T01:41:52.603Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-11T22:24:08.604Z",
-  "remoteok": "2026-11-11T22:24:08.604Z",
-  "workingnomads": "2026-11-11T22:24:08.604Z",
-  "weworkremotely": "2026-11-11T22:24:08.604Z",
-  "nodesk": "2026-11-11T22:24:08.604Z",
-  "himalayas": "2026-11-11T22:24:08.604Z",
+  "remoteok": "2026-11-12T01:41:52.603Z",
+  "workingnomads": "2026-11-12T01:41:52.603Z",
+  "weworkremotely": "2026-11-12T01:41:52.603Z",
+  "nodesk": "2026-11-12T01:41:52.603Z",
+  "himalayas": "2026-11-12T01:41:52.603Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -12673,8 +12730,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-11T22:24:08.604Z",
- "arbeitnowAt": "2026-11-11T22:24:08.604Z",
+ "jobicyAt": "2026-11-12T01:41:52.603Z",
+ "arbeitnowAt": "2026-11-12T01:41:52.603Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
