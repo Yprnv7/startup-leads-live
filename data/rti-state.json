@@ -748,6 +748,14 @@
    "name": "Odin",
    "discovered": "2026-11-10T22:48:24.542Z",
    "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "alternativepayments",
+   "companyId": "hn:alternative-payments",
+   "name": "Alternative Payments",
+   "discovered": "2026-11-12T21:48:34.752Z",
+   "active": false
   }
  ],
  "boardNames": {},
@@ -8465,6 +8473,11 @@
    "at": "2026-11-12T19:48:58.818Z",
    "id": "Q1353939",
    "us": true
+  },
+  "Alternative Payments": {
+   "at": "2026-11-12T21:48:34.752Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
