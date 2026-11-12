@@ -3715,6 +3715,10 @@
   "hn:foji": {
    "reason": "US headquarters",
    "at": "2026-11-12T01:43:08.620Z"
+  },
+  "remoteok:boston-scientific": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-12T10:09:04.245Z"
   }
  },
  "wikidata": {
@@ -8327,16 +8331,36 @@
    "at": "2026-11-12T07:10:06.425Z",
    "id": null,
    "us": false
+  },
+  "Market Cloud": {
+   "at": "2026-11-12T10:09:04.245Z",
+   "id": null,
+   "us": false
+  },
+  "Ritter von Gral GmbH": {
+   "at": "2026-11-12T10:09:04.245Z",
+   "id": null,
+   "us": false
+  },
+  "3E": {
+   "at": "2026-11-12T10:09:04.245Z",
+   "id": null,
+   "us": false
+  },
+  "Boston Scientific": {
+   "at": "2026-11-12T10:09:04.245Z",
+   "id": "Q894585",
+   "us": true
   }
  },
  "othersAt": {
   "remotive": "2026-11-12T07:10:06.425Z",
-  "remoteok": "2026-11-12T07:10:06.425Z",
-  "workingnomads": "2026-11-12T07:10:06.425Z",
-  "weworkremotely": "2026-11-12T07:10:06.425Z",
-  "nodesk": "2026-11-12T07:10:06.425Z",
+  "remoteok": "2026-11-12T10:09:04.245Z",
+  "workingnomads": "2026-11-12T10:09:04.245Z",
+  "weworkremotely": "2026-11-12T10:09:04.245Z",
+  "nodesk": "2026-11-12T10:09:04.245Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-12T07:10:06.425Z",
- "arbeitnowAt": "2026-11-12T07:10:06.425Z"
+ "jobicyAt": "2026-11-12T10:09:04.245Z",
+ "arbeitnowAt": "2026-11-12T10:09:04.245Z"
 }
