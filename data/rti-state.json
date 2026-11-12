@@ -3735,6 +3735,14 @@
   "hn:ksc-trading": {
    "reason": "US headquarters",
    "at": "2026-11-12T16:48:52.811Z"
+  },
+  "weworkremotely:cigna-healthcare": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-12T19:48:58.818Z"
+  },
+  "nodesk:etsy": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-12T19:48:58.818Z"
   }
  },
  "wikidata": {
@@ -8417,16 +8425,56 @@
    "at": "2026-11-12T16:48:52.811Z",
    "id": null,
    "us": false
+  },
+  "Maramio": {
+   "at": "2026-11-12T19:48:58.818Z",
+   "id": null,
+   "us": false
+  },
+  "innovative software applications & consulting AG": {
+   "at": "2026-11-12T19:48:58.818Z",
+   "id": null,
+   "us": false
+  },
+  "ML Media GmbH": {
+   "at": "2026-11-12T19:48:58.818Z",
+   "id": null,
+   "us": false
+  },
+  "XAAS": {
+   "at": "2026-11-12T19:48:58.818Z",
+   "id": null,
+   "us": false
+  },
+  "ShyftOff": {
+   "at": "2026-11-12T19:48:58.818Z",
+   "id": null,
+   "us": false
+  },
+  "Blueprint Technologies": {
+   "at": "2026-11-12T19:48:58.818Z",
+   "id": null,
+   "us": false
+  },
+  "Handshake AI": {
+   "at": "2026-11-12T19:48:58.818Z",
+   "id": null,
+   "us": false
+  },
+  "Etsy": {
+   "at": "2026-11-12T19:48:58.818Z",
+   "id": "Q1353939",
+   "us": true
   }
  },
  "othersAt": {
-  "remotive": "2026-11-12T13:00:16.073Z",
-  "remoteok": "2026-11-12T16:48:52.811Z",
-  "workingnomads": "2026-11-12T16:48:52.811Z",
-  "weworkremotely": "2026-11-12T16:48:52.811Z",
-  "nodesk": "2026-11-12T16:48:52.811Z",
+  "remotive": "2026-11-12T19:48:58.818Z",
+  "remoteok": "2026-11-12T19:48:58.818Z",
+  "workingnomads": "2026-11-12T19:48:58.818Z",
+  "weworkremotely": "2026-11-12T19:48:58.818Z",
+  "nodesk": "2026-11-12T19:48:58.818Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-12T16:48:52.811Z",
- "arbeitnowAt": "2026-11-12T16:48:52.811Z"
+ "jobicyAt": "2026-11-12T19:48:58.818Z",
+ "arbeitnowAt": "2026-11-12T19:48:58.818Z"
 }
