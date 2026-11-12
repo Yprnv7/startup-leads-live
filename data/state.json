@@ -12875,15 +12875,40 @@
    "at": "2026-11-12T21:48:14.574Z",
    "id": null,
    "us": false
+  },
+  "Flex": {
+   "at": "2026-11-12T22:53:37.846Z",
+   "id": "Q119658135",
+   "us": false
+  },
+  "AffiliateLandscape": {
+   "at": "2026-11-12T22:53:37.846Z",
+   "id": null,
+   "us": false
+  },
+  "Bluerocksecurity": {
+   "at": "2026-11-12T22:53:37.846Z",
+   "id": null,
+   "us": false
+  },
+  "MintCode Solutions GmbH": {
+   "at": "2026-11-12T22:53:37.846Z",
+   "id": null,
+   "us": false
+  },
+  "Beekman Social": {
+   "at": "2026-11-12T22:53:37.846Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-12T19:48:01.863Z",
-  "remoteok": "2026-11-12T19:48:01.863Z",
-  "workingnomads": "2026-11-12T19:48:01.863Z",
-  "weworkremotely": "2026-11-12T19:48:01.863Z",
-  "nodesk": "2026-11-12T19:48:01.863Z",
-  "himalayas": "2026-11-12T20:48:05.235Z",
+  "remoteok": "2026-11-12T22:53:37.846Z",
+  "workingnomads": "2026-11-12T22:53:37.846Z",
+  "weworkremotely": "2026-11-12T22:53:37.846Z",
+  "nodesk": "2026-11-12T22:53:37.846Z",
+  "himalayas": "2026-11-12T22:53:37.846Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -12935,8 +12960,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-12T19:48:01.863Z",
- "arbeitnowAt": "2026-11-12T19:48:01.863Z",
+ "jobicyAt": "2026-11-12T22:53:37.846Z",
+ "arbeitnowAt": "2026-11-12T22:53:37.846Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
