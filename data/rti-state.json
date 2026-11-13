@@ -3764,6 +3764,10 @@
   "arbeitnow:sezzle": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-13T08:58:17.441Z"
+  },
+  "hn:elm-ai": {
+   "reason": "US headquarters",
+   "at": "2026-11-13T11:37:58.168Z"
   }
  },
  "wikidata": {
@@ -8554,6 +8558,11 @@
   },
   "CERN": {
    "at": "2026-11-13T09:46:00.951Z",
+   "id": null,
+   "us": false
+  },
+  "Elm AI": {
+   "at": "2026-11-13T11:37:58.168Z",
    "id": null,
    "us": false
   }
