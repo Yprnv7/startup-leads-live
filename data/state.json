@@ -6424,6 +6424,10 @@
   "nodesk:etsy": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-12T19:48:01.863Z"
+  },
+  "hn:genentech": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-13T03:04:29.159Z"
   }
  },
  "wikidata": {
@@ -12906,6 +12910,11 @@
    "at": "2026-11-13T01:58:31.720Z",
    "id": null,
    "us": false
+  },
+  "Genentech": {
+   "at": "2026-11-13T03:04:29.159Z",
+   "id": "Q899140",
+   "us": true
   }
  },
  "othersAt": {
@@ -12914,7 +12923,7 @@
   "workingnomads": "2026-11-13T01:58:31.720Z",
   "weworkremotely": "2026-11-13T01:58:31.720Z",
   "nodesk": "2026-11-13T01:58:31.720Z",
-  "himalayas": "2026-11-13T01:04:26.965Z",
+  "himalayas": "2026-11-13T03:04:29.159Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},

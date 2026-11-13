@@ -3752,6 +3752,10 @@
   "nodesk:etsy": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-12T19:48:58.818Z"
+  },
+  "hn:genentech": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-13T03:04:55.826Z"
   }
  },
  "wikidata": {
@@ -8509,6 +8513,11 @@
    "at": "2026-11-13T01:59:03.381Z",
    "id": null,
    "us": false
+  },
+  "Genentech": {
+   "at": "2026-11-13T03:04:55.826Z",
+   "id": "Q899140",
+   "us": true
   }
  },
  "othersAt": {
