@@ -3421,7 +3421,8 @@
   "discoveryCredits": {
    "2026-10-30": 30,
    "2026-11-05": 1,
-   "2026-11-06": 29
+   "2026-11-06": 29,
+   "2026-11-13": 25
   }
  },
  "excluded": {
@@ -13045,9 +13046,9 @@
  "jobicyAt": "2026-11-13T12:12:21.809Z",
  "arbeitnowAt": "2026-11-13T12:12:21.809Z",
  "discovery": {
-  "page": 29,
+  "page": 25,
   "totalPages": 29,
-  "cycleAt": "2026-11-06T12:38:32.198Z",
+  "cycleAt": "2026-11-13T13:12:28.825Z",
   "companies": {
    "instadeep.com": {
     "name": "InstaDeep",
