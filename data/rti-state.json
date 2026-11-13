@@ -3772,6 +3772,14 @@
   "jobicy:kayzen": {
    "reason": "Recruitment agency (posts for unnamed clients)",
    "at": "2026-11-13T12:13:03.533Z"
+  },
+  "hn:bechtel": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-13T15:13:15.379Z"
+  },
+  "hn:confidential-healthcare-ai-startup": {
+   "reason": "US headquarters",
+   "at": "2026-11-13T15:13:15.379Z"
   }
  },
  "wikidata": {
@@ -8589,16 +8597,61 @@
    "at": "2026-11-13T12:13:03.533Z",
    "id": null,
    "us": false
+  },
+  "Bechtel": {
+   "at": "2026-11-13T15:13:15.379Z",
+   "id": "Q813639",
+   "us": true
+  },
+  "*Confidential Healthcare AI Startup": {
+   "at": "2026-11-13T15:13:15.379Z",
+   "id": null,
+   "us": false
+  },
+  "vermaye GmbH": {
+   "at": "2026-11-13T15:13:15.379Z",
+   "id": null,
+   "us": false
+  },
+  "refundrebel": {
+   "at": "2026-11-13T15:13:15.379Z",
+   "id": null,
+   "us": false
+  },
+  "IBS Schreiber GmbH": {
+   "at": "2026-11-13T15:13:15.379Z",
+   "id": null,
+   "us": false
+  },
+  "Varify Software GmbH": {
+   "at": "2026-11-13T15:13:15.379Z",
+   "id": null,
+   "us": false
+  },
+  "NaroIQ": {
+   "at": "2026-11-13T15:13:15.379Z",
+   "id": null,
+   "us": false
+  },
+  "Gossen Metrawatt GmbH": {
+   "at": "2026-11-13T15:13:15.379Z",
+   "id": null,
+   "us": false
+  },
+  "QESTIT": {
+   "at": "2026-11-13T15:13:15.379Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-13T08:58:17.441Z",
-  "remoteok": "2026-11-13T12:13:03.533Z",
-  "workingnomads": "2026-11-13T12:13:03.533Z",
-  "weworkremotely": "2026-11-13T12:13:03.533Z",
-  "nodesk": "2026-11-13T12:13:03.533Z",
+  "remotive": "2026-11-13T15:13:15.379Z",
+  "remoteok": "2026-11-13T15:13:15.379Z",
+  "workingnomads": "2026-11-13T15:13:15.379Z",
+  "weworkremotely": "2026-11-13T15:13:15.379Z",
+  "nodesk": "2026-11-13T15:13:15.379Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-13T12:13:03.533Z",
- "arbeitnowAt": "2026-11-13T12:13:03.533Z"
+ "jobicyAt": "2026-11-13T15:13:15.379Z",
+ "arbeitnowAt": "2026-11-13T15:13:15.379Z"
 }
