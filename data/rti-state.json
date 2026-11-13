@@ -3756,6 +3756,14 @@
   "hn:genentech": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-13T03:04:55.826Z"
+  },
+  "arbeitnow:rubrik": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-13T08:58:17.441Z"
+  },
+  "arbeitnow:sezzle": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-13T08:58:17.441Z"
   }
  },
  "wikidata": {
@@ -8518,16 +8526,41 @@
    "at": "2026-11-13T03:04:55.826Z",
    "id": "Q899140",
    "us": true
+  },
+  "50% rev share": {
+   "at": "2026-11-13T08:58:17.441Z",
+   "id": null,
+   "us": false
+  },
+  "Mural": {
+   "at": "2026-11-13T08:58:17.441Z",
+   "id": null,
+   "us": false
+  },
+  "Quince": {
+   "at": "2026-11-13T08:58:17.441Z",
+   "id": null,
+   "us": false
+  },
+  "Fueled": {
+   "at": "2026-11-13T08:58:17.441Z",
+   "id": null,
+   "us": false
+  },
+  "Rubrik": {
+   "at": "2026-11-13T08:58:17.441Z",
+   "id": "Q55632076",
+   "us": true
   }
  },
  "othersAt": {
-  "remotive": "2026-11-13T01:59:03.381Z",
-  "remoteok": "2026-11-13T05:06:00.739Z",
-  "workingnomads": "2026-11-13T05:06:00.739Z",
-  "weworkremotely": "2026-11-13T05:06:00.739Z",
-  "nodesk": "2026-11-13T05:06:00.739Z",
+  "remotive": "2026-11-13T08:58:17.441Z",
+  "remoteok": "2026-11-13T08:58:17.441Z",
+  "workingnomads": "2026-11-13T08:58:17.441Z",
+  "weworkremotely": "2026-11-13T08:58:17.441Z",
+  "nodesk": "2026-11-13T08:58:17.441Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-13T05:06:00.739Z",
- "arbeitnowAt": "2026-11-13T05:06:00.739Z"
+ "jobicyAt": "2026-11-13T08:58:17.441Z",
+ "arbeitnowAt": "2026-11-13T08:58:17.441Z"
 }
