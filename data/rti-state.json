@@ -3768,6 +3768,10 @@
   "hn:elm-ai": {
    "reason": "US headquarters",
    "at": "2026-11-13T11:37:58.168Z"
+  },
+  "jobicy:kayzen": {
+   "reason": "Recruitment agency (posts for unnamed clients)",
+   "at": "2026-11-13T12:13:03.533Z"
   }
  },
  "wikidata": {
@@ -8565,16 +8569,36 @@
    "at": "2026-11-13T11:37:58.168Z",
    "id": null,
    "us": false
+  },
+  "Kayzen": {
+   "at": "2026-11-13T12:13:03.533Z",
+   "id": null,
+   "us": false
+  },
+  "CrossCountry Consulting": {
+   "at": "2026-11-13T12:13:03.533Z",
+   "id": null,
+   "us": false
+  },
+  "TechBiz Global GmbH": {
+   "at": "2026-11-13T12:13:03.533Z",
+   "id": null,
+   "us": false
+  },
+  "HomeOfficeClub.ch": {
+   "at": "2026-11-13T12:13:03.533Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-13T08:58:17.441Z",
-  "remoteok": "2026-11-13T08:58:17.441Z",
-  "workingnomads": "2026-11-13T08:58:17.441Z",
-  "weworkremotely": "2026-11-13T08:58:17.441Z",
-  "nodesk": "2026-11-13T08:58:17.441Z",
+  "remoteok": "2026-11-13T12:13:03.533Z",
+  "workingnomads": "2026-11-13T12:13:03.533Z",
+  "weworkremotely": "2026-11-13T12:13:03.533Z",
+  "nodesk": "2026-11-13T12:13:03.533Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-13T08:58:17.441Z",
- "arbeitnowAt": "2026-11-13T08:58:17.441Z"
+ "jobicyAt": "2026-11-13T12:13:03.533Z",
+ "arbeitnowAt": "2026-11-13T12:13:03.533Z"
 }
