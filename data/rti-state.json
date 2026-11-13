@@ -757,6 +757,14 @@
    "name": "Alternative Payments",
    "discovered": "2026-11-12T21:48:34.752Z",
    "active": true
+  },
+  {
+   "ats": "ashby",
+   "token": "bonfireanalytics",
+   "companyId": "hn:bonfire-analytics",
+   "name": "Bonfire Analytics",
+   "discovered": "2026-11-13T18:49:23.491Z",
+   "active": false
   }
  ],
  "boardNames": {},
@@ -3780,6 +3788,34 @@
   "hn:confidential-healthcare-ai-startup": {
    "reason": "US headquarters",
    "at": "2026-11-13T15:13:15.379Z"
+  },
+  "remoteok:pragmatike": {
+   "reason": "Recruitment agency (posts for unnamed clients)",
+   "at": "2026-11-13T18:49:23.491Z"
+  },
+  "weworkremotely:rhondos-inc": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-13T18:49:23.491Z"
+  },
+  "weworkremotely:v4c-ai": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-13T18:49:23.491Z"
+  },
+  "weworkremotely:boulevard": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-13T18:49:23.491Z"
+  },
+  "jobicy:sayari": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-13T18:49:23.491Z"
+  },
+  "hn:bonfire-analytics": {
+   "reason": "US headquarters",
+   "at": "2026-11-13T18:49:23.491Z"
+  },
+  "hn:joulent": {
+   "reason": "US headquarters",
+   "at": "2026-11-13T18:49:23.491Z"
   }
  },
  "wikidata": {
@@ -8642,16 +8678,66 @@
    "at": "2026-11-13T15:13:15.379Z",
    "id": null,
    "us": false
+  },
+  "Bonfire Analytics": {
+   "at": "2026-11-13T18:49:23.491Z",
+   "id": null,
+   "us": false
+  },
+  "Joulent": {
+   "at": "2026-11-13T18:49:23.491Z",
+   "id": null,
+   "us": false
+  },
+  "Wayflyer": {
+   "at": "2026-11-13T18:49:23.491Z",
+   "id": "Q131425534",
+   "us": false
+  },
+  "Sayari": {
+   "at": "2026-11-13T18:49:23.491Z",
+   "id": "Q65922175",
+   "us": true
+  },
+  "sofatutor GmbH": {
+   "at": "2026-11-13T18:49:23.491Z",
+   "id": null,
+   "us": false
+  },
+  "chatmarks GmbH": {
+   "at": "2026-11-13T18:49:23.491Z",
+   "id": null,
+   "us": false
+  },
+  "Askara": {
+   "at": "2026-11-13T18:49:23.491Z",
+   "id": null,
+   "us": false
+  },
+  "Valsoft Corp": {
+   "at": "2026-11-13T18:49:23.491Z",
+   "id": null,
+   "us": false
+  },
+  "Pragmatike": {
+   "at": "2026-11-13T18:49:23.491Z",
+   "id": null,
+   "us": false
+  },
+  "AMBOSS": {
+   "at": "2026-11-13T18:49:23.491Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-13T15:13:15.379Z",
-  "remoteok": "2026-11-13T15:13:15.379Z",
-  "workingnomads": "2026-11-13T15:13:15.379Z",
-  "weworkremotely": "2026-11-13T15:13:15.379Z",
-  "nodesk": "2026-11-13T15:13:15.379Z",
+  "remoteok": "2026-11-13T18:49:23.491Z",
+  "workingnomads": "2026-11-13T18:49:23.491Z",
+  "weworkremotely": "2026-11-13T18:49:23.491Z",
+  "nodesk": "2026-11-13T18:49:23.491Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-13T15:13:15.379Z",
- "arbeitnowAt": "2026-11-13T15:13:15.379Z"
+ "jobicyAt": "2026-11-13T18:49:23.491Z",
+ "arbeitnowAt": "2026-11-13T18:49:23.491Z"
 }
