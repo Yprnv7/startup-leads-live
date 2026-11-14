@@ -764,7 +764,7 @@
    "companyId": "hn:bonfire-analytics",
    "name": "Bonfire Analytics",
    "discovered": "2026-11-13T18:49:23.491Z",
-   "active": false
+   "active": true
   }
  ],
  "boardNames": {},
