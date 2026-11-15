@@ -13255,15 +13255,35 @@
    "at": "2026-11-15T04:55:21.020Z",
    "id": null,
    "us": false
+  },
+  "Tailscale": {
+   "at": "2026-11-15T15:39:31.416Z",
+   "id": "Q108766392",
+   "us": false
+  },
+  "Nethermind": {
+   "at": "2026-11-15T15:39:31.416Z",
+   "id": "Q133811217",
+   "us": false
+  },
+  "Outright International": {
+   "at": "2026-11-15T15:39:31.416Z",
+   "id": null,
+   "us": false
+  },
+  "Cogstate": {
+   "at": "2026-11-15T15:39:31.416Z",
+   "id": "Q109626959",
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-15T11:16:04.246Z",
-  "remoteok": "2026-11-15T11:30:10.772Z",
-  "workingnomads": "2026-11-15T11:30:10.772Z",
-  "weworkremotely": "2026-11-15T11:30:10.772Z",
-  "nodesk": "2026-11-15T11:30:10.772Z",
-  "himalayas": "2026-11-15T11:30:10.772Z",
+  "remoteok": "2026-11-15T15:39:31.416Z",
+  "workingnomads": "2026-11-15T15:39:31.416Z",
+  "weworkremotely": "2026-11-15T15:39:31.416Z",
+  "nodesk": "2026-11-15T15:39:31.416Z",
+  "himalayas": "2026-11-15T15:39:31.416Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -13295,11 +13315,11 @@
   },
   "bybit.com": {
    "ok": true,
-   "at": "2026-11-01T15:08:21.527Z"
+   "at": "2026-11-15T15:41:05.030Z"
   },
   "powerdatagroup.com": {
    "ok": true,
-   "at": "2026-11-01T15:08:21.527Z"
+   "at": "2026-11-15T15:41:05.030Z"
   },
   "crisalix.com": {
    "ok": true,
@@ -13315,8 +13335,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-15T11:30:10.772Z",
- "arbeitnowAt": "2026-11-15T11:30:10.772Z",
+ "jobicyAt": "2026-11-15T15:39:31.416Z",
+ "arbeitnowAt": "2026-11-15T15:39:31.416Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
