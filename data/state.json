@@ -6502,6 +6502,18 @@
   "hn:new-product": {
    "reason": "US headquarters",
    "at": "2026-11-15T17:39:34.000Z"
+  },
+  "weworkremotely:movement-labs": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-15T18:39:36.578Z"
+  },
+  "weworkremotely:come-and-see": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-15T18:39:36.578Z"
+  },
+  "weworkremotely:path": {
+   "reason": "India office",
+   "at": "2026-11-15T18:39:36.578Z"
   }
  },
  "wikidata": {
@@ -13289,14 +13301,24 @@
    "at": "2026-11-15T17:39:34.000Z",
    "id": null,
    "us": false
+  },
+  "Temporal Technologies": {
+   "at": "2026-11-15T18:39:36.578Z",
+   "id": null,
+   "us": false
+  },
+  "PATH": {
+   "at": "2026-11-15T18:39:36.578Z",
+   "id": "Q1544011",
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-15T17:39:34.000Z",
-  "remoteok": "2026-11-15T15:39:31.416Z",
-  "workingnomads": "2026-11-15T15:39:31.416Z",
-  "weworkremotely": "2026-11-15T15:39:31.416Z",
-  "nodesk": "2026-11-15T15:39:31.416Z",
+  "remoteok": "2026-11-15T18:39:36.578Z",
+  "workingnomads": "2026-11-15T18:39:36.578Z",
+  "weworkremotely": "2026-11-15T18:39:36.578Z",
+  "nodesk": "2026-11-15T18:39:36.578Z",
   "himalayas": "2026-11-15T17:39:34.000Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -13349,8 +13371,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-15T15:39:31.416Z",
- "arbeitnowAt": "2026-11-15T15:39:31.416Z",
+ "jobicyAt": "2026-11-15T18:39:36.578Z",
+ "arbeitnowAt": "2026-11-15T18:39:36.578Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
