@@ -3829,6 +3829,10 @@
   "weworkremotely:second-wave-delivery-systems": {
    "reason": "US headquarters (We Work Remotely)",
    "at": "2026-11-14T19:21:32.749Z"
+  },
+  "hn:new-product": {
+   "reason": "US headquarters",
+   "at": "2026-11-15T17:40:11.153Z"
   }
  },
  "wikidata": {
@@ -8851,10 +8855,20 @@
    "at": "2026-11-15T15:41:15.160Z",
    "id": "Q133811217",
    "us": false
+  },
+  "New Product": {
+   "at": "2026-11-15T17:40:11.153Z",
+   "id": null,
+   "us": false
+  },
+  "Metics Media": {
+   "at": "2026-11-15T17:40:11.153Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-15T11:16:21.114Z",
+  "remotive": "2026-11-15T17:40:11.153Z",
   "remoteok": "2026-11-15T15:41:15.160Z",
   "workingnomads": "2026-11-15T15:41:15.160Z",
   "weworkremotely": "2026-11-15T15:41:15.160Z",
