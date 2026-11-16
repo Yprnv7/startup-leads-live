@@ -3853,6 +3853,14 @@
   "jobicy:godaddy": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-16T17:46:16.395Z"
+  },
+  "jobicy:consensys": {
+   "reason": "Hires in the US",
+   "at": "2026-11-16T21:32:52.023Z"
+  },
+  "weworkremotely:bloomreach": {
+   "reason": "US headquarters (config)",
+   "at": "2026-11-16T21:32:52.023Z"
   }
  },
  "wikidata": {
@@ -9010,16 +9018,56 @@
    "at": "2026-11-16T17:46:16.395Z",
    "id": null,
    "us": false
+  },
+  "KnowBe4, Inc.": {
+   "at": "2026-11-16T21:32:52.023Z",
+   "id": null,
+   "us": false
+  },
+  "Teaching Finance GmbH & Co. KG": {
+   "at": "2026-11-16T21:32:52.023Z",
+   "id": null,
+   "us": false
+  },
+  "First Momentum Ventures": {
+   "at": "2026-11-16T21:32:52.023Z",
+   "id": null,
+   "us": false
+  },
+  "KLUUU": {
+   "at": "2026-11-16T21:32:52.023Z",
+   "id": null,
+   "us": false
+  },
+  "TEQWERK GmbH": {
+   "at": "2026-11-16T21:32:52.023Z",
+   "id": null,
+   "us": false
+  },
+  "Vality One Recruitment GmbH": {
+   "at": "2026-11-16T21:32:52.023Z",
+   "id": null,
+   "us": false
+  },
+  "DL Remote": {
+   "at": "2026-11-16T21:32:52.023Z",
+   "id": null,
+   "us": false
+  },
+  "GoMining": {
+   "at": "2026-11-16T21:32:52.023Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-16T17:46:16.395Z",
-  "remoteok": "2026-11-16T17:46:16.395Z",
-  "workingnomads": "2026-11-16T17:46:16.395Z",
-  "weworkremotely": "2026-11-16T17:46:16.395Z",
-  "nodesk": "2026-11-16T17:46:16.395Z",
+  "remoteok": "2026-11-16T21:32:52.023Z",
+  "workingnomads": "2026-11-16T21:32:52.023Z",
+  "weworkremotely": "2026-11-16T21:32:52.023Z",
+  "nodesk": "2026-11-16T21:32:52.023Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-16T17:46:16.395Z",
- "arbeitnowAt": "2026-11-16T17:46:16.395Z"
+ "jobicyAt": "2026-11-16T21:32:52.023Z",
+ "arbeitnowAt": "2026-11-16T21:32:52.023Z"
 }

@@ -6526,6 +6526,14 @@
   "himalayas:iqvia": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-16T20:32:00.488Z"
+  },
+  "jobicy:consensys": {
+   "reason": "Hires in the US",
+   "at": "2026-11-16T21:32:15.325Z"
+  },
+  "weworkremotely:bloomreach": {
+   "reason": "US headquarters (config)",
+   "at": "2026-11-16T21:32:15.325Z"
   }
  },
  "wikidata": {
@@ -13443,14 +13451,54 @@
    "at": "2026-11-16T20:32:00.488Z",
    "id": "Q1543633",
    "us": true
+  },
+  "KnowBe4, Inc.": {
+   "at": "2026-11-16T21:32:15.325Z",
+   "id": null,
+   "us": false
+  },
+  "Teaching Finance GmbH & Co. KG": {
+   "at": "2026-11-16T21:32:15.325Z",
+   "id": null,
+   "us": false
+  },
+  "KLUUU": {
+   "at": "2026-11-16T21:32:15.325Z",
+   "id": null,
+   "us": false
+  },
+  "TEQWERK GmbH": {
+   "at": "2026-11-16T21:32:15.325Z",
+   "id": null,
+   "us": false
+  },
+  "Vality One Recruitment GmbH": {
+   "at": "2026-11-16T21:32:15.325Z",
+   "id": null,
+   "us": false
+  },
+  "DL Remote": {
+   "at": "2026-11-16T21:32:15.325Z",
+   "id": null,
+   "us": false
+  },
+  "GoMining": {
+   "at": "2026-11-16T21:32:15.325Z",
+   "id": null,
+   "us": false
+  },
+  "Bloomreach": {
+   "at": "2026-11-16T21:32:15.325Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-16T17:44:33.858Z",
-  "remoteok": "2026-11-16T17:44:33.858Z",
-  "workingnomads": "2026-11-16T17:44:33.858Z",
-  "weworkremotely": "2026-11-16T17:44:33.858Z",
-  "nodesk": "2026-11-16T17:44:33.858Z",
+  "remoteok": "2026-11-16T21:32:15.325Z",
+  "workingnomads": "2026-11-16T21:32:15.325Z",
+  "weworkremotely": "2026-11-16T21:32:15.325Z",
+  "nodesk": "2026-11-16T21:32:15.325Z",
   "himalayas": "2026-11-16T20:32:00.488Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -13503,8 +13551,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-16T17:44:33.858Z",
- "arbeitnowAt": "2026-11-16T17:44:33.858Z",
+ "jobicyAt": "2026-11-16T21:32:15.325Z",
+ "arbeitnowAt": "2026-11-16T21:32:15.325Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
