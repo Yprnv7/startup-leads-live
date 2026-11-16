@@ -3845,6 +3845,14 @@
   "weworkremotely:path": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-15T18:40:04.933Z"
+  },
+  "jobicy:zscaler": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-16T17:46:16.395Z"
+  },
+  "jobicy:godaddy": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-16T17:46:16.395Z"
   }
  },
  "wikidata": {
@@ -8902,16 +8910,116 @@
    "at": "2026-11-16T06:28:42.299Z",
    "id": null,
    "us": false
+  },
+  "outGoing": {
+   "at": "2026-11-16T17:46:16.395Z",
+   "id": null,
+   "us": false
+  },
+  "Zscaler": {
+   "at": "2026-11-16T17:46:16.395Z",
+   "id": "Q8074786",
+   "us": true
+  },
+  "GoDaddy": {
+   "at": "2026-11-16T17:46:16.395Z",
+   "id": "Q1416215",
+   "us": true
+  },
+  "Tala": {
+   "at": "2026-11-16T17:46:16.395Z",
+   "id": null,
+   "us": false
+  },
+  "Famedly GmbH": {
+   "at": "2026-11-16T17:46:16.395Z",
+   "id": null,
+   "us": false
+  },
+  "F& | Focus & Flow GmbH": {
+   "at": "2026-11-16T17:46:16.395Z",
+   "id": null,
+   "us": false
+  },
+  "Fundloop": {
+   "at": "2026-11-16T17:46:16.395Z",
+   "id": null,
+   "us": false
+  },
+  "Vicoland": {
+   "at": "2026-11-16T17:46:16.395Z",
+   "id": null,
+   "us": false
+  },
+  "Matchspace (Music) AG": {
+   "at": "2026-11-16T17:46:16.395Z",
+   "id": null,
+   "us": false
+  },
+  "cross-ING AG": {
+   "at": "2026-11-16T17:46:16.395Z",
+   "id": null,
+   "us": false
+  },
+  "PureGym AG": {
+   "at": "2026-11-16T17:46:16.395Z",
+   "id": null,
+   "us": false
+  },
+  "what. AG": {
+   "at": "2026-11-16T17:46:16.395Z",
+   "id": null,
+   "us": false
+  },
+  "citema group GmbH": {
+   "at": "2026-11-16T17:46:16.395Z",
+   "id": null,
+   "us": false
+  },
+  "PraxisConcierge": {
+   "at": "2026-11-16T17:46:16.395Z",
+   "id": null,
+   "us": false
+  },
+  "e-selection AG": {
+   "at": "2026-11-16T17:46:16.395Z",
+   "id": null,
+   "us": false
+  },
+  "SC Media House": {
+   "at": "2026-11-16T17:46:16.395Z",
+   "id": null,
+   "us": false
+  },
+  "Storytellarr": {
+   "at": "2026-11-16T17:46:16.395Z",
+   "id": null,
+   "us": false
+  },
+  "emerve GmbH": {
+   "at": "2026-11-16T17:46:16.395Z",
+   "id": null,
+   "us": false
+  },
+  "Playtomic": {
+   "at": "2026-11-16T17:46:16.395Z",
+   "id": null,
+   "us": false
+  },
+  "Jadeclass Education": {
+   "at": "2026-11-16T17:46:16.395Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-16T06:28:42.299Z",
-  "remoteok": "2026-11-16T09:27:46.463Z",
-  "workingnomads": "2026-11-16T09:27:46.463Z",
-  "weworkremotely": "2026-11-16T09:27:46.463Z",
-  "nodesk": "2026-11-16T09:27:46.463Z",
+  "remotive": "2026-11-16T17:46:16.395Z",
+  "remoteok": "2026-11-16T17:46:16.395Z",
+  "workingnomads": "2026-11-16T17:46:16.395Z",
+  "weworkremotely": "2026-11-16T17:46:16.395Z",
+  "nodesk": "2026-11-16T17:46:16.395Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-16T09:27:46.463Z",
- "arbeitnowAt": "2026-11-16T09:27:46.463Z"
+ "jobicyAt": "2026-11-16T17:46:16.395Z",
+ "arbeitnowAt": "2026-11-16T17:46:16.395Z"
 }
