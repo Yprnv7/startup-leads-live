@@ -6522,6 +6522,10 @@
   "jobicy:godaddy": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-16T17:44:33.858Z"
+  },
+  "himalayas:iqvia": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-16T20:32:00.488Z"
   }
  },
  "wikidata": {
@@ -13434,6 +13438,11 @@
    "at": "2026-11-16T17:44:33.858Z",
    "id": null,
    "us": false
+  },
+  "IQVIA": {
+   "at": "2026-11-16T20:32:00.488Z",
+   "id": "Q1543633",
+   "us": true
   }
  },
  "othersAt": {
@@ -13442,7 +13451,7 @@
   "workingnomads": "2026-11-16T17:44:33.858Z",
   "weworkremotely": "2026-11-16T17:44:33.858Z",
   "nodesk": "2026-11-16T17:44:33.858Z",
-  "himalayas": "2026-11-16T17:44:33.858Z",
+  "himalayas": "2026-11-16T20:32:00.488Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
