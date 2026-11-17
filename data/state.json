@@ -13576,14 +13576,39 @@
    "at": "2026-11-17T13:24:38.152Z",
    "id": null,
    "us": false
+  },
+  "Perfect Jobs": {
+   "at": "2026-11-17T16:24:44.417Z",
+   "id": null,
+   "us": false
+  },
+  "Bredehorst Clinical Medical Management": {
+   "at": "2026-11-17T16:24:44.417Z",
+   "id": null,
+   "us": false
+  },
+  "A-LEVEL": {
+   "at": "2026-11-17T16:24:44.417Z",
+   "id": null,
+   "us": false
+  },
+  "dreamteam GmbH": {
+   "at": "2026-11-17T16:24:44.417Z",
+   "id": null,
+   "us": false
+  },
+  "GFIC": {
+   "at": "2026-11-17T16:24:44.417Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-17T14:24:40.361Z",
-  "remoteok": "2026-11-17T13:24:38.152Z",
-  "workingnomads": "2026-11-17T13:24:38.152Z",
-  "weworkremotely": "2026-11-17T13:24:38.152Z",
-  "nodesk": "2026-11-17T13:24:38.152Z",
+  "remoteok": "2026-11-17T16:24:44.417Z",
+  "workingnomads": "2026-11-17T16:24:44.417Z",
+  "weworkremotely": "2026-11-17T16:24:44.417Z",
+  "nodesk": "2026-11-17T16:24:44.417Z",
   "himalayas": "2026-11-17T15:24:42.003Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -13624,7 +13649,7 @@
   },
   "crisalix.com": {
    "ok": true,
-   "at": "2026-11-03T15:56:48.975Z"
+   "at": "2026-11-17T16:25:57.895Z"
   },
   "consileon.de": {
    "ok": true,
@@ -13636,8 +13661,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-17T13:24:38.152Z",
- "arbeitnowAt": "2026-11-17T13:24:38.152Z",
+ "jobicyAt": "2026-11-17T16:24:44.417Z",
+ "arbeitnowAt": "2026-11-17T16:24:44.417Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
