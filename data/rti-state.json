@@ -3870,6 +3870,18 @@
   "arbeitnow:black-forest-labs": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-17T13:26:07.890Z"
+  },
+  "arbeitnow:celonis": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-17T23:03:22.055Z"
+  },
+  "weworkremotely:careerflow-ai": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-17T23:03:22.055Z"
+  },
+  "arbeitnow:hypr": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-17T23:03:22.055Z"
   }
  },
  "wikidata": {
@@ -9172,16 +9184,176 @@
    "at": "2026-11-17T16:26:07.983Z",
    "id": null,
    "us": false
+  },
+  "Inato": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "shopware AG": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "Labtagon GmbH": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "BrainersHub GmbH": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "Getbeauty.ai": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "GQS GmbH": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "More Taste (Quality Pizza GmbH)": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "Instagrid": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "Alvra Labs": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "celonis": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": "Q63725648",
+   "us": false
+  },
+  "moysies & partners GmbH": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "hypr": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": "Q24204256",
+   "us": true
+  },
+  "RG personnel consulting": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "YAVO Yoga & Events": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "Institut für Marktpsychologie Mannheim": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "ideenKiND GmbH": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "YouCould": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "Knapp GmbH Niederlassung Deutschland": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "ekipa GmbH": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "Cloud Studios": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "ACCELERATED": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "ISO-Chemie GmbH": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "TEACHY Education": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "Logistica OS": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "Eggersmann - Gruppe": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "Jamorie Consulting GmbH": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "NEON Software Solutions": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "findling GmbH": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "Clementine Media": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "FourEnergy GmbH": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "ESV  Erfurter Schaltschrankbau GmbH": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
+  },
+  "Prime Force Group": {
+   "at": "2026-11-17T23:03:22.055Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-17T14:25:03.669Z",
-  "remoteok": "2026-11-17T16:26:07.983Z",
-  "workingnomads": "2026-11-17T16:26:07.983Z",
-  "weworkremotely": "2026-11-17T16:26:07.983Z",
-  "nodesk": "2026-11-17T16:26:07.983Z",
+  "remotive": "2026-11-17T23:03:22.055Z",
+  "remoteok": "2026-11-17T23:03:22.055Z",
+  "workingnomads": "2026-11-17T23:03:22.055Z",
+  "weworkremotely": "2026-11-17T23:03:22.055Z",
+  "nodesk": "2026-11-17T23:03:22.055Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-17T16:26:07.983Z",
- "arbeitnowAt": "2026-11-17T16:26:07.983Z"
+ "jobicyAt": "2026-11-17T23:03:22.055Z",
+ "arbeitnowAt": "2026-11-17T23:03:22.055Z"
 }
