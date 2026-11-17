@@ -331,7 +331,8 @@
   "clicks-health": "2026-11-07T01:18:48.416Z",
   "third-chair": "2026-11-07T01:18:48.416Z",
   "paasa": "2026-11-12T01:43:08.620Z",
-  "huscarl": "2026-11-13T01:05:01.494Z"
+  "huscarl": "2026-11-13T01:05:01.494Z",
+  "frontpage": "2026-11-17T01:25:08.640Z"
  },
  "boards": [
   {
@@ -3861,6 +3862,10 @@
   "weworkremotely:bloomreach": {
    "reason": "US headquarters (config)",
    "at": "2026-11-16T21:32:52.023Z"
+  },
+  "yc:frontpage": {
+   "reason": "India office",
+   "at": "2026-11-17T01:25:08.640Z"
   }
  },
  "wikidata": {
@@ -9058,16 +9063,51 @@
    "at": "2026-11-16T21:32:52.023Z",
    "id": null,
    "us": false
+  },
+  "GLOBAL FINANZ AG": {
+   "at": "2026-11-17T01:25:08.640Z",
+   "id": null,
+   "us": false
+  },
+  "PsyCurio": {
+   "at": "2026-11-17T01:25:08.640Z",
+   "id": null,
+   "us": false
+  },
+  "SIRIUS Consulting & Training GmbH": {
+   "at": "2026-11-17T01:25:08.640Z",
+   "id": null,
+   "us": false
+  },
+  "telemedia-systems Unternehmergesellschaft": {
+   "at": "2026-11-17T01:25:08.640Z",
+   "id": null,
+   "us": false
+  },
+  "Allfinanz AG Deutsche Vermögensberatung Christian Schmid": {
+   "at": "2026-11-17T01:25:08.640Z",
+   "id": null,
+   "us": false
+  },
+  "Beauty Mosaic Kosmetikstudio": {
+   "at": "2026-11-17T01:25:08.640Z",
+   "id": null,
+   "us": false
+  },
+  "bsw TestSystems & Consulting AG": {
+   "at": "2026-11-17T01:25:08.640Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-16T17:46:16.395Z",
-  "remoteok": "2026-11-16T21:32:52.023Z",
-  "workingnomads": "2026-11-16T21:32:52.023Z",
-  "weworkremotely": "2026-11-16T21:32:52.023Z",
-  "nodesk": "2026-11-16T21:32:52.023Z",
+  "remotive": "2026-11-17T01:25:08.640Z",
+  "remoteok": "2026-11-17T01:25:08.640Z",
+  "workingnomads": "2026-11-17T01:25:08.640Z",
+  "weworkremotely": "2026-11-17T01:25:08.640Z",
+  "nodesk": "2026-11-17T01:25:08.640Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-16T21:32:52.023Z",
- "arbeitnowAt": "2026-11-16T21:32:52.023Z"
+ "jobicyAt": "2026-11-17T01:25:08.640Z",
+ "arbeitnowAt": "2026-11-17T01:25:08.640Z"
 }
