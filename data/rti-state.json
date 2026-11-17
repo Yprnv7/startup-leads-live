@@ -3866,6 +3866,10 @@
   "yc:frontpage": {
    "reason": "India office",
    "at": "2026-11-17T01:25:08.640Z"
+  },
+  "arbeitnow:black-forest-labs": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-17T13:26:07.890Z"
   }
  },
  "wikidata": {
@@ -9108,16 +9112,56 @@
    "at": "2026-11-17T07:57:06.736Z",
    "id": null,
    "us": false
+  },
+  "Divinely": {
+   "at": "2026-11-17T13:26:07.890Z",
+   "id": null,
+   "us": false
+  },
+  "FEEDBACKPEOPLE Managementberatung GmbH": {
+   "at": "2026-11-17T13:26:07.890Z",
+   "id": null,
+   "us": false
+  },
+  "Black Forest Labs": {
+   "at": "2026-11-17T13:26:07.890Z",
+   "id": "Q128801641",
+   "us": true
+  },
+  "Qivalo GmbH": {
+   "at": "2026-11-17T13:26:07.890Z",
+   "id": null,
+   "us": false
+  },
+  "Silk & Otter Research": {
+   "at": "2026-11-17T13:26:07.890Z",
+   "id": null,
+   "us": false
+  },
+  "dreamteam GmbH": {
+   "at": "2026-11-17T13:26:07.890Z",
+   "id": null,
+   "us": false
+  },
+  "PRÜFHELDEN GmbH": {
+   "at": "2026-11-17T13:26:07.890Z",
+   "id": null,
+   "us": false
+  },
+  "StudiBucht.de": {
+   "at": "2026-11-17T13:26:07.890Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-17T07:57:06.736Z",
-  "remoteok": "2026-11-17T07:57:06.736Z",
-  "workingnomads": "2026-11-17T07:57:06.736Z",
-  "weworkremotely": "2026-11-17T07:57:06.736Z",
-  "nodesk": "2026-11-17T07:57:06.736Z",
+  "remoteok": "2026-11-17T13:26:07.890Z",
+  "workingnomads": "2026-11-17T13:26:07.890Z",
+  "weworkremotely": "2026-11-17T13:26:07.890Z",
+  "nodesk": "2026-11-17T13:26:07.890Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-17T07:57:06.736Z",
- "arbeitnowAt": "2026-11-17T07:57:06.736Z"
+ "jobicyAt": "2026-11-17T13:26:07.890Z",
+ "arbeitnowAt": "2026-11-17T13:26:07.890Z"
 }
