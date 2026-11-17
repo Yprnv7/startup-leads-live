@@ -1,0 +1,24 @@
+{
+  "name": "startup-leads-live",
+  "version": "1.0.0",
+  "description": "Live tech startup jobs, remote tech internships & direct decision-maker contacts with automated verification",
+  "homepage": "https://yprnv7.github.io/startup-leads-live/",
+  "author": "Yprnv7",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "npx serve -l 3000 .",
+    "test": "python3 -m unittest discover -s tests -p 'test_*.py'",
+    "sync": "node scripts/update.mjs && node scripts/contacts.mjs",
+    "validate": "python3 tests/test_site_integrity.py && python3 tests/test_rti_data.py"
+  },
+  "keywords": [
+    "internships",
+    "remote-jobs",
+    "tech-jobs",
+    "startups",
+    "automation",
+    "data-pipeline",
+    "github-pages"
+  ]
+}
