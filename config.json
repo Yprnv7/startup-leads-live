@@ -515,7 +515,7 @@
     "prospeoDailyCredits": 250,
     "prospeoCompaniesPerRun": 150,
     "peoplePerCompany": 10,
-    "prospeoMobileDailyCredits": 100,
+    "prospeoMobileDailyCredits": 0,
     "mobilesPerCompany": 2,
     "prospeoCompanyDailyCredits": 150,
     "zerobounceDailyCredits": 100

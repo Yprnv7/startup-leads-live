@@ -515,7 +515,7 @@
     "prospeoDailyCredits": 250,
     "prospeoCompaniesPerRun": 150,
     "peoplePerCompany": 6,
-    "prospeoMobileDailyCredits": 100,
+    "prospeoMobileDailyCredits": 0,
     "mobilesPerCompany": 2
   },
   "focusMarkets": [
