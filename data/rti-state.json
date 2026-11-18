@@ -3914,6 +3914,14 @@
   "jobicy:singlestore": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-18T17:16:11.687Z"
+  },
+  "nodesk:sprout-social": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-18T20:16:44.224Z"
+  },
+  "nodesk:patreon": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-18T20:16:44.224Z"
   }
  },
  "wikidata": {
@@ -9526,16 +9534,51 @@
    "at": "2026-11-18T17:16:11.687Z",
    "id": null,
    "us": false
+  },
+  "Goodright GmbH": {
+   "at": "2026-11-18T20:16:44.224Z",
+   "id": null,
+   "us": false
+  },
+  "anocus GmbH": {
+   "at": "2026-11-18T20:16:44.224Z",
+   "id": null,
+   "us": false
+  },
+  "Working Solutions": {
+   "at": "2026-11-18T20:16:44.224Z",
+   "id": null,
+   "us": false
+  },
+  "Pendo": {
+   "at": "2026-11-18T20:16:44.224Z",
+   "id": null,
+   "us": false
+  },
+  "Sprout Social": {
+   "at": "2026-11-18T20:16:44.224Z",
+   "id": "Q17082977",
+   "us": true
+  },
+  "Patreon": {
+   "at": "2026-11-18T20:16:44.224Z",
+   "id": "Q15861362",
+   "us": true
+  },
+  "Braze": {
+   "at": "2026-11-18T20:16:44.224Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-18T13:31:51.067Z",
-  "remoteok": "2026-11-18T17:16:11.687Z",
-  "workingnomads": "2026-11-18T17:16:11.687Z",
-  "weworkremotely": "2026-11-18T17:16:11.687Z",
-  "nodesk": "2026-11-18T17:16:11.687Z",
+  "remotive": "2026-11-18T20:16:44.224Z",
+  "remoteok": "2026-11-18T20:16:44.224Z",
+  "workingnomads": "2026-11-18T20:16:44.224Z",
+  "weworkremotely": "2026-11-18T20:16:44.224Z",
+  "nodesk": "2026-11-18T20:16:44.224Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-18T17:16:11.687Z",
- "arbeitnowAt": "2026-11-18T17:16:11.687Z"
+ "jobicyAt": "2026-11-18T20:16:44.224Z",
+ "arbeitnowAt": "2026-11-18T20:16:44.224Z"
 }
