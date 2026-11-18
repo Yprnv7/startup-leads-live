@@ -3882,6 +3882,14 @@
   "arbeitnow:hypr": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-17T23:03:22.055Z"
+  },
+  "arbeitnow:keepersecurity": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-18T07:28:10.369Z"
+  },
+  "jobicy:hims-hers": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-18T07:28:10.369Z"
   }
  },
  "wikidata": {
@@ -9359,16 +9367,41 @@
    "at": "2026-11-18T02:30:54.309Z",
    "id": null,
    "us": false
+  },
+  "EDB": {
+   "at": "2026-11-18T07:28:10.369Z",
+   "id": null,
+   "us": false
+  },
+  "hims & hers": {
+   "at": "2026-11-18T07:28:10.369Z",
+   "id": "Q64363662",
+   "us": true
+  },
+  "Housecall Pro": {
+   "at": "2026-11-18T07:28:10.369Z",
+   "id": null,
+   "us": false
+  },
+  "Intermate Media GmbH": {
+   "at": "2026-11-18T07:28:10.369Z",
+   "id": null,
+   "us": false
+  },
+  "Keepersecurity": {
+   "at": "2026-11-18T07:28:10.369Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-17T23:03:22.055Z",
-  "remoteok": "2026-11-18T02:30:54.309Z",
-  "workingnomads": "2026-11-18T02:30:54.309Z",
-  "weworkremotely": "2026-11-18T02:30:54.309Z",
-  "nodesk": "2026-11-18T02:30:54.309Z",
+  "remotive": "2026-11-18T07:28:10.369Z",
+  "remoteok": "2026-11-18T07:28:10.369Z",
+  "workingnomads": "2026-11-18T07:28:10.369Z",
+  "weworkremotely": "2026-11-18T07:28:10.369Z",
+  "nodesk": "2026-11-18T07:28:10.369Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-18T02:30:54.309Z",
- "arbeitnowAt": "2026-11-18T02:30:54.309Z"
+ "jobicyAt": "2026-11-18T07:28:10.369Z",
+ "arbeitnowAt": "2026-11-18T07:28:10.369Z"
 }
