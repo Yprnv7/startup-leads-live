@@ -13817,14 +13817,29 @@
    "at": "2026-11-18T07:26:55.949Z",
    "id": null,
    "us": false
+  },
+  "NETSHAKE": {
+   "at": "2026-11-18T10:27:07.781Z",
+   "id": null,
+   "us": false
+  },
+  "AZAV Pilot": {
+   "at": "2026-11-18T10:27:07.781Z",
+   "id": null,
+   "us": false
+  },
+  "Renergo GmbH": {
+   "at": "2026-11-18T10:27:07.781Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-18T07:26:55.949Z",
-  "remoteok": "2026-11-18T07:26:55.949Z",
-  "workingnomads": "2026-11-18T07:26:55.949Z",
-  "weworkremotely": "2026-11-18T07:26:55.949Z",
-  "nodesk": "2026-11-18T07:26:55.949Z",
+  "remoteok": "2026-11-18T10:27:07.781Z",
+  "workingnomads": "2026-11-18T10:27:07.781Z",
+  "weworkremotely": "2026-11-18T10:27:07.781Z",
+  "nodesk": "2026-11-18T10:27:07.781Z",
   "himalayas": "2026-11-18T09:27:02.633Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -13877,8 +13892,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-18T07:26:55.949Z",
- "arbeitnowAt": "2026-11-18T07:26:55.949Z",
+ "jobicyAt": "2026-11-18T10:27:07.781Z",
+ "arbeitnowAt": "2026-11-18T10:27:07.781Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,

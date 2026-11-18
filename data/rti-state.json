@@ -9392,16 +9392,31 @@
    "at": "2026-11-18T07:28:10.369Z",
    "id": null,
    "us": false
+  },
+  "NETSHAKE": {
+   "at": "2026-11-18T10:27:35.993Z",
+   "id": null,
+   "us": false
+  },
+  "AZAV Pilot": {
+   "at": "2026-11-18T10:27:35.993Z",
+   "id": null,
+   "us": false
+  },
+  "Renergo GmbH": {
+   "at": "2026-11-18T10:27:35.993Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-18T07:28:10.369Z",
-  "remoteok": "2026-11-18T07:28:10.369Z",
-  "workingnomads": "2026-11-18T07:28:10.369Z",
-  "weworkremotely": "2026-11-18T07:28:10.369Z",
-  "nodesk": "2026-11-18T07:28:10.369Z",
+  "remoteok": "2026-11-18T10:27:35.993Z",
+  "workingnomads": "2026-11-18T10:27:35.993Z",
+  "weworkremotely": "2026-11-18T10:27:35.993Z",
+  "nodesk": "2026-11-18T10:27:35.993Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-18T07:28:10.369Z",
- "arbeitnowAt": "2026-11-18T07:28:10.369Z"
+ "jobicyAt": "2026-11-18T10:27:35.993Z",
+ "arbeitnowAt": "2026-11-18T10:27:35.993Z"
 }
