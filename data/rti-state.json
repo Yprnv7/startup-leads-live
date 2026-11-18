@@ -3890,6 +3890,22 @@
   "jobicy:hims-hers": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-18T07:28:10.369Z"
+  },
+  "weworkremotely:intelligent-technical-solutions": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-18T13:31:51.067Z"
+  },
+  "weworkremotely:volga-partners": {
+   "reason": "India office",
+   "at": "2026-11-18T13:31:51.067Z"
+  },
+  "weworkremotely:side": {
+   "reason": "India office",
+   "at": "2026-11-18T13:31:51.067Z"
+  },
+  "weworkremotely:g-p": {
+   "reason": "India office",
+   "at": "2026-11-18T13:31:51.067Z"
   }
  },
  "wikidata": {
@@ -9407,16 +9423,76 @@
    "at": "2026-11-18T10:27:35.993Z",
    "id": null,
    "us": false
+  },
+  "Mentify Learn GmbH": {
+   "at": "2026-11-18T13:31:51.067Z",
+   "id": null,
+   "us": false
+  },
+  "TDP": {
+   "at": "2026-11-18T13:31:51.067Z",
+   "id": null,
+   "us": false
+  },
+  "Volga Partners": {
+   "at": "2026-11-18T13:31:51.067Z",
+   "id": null,
+   "us": false
+  },
+  "Siemens": {
+   "at": "2026-11-18T13:31:51.067Z",
+   "id": "Q81230",
+   "us": false
+  },
+  "Pipe17": {
+   "at": "2026-11-18T13:31:51.067Z",
+   "id": null,
+   "us": false
+  },
+  "Eco Plus Solutions AB": {
+   "at": "2026-11-18T13:31:51.067Z",
+   "id": null,
+   "us": false
+  },
+  "Side": {
+   "at": "2026-11-18T13:31:51.067Z",
+   "id": null,
+   "us": false
+  },
+  "Cato Networks": {
+   "at": "2026-11-18T13:31:51.067Z",
+   "id": "Q55647697",
+   "us": false
+  },
+  "G-P": {
+   "at": "2026-11-18T13:31:51.067Z",
+   "id": null,
+   "us": false
+  },
+  "Prolific Academic Ltd": {
+   "at": "2026-11-18T13:31:51.067Z",
+   "id": null,
+   "us": false
+  },
+  "WorkMotion": {
+   "at": "2026-11-18T13:31:51.067Z",
+   "id": null,
+   "us": false
+  },
+  "Lightbox Animation": {
+   "at": "2026-11-18T13:31:51.067Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-18T07:28:10.369Z",
-  "remoteok": "2026-11-18T10:27:35.993Z",
-  "workingnomads": "2026-11-18T10:27:35.993Z",
-  "weworkremotely": "2026-11-18T10:27:35.993Z",
-  "nodesk": "2026-11-18T10:27:35.993Z",
+  "remotive": "2026-11-18T13:31:51.067Z",
+  "remoteok": "2026-11-18T13:31:51.067Z",
+  "workingnomads": "2026-11-18T13:31:51.067Z",
+  "weworkremotely": "2026-11-18T13:31:51.067Z",
+  "nodesk": "2026-11-18T13:31:51.067Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-18T10:27:35.993Z",
- "arbeitnowAt": "2026-11-18T10:27:35.993Z"
+ "jobicyAt": "2026-11-18T13:31:51.067Z",
+ "arbeitnowAt": "2026-11-18T13:31:51.067Z"
 }
