@@ -6576,6 +6576,14 @@
   "weworkremotely:g-p": {
    "reason": "India office",
    "at": "2026-11-18T13:30:10.974Z"
+  },
+  "jobicy:cross-river": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-18T17:15:18.245Z"
+  },
+  "jobicy:singlestore": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-18T17:15:18.245Z"
   }
  },
  "wikidata": {
@@ -13908,15 +13916,50 @@
    "at": "2026-11-18T13:30:10.974Z",
    "id": null,
    "us": false
+  },
+  "Cross River": {
+   "at": "2026-11-18T17:15:18.245Z",
+   "id": "Q22022271",
+   "us": true
+  },
+  "SingleStore": {
+   "at": "2026-11-18T17:15:18.245Z",
+   "id": "Q142153522",
+   "us": true
+  },
+  "RFA": {
+   "at": "2026-11-18T17:15:18.245Z",
+   "id": null,
+   "us": false
+  },
+  "KD Pharma": {
+   "at": "2026-11-18T17:15:18.245Z",
+   "id": null,
+   "us": false
+  },
+  "steueragenten.de Steuerberatungsgesellschaft mbH": {
+   "at": "2026-11-18T17:15:18.245Z",
+   "id": null,
+   "us": false
+  },
+  "Horn Druck & Verlag KG": {
+   "at": "2026-11-18T17:15:18.245Z",
+   "id": null,
+   "us": false
+  },
+  "INTESCIA GROUP": {
+   "at": "2026-11-18T17:15:18.245Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-18T13:30:10.974Z",
-  "remoteok": "2026-11-18T13:30:10.974Z",
-  "workingnomads": "2026-11-18T13:30:10.974Z",
-  "weworkremotely": "2026-11-18T13:30:10.974Z",
-  "nodesk": "2026-11-18T13:30:10.974Z",
-  "himalayas": "2026-11-18T13:30:10.974Z",
+  "remoteok": "2026-11-18T17:15:18.245Z",
+  "workingnomads": "2026-11-18T17:15:18.245Z",
+  "weworkremotely": "2026-11-18T17:15:18.245Z",
+  "nodesk": "2026-11-18T17:15:18.245Z",
+  "himalayas": "2026-11-18T17:15:18.245Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -13968,8 +14011,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-18T13:30:10.974Z",
- "arbeitnowAt": "2026-11-18T13:30:10.974Z",
+ "jobicyAt": "2026-11-18T17:15:18.245Z",
+ "arbeitnowAt": "2026-11-18T17:15:18.245Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
