@@ -9344,16 +9344,31 @@
    "at": "2026-11-17T23:03:22.055Z",
    "id": null,
    "us": false
+  },
+  "Clera": {
+   "at": "2026-11-18T02:30:54.309Z",
+   "id": null,
+   "us": false
+  },
+  "PatientPoint": {
+   "at": "2026-11-18T02:30:54.309Z",
+   "id": null,
+   "us": false
+  },
+  "Elvoro": {
+   "at": "2026-11-18T02:30:54.309Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-17T23:03:22.055Z",
-  "remoteok": "2026-11-17T23:03:22.055Z",
-  "workingnomads": "2026-11-17T23:03:22.055Z",
-  "weworkremotely": "2026-11-17T23:03:22.055Z",
-  "nodesk": "2026-11-17T23:03:22.055Z",
+  "remoteok": "2026-11-18T02:30:54.309Z",
+  "workingnomads": "2026-11-18T02:30:54.309Z",
+  "weworkremotely": "2026-11-18T02:30:54.309Z",
+  "nodesk": "2026-11-18T02:30:54.309Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-17T23:03:22.055Z",
- "arbeitnowAt": "2026-11-17T23:03:22.055Z"
+ "jobicyAt": "2026-11-18T02:30:54.309Z",
+ "arbeitnowAt": "2026-11-18T02:30:54.309Z"
 }

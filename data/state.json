@@ -13774,14 +13774,24 @@
    "at": "2026-11-18T01:29:50.766Z",
    "id": null,
    "us": false
+  },
+  "PatientPoint": {
+   "at": "2026-11-18T02:30:20.849Z",
+   "id": null,
+   "us": false
+  },
+  "Elvoro": {
+   "at": "2026-11-18T02:30:20.849Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-17T23:00:23.098Z",
-  "remoteok": "2026-11-17T23:00:23.098Z",
-  "workingnomads": "2026-11-17T23:00:23.098Z",
-  "weworkremotely": "2026-11-17T23:00:23.098Z",
-  "nodesk": "2026-11-17T23:00:23.098Z",
+  "remoteok": "2026-11-18T02:30:20.849Z",
+  "workingnomads": "2026-11-18T02:30:20.849Z",
+  "weworkremotely": "2026-11-18T02:30:20.849Z",
+  "nodesk": "2026-11-18T02:30:20.849Z",
   "himalayas": "2026-11-18T01:29:50.766Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -13834,8 +13844,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-17T23:00:23.098Z",
- "arbeitnowAt": "2026-11-17T23:00:23.098Z",
+ "jobicyAt": "2026-11-18T02:30:20.849Z",
+ "arbeitnowAt": "2026-11-18T02:30:20.849Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
