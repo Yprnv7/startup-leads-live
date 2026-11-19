@@ -6638,6 +6638,22 @@
   "weworkremotely:unify-dots": {
    "reason": "India office",
    "at": "2026-11-19T18:04:16.806Z"
+  },
+  "weworkremotely:tebra": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-19T21:01:06.106Z"
+  },
+  "weworkremotely:fin": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-19T21:01:06.106Z"
+  },
+  "weworkremotely:prove": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-19T21:01:06.106Z"
+  },
+  "weworkremotely:upsun": {
+   "reason": "India office",
+   "at": "2026-11-19T21:01:06.106Z"
   }
  },
  "wikidata": {
@@ -14170,15 +14186,25 @@
    "at": "2026-11-19T18:04:16.806Z",
    "id": "Q111387693",
    "us": true
+  },
+  "Finary": {
+   "at": "2026-11-19T21:01:06.106Z",
+   "id": "Q134888820",
+   "us": false
+  },
+  "KD Pharma Group": {
+   "at": "2026-11-19T21:01:06.106Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-19T18:04:16.806Z",
-  "remoteok": "2026-11-19T18:04:16.806Z",
-  "workingnomads": "2026-11-19T18:04:16.806Z",
-  "weworkremotely": "2026-11-19T18:04:16.806Z",
-  "nodesk": "2026-11-19T18:04:16.806Z",
-  "himalayas": "2026-11-19T18:04:16.806Z",
+  "remoteok": "2026-11-19T21:01:06.106Z",
+  "workingnomads": "2026-11-19T21:01:06.106Z",
+  "weworkremotely": "2026-11-19T21:01:06.106Z",
+  "nodesk": "2026-11-19T21:01:06.106Z",
+  "himalayas": "2026-11-19T21:01:06.106Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -14230,8 +14256,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-19T18:04:16.806Z",
- "arbeitnowAt": "2026-11-19T18:04:16.806Z",
+ "jobicyAt": "2026-11-19T21:01:06.106Z",
+ "arbeitnowAt": "2026-11-19T21:01:06.106Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
