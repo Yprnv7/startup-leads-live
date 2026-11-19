@@ -14014,14 +14014,24 @@
    "at": "2026-11-19T00:53:27.208Z",
    "id": "Q106178442",
    "us": false
+  },
+  "DataSmart Point GmbH": {
+   "at": "2026-11-19T03:52:21.449Z",
+   "id": null,
+   "us": false
+  },
+  "Kooku": {
+   "at": "2026-11-19T03:52:21.449Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-19T02:50:44.285Z",
-  "remoteok": "2026-11-19T00:53:27.208Z",
-  "workingnomads": "2026-11-19T00:53:27.208Z",
-  "weworkremotely": "2026-11-19T00:53:27.208Z",
-  "nodesk": "2026-11-19T00:53:27.208Z",
+  "remoteok": "2026-11-19T03:52:21.449Z",
+  "workingnomads": "2026-11-19T03:52:21.449Z",
+  "weworkremotely": "2026-11-19T03:52:21.449Z",
+  "nodesk": "2026-11-19T03:52:21.449Z",
   "himalayas": "2026-11-19T02:50:44.285Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -14074,8 +14084,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-19T00:53:27.208Z",
- "arbeitnowAt": "2026-11-19T00:53:27.208Z",
+ "jobicyAt": "2026-11-19T03:52:21.449Z",
+ "arbeitnowAt": "2026-11-19T03:52:21.449Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
