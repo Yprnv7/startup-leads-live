@@ -3948,6 +3948,26 @@
   "jobicy:axon": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-19T15:05:30.895Z"
+  },
+  "weworkremotely:backblaze-external-website": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-19T18:07:13.021Z"
+  },
+  "weworkremotely:armada": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-19T18:07:13.021Z"
+  },
+  "weworkremotely:mozilla": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-19T18:07:13.021Z"
+  },
+  "weworkremotely:chargepoint": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-19T18:07:13.021Z"
+  },
+  "weworkremotely:unify-dots": {
+   "reason": "India office",
+   "at": "2026-11-19T18:07:13.021Z"
   }
  },
  "wikidata": {
@@ -9670,16 +9690,66 @@
    "at": "2026-11-19T15:05:30.895Z",
    "id": null,
    "us": false
+  },
+  "docunest GmbH": {
+   "at": "2026-11-19T18:07:13.021Z",
+   "id": null,
+   "us": false
+  },
+  "Syner-G": {
+   "at": "2026-11-19T18:07:13.021Z",
+   "id": "Q41567943",
+   "us": false
+  },
+  "Treatwell": {
+   "at": "2026-11-19T18:07:13.021Z",
+   "id": "Q137897313",
+   "us": false
+  },
+  "Gravie": {
+   "at": "2026-11-19T18:07:13.021Z",
+   "id": null,
+   "us": false
+  },
+  "Stedi": {
+   "at": "2026-11-19T18:07:13.021Z",
+   "id": "Q1902943",
+   "us": false
+  },
+  "Maya HTT": {
+   "at": "2026-11-19T18:07:13.021Z",
+   "id": null,
+   "us": false
+  },
+  "Go1 Australia": {
+   "at": "2026-11-19T18:07:13.021Z",
+   "id": null,
+   "us": false
+  },
+  "Unify Dots": {
+   "at": "2026-11-19T18:07:13.021Z",
+   "id": null,
+   "us": false
+  },
+  "Armada": {
+   "at": "2026-11-19T18:07:13.021Z",
+   "id": null,
+   "us": false
+  },
+  "ChargePoint": {
+   "at": "2026-11-19T18:07:13.021Z",
+   "id": "Q5176149",
+   "us": true
   }
  },
  "othersAt": {
-  "remotive": "2026-11-19T12:15:10.189Z",
-  "remoteok": "2026-11-19T15:05:30.895Z",
-  "workingnomads": "2026-11-19T15:05:30.895Z",
-  "weworkremotely": "2026-11-19T15:05:30.895Z",
-  "nodesk": "2026-11-19T15:05:30.895Z",
+  "remotive": "2026-11-19T18:07:13.021Z",
+  "remoteok": "2026-11-19T18:07:13.021Z",
+  "workingnomads": "2026-11-19T18:07:13.021Z",
+  "weworkremotely": "2026-11-19T18:07:13.021Z",
+  "nodesk": "2026-11-19T18:07:13.021Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-19T15:05:30.895Z",
- "arbeitnowAt": "2026-11-19T15:05:30.895Z"
+ "jobicyAt": "2026-11-19T18:07:13.021Z",
+ "arbeitnowAt": "2026-11-19T18:07:13.021Z"
 }
