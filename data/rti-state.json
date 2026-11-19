@@ -325,14 +325,16 @@
   "inferedge": "2026-11-04T01:26:39.011Z",
   "legalos": "2026-11-04T01:26:39.011Z",
   "shortloop": "2026-11-05T01:41:21.694Z",
-  "unravel-carbon": "2026-11-05T01:41:21.694Z",
+  "unravel-carbon": "2026-11-19T01:52:40.591Z",
   "armature": "2026-11-06T01:59:20.443Z",
   "adalat-ai": "2026-11-07T01:18:48.416Z",
   "clicks-health": "2026-11-07T01:18:48.416Z",
   "third-chair": "2026-11-07T01:18:48.416Z",
   "paasa": "2026-11-12T01:43:08.620Z",
   "huscarl": "2026-11-13T01:05:01.494Z",
-  "frontpage": "2026-11-17T01:25:08.640Z"
+  "frontpage": "2026-11-17T01:25:08.640Z",
+  "trainy": "2026-11-19T01:52:40.591Z",
+  "treasury-prime": "2026-11-19T01:52:40.591Z"
  },
  "boards": [
   {
@@ -3922,6 +3924,14 @@
   "nodesk:patreon": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-18T20:16:44.224Z"
+  },
+  "yc:trainy": {
+   "reason": "US headquarters",
+   "at": "2026-11-19T01:52:40.591Z"
+  },
+  "yc:treasury-prime": {
+   "reason": "US headquarters",
+   "at": "2026-11-19T01:52:40.591Z"
   }
  },
  "wikidata": {
