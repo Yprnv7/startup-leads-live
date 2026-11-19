@@ -6602,6 +6602,18 @@
   "yc:treasury-prime": {
    "reason": "US headquarters",
    "at": "2026-11-19T01:52:17.997Z"
+  },
+  "weworkremotely:circleci": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-19T06:52:29.515Z"
+  },
+  "weworkremotely:gemini": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-19T06:52:29.515Z"
+  },
+  "weworkremotely:checkr": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-19T06:52:29.515Z"
   }
  },
  "wikidata": {
@@ -14024,15 +14036,20 @@
    "at": "2026-11-19T03:52:21.449Z",
    "id": null,
    "us": false
+  },
+  "Huntress Labs": {
+   "at": "2026-11-19T06:52:29.515Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-19T02:50:44.285Z",
-  "remoteok": "2026-11-19T03:52:21.449Z",
-  "workingnomads": "2026-11-19T03:52:21.449Z",
-  "weworkremotely": "2026-11-19T03:52:21.449Z",
-  "nodesk": "2026-11-19T03:52:21.449Z",
-  "himalayas": "2026-11-19T04:52:22.551Z",
+  "remoteok": "2026-11-19T06:52:29.515Z",
+  "workingnomads": "2026-11-19T06:52:29.515Z",
+  "weworkremotely": "2026-11-19T06:52:29.515Z",
+  "nodesk": "2026-11-19T06:52:29.515Z",
+  "himalayas": "2026-11-19T06:52:29.515Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -14084,8 +14101,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-19T03:52:21.449Z",
- "arbeitnowAt": "2026-11-19T03:52:21.449Z",
+ "jobicyAt": "2026-11-19T06:52:29.515Z",
+ "arbeitnowAt": "2026-11-19T06:52:29.515Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,

@@ -3932,6 +3932,18 @@
   "yc:treasury-prime": {
    "reason": "US headquarters",
    "at": "2026-11-19T01:52:40.591Z"
+  },
+  "weworkremotely:circleci": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-19T06:54:06.082Z"
+  },
+  "weworkremotely:gemini": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-19T06:54:06.082Z"
+  },
+  "weworkremotely:checkr": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-19T06:54:06.082Z"
   }
  },
  "wikidata": {
@@ -9599,16 +9611,21 @@
    "at": "2026-11-19T03:53:12.184Z",
    "id": null,
    "us": false
+  },
+  "Huntress Labs": {
+   "at": "2026-11-19T06:54:06.082Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-19T02:51:10.316Z",
-  "remoteok": "2026-11-19T03:53:12.184Z",
-  "workingnomads": "2026-11-19T03:53:12.184Z",
-  "weworkremotely": "2026-11-19T03:53:12.184Z",
-  "nodesk": "2026-11-19T03:53:12.184Z",
+  "remoteok": "2026-11-19T06:54:06.082Z",
+  "workingnomads": "2026-11-19T06:54:06.082Z",
+  "weworkremotely": "2026-11-19T06:54:06.082Z",
+  "nodesk": "2026-11-19T06:54:06.082Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-19T03:53:12.184Z",
- "arbeitnowAt": "2026-11-19T03:53:12.184Z"
+ "jobicyAt": "2026-11-19T06:54:06.082Z",
+ "arbeitnowAt": "2026-11-19T06:54:06.082Z"
 }
