@@ -6614,6 +6614,10 @@
   "weworkremotely:checkr": {
    "reason": "US headquarters (We Work Remotely)",
    "at": "2026-11-19T06:52:29.515Z"
+  },
+  "jobicy:axon": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-19T15:04:21.513Z"
   }
  },
  "wikidata": {
@@ -14081,14 +14085,24 @@
    "at": "2026-11-19T12:12:50.680Z",
    "id": null,
    "us": false
+  },
+  "Axon": {
+   "at": "2026-11-19T15:04:21.513Z",
+   "id": "Q690604",
+   "us": true
+  },
+  "Initiative für wirtschaftliche Jugendbildung (IWJB)": {
+   "at": "2026-11-19T15:04:21.513Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-19T12:12:50.680Z",
-  "remoteok": "2026-11-19T12:12:50.680Z",
-  "workingnomads": "2026-11-19T12:12:50.680Z",
-  "weworkremotely": "2026-11-19T12:12:50.680Z",
-  "nodesk": "2026-11-19T12:12:50.680Z",
+  "remoteok": "2026-11-19T15:04:21.513Z",
+  "workingnomads": "2026-11-19T15:04:21.513Z",
+  "weworkremotely": "2026-11-19T15:04:21.513Z",
+  "nodesk": "2026-11-19T15:04:21.513Z",
   "himalayas": "2026-11-19T14:04:07.101Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -14141,8 +14155,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-19T12:12:50.680Z",
- "arbeitnowAt": "2026-11-19T12:12:50.680Z",
+ "jobicyAt": "2026-11-19T15:04:21.513Z",
+ "arbeitnowAt": "2026-11-19T15:04:21.513Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
