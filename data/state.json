@@ -6792,6 +6792,18 @@
   "remoteok:lattice": {
    "reason": "US headquarters (config)",
    "at": "2026-11-20T19:57:46.575Z"
+  },
+  "weworkremotely:bitwarden": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-20T22:54:29.314Z"
+  },
+  "remoteok:upgrade": {
+   "reason": "US headquarters (config)",
+   "at": "2026-11-20T22:54:29.314Z"
+  },
+  "remoteok:dropbox": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-20T22:54:29.314Z"
   }
  },
  "wikidata": {
@@ -14584,15 +14596,45 @@
    "at": "2026-11-20T19:57:46.575Z",
    "id": null,
    "us": false
+  },
+  "Fal Ai": {
+   "at": "2026-11-20T22:54:29.314Z",
+   "id": null,
+   "us": false
+  },
+  "TRIONE": {
+   "at": "2026-11-20T22:54:29.314Z",
+   "id": null,
+   "us": false
+  },
+  "gravity9": {
+   "at": "2026-11-20T22:54:29.314Z",
+   "id": null,
+   "us": false
+  },
+  "Dawn Technology": {
+   "at": "2026-11-20T22:54:29.314Z",
+   "id": null,
+   "us": false
+  },
+  "Elation Health": {
+   "at": "2026-11-20T22:54:29.314Z",
+   "id": null,
+   "us": false
+  },
+  "Upgrade": {
+   "at": "2026-11-20T22:54:29.314Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-20T19:57:46.575Z",
-  "remoteok": "2026-11-20T19:57:46.575Z",
-  "workingnomads": "2026-11-20T19:57:46.575Z",
-  "weworkremotely": "2026-11-20T19:57:46.575Z",
-  "nodesk": "2026-11-20T19:57:46.575Z",
-  "himalayas": "2026-11-20T20:57:46.816Z",
+  "remoteok": "2026-11-20T22:54:29.314Z",
+  "workingnomads": "2026-11-20T22:54:29.314Z",
+  "weworkremotely": "2026-11-20T22:54:29.314Z",
+  "nodesk": "2026-11-20T22:54:29.314Z",
+  "himalayas": "2026-11-20T22:54:29.314Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -14644,8 +14686,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-20T19:57:46.575Z",
- "arbeitnowAt": "2026-11-20T19:57:46.575Z",
+ "jobicyAt": "2026-11-20T22:54:29.314Z",
+ "arbeitnowAt": "2026-11-20T22:54:29.314Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
