@@ -4065,6 +4065,62 @@
   "remoteok:collibra": {
    "reason": "US headquarters (We Work Remotely)",
    "at": "2026-11-20T16:44:03.391Z"
+  },
+  "weworkremotely:cockroach-labs": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-20T19:59:16.191Z"
+  },
+  "weworkremotely:gusto-inc": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-20T19:59:16.191Z"
+  },
+  "weworkremotely:asana": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-20T19:59:16.191Z"
+  },
+  "jobicy:cribl": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-20T19:59:16.191Z"
+  },
+  "weworkremotely:sitecare": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-20T19:59:16.191Z"
+  },
+  "weworkremotely:boomi": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-20T19:59:16.191Z"
+  },
+  "remoteok:airbnb": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-20T19:59:16.191Z"
+  },
+  "remoteok:bitwarden": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-20T19:59:16.191Z"
+  },
+  "weworkremotely:ensono": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-20T19:59:16.191Z"
+  },
+  "weworkremotely:first-due": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-20T19:59:16.191Z"
+  },
+  "remoteok:clover-health": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-20T19:59:16.191Z"
+  },
+  "remoteok:netlify": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-20T19:59:16.191Z"
+  },
+  "weworkremotely:oscar-health": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-20T19:59:16.191Z"
+  },
+  "remoteok:lattice": {
+   "reason": "US headquarters (config)",
+   "at": "2026-11-20T19:59:16.191Z"
   }
  },
  "wikidata": {
@@ -10037,16 +10093,66 @@
    "at": "2026-11-20T16:44:03.391Z",
    "id": null,
    "us": false
+  },
+  "Circles - Better Womanhood": {
+   "at": "2026-11-20T19:59:16.191Z",
+   "id": null,
+   "us": false
+  },
+  "MetaMask": {
+   "at": "2026-11-20T19:59:16.191Z",
+   "id": null,
+   "us": false
+  },
+  "Clover Health": {
+   "at": "2026-11-20T19:59:16.191Z",
+   "id": "Q22079519",
+   "us": true
+  },
+  "Airbnb": {
+   "at": "2026-11-20T19:59:16.191Z",
+   "id": "Q63327",
+   "us": true
+  },
+  "Storyblok": {
+   "at": "2026-11-20T19:59:16.191Z",
+   "id": null,
+   "us": false
+  },
+  "Ledgy": {
+   "at": "2026-11-20T19:59:16.191Z",
+   "id": null,
+   "us": false
+  },
+  "Coderio": {
+   "at": "2026-11-20T19:59:16.191Z",
+   "id": null,
+   "us": false
+  },
+  "Oscar Health": {
+   "at": "2026-11-20T19:59:16.191Z",
+   "id": "Q97486402",
+   "us": true
+  },
+  "Freestar": {
+   "at": "2026-11-20T19:59:16.191Z",
+   "id": "Q141173044",
+   "us": false
+  },
+  "Teamified": {
+   "at": "2026-11-20T19:59:16.191Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-20T13:19:49.170Z",
-  "remoteok": "2026-11-20T16:44:03.391Z",
-  "workingnomads": "2026-11-20T16:44:03.391Z",
-  "weworkremotely": "2026-11-20T16:44:03.391Z",
-  "nodesk": "2026-11-20T16:44:03.391Z",
+  "remotive": "2026-11-20T19:59:16.191Z",
+  "remoteok": "2026-11-20T19:59:16.191Z",
+  "workingnomads": "2026-11-20T19:59:16.191Z",
+  "weworkremotely": "2026-11-20T19:59:16.191Z",
+  "nodesk": "2026-11-20T19:59:16.191Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-20T16:44:03.391Z",
- "arbeitnowAt": "2026-11-20T16:44:03.391Z"
+ "jobicyAt": "2026-11-20T19:59:16.191Z",
+ "arbeitnowAt": "2026-11-20T19:59:16.191Z"
 }
