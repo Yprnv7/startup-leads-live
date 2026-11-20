@@ -4029,6 +4029,34 @@
   "remoteok:stripe": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-20T10:15:19.683Z"
+  },
+  "remoteok:gitlab": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-20T13:19:49.170Z"
+  },
+  "remoteok:salesloft": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-20T13:19:49.170Z"
+  },
+  "jobicy:armada": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-20T13:19:49.170Z"
+  },
+  "remoteok:ping-identity": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-20T13:19:49.170Z"
+  },
+  "remoteok:beyondtrust": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-20T13:19:49.170Z"
+  },
+  "remoteok:talkspace": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-20T13:19:49.170Z"
+  },
+  "remoteok:airtable": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-20T13:19:49.170Z"
   }
  },
  "wikidata": {
@@ -9916,16 +9944,71 @@
    "at": "2026-11-20T10:15:19.683Z",
    "id": null,
    "us": false
+  },
+  "ICEYE": {
+   "at": "2026-11-20T13:19:49.170Z",
+   "id": "Q31086161",
+   "us": false
+  },
+  "Biz Factory GmbH": {
+   "at": "2026-11-20T13:19:49.170Z",
+   "id": null,
+   "us": false
+  },
+  "Waldemar Behn GmbH": {
+   "at": "2026-11-20T13:19:49.170Z",
+   "id": null,
+   "us": false
+  },
+  "Gamer Tech Deutschland GmbH": {
+   "at": "2026-11-20T13:19:49.170Z",
+   "id": null,
+   "us": false
+  },
+  "Bitwarden": {
+   "at": "2026-11-20T13:19:49.170Z",
+   "id": null,
+   "us": false
+  },
+  "BeyondTrust": {
+   "at": "2026-11-20T13:19:49.170Z",
+   "id": "Q4899911",
+   "us": true
+  },
+  "Abnormal": {
+   "at": "2026-11-20T13:19:49.170Z",
+   "id": null,
+   "us": false
+  },
+  "Glean": {
+   "at": "2026-11-20T13:19:49.170Z",
+   "id": null,
+   "us": false
+  },
+  "Talkspace": {
+   "at": "2026-11-20T13:19:49.170Z",
+   "id": "Q21978988",
+   "us": true
+  },
+  "Airtable": {
+   "at": "2026-11-20T13:19:49.170Z",
+   "id": "Q23016614",
+   "us": true
+  },
+  "Salesloft": {
+   "at": "2026-11-20T13:19:49.170Z",
+   "id": "Q7404299",
+   "us": true
   }
  },
  "othersAt": {
-  "remotive": "2026-11-20T07:16:09.334Z",
-  "remoteok": "2026-11-20T10:15:19.683Z",
-  "workingnomads": "2026-11-20T10:15:19.683Z",
-  "weworkremotely": "2026-11-20T10:15:19.683Z",
-  "nodesk": "2026-11-20T10:15:19.683Z",
+  "remotive": "2026-11-20T13:19:49.170Z",
+  "remoteok": "2026-11-20T13:19:49.170Z",
+  "workingnomads": "2026-11-20T13:19:49.170Z",
+  "weworkremotely": "2026-11-20T13:19:49.170Z",
+  "nodesk": "2026-11-20T13:19:49.170Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-20T10:15:19.683Z",
- "arbeitnowAt": "2026-11-20T10:15:19.683Z"
+ "jobicyAt": "2026-11-20T13:19:49.170Z",
+ "arbeitnowAt": "2026-11-20T13:19:49.170Z"
 }
