@@ -6687,6 +6687,18 @@
   "arbeitnow:actian": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-20T07:14:10.023Z"
+  },
+  "remoteok:tebra": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-20T10:14:13.073Z"
+  },
+  "arbeitnow:patronus": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-20T10:14:13.073Z"
+  },
+  "remoteok:stripe": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-20T10:14:13.073Z"
   }
  },
  "wikidata": {
@@ -14269,14 +14281,79 @@
    "at": "2026-11-20T07:14:10.023Z",
    "id": "Q108073344",
    "us": false
+  },
+  "Applysia GmbH": {
+   "at": "2026-11-20T10:14:13.073Z",
+   "id": null,
+   "us": false
+  },
+  "LILT (Production)": {
+   "at": "2026-11-20T10:14:13.073Z",
+   "id": null,
+   "us": false
+  },
+  "Patronus": {
+   "at": "2026-11-20T10:14:13.073Z",
+   "id": "Q141908785",
+   "us": true
+  },
+  "Extra & Bold GmbH": {
+   "at": "2026-11-20T10:14:13.073Z",
+   "id": null,
+   "us": false
+  },
+  "Sidestream": {
+   "at": "2026-11-20T10:14:13.073Z",
+   "id": null,
+   "us": false
+  },
+  "Fill the Gap": {
+   "at": "2026-11-20T10:14:13.073Z",
+   "id": null,
+   "us": false
+  },
+  "Little Dot Studios Deutschland": {
+   "at": "2026-11-20T10:14:13.073Z",
+   "id": null,
+   "us": false
+  },
+  "velpTEC GmbH": {
+   "at": "2026-11-20T10:14:13.073Z",
+   "id": null,
+   "us": false
+  },
+  "Tangible": {
+   "at": "2026-11-20T10:14:13.073Z",
+   "id": null,
+   "us": false
+  },
+  "Stripe": {
+   "at": "2026-11-20T10:14:13.073Z",
+   "id": "Q7624104",
+   "us": true
+  },
+  "6sense": {
+   "at": "2026-11-20T10:14:13.073Z",
+   "id": null,
+   "us": false
+  },
+  "Tebra": {
+   "at": "2026-11-20T10:14:13.073Z",
+   "id": null,
+   "us": false
+  },
+  "Everpure": {
+   "at": "2026-11-20T10:14:13.073Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-20T07:14:10.023Z",
-  "remoteok": "2026-11-20T07:14:10.023Z",
-  "workingnomads": "2026-11-20T07:14:10.023Z",
-  "weworkremotely": "2026-11-20T07:14:10.023Z",
-  "nodesk": "2026-11-20T07:14:10.023Z",
+  "remoteok": "2026-11-20T10:14:13.073Z",
+  "workingnomads": "2026-11-20T10:14:13.073Z",
+  "weworkremotely": "2026-11-20T10:14:13.073Z",
+  "nodesk": "2026-11-20T10:14:13.073Z",
   "himalayas": "2026-11-20T09:14:12.330Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -14329,8 +14406,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-20T07:14:10.023Z",
- "arbeitnowAt": "2026-11-20T07:14:10.023Z",
+ "jobicyAt": "2026-11-20T10:14:13.073Z",
+ "arbeitnowAt": "2026-11-20T10:14:13.073Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,

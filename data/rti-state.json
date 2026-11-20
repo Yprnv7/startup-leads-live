@@ -4017,6 +4017,18 @@
   "arbeitnow:actian": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-20T07:16:09.334Z"
+  },
+  "remoteok:tebra": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-20T10:15:19.683Z"
+  },
+  "arbeitnow:patronus": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-20T10:15:19.683Z"
+  },
+  "remoteok:stripe": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-20T10:15:19.683Z"
   }
  },
  "wikidata": {
@@ -9839,16 +9851,81 @@
    "at": "2026-11-20T07:16:09.334Z",
    "id": "Q108073344",
    "us": false
+  },
+  "Applysia GmbH": {
+   "at": "2026-11-20T10:15:19.683Z",
+   "id": null,
+   "us": false
+  },
+  "LILT (Production)": {
+   "at": "2026-11-20T10:15:19.683Z",
+   "id": null,
+   "us": false
+  },
+  "Patronus": {
+   "at": "2026-11-20T10:15:19.683Z",
+   "id": "Q141908785",
+   "us": true
+  },
+  "Extra & Bold GmbH": {
+   "at": "2026-11-20T10:15:19.683Z",
+   "id": null,
+   "us": false
+  },
+  "Sidestream": {
+   "at": "2026-11-20T10:15:19.683Z",
+   "id": null,
+   "us": false
+  },
+  "Fill the Gap": {
+   "at": "2026-11-20T10:15:19.683Z",
+   "id": null,
+   "us": false
+  },
+  "Little Dot Studios Deutschland": {
+   "at": "2026-11-20T10:15:19.683Z",
+   "id": null,
+   "us": false
+  },
+  "velpTEC GmbH": {
+   "at": "2026-11-20T10:15:19.683Z",
+   "id": null,
+   "us": false
+  },
+  "Tangible": {
+   "at": "2026-11-20T10:15:19.683Z",
+   "id": null,
+   "us": false
+  },
+  "Stripe": {
+   "at": "2026-11-20T10:15:19.683Z",
+   "id": "Q7624104",
+   "us": true
+  },
+  "6sense": {
+   "at": "2026-11-20T10:15:19.683Z",
+   "id": null,
+   "us": false
+  },
+  "Tebra": {
+   "at": "2026-11-20T10:15:19.683Z",
+   "id": null,
+   "us": false
+  },
+  "Everpure": {
+   "at": "2026-11-20T10:15:19.683Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-20T07:16:09.334Z",
-  "remoteok": "2026-11-20T07:16:09.334Z",
-  "workingnomads": "2026-11-20T07:16:09.334Z",
-  "weworkremotely": "2026-11-20T07:16:09.334Z",
-  "nodesk": "2026-11-20T07:16:09.334Z",
+  "remoteok": "2026-11-20T10:15:19.683Z",
+  "workingnomads": "2026-11-20T10:15:19.683Z",
+  "weworkremotely": "2026-11-20T10:15:19.683Z",
+  "nodesk": "2026-11-20T10:15:19.683Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-20T07:16:09.334Z",
- "arbeitnowAt": "2026-11-20T07:16:09.334Z"
+ "jobicyAt": "2026-11-20T10:15:19.683Z",
+ "arbeitnowAt": "2026-11-20T10:15:19.683Z"
 }
