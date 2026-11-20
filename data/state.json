@@ -3437,7 +3437,7 @@
    "2026-11-06": 29,
    "2026-11-13": 29,
    "2026-11-14": 1,
-   "2026-11-20": 25
+   "2026-11-20": 29
   }
  },
  "excluded": {
@@ -6728,6 +6728,14 @@
   "remoteok:airtable": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-20T13:17:36.589Z"
+  },
+  "remoteok:legion": {
+   "reason": "US headquarters (config)",
+   "at": "2026-11-20T16:41:41.603Z"
+  },
+  "remoteok:collibra": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-20T16:41:41.603Z"
   }
  },
  "wikidata": {
@@ -14430,15 +14438,50 @@
    "at": "2026-11-20T13:17:36.589Z",
    "id": "Q7404299",
    "us": true
+  },
+  "BJAK": {
+   "at": "2026-11-20T16:41:41.603Z",
+   "id": "Q136756944",
+   "us": false
+  },
+  "Digistore24": {
+   "at": "2026-11-20T16:41:41.603Z",
+   "id": null,
+   "us": false
+  },
+  "Continuity": {
+   "at": "2026-11-20T16:41:41.603Z",
+   "id": null,
+   "us": false
+  },
+  "NIKI Digital Engineering": {
+   "at": "2026-11-20T16:41:41.603Z",
+   "id": "Q54865341",
+   "us": false
+  },
+  "Norm": {
+   "at": "2026-11-20T16:41:41.603Z",
+   "id": null,
+   "us": false
+  },
+  "Rubrik Job Board": {
+   "at": "2026-11-20T16:41:41.603Z",
+   "id": null,
+   "us": false
+  },
+  "Legion": {
+   "at": "2026-11-20T16:41:41.603Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-20T13:17:36.589Z",
-  "remoteok": "2026-11-20T13:17:36.589Z",
-  "workingnomads": "2026-11-20T13:17:36.589Z",
-  "weworkremotely": "2026-11-20T13:17:36.589Z",
-  "nodesk": "2026-11-20T13:17:36.589Z",
-  "himalayas": "2026-11-20T13:17:36.589Z",
+  "remoteok": "2026-11-20T16:41:41.603Z",
+  "workingnomads": "2026-11-20T16:41:41.603Z",
+  "weworkremotely": "2026-11-20T16:41:41.603Z",
+  "nodesk": "2026-11-20T16:41:41.603Z",
+  "himalayas": "2026-11-20T16:41:41.603Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -14490,10 +14533,10 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-20T13:17:36.589Z",
- "arbeitnowAt": "2026-11-20T13:17:36.589Z",
+ "jobicyAt": "2026-11-20T16:41:41.603Z",
+ "arbeitnowAt": "2026-11-20T16:41:41.603Z",
  "discovery": {
-  "page": 25,
+  "page": 29,
   "totalPages": 29,
   "cycleAt": "2026-11-20T13:16:59.248Z",
   "companies": {

@@ -4057,6 +4057,14 @@
   "remoteok:airtable": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-20T13:19:49.170Z"
+  },
+  "remoteok:legion": {
+   "reason": "US headquarters (config)",
+   "at": "2026-11-20T16:44:03.391Z"
+  },
+  "remoteok:collibra": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-20T16:44:03.391Z"
   }
  },
  "wikidata": {
@@ -9999,16 +10007,46 @@
    "at": "2026-11-20T13:19:49.170Z",
    "id": "Q7404299",
    "us": true
+  },
+  "BJAK": {
+   "at": "2026-11-20T16:44:03.391Z",
+   "id": "Q136756944",
+   "us": false
+  },
+  "Digistore24": {
+   "at": "2026-11-20T16:44:03.391Z",
+   "id": null,
+   "us": false
+  },
+  "Continuity": {
+   "at": "2026-11-20T16:44:03.391Z",
+   "id": null,
+   "us": false
+  },
+  "NIKI Digital Engineering": {
+   "at": "2026-11-20T16:44:03.391Z",
+   "id": "Q54865341",
+   "us": false
+  },
+  "Norm": {
+   "at": "2026-11-20T16:44:03.391Z",
+   "id": null,
+   "us": false
+  },
+  "Rubrik Job Board": {
+   "at": "2026-11-20T16:44:03.391Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-20T13:19:49.170Z",
-  "remoteok": "2026-11-20T13:19:49.170Z",
-  "workingnomads": "2026-11-20T13:19:49.170Z",
-  "weworkremotely": "2026-11-20T13:19:49.170Z",
-  "nodesk": "2026-11-20T13:19:49.170Z",
+  "remoteok": "2026-11-20T16:44:03.391Z",
+  "workingnomads": "2026-11-20T16:44:03.391Z",
+  "weworkremotely": "2026-11-20T16:44:03.391Z",
+  "nodesk": "2026-11-20T16:44:03.391Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-20T13:19:49.170Z",
- "arbeitnowAt": "2026-11-20T13:19:49.170Z"
+ "jobicyAt": "2026-11-20T16:44:03.391Z",
+ "arbeitnowAt": "2026-11-20T16:44:03.391Z"
 }
