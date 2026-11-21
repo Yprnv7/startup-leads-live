@@ -4206,6 +4206,14 @@
   "weworkremotely:natera": {
    "reason": "US headquarters (We Work Remotely)",
    "at": "2026-11-21T18:44:25.070Z"
+  },
+  "weworkremotely:tines": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-21T21:40:06.210Z"
+  },
+  "weworkremotely:tailscale": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-21T21:40:06.210Z"
   }
  },
  "wikidata": {
@@ -10358,16 +10366,26 @@
    "at": "2026-11-21T18:44:25.070Z",
    "id": null,
    "us": false
+  },
+  "Probantica": {
+   "at": "2026-11-21T21:40:06.210Z",
+   "id": null,
+   "us": false
+  },
+  "Scape": {
+   "at": "2026-11-21T21:40:06.210Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-21T15:40:56.333Z",
-  "remoteok": "2026-11-21T18:44:25.070Z",
-  "workingnomads": "2026-11-21T18:44:25.070Z",
-  "weworkremotely": "2026-11-21T18:44:25.070Z",
-  "nodesk": "2026-11-21T18:44:25.070Z",
+  "remotive": "2026-11-21T21:40:06.210Z",
+  "remoteok": "2026-11-21T21:40:06.210Z",
+  "workingnomads": "2026-11-21T21:40:06.210Z",
+  "weworkremotely": "2026-11-21T21:40:06.210Z",
+  "nodesk": "2026-11-21T21:40:06.210Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-21T18:44:25.070Z",
- "arbeitnowAt": "2026-11-21T18:44:25.070Z"
+ "jobicyAt": "2026-11-21T21:40:06.210Z",
+ "arbeitnowAt": "2026-11-21T21:40:06.210Z"
 }
