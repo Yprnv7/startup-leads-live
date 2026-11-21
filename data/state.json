@@ -6853,6 +6853,22 @@
   "remoteok:natera": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-21T11:57:13.775Z"
+  },
+  "remoteok:tines": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-21T18:43:11.881Z"
+  },
+  "jobicy:tailscale": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-21T18:43:11.881Z"
+  },
+  "weworkremotely:instacart": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-21T18:43:11.881Z"
+  },
+  "weworkremotely:natera": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-21T18:43:11.881Z"
   }
  },
  "wikidata": {
@@ -14770,14 +14786,24 @@
    "at": "2026-11-21T11:57:13.775Z",
    "id": null,
    "us": false
+  },
+  "Quartermaster": {
+   "at": "2026-11-21T18:43:11.881Z",
+   "id": null,
+   "us": false
+  },
+  "Princeton10": {
+   "at": "2026-11-21T18:43:11.881Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-21T15:39:06.821Z",
-  "remoteok": "2026-11-21T15:39:06.821Z",
-  "workingnomads": "2026-11-21T15:39:06.821Z",
-  "weworkremotely": "2026-11-21T15:39:06.821Z",
-  "nodesk": "2026-11-21T15:39:06.821Z",
+  "remoteok": "2026-11-21T18:43:11.881Z",
+  "workingnomads": "2026-11-21T18:43:11.881Z",
+  "weworkremotely": "2026-11-21T18:43:11.881Z",
+  "nodesk": "2026-11-21T18:43:11.881Z",
   "himalayas": "2026-11-21T17:39:13.454Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -14830,8 +14856,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-21T15:39:06.821Z",
- "arbeitnowAt": "2026-11-21T15:39:06.821Z",
+ "jobicyAt": "2026-11-21T18:43:11.881Z",
+ "arbeitnowAt": "2026-11-21T18:43:11.881Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,

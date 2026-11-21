@@ -4190,6 +4190,22 @@
   "arbeitnow:intetics-2": {
    "reason": "Recruitment agency (posts for unnamed clients)",
    "at": "2026-11-21T15:40:56.333Z"
+  },
+  "remoteok:tines": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-21T18:44:25.070Z"
+  },
+  "jobicy:tailscale": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-21T18:44:25.070Z"
+  },
+  "weworkremotely:instacart": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-21T18:44:25.070Z"
+  },
+  "weworkremotely:natera": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-21T18:44:25.070Z"
   }
  },
  "wikidata": {
@@ -10332,16 +10348,26 @@
    "at": "2026-11-21T11:58:26.889Z",
    "id": null,
    "us": false
+  },
+  "Quartermaster": {
+   "at": "2026-11-21T18:44:25.070Z",
+   "id": null,
+   "us": false
+  },
+  "Princeton10": {
+   "at": "2026-11-21T18:44:25.070Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-21T15:40:56.333Z",
-  "remoteok": "2026-11-21T15:40:56.333Z",
-  "workingnomads": "2026-11-21T15:40:56.333Z",
-  "weworkremotely": "2026-11-21T15:40:56.333Z",
-  "nodesk": "2026-11-21T15:40:56.333Z",
+  "remoteok": "2026-11-21T18:44:25.070Z",
+  "workingnomads": "2026-11-21T18:44:25.070Z",
+  "weworkremotely": "2026-11-21T18:44:25.070Z",
+  "nodesk": "2026-11-21T18:44:25.070Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-21T15:40:56.333Z",
- "arbeitnowAt": "2026-11-21T15:40:56.333Z"
+ "jobicyAt": "2026-11-21T18:44:25.070Z",
+ "arbeitnowAt": "2026-11-21T18:44:25.070Z"
 }
