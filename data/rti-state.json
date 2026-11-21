@@ -4138,6 +4138,18 @@
   "remoteok:dropbox": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-20T22:56:06.769Z"
+  },
+  "remoteok:cribl": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-21T02:32:02.311Z"
+  },
+  "remoteok:handspring": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-21T02:32:02.311Z"
+  },
+  "nodesk:circleci": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-21T02:32:02.311Z"
   }
  },
  "wikidata": {
@@ -10185,16 +10197,46 @@
    "at": "2026-11-20T22:56:06.769Z",
    "id": null,
    "us": false
+  },
+  "Arbor Education": {
+   "at": "2026-11-21T02:32:02.311Z",
+   "id": null,
+   "us": false
+  },
+  "1mind": {
+   "at": "2026-11-21T02:32:02.311Z",
+   "id": null,
+   "us": false
+  },
+  "FP Markets": {
+   "at": "2026-11-21T02:32:02.311Z",
+   "id": null,
+   "us": false
+  },
+  "Handspring": {
+   "at": "2026-11-21T02:32:02.311Z",
+   "id": "Q1575227",
+   "us": true
+  },
+  "Zenrows": {
+   "at": "2026-11-21T02:32:02.311Z",
+   "id": null,
+   "us": false
+  },
+  "CircleCI": {
+   "at": "2026-11-21T02:32:02.311Z",
+   "id": "Q38922434",
+   "us": true
   }
  },
  "othersAt": {
-  "remotive": "2026-11-20T19:59:16.191Z",
-  "remoteok": "2026-11-20T22:56:06.769Z",
-  "workingnomads": "2026-11-20T22:56:06.769Z",
-  "weworkremotely": "2026-11-20T22:56:06.769Z",
-  "nodesk": "2026-11-20T22:56:06.769Z",
+  "remotive": "2026-11-21T02:32:02.311Z",
+  "remoteok": "2026-11-21T02:32:02.311Z",
+  "workingnomads": "2026-11-21T02:32:02.311Z",
+  "weworkremotely": "2026-11-21T02:32:02.311Z",
+  "nodesk": "2026-11-21T02:32:02.311Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-20T22:56:06.769Z",
- "arbeitnowAt": "2026-11-20T22:56:06.769Z"
+ "jobicyAt": "2026-11-21T02:32:02.311Z",
+ "arbeitnowAt": "2026-11-21T02:32:02.311Z"
 }
