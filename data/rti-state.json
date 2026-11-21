@@ -4162,6 +4162,18 @@
   "remoteok:oportun": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-21T05:32:35.304Z"
+  },
+  "remoteok:elation-health": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-21T08:53:02.495Z"
+  },
+  "jobicy:deepgram": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-21T08:53:02.495Z"
+  },
+  "remoteok:launchdarkly": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-21T08:53:02.495Z"
   }
  },
  "wikidata": {
@@ -10254,16 +10266,46 @@
    "at": "2026-11-21T05:32:35.304Z",
    "id": "Q7638010",
    "us": true
+  },
+  "Northflank": {
+   "at": "2026-11-21T08:53:02.495Z",
+   "id": null,
+   "us": false
+  },
+  "Deepgram": {
+   "at": "2026-11-21T08:53:02.495Z",
+   "id": "Q115770008",
+   "us": true
+  },
+  "emnify": {
+   "at": "2026-11-21T08:53:02.495Z",
+   "id": null,
+   "us": false
+  },
+  "Astronomer": {
+   "at": "2026-11-21T08:53:02.495Z",
+   "id": null,
+   "us": false
+  },
+  "LaunchDarkly": {
+   "at": "2026-11-21T08:53:02.495Z",
+   "id": "Q140599516",
+   "us": true
+  },
+  "Stability AI": {
+   "at": "2026-11-21T08:53:02.495Z",
+   "id": "Q123592234",
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-21T02:32:02.311Z",
-  "remoteok": "2026-11-21T05:32:35.304Z",
-  "workingnomads": "2026-11-21T05:32:35.304Z",
-  "weworkremotely": "2026-11-21T05:32:35.304Z",
-  "nodesk": "2026-11-21T05:32:35.304Z",
+  "remotive": "2026-11-21T08:53:02.495Z",
+  "remoteok": "2026-11-21T08:53:02.495Z",
+  "workingnomads": "2026-11-21T08:53:02.495Z",
+  "weworkremotely": "2026-11-21T08:53:02.495Z",
+  "nodesk": "2026-11-21T08:53:02.495Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-21T05:32:35.304Z",
- "arbeitnowAt": "2026-11-21T05:32:35.304Z"
+ "jobicyAt": "2026-11-21T08:53:02.495Z",
+ "arbeitnowAt": "2026-11-21T08:53:02.495Z"
 }
