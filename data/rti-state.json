@@ -4174,6 +4174,18 @@
   "remoteok:launchdarkly": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-21T08:53:02.495Z"
+  },
+  "weworkremotely:elation-health": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-21T11:58:26.889Z"
+  },
+  "remoteok:ensono": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-21T11:58:26.889Z"
+  },
+  "remoteok:natera": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-21T11:58:26.889Z"
   }
  },
  "wikidata": {
@@ -10296,16 +10308,36 @@
    "at": "2026-11-21T08:53:02.495Z",
    "id": "Q123592234",
    "us": false
+  },
+  "iFIT": {
+   "at": "2026-11-21T11:58:26.889Z",
+   "id": null,
+   "us": false
+  },
+  "Natera": {
+   "at": "2026-11-21T11:58:26.889Z",
+   "id": "Q6968762",
+   "us": true
+  },
+  "Salsify": {
+   "at": "2026-11-21T11:58:26.889Z",
+   "id": null,
+   "us": false
+  },
+  "Ensono": {
+   "at": "2026-11-21T11:58:26.889Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-21T08:53:02.495Z",
-  "remoteok": "2026-11-21T08:53:02.495Z",
-  "workingnomads": "2026-11-21T08:53:02.495Z",
-  "weworkremotely": "2026-11-21T08:53:02.495Z",
-  "nodesk": "2026-11-21T08:53:02.495Z",
+  "remoteok": "2026-11-21T11:58:26.889Z",
+  "workingnomads": "2026-11-21T11:58:26.889Z",
+  "weworkremotely": "2026-11-21T11:58:26.889Z",
+  "nodesk": "2026-11-21T11:58:26.889Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-21T08:53:02.495Z",
- "arbeitnowAt": "2026-11-21T08:53:02.495Z"
+ "jobicyAt": "2026-11-21T11:58:26.889Z",
+ "arbeitnowAt": "2026-11-21T11:58:26.889Z"
 }
