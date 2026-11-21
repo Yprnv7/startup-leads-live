@@ -4150,6 +4150,18 @@
   "nodesk:circleci": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-21T02:32:02.311Z"
+  },
+  "remoteok:reddit": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-21T05:32:35.304Z"
+  },
+  "remoteok:sumo-logic": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-21T05:32:35.304Z"
+  },
+  "remoteok:oportun": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-21T05:32:35.304Z"
   }
  },
  "wikidata": {
@@ -10227,16 +10239,31 @@
    "at": "2026-11-21T02:32:02.311Z",
    "id": "Q38922434",
    "us": true
+  },
+  "Oportun": {
+   "at": "2026-11-21T05:32:35.304Z",
+   "id": "Q121096647",
+   "us": true
+  },
+  "Galileo": {
+   "at": "2026-11-21T05:32:35.304Z",
+   "id": null,
+   "us": false
+  },
+  "Sumo Logic": {
+   "at": "2026-11-21T05:32:35.304Z",
+   "id": "Q7638010",
+   "us": true
   }
  },
  "othersAt": {
   "remotive": "2026-11-21T02:32:02.311Z",
-  "remoteok": "2026-11-21T02:32:02.311Z",
-  "workingnomads": "2026-11-21T02:32:02.311Z",
-  "weworkremotely": "2026-11-21T02:32:02.311Z",
-  "nodesk": "2026-11-21T02:32:02.311Z",
+  "remoteok": "2026-11-21T05:32:35.304Z",
+  "workingnomads": "2026-11-21T05:32:35.304Z",
+  "weworkremotely": "2026-11-21T05:32:35.304Z",
+  "nodesk": "2026-11-21T05:32:35.304Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-21T02:32:02.311Z",
- "arbeitnowAt": "2026-11-21T02:32:02.311Z"
+ "jobicyAt": "2026-11-21T05:32:35.304Z",
+ "arbeitnowAt": "2026-11-21T05:32:35.304Z"
 }

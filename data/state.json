@@ -6817,6 +6817,18 @@
   "nodesk:circleci": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-21T02:30:48.027Z"
+  },
+  "remoteok:reddit": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-21T05:30:52.236Z"
+  },
+  "remoteok:sumo-logic": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-21T05:30:52.236Z"
+  },
+  "remoteok:oportun": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-21T05:30:52.236Z"
   }
  },
  "wikidata": {
@@ -14669,15 +14681,30 @@
    "at": "2026-11-21T02:30:48.027Z",
    "id": "Q38922434",
    "us": true
+  },
+  "Oportun": {
+   "at": "2026-11-21T05:30:52.236Z",
+   "id": "Q121096647",
+   "us": true
+  },
+  "Galileo": {
+   "at": "2026-11-21T05:30:52.236Z",
+   "id": null,
+   "us": false
+  },
+  "Sumo Logic": {
+   "at": "2026-11-21T05:30:52.236Z",
+   "id": "Q7638010",
+   "us": true
   }
  },
  "othersAt": {
   "remotive": "2026-11-21T02:30:48.027Z",
-  "remoteok": "2026-11-21T02:30:48.027Z",
-  "workingnomads": "2026-11-21T02:30:48.027Z",
-  "weworkremotely": "2026-11-21T02:30:48.027Z",
-  "nodesk": "2026-11-21T02:30:48.027Z",
-  "himalayas": "2026-11-21T03:30:49.040Z",
+  "remoteok": "2026-11-21T05:30:52.236Z",
+  "workingnomads": "2026-11-21T05:30:52.236Z",
+  "weworkremotely": "2026-11-21T05:30:52.236Z",
+  "nodesk": "2026-11-21T05:30:52.236Z",
+  "himalayas": "2026-11-21T05:30:52.236Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -14729,8 +14756,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-21T02:30:48.027Z",
- "arbeitnowAt": "2026-11-21T02:30:48.027Z",
+ "jobicyAt": "2026-11-21T05:30:52.236Z",
+ "arbeitnowAt": "2026-11-21T05:30:52.236Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
