@@ -4186,6 +4186,10 @@
   "remoteok:natera": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-21T11:58:26.889Z"
+  },
+  "arbeitnow:intetics-2": {
+   "reason": "Recruitment agency (posts for unnamed clients)",
+   "at": "2026-11-21T15:40:56.333Z"
   }
  },
  "wikidata": {
@@ -10331,13 +10335,13 @@
   }
  },
  "othersAt": {
-  "remotive": "2026-11-21T08:53:02.495Z",
-  "remoteok": "2026-11-21T11:58:26.889Z",
-  "workingnomads": "2026-11-21T11:58:26.889Z",
-  "weworkremotely": "2026-11-21T11:58:26.889Z",
-  "nodesk": "2026-11-21T11:58:26.889Z",
+  "remotive": "2026-11-21T15:40:56.333Z",
+  "remoteok": "2026-11-21T15:40:56.333Z",
+  "workingnomads": "2026-11-21T15:40:56.333Z",
+  "weworkremotely": "2026-11-21T15:40:56.333Z",
+  "nodesk": "2026-11-21T15:40:56.333Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-21T11:58:26.889Z",
- "arbeitnowAt": "2026-11-21T11:58:26.889Z"
+ "jobicyAt": "2026-11-21T15:40:56.333Z",
+ "arbeitnowAt": "2026-11-21T15:40:56.333Z"
 }
