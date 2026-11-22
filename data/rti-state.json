@@ -4247,6 +4247,10 @@
   "remoteok:contentstack": {
    "reason": "US headquarters (config)",
    "at": "2026-11-22T07:47:14.042Z"
+  },
+  "remoteok:mixpanel": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-22T10:47:49.791Z"
   }
  },
  "wikidata": {
@@ -10444,16 +10448,26 @@
    "at": "2026-11-22T07:47:14.042Z",
    "id": "Q55627184",
    "us": false
+  },
+  "Mixpanel": {
+   "at": "2026-11-22T10:47:49.791Z",
+   "id": "Q25048114",
+   "us": true
+  },
+  "Healthie": {
+   "at": "2026-11-22T10:47:49.791Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-22T10:22:44.414Z",
-  "remoteok": "2026-11-22T07:47:14.042Z",
-  "workingnomads": "2026-11-22T07:47:14.042Z",
-  "weworkremotely": "2026-11-22T07:47:14.042Z",
-  "nodesk": "2026-11-22T07:47:14.042Z",
+  "remoteok": "2026-11-22T10:47:49.791Z",
+  "workingnomads": "2026-11-22T10:47:49.791Z",
+  "weworkremotely": "2026-11-22T10:47:49.791Z",
+  "nodesk": "2026-11-22T10:47:49.791Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-22T07:47:14.042Z",
- "arbeitnowAt": "2026-11-22T07:47:14.042Z"
+ "jobicyAt": "2026-11-22T10:47:49.791Z",
+ "arbeitnowAt": "2026-11-22T10:47:49.791Z"
 }
