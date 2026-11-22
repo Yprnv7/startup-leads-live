@@ -4215,6 +4215,26 @@
   "weworkremotely:tailscale": {
    "reason": "US headquarters (We Work Remotely)",
    "at": "2026-11-21T21:40:06.210Z"
+  },
+  "remoteok:databricks": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-22T04:29:09.907Z"
+  },
+  "remoteok:oscar-health": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-22T04:29:09.907Z"
+  },
+  "remoteok:lastpass": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-22T04:29:09.907Z"
+  },
+  "remoteok:honeycomb-io": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-22T04:29:09.907Z"
+  },
+  "remoteok:carrot": {
+   "reason": "US headquarters (config)",
+   "at": "2026-11-22T04:29:09.907Z"
   }
  },
  "wikidata": {
@@ -10382,16 +10402,26 @@
    "at": "2026-11-22T00:31:24.028Z",
    "id": null,
    "us": false
+  },
+  "ÅURA": {
+   "at": "2026-11-22T04:29:09.907Z",
+   "id": null,
+   "us": false
+  },
+  "Honeycomb.io": {
+   "at": "2026-11-22T04:29:09.907Z",
+   "id": "Q113682321",
+   "us": true
   }
  },
  "othersAt": {
-  "remotive": "2026-11-21T21:40:06.210Z",
-  "remoteok": "2026-11-22T00:31:24.028Z",
-  "workingnomads": "2026-11-22T00:31:24.028Z",
-  "weworkremotely": "2026-11-22T00:31:24.028Z",
-  "nodesk": "2026-11-22T00:31:24.028Z",
+  "remotive": "2026-11-22T04:29:09.907Z",
+  "remoteok": "2026-11-22T04:29:09.907Z",
+  "workingnomads": "2026-11-22T04:29:09.907Z",
+  "weworkremotely": "2026-11-22T04:29:09.907Z",
+  "nodesk": "2026-11-22T04:29:09.907Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-22T00:31:24.028Z",
- "arbeitnowAt": "2026-11-22T00:31:24.028Z"
+ "jobicyAt": "2026-11-22T04:29:09.907Z",
+ "arbeitnowAt": "2026-11-22T04:29:09.907Z"
 }
