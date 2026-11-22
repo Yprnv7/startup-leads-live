@@ -4235,6 +4235,18 @@
   "remoteok:carrot": {
    "reason": "US headquarters (config)",
    "at": "2026-11-22T04:29:09.907Z"
+  },
+  "weworkremotely:jfrog": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-22T07:47:14.042Z"
+  },
+  "jobicy:fastly": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-22T07:47:14.042Z"
+  },
+  "remoteok:contentstack": {
+   "reason": "US headquarters (config)",
+   "at": "2026-11-22T07:47:14.042Z"
   }
  },
  "wikidata": {
@@ -10412,16 +10424,36 @@
    "at": "2026-11-22T04:29:09.907Z",
    "id": "Q113682321",
    "us": true
+  },
+  "Spirax Group": {
+   "at": "2026-11-22T07:47:14.042Z",
+   "id": "Q4049943",
+   "us": false
+  },
+  "Fastly": {
+   "at": "2026-11-22T07:47:14.042Z",
+   "id": "Q34045622",
+   "us": true
+  },
+  "NFQ": {
+   "at": "2026-11-22T07:47:14.042Z",
+   "id": null,
+   "us": false
+  },
+  "OKX": {
+   "at": "2026-11-22T07:47:14.042Z",
+   "id": "Q55627184",
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-22T04:29:09.907Z",
-  "remoteok": "2026-11-22T04:29:09.907Z",
-  "workingnomads": "2026-11-22T04:29:09.907Z",
-  "weworkremotely": "2026-11-22T04:29:09.907Z",
-  "nodesk": "2026-11-22T04:29:09.907Z",
+  "remoteok": "2026-11-22T07:47:14.042Z",
+  "workingnomads": "2026-11-22T07:47:14.042Z",
+  "weworkremotely": "2026-11-22T07:47:14.042Z",
+  "nodesk": "2026-11-22T07:47:14.042Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-22T04:29:09.907Z",
- "arbeitnowAt": "2026-11-22T04:29:09.907Z"
+ "jobicyAt": "2026-11-22T07:47:14.042Z",
+ "arbeitnowAt": "2026-11-22T07:47:14.042Z"
 }
