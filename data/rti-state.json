@@ -10613,16 +10613,51 @@
    "at": "2026-11-22T16:18:14.817Z",
    "id": null,
    "us": false
+  },
+  "elvent": {
+   "at": "2026-11-22T19:17:29.416Z",
+   "id": null,
+   "us": false
+  },
+  "S&B Strategy": {
+   "at": "2026-11-22T19:17:29.416Z",
+   "id": null,
+   "us": false
+  },
+  "Hartmann JCE GmbH": {
+   "at": "2026-11-22T19:17:29.416Z",
+   "id": null,
+   "us": false
+  },
+  "Personalberatung Pillong": {
+   "at": "2026-11-22T19:17:29.416Z",
+   "id": null,
+   "us": false
+  },
+  "DignativeX": {
+   "at": "2026-11-22T19:17:29.416Z",
+   "id": null,
+   "us": false
+  },
+  "Furrer+Frey": {
+   "at": "2026-11-22T19:17:29.416Z",
+   "id": "Q123136883",
+   "us": false
+  },
+  "Oddball": {
+   "at": "2026-11-22T19:17:29.416Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-22T16:18:14.817Z",
-  "remoteok": "2026-11-22T16:18:14.817Z",
-  "workingnomads": "2026-11-22T16:18:14.817Z",
-  "weworkremotely": "2026-11-22T16:18:14.817Z",
-  "nodesk": "2026-11-22T16:18:14.817Z",
+  "remoteok": "2026-11-22T19:17:29.416Z",
+  "workingnomads": "2026-11-22T19:17:29.416Z",
+  "weworkremotely": "2026-11-22T19:17:29.416Z",
+  "nodesk": "2026-11-22T19:17:29.416Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-22T16:18:14.817Z",
- "arbeitnowAt": "2026-11-22T16:18:14.817Z"
+ "jobicyAt": "2026-11-22T19:17:29.416Z",
+ "arbeitnowAt": "2026-11-22T19:17:29.416Z"
 }

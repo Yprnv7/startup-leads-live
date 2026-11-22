@@ -15071,14 +15071,39 @@
    "at": "2026-11-22T16:16:08.025Z",
    "id": null,
    "us": false
+  },
+  "InkuPlay UG (haftungsbeschränkt)": {
+   "at": "2026-11-22T19:16:21.271Z",
+   "id": null,
+   "us": false
+  },
+  "SalesPlaybook AG": {
+   "at": "2026-11-22T19:16:21.271Z",
+   "id": null,
+   "us": false
+  },
+  "RentSales": {
+   "at": "2026-11-22T19:16:21.271Z",
+   "id": null,
+   "us": false
+  },
+  "GTM Base": {
+   "at": "2026-11-22T19:16:21.271Z",
+   "id": null,
+   "us": false
+  },
+  "Oddball": {
+   "at": "2026-11-22T19:16:21.271Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-22T16:16:08.025Z",
-  "remoteok": "2026-11-22T16:16:08.025Z",
-  "workingnomads": "2026-11-22T16:16:08.025Z",
-  "weworkremotely": "2026-11-22T16:16:08.025Z",
-  "nodesk": "2026-11-22T16:16:08.025Z",
+  "remoteok": "2026-11-22T19:16:21.271Z",
+  "workingnomads": "2026-11-22T19:16:21.271Z",
+  "weworkremotely": "2026-11-22T19:16:21.271Z",
+  "nodesk": "2026-11-22T19:16:21.271Z",
   "himalayas": "2026-11-22T18:16:12.662Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -15131,8 +15156,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-22T16:16:08.025Z",
- "arbeitnowAt": "2026-11-22T16:16:08.025Z",
+ "jobicyAt": "2026-11-22T19:16:21.271Z",
+ "arbeitnowAt": "2026-11-22T19:16:21.271Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
