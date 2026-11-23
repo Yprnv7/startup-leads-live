@@ -4251,6 +4251,10 @@
   "remoteok:mixpanel": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-22T10:47:49.791Z"
+  },
+  "arbeitnow:weekday-1": {
+   "reason": "Recruitment agency (posts for unnamed clients)",
+   "at": "2026-11-23T17:38:04.323Z"
   }
  },
  "wikidata": {
@@ -10683,16 +10687,31 @@
    "at": "2026-11-23T14:39:05.747Z",
    "id": null,
    "us": false
+  },
+  "DONE!Financials GmbH": {
+   "at": "2026-11-23T17:38:04.323Z",
+   "id": null,
+   "us": false
+  },
+  "InnoVentures GmbH": {
+   "at": "2026-11-23T17:38:04.323Z",
+   "id": null,
+   "us": false
+  },
+  "Weekday 1": {
+   "at": "2026-11-23T17:38:04.323Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-23T14:39:05.747Z",
-  "remoteok": "2026-11-23T14:39:05.747Z",
-  "workingnomads": "2026-11-23T14:39:05.747Z",
-  "weworkremotely": "2026-11-23T14:39:05.747Z",
-  "nodesk": "2026-11-23T14:39:05.747Z",
+  "remoteok": "2026-11-23T17:38:04.323Z",
+  "workingnomads": "2026-11-23T17:38:04.323Z",
+  "weworkremotely": "2026-11-23T17:38:04.323Z",
+  "nodesk": "2026-11-23T17:38:04.323Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-23T14:39:05.747Z",
- "arbeitnowAt": "2026-11-23T14:39:05.747Z"
+ "jobicyAt": "2026-11-23T17:38:04.323Z",
+ "arbeitnowAt": "2026-11-23T17:38:04.323Z"
 }

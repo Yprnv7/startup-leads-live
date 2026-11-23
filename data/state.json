@@ -15136,14 +15136,29 @@
    "at": "2026-11-23T14:37:09.255Z",
    "id": null,
    "us": false
+  },
+  "DONE!Financials GmbH": {
+   "at": "2026-11-23T17:37:24.764Z",
+   "id": null,
+   "us": false
+  },
+  "InnoVentures GmbH": {
+   "at": "2026-11-23T17:37:24.764Z",
+   "id": null,
+   "us": false
+  },
+  "Weekday 1": {
+   "at": "2026-11-23T17:37:24.764Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-23T14:37:09.255Z",
-  "remoteok": "2026-11-23T14:37:09.255Z",
-  "workingnomads": "2026-11-23T14:37:09.255Z",
-  "weworkremotely": "2026-11-23T14:37:09.255Z",
-  "nodesk": "2026-11-23T14:37:09.255Z",
+  "remoteok": "2026-11-23T17:37:24.764Z",
+  "workingnomads": "2026-11-23T17:37:24.764Z",
+  "weworkremotely": "2026-11-23T17:37:24.764Z",
+  "nodesk": "2026-11-23T17:37:24.764Z",
   "himalayas": "2026-11-23T16:37:14.722Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -15196,8 +15211,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-23T14:37:09.255Z",
- "arbeitnowAt": "2026-11-23T14:37:09.255Z",
+ "jobicyAt": "2026-11-23T17:37:24.764Z",
+ "arbeitnowAt": "2026-11-23T17:37:24.764Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
