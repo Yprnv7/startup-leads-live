@@ -4255,6 +4255,14 @@
   "arbeitnow:weekday-1": {
    "reason": "Recruitment agency (posts for unnamed clients)",
    "at": "2026-11-23T17:38:04.323Z"
+  },
+  "weworkremotely:pinterest": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-23T20:38:09.094Z"
+  },
+  "weworkremotely:grafana-labs": {
+   "reason": "US headquarters (config)",
+   "at": "2026-11-23T20:38:09.094Z"
   }
  },
  "wikidata": {
@@ -10702,16 +10710,21 @@
    "at": "2026-11-23T17:38:04.323Z",
    "id": null,
    "us": false
+  },
+  "Avertis Group": {
+   "at": "2026-11-23T20:38:09.094Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-23T14:39:05.747Z",
-  "remoteok": "2026-11-23T17:38:04.323Z",
-  "workingnomads": "2026-11-23T17:38:04.323Z",
-  "weworkremotely": "2026-11-23T17:38:04.323Z",
-  "nodesk": "2026-11-23T17:38:04.323Z",
+  "remotive": "2026-11-23T20:38:09.094Z",
+  "remoteok": "2026-11-23T20:38:09.094Z",
+  "workingnomads": "2026-11-23T20:38:09.094Z",
+  "weworkremotely": "2026-11-23T20:38:09.094Z",
+  "nodesk": "2026-11-23T20:38:09.094Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-23T17:38:04.323Z",
- "arbeitnowAt": "2026-11-23T17:38:04.323Z"
+ "jobicyAt": "2026-11-23T20:38:09.094Z",
+ "arbeitnowAt": "2026-11-23T20:38:09.094Z"
 }
