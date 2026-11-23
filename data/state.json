@@ -15101,15 +15101,25 @@
    "at": "2026-11-23T01:52:02.807Z",
    "id": null,
    "us": false
+  },
+  "Zone & Co": {
+   "at": "2026-11-23T08:18:44.871Z",
+   "id": null,
+   "us": false
+  },
+  "Nexun": {
+   "at": "2026-11-23T08:18:44.871Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-23T04:52:12.004Z",
-  "remoteok": "2026-11-23T04:52:12.004Z",
-  "workingnomads": "2026-11-23T04:52:12.004Z",
-  "weworkremotely": "2026-11-23T04:52:12.004Z",
-  "nodesk": "2026-11-23T04:52:12.004Z",
-  "himalayas": "2026-11-23T04:52:12.004Z",
+  "remoteok": "2026-11-23T08:18:44.871Z",
+  "workingnomads": "2026-11-23T08:18:44.871Z",
+  "weworkremotely": "2026-11-23T08:18:44.871Z",
+  "nodesk": "2026-11-23T08:18:44.871Z",
+  "himalayas": "2026-11-23T08:18:44.871Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -15161,8 +15171,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-23T04:52:12.004Z",
- "arbeitnowAt": "2026-11-23T04:52:12.004Z",
+ "jobicyAt": "2026-11-23T08:18:44.871Z",
+ "arbeitnowAt": "2026-11-23T08:18:44.871Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
