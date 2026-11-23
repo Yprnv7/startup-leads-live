@@ -15096,14 +15096,19 @@
    "at": "2026-11-22T19:16:21.271Z",
    "id": null,
    "us": false
+  },
+  "BBHT Beratungsgesellschaft mbH & Co. KG": {
+   "at": "2026-11-23T01:52:02.807Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-22T22:36:59.115Z",
-  "remoteok": "2026-11-22T22:36:59.115Z",
-  "workingnomads": "2026-11-22T22:36:59.115Z",
-  "weworkremotely": "2026-11-22T22:36:59.115Z",
-  "nodesk": "2026-11-22T22:36:59.115Z",
+  "remoteok": "2026-11-23T01:52:02.807Z",
+  "workingnomads": "2026-11-23T01:52:02.807Z",
+  "weworkremotely": "2026-11-23T01:52:02.807Z",
+  "nodesk": "2026-11-23T01:52:02.807Z",
   "himalayas": "2026-11-23T00:51:59.020Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -15156,8 +15161,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-22T22:36:59.115Z",
- "arbeitnowAt": "2026-11-22T22:36:59.115Z",
+ "jobicyAt": "2026-11-23T01:52:02.807Z",
+ "arbeitnowAt": "2026-11-23T01:52:02.807Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
