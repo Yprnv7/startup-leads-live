@@ -4271,6 +4271,22 @@
   "weworkremotely:rubrik-job-board": {
    "reason": "US headquarters (We Work Remotely)",
    "at": "2026-11-24T16:52:21.611Z"
+  },
+  "weworkremotely:fixd-automotive": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-24T19:53:11.572Z"
+  },
+  "weworkremotely:perdoceo-education-corporation": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-24T19:53:11.572Z"
+  },
+  "weworkremotely:transperfect": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-24T19:53:11.572Z"
+  },
+  "weworkremotely:fastly": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-24T19:53:11.572Z"
   }
  },
  "wikidata": {
@@ -10806,13 +10822,13 @@
   }
  },
  "othersAt": {
-  "remotive": "2026-11-24T14:01:08.001Z",
-  "remoteok": "2026-11-24T16:52:21.611Z",
-  "workingnomads": "2026-11-24T16:52:21.611Z",
-  "weworkremotely": "2026-11-24T16:52:21.611Z",
-  "nodesk": "2026-11-24T16:52:21.611Z",
+  "remotive": "2026-11-24T19:53:11.572Z",
+  "remoteok": "2026-11-24T19:53:11.572Z",
+  "workingnomads": "2026-11-24T19:53:11.572Z",
+  "weworkremotely": "2026-11-24T19:53:11.572Z",
+  "nodesk": "2026-11-24T19:53:11.572Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-24T16:52:21.611Z",
- "arbeitnowAt": "2026-11-24T16:52:21.611Z"
+ "jobicyAt": "2026-11-24T19:53:11.572Z",
+ "arbeitnowAt": "2026-11-24T19:53:11.572Z"
 }
