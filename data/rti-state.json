@@ -4267,6 +4267,10 @@
   "remoteok:rubrik-job-board": {
    "reason": "US headquarters (We Work Remotely)",
    "at": "2026-11-24T14:01:08.001Z"
+  },
+  "weworkremotely:rubrik-job-board": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-24T16:52:21.611Z"
   }
  },
  "wikidata": {
@@ -10779,16 +10783,36 @@
    "at": "2026-11-24T14:01:08.001Z",
    "id": null,
    "us": false
+  },
+  "WIN Home Inspection": {
+   "at": "2026-11-24T16:52:21.611Z",
+   "id": null,
+   "us": false
+  },
+  "VOVOI GmbH": {
+   "at": "2026-11-24T16:52:21.611Z",
+   "id": null,
+   "us": false
+  },
+  "nero": {
+   "at": "2026-11-24T16:52:21.611Z",
+   "id": null,
+   "us": false
+  },
+  "Thrive": {
+   "at": "2026-11-24T16:52:21.611Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-24T14:01:08.001Z",
-  "remoteok": "2026-11-24T14:01:08.001Z",
-  "workingnomads": "2026-11-24T14:01:08.001Z",
-  "weworkremotely": "2026-11-24T14:01:08.001Z",
-  "nodesk": "2026-11-24T14:01:08.001Z",
+  "remoteok": "2026-11-24T16:52:21.611Z",
+  "workingnomads": "2026-11-24T16:52:21.611Z",
+  "weworkremotely": "2026-11-24T16:52:21.611Z",
+  "nodesk": "2026-11-24T16:52:21.611Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-24T14:01:08.001Z",
- "arbeitnowAt": "2026-11-24T14:01:08.001Z"
+ "jobicyAt": "2026-11-24T16:52:21.611Z",
+ "arbeitnowAt": "2026-11-24T16:52:21.611Z"
 }
