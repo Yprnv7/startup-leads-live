@@ -10720,16 +10720,21 @@
    "at": "2026-11-24T02:25:39.266Z",
    "id": null,
    "us": false
+  },
+  "SAM International GmbH": {
+   "at": "2026-11-24T05:54:46.825Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-24T02:54:25.083Z",
-  "remoteok": "2026-11-24T02:25:39.266Z",
-  "workingnomads": "2026-11-24T02:25:39.266Z",
-  "weworkremotely": "2026-11-24T02:25:39.266Z",
-  "nodesk": "2026-11-24T02:25:39.266Z",
+  "remoteok": "2026-11-24T05:54:46.825Z",
+  "workingnomads": "2026-11-24T05:54:46.825Z",
+  "weworkremotely": "2026-11-24T05:54:46.825Z",
+  "nodesk": "2026-11-24T05:54:46.825Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-24T02:25:39.266Z",
- "arbeitnowAt": "2026-11-24T02:25:39.266Z"
+ "jobicyAt": "2026-11-24T05:54:46.825Z",
+ "arbeitnowAt": "2026-11-24T05:54:46.825Z"
 }

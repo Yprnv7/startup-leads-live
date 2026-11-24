@@ -15174,14 +15174,19 @@
    "at": "2026-11-24T02:24:09.884Z",
    "id": null,
    "us": false
+  },
+  "SAM International GmbH": {
+   "at": "2026-11-24T05:54:08.654Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-24T02:54:02.060Z",
-  "remoteok": "2026-11-24T02:24:09.884Z",
-  "workingnomads": "2026-11-24T02:24:09.884Z",
-  "weworkremotely": "2026-11-24T02:24:09.884Z",
-  "nodesk": "2026-11-24T02:24:09.884Z",
+  "remoteok": "2026-11-24T05:54:08.654Z",
+  "workingnomads": "2026-11-24T05:54:08.654Z",
+  "weworkremotely": "2026-11-24T05:54:08.654Z",
+  "nodesk": "2026-11-24T05:54:08.654Z",
   "himalayas": "2026-11-24T04:54:06.813Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -15234,8 +15239,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-24T02:24:09.884Z",
- "arbeitnowAt": "2026-11-24T02:24:09.884Z",
+ "jobicyAt": "2026-11-24T05:54:08.654Z",
+ "arbeitnowAt": "2026-11-24T05:54:08.654Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
