@@ -4263,6 +4263,10 @@
   "weworkremotely:grafana-labs": {
    "reason": "US headquarters (config)",
    "at": "2026-11-23T20:38:09.094Z"
+  },
+  "remoteok:rubrik-job-board": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-24T14:01:08.001Z"
   }
  },
  "wikidata": {
@@ -10725,16 +10729,66 @@
    "at": "2026-11-24T05:54:46.825Z",
    "id": null,
    "us": false
+  },
+  "eMerchantPay": {
+   "at": "2026-11-24T14:01:08.001Z",
+   "id": null,
+   "us": false
+  },
+  "Yekta IT GmbH": {
+   "at": "2026-11-24T14:01:08.001Z",
+   "id": null,
+   "us": false
+  },
+  "Nero GmbH": {
+   "at": "2026-11-24T14:01:08.001Z",
+   "id": null,
+   "us": false
+  },
+  "streamboost GmbH": {
+   "at": "2026-11-24T14:01:08.001Z",
+   "id": null,
+   "us": false
+  },
+  "TWLV GMBH": {
+   "at": "2026-11-24T14:01:08.001Z",
+   "id": null,
+   "us": false
+  },
+  "P&T Software": {
+   "at": "2026-11-24T14:01:08.001Z",
+   "id": null,
+   "us": false
+  },
+  "Be-Grow-Attract": {
+   "at": "2026-11-24T14:01:08.001Z",
+   "id": null,
+   "us": false
+  },
+  "Halal Certification Services": {
+   "at": "2026-11-24T14:01:08.001Z",
+   "id": null,
+   "us": false
+  },
+  "Genferberg Group": {
+   "at": "2026-11-24T14:01:08.001Z",
+   "id": null,
+   "us": false
+  },
+  "Hanspeter Brunner Webdesign & WRC Schweiz": {
+   "at": "2026-11-24T14:01:08.001Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-24T02:54:25.083Z",
-  "remoteok": "2026-11-24T05:54:46.825Z",
-  "workingnomads": "2026-11-24T05:54:46.825Z",
-  "weworkremotely": "2026-11-24T05:54:46.825Z",
-  "nodesk": "2026-11-24T05:54:46.825Z",
+  "remotive": "2026-11-24T14:01:08.001Z",
+  "remoteok": "2026-11-24T14:01:08.001Z",
+  "workingnomads": "2026-11-24T14:01:08.001Z",
+  "weworkremotely": "2026-11-24T14:01:08.001Z",
+  "nodesk": "2026-11-24T14:01:08.001Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-24T05:54:46.825Z",
- "arbeitnowAt": "2026-11-24T05:54:46.825Z"
+ "jobicyAt": "2026-11-24T14:01:08.001Z",
+ "arbeitnowAt": "2026-11-24T14:01:08.001Z"
 }
