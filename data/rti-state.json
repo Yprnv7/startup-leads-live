@@ -4292,6 +4292,10 @@
   "arbeitnow:anaplan": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-25T02:44:46.915Z"
+  },
+  "weworkremotely:customer-io": {
+   "reason": "US headquarters (config)",
+   "at": "2026-11-25T08:54:43.908Z"
   }
  },
  "wikidata": {
@@ -10849,16 +10853,41 @@
    "at": "2026-11-25T02:44:46.915Z",
    "id": null,
    "us": false
+  },
+  "VOLENTUM Deutschland GmbH": {
+   "at": "2026-11-25T08:54:43.908Z",
+   "id": null,
+   "us": false
+  },
+  "Amperecloud GmbH": {
+   "at": "2026-11-25T08:54:43.908Z",
+   "id": null,
+   "us": false
+  },
+  "Nitrado (marbis GmbH)": {
+   "at": "2026-11-25T08:54:43.908Z",
+   "id": null,
+   "us": false
+  },
+  "Leafworks GmbH": {
+   "at": "2026-11-25T08:54:43.908Z",
+   "id": null,
+   "us": false
+  },
+  "Augment": {
+   "at": "2026-11-25T08:54:43.908Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-25T01:44:23.484Z",
-  "remoteok": "2026-11-25T05:45:05.727Z",
-  "workingnomads": "2026-11-25T05:45:05.727Z",
-  "weworkremotely": "2026-11-25T05:45:05.727Z",
-  "nodesk": "2026-11-25T05:45:05.727Z",
+  "remotive": "2026-11-25T08:54:43.908Z",
+  "remoteok": "2026-11-25T08:54:43.908Z",
+  "workingnomads": "2026-11-25T08:54:43.908Z",
+  "weworkremotely": "2026-11-25T08:54:43.908Z",
+  "nodesk": "2026-11-25T08:54:43.908Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-25T05:45:05.727Z",
- "arbeitnowAt": "2026-11-25T05:45:05.727Z"
+ "jobicyAt": "2026-11-25T08:54:43.908Z",
+ "arbeitnowAt": "2026-11-25T08:54:43.908Z"
 }
