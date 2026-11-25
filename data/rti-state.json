@@ -4304,6 +4304,22 @@
   "remoteok:glossier": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-25T11:58:56.360Z"
+  },
+  "arbeitnow:adikteev": {
+   "reason": "Recruitment agency (posts for unnamed clients)",
+   "at": "2026-11-25T15:21:33.438Z"
+  },
+  "nodesk:natera": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-25T15:21:33.438Z"
+  },
+  "nodesk:gitlab": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-25T15:21:33.438Z"
+  },
+  "nodesk:launchdarkly": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-25T15:21:33.438Z"
   }
  },
  "wikidata": {
@@ -10911,16 +10927,61 @@
    "at": "2026-11-25T11:58:56.360Z",
    "id": "Q85865456",
    "us": true
+  },
+  "Nucs AI": {
+   "at": "2026-11-25T15:21:33.438Z",
+   "id": null,
+   "us": false
+  },
+  "Flow Factor": {
+   "at": "2026-11-25T15:21:33.438Z",
+   "id": null,
+   "us": false
+  },
+  "Booming Games": {
+   "at": "2026-11-25T15:21:33.438Z",
+   "id": null,
+   "us": false
+  },
+  "fino kanzleidrive GmbH": {
+   "at": "2026-11-25T15:21:33.438Z",
+   "id": null,
+   "us": false
+  },
+  "Adikteev": {
+   "at": "2026-11-25T15:21:33.438Z",
+   "id": null,
+   "us": false
+  },
+  "Signode": {
+   "at": "2026-11-25T15:21:33.438Z",
+   "id": "Q5643396",
+   "us": false
+  },
+  "OHana Entreprise": {
+   "at": "2026-11-25T15:21:33.438Z",
+   "id": null,
+   "us": false
+  },
+  "Keywords Intl1": {
+   "at": "2026-11-25T15:21:33.438Z",
+   "id": null,
+   "us": false
+  },
+  "Talmatic": {
+   "at": "2026-11-25T15:21:33.438Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-25T08:54:43.908Z",
-  "remoteok": "2026-11-25T11:58:56.360Z",
-  "workingnomads": "2026-11-25T11:58:56.360Z",
-  "weworkremotely": "2026-11-25T11:58:56.360Z",
-  "nodesk": "2026-11-25T11:58:56.360Z",
+  "remotive": "2026-11-25T15:21:33.438Z",
+  "remoteok": "2026-11-25T15:21:33.438Z",
+  "workingnomads": "2026-11-25T15:21:33.438Z",
+  "weworkremotely": "2026-11-25T15:21:33.438Z",
+  "nodesk": "2026-11-25T15:21:33.438Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-25T11:58:56.360Z",
- "arbeitnowAt": "2026-11-25T11:58:56.360Z"
+ "jobicyAt": "2026-11-25T15:21:33.438Z",
+ "arbeitnowAt": "2026-11-25T15:21:33.438Z"
 }
