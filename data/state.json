@@ -6955,6 +6955,14 @@
   "weworkremotely:customer-io": {
    "reason": "US headquarters (config)",
    "at": "2026-11-25T08:53:42.767Z"
+  },
+  "remoteok:doximity": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-25T11:57:16.509Z"
+  },
+  "remoteok:glossier": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-25T11:57:16.509Z"
   }
  },
  "wikidata": {
@@ -15337,15 +15345,35 @@
    "at": "2026-11-25T08:53:42.767Z",
    "id": null,
    "us": false
+  },
+  "JMVision GmbH": {
+   "at": "2026-11-25T11:57:16.509Z",
+   "id": null,
+   "us": false
+  },
+  "ADOMIK": {
+   "at": "2026-11-25T11:57:16.509Z",
+   "id": null,
+   "us": false
+  },
+  "Doximity": {
+   "at": "2026-11-25T11:57:16.509Z",
+   "id": "Q5303699",
+   "us": true
+  },
+  "Glossier": {
+   "at": "2026-11-25T11:57:16.509Z",
+   "id": "Q85865456",
+   "us": true
   }
  },
  "othersAt": {
   "remotive": "2026-11-25T08:53:42.767Z",
-  "remoteok": "2026-11-25T08:53:42.767Z",
-  "workingnomads": "2026-11-25T08:53:42.767Z",
-  "weworkremotely": "2026-11-25T08:53:42.767Z",
-  "nodesk": "2026-11-25T08:53:42.767Z",
-  "himalayas": "2026-11-25T08:53:42.767Z",
+  "remoteok": "2026-11-25T11:57:16.509Z",
+  "workingnomads": "2026-11-25T11:57:16.509Z",
+  "weworkremotely": "2026-11-25T11:57:16.509Z",
+  "nodesk": "2026-11-25T11:57:16.509Z",
+  "himalayas": "2026-11-25T11:57:16.509Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -15397,8 +15425,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-25T08:53:42.767Z",
- "arbeitnowAt": "2026-11-25T08:53:42.767Z",
+ "jobicyAt": "2026-11-25T11:57:16.509Z",
+ "arbeitnowAt": "2026-11-25T11:57:16.509Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,

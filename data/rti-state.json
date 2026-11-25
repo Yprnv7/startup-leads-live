@@ -4296,6 +4296,14 @@
   "weworkremotely:customer-io": {
    "reason": "US headquarters (config)",
    "at": "2026-11-25T08:54:43.908Z"
+  },
+  "remoteok:doximity": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-25T11:58:56.360Z"
+  },
+  "remoteok:glossier": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-25T11:58:56.360Z"
   }
  },
  "wikidata": {
@@ -10878,16 +10886,41 @@
    "at": "2026-11-25T08:54:43.908Z",
    "id": null,
    "us": false
+  },
+  "Beutler Saghari & Partner GmbH": {
+   "at": "2026-11-25T11:58:56.360Z",
+   "id": null,
+   "us": false
+  },
+  "JMVision GmbH": {
+   "at": "2026-11-25T11:58:56.360Z",
+   "id": null,
+   "us": false
+  },
+  "ADOMIK": {
+   "at": "2026-11-25T11:58:56.360Z",
+   "id": null,
+   "us": false
+  },
+  "Doximity": {
+   "at": "2026-11-25T11:58:56.360Z",
+   "id": "Q5303699",
+   "us": true
+  },
+  "Glossier": {
+   "at": "2026-11-25T11:58:56.360Z",
+   "id": "Q85865456",
+   "us": true
   }
  },
  "othersAt": {
   "remotive": "2026-11-25T08:54:43.908Z",
-  "remoteok": "2026-11-25T08:54:43.908Z",
-  "workingnomads": "2026-11-25T08:54:43.908Z",
-  "weworkremotely": "2026-11-25T08:54:43.908Z",
-  "nodesk": "2026-11-25T08:54:43.908Z",
+  "remoteok": "2026-11-25T11:58:56.360Z",
+  "workingnomads": "2026-11-25T11:58:56.360Z",
+  "weworkremotely": "2026-11-25T11:58:56.360Z",
+  "nodesk": "2026-11-25T11:58:56.360Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-25T08:54:43.908Z",
- "arbeitnowAt": "2026-11-25T08:54:43.908Z"
+ "jobicyAt": "2026-11-25T11:58:56.360Z",
+ "arbeitnowAt": "2026-11-25T11:58:56.360Z"
 }
