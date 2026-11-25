@@ -6975,6 +6975,22 @@
   "nodesk:launchdarkly": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-25T15:20:32.155Z"
+  },
+  "weworkremotely:hasbro": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-25T18:20:38.480Z"
+  },
+  "weworkremotely:american-society-of-anesthesiologists": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-25T18:20:38.480Z"
+  },
+  "nodesk:oportun": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-25T18:20:38.480Z"
+  },
+  "nodesk:sumo-logic": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-25T18:20:38.480Z"
   }
  },
  "wikidata": {
@@ -15422,15 +15438,35 @@
    "at": "2026-11-25T15:20:32.155Z",
    "id": null,
    "us": false
+  },
+  "WEBUILDAI GmbH": {
+   "at": "2026-11-25T18:20:38.480Z",
+   "id": null,
+   "us": false
+  },
+  "Sumax": {
+   "at": "2026-11-25T18:20:38.480Z",
+   "id": null,
+   "us": false
+  },
+  "Chemin": {
+   "at": "2026-11-25T18:20:38.480Z",
+   "id": null,
+   "us": false
+  },
+  "Modern Health": {
+   "at": "2026-11-25T18:20:38.480Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-25T15:20:32.155Z",
-  "remoteok": "2026-11-25T15:20:32.155Z",
-  "workingnomads": "2026-11-25T15:20:32.155Z",
-  "weworkremotely": "2026-11-25T15:20:32.155Z",
-  "nodesk": "2026-11-25T15:20:32.155Z",
-  "himalayas": "2026-11-25T16:20:33.659Z",
+  "remoteok": "2026-11-25T18:20:38.480Z",
+  "workingnomads": "2026-11-25T18:20:38.480Z",
+  "weworkremotely": "2026-11-25T18:20:38.480Z",
+  "nodesk": "2026-11-25T18:20:38.480Z",
+  "himalayas": "2026-11-25T18:20:38.480Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
  "badEmails": {},
@@ -15482,8 +15518,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-25T15:20:32.155Z",
- "arbeitnowAt": "2026-11-25T15:20:32.155Z",
+ "jobicyAt": "2026-11-25T18:20:38.480Z",
+ "arbeitnowAt": "2026-11-25T18:20:38.480Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
