@@ -4353,6 +4353,38 @@
   "nodesk:salesloft": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-26T03:12:32.665Z"
+  },
+  "weworkremotely:brillio": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-26T12:55:21.022Z"
+  },
+  "remoteok:zimperium": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-26T12:55:21.022Z"
+  },
+  "remoteok:everbridge": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-26T12:55:21.022Z"
+  },
+  "remoteok:metabase": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-26T12:55:21.022Z"
+  },
+  "remoteok:sonatype": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-26T12:55:21.022Z"
+  },
+  "remoteok:dun-bradstreet": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-26T12:55:21.022Z"
+  },
+  "remoteok:veeva-systems": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-26T12:55:21.022Z"
+  },
+  "remoteok:lyra-health": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-26T12:55:21.022Z"
   }
  },
  "wikidata": {
@@ -11060,16 +11092,126 @@
    "at": "2026-11-26T03:12:32.665Z",
    "id": null,
    "us": false
+  },
+  "Wedobi Business Solutions GmbH": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": null,
+   "us": false
+  },
+  "Nmi": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": null,
+   "us": false
+  },
+  "TrustFlight": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": null,
+   "us": false
+  },
+  "Secure Code Warrior": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": null,
+   "us": false
+  },
+  "zimperium": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": "Q8072203",
+   "us": true
+  },
+  "Everbridge": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": "Q16957455",
+   "us": true
+  },
+  "Metabase": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": "Q56556615",
+   "us": true
+  },
+  "Wing": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": null,
+   "us": false
+  },
+  "Lightcast": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": null,
+   "us": false
+  },
+  "Sonatype": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": "Q21200464",
+   "us": true
+  },
+  "Silverback Strategies": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": null,
+   "us": false
+  },
+  "Kinsta": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": "Q138854671",
+   "us": false
+  },
+  "Vendavo": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": null,
+   "us": false
+  },
+  "Dun & Bradstreet": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": "Q1265181",
+   "us": true
+  },
+  "Koala Health": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": null,
+   "us": false
+  },
+  "Veeva Systems": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": "Q24204493",
+   "us": true
+  },
+  "Ethena": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": null,
+   "us": false
+  },
+  "H1": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": null,
+   "us": false
+  },
+  "Lyra Health": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": "Q106828523",
+   "us": true
+  },
+  "Foodsmart": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": null,
+   "us": false
+  },
+  "Bounteous": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": null,
+   "us": false
+  },
+  "Welo Data": {
+   "at": "2026-11-26T12:55:21.022Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-26T00:21:05.206Z",
-  "remoteok": "2026-11-26T03:12:32.665Z",
-  "workingnomads": "2026-11-26T03:12:32.665Z",
-  "weworkremotely": "2026-11-26T03:12:32.665Z",
-  "nodesk": "2026-11-26T03:12:32.665Z",
+  "remotive": "2026-11-26T12:55:21.022Z",
+  "remoteok": "2026-11-26T12:55:21.022Z",
+  "workingnomads": "2026-11-26T12:55:21.022Z",
+  "weworkremotely": "2026-11-26T12:55:21.022Z",
+  "nodesk": "2026-11-26T12:55:21.022Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-26T03:12:32.665Z",
- "arbeitnowAt": "2026-11-26T03:12:32.665Z"
+ "jobicyAt": "2026-11-26T12:55:21.022Z",
+ "arbeitnowAt": "2026-11-26T12:55:21.022Z"
 }
