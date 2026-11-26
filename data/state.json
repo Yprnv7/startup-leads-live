@@ -7036,6 +7036,14 @@
   "remoteok:lyra-health": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-26T12:54:19.178Z"
+  },
+  "remoteok:agiloft": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-26T15:53:19.967Z"
+  },
+  "nodesk:veeva-systems": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-26T15:53:19.967Z"
   }
  },
  "wikidata": {
@@ -15658,14 +15666,74 @@
    "at": "2026-11-26T12:54:19.178Z",
    "id": null,
    "us": false
+  },
+  "Veeam Software": {
+   "at": "2026-11-26T15:53:19.967Z",
+   "id": "Q64138827",
+   "us": false
+  },
+  "Weflow": {
+   "at": "2026-11-26T15:53:19.967Z",
+   "id": null,
+   "us": false
+  },
+  "Momentum Games GmbH": {
+   "at": "2026-11-26T15:53:19.967Z",
+   "id": null,
+   "us": false
+  },
+  "Kigen IT-Systemhaus": {
+   "at": "2026-11-26T15:53:19.967Z",
+   "id": null,
+   "us": false
+  },
+  "Gismart": {
+   "at": "2026-11-26T15:53:19.967Z",
+   "id": null,
+   "us": false
+  },
+  "Plantura GmbH": {
+   "at": "2026-11-26T15:53:19.967Z",
+   "id": null,
+   "us": false
+  },
+  "agiloft": {
+   "at": "2026-11-26T15:53:19.967Z",
+   "id": "Q64620876",
+   "us": true
+  },
+  "IDMWORKS": {
+   "at": "2026-11-26T15:53:19.967Z",
+   "id": null,
+   "us": false
+  },
+  "Lifeforce": {
+   "at": "2026-11-26T15:53:19.967Z",
+   "id": null,
+   "us": false
+  },
+  "Insider One": {
+   "at": "2026-11-26T15:53:19.967Z",
+   "id": null,
+   "us": false
+  },
+  "Keyloop": {
+   "at": "2026-11-26T15:53:19.967Z",
+   "id": null,
+   "us": false
+  },
+  "Loadsmart": {
+   "at": "2026-11-26T15:53:19.967Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-26T12:54:19.178Z",
-  "remoteok": "2026-11-26T12:54:19.178Z",
-  "workingnomads": "2026-11-26T12:54:19.178Z",
-  "weworkremotely": "2026-11-26T12:54:19.178Z",
-  "nodesk": "2026-11-26T12:54:19.178Z",
+  "remoteok": "2026-11-26T15:53:19.967Z",
+  "workingnomads": "2026-11-26T15:53:19.967Z",
+  "weworkremotely": "2026-11-26T15:53:19.967Z",
+  "nodesk": "2026-11-26T15:53:19.967Z",
   "himalayas": "2026-11-26T14:53:18.837Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -15718,8 +15786,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-26T12:54:19.178Z",
- "arbeitnowAt": "2026-11-26T12:54:19.178Z",
+ "jobicyAt": "2026-11-26T15:53:19.967Z",
+ "arbeitnowAt": "2026-11-26T15:53:19.967Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,

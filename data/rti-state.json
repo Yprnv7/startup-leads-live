@@ -4385,6 +4385,14 @@
   "remoteok:lyra-health": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-26T12:55:21.022Z"
+  },
+  "remoteok:agiloft": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-26T15:54:10.904Z"
+  },
+  "nodesk:veeva-systems": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-26T15:54:10.904Z"
   }
  },
  "wikidata": {
@@ -11202,16 +11210,76 @@
    "at": "2026-11-26T12:55:21.022Z",
    "id": null,
    "us": false
+  },
+  "Veeam Software": {
+   "at": "2026-11-26T15:54:10.904Z",
+   "id": "Q64138827",
+   "us": false
+  },
+  "Weflow": {
+   "at": "2026-11-26T15:54:10.904Z",
+   "id": null,
+   "us": false
+  },
+  "Momentum Games GmbH": {
+   "at": "2026-11-26T15:54:10.904Z",
+   "id": null,
+   "us": false
+  },
+  "Kigen IT-Systemhaus": {
+   "at": "2026-11-26T15:54:10.904Z",
+   "id": null,
+   "us": false
+  },
+  "Gismart": {
+   "at": "2026-11-26T15:54:10.904Z",
+   "id": null,
+   "us": false
+  },
+  "Plantura GmbH": {
+   "at": "2026-11-26T15:54:10.904Z",
+   "id": null,
+   "us": false
+  },
+  "agiloft": {
+   "at": "2026-11-26T15:54:10.904Z",
+   "id": "Q64620876",
+   "us": true
+  },
+  "IDMWORKS": {
+   "at": "2026-11-26T15:54:10.904Z",
+   "id": null,
+   "us": false
+  },
+  "Lifeforce": {
+   "at": "2026-11-26T15:54:10.904Z",
+   "id": null,
+   "us": false
+  },
+  "Insider One": {
+   "at": "2026-11-26T15:54:10.904Z",
+   "id": null,
+   "us": false
+  },
+  "Keyloop": {
+   "at": "2026-11-26T15:54:10.904Z",
+   "id": null,
+   "us": false
+  },
+  "Loadsmart": {
+   "at": "2026-11-26T15:54:10.904Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-26T12:55:21.022Z",
-  "remoteok": "2026-11-26T12:55:21.022Z",
-  "workingnomads": "2026-11-26T12:55:21.022Z",
-  "weworkremotely": "2026-11-26T12:55:21.022Z",
-  "nodesk": "2026-11-26T12:55:21.022Z",
+  "remoteok": "2026-11-26T15:54:10.904Z",
+  "workingnomads": "2026-11-26T15:54:10.904Z",
+  "weworkremotely": "2026-11-26T15:54:10.904Z",
+  "nodesk": "2026-11-26T15:54:10.904Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-26T12:55:21.022Z",
- "arbeitnowAt": "2026-11-26T12:55:21.022Z"
+ "jobicyAt": "2026-11-26T15:54:10.904Z",
+ "arbeitnowAt": "2026-11-26T15:54:10.904Z"
 }
