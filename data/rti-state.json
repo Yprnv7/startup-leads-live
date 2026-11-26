@@ -4349,6 +4349,10 @@
   "remoteok:abnormal": {
    "reason": "US headquarters (We Work Remotely)",
    "at": "2026-11-26T00:21:05.206Z"
+  },
+  "nodesk:salesloft": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-26T03:12:32.665Z"
   }
  },
  "wikidata": {
@@ -11041,16 +11045,31 @@
    "at": "2026-11-26T00:21:05.206Z",
    "id": null,
    "us": false
+  },
+  "Saviynt": {
+   "at": "2026-11-26T03:12:32.665Z",
+   "id": null,
+   "us": false
+  },
+  "Jobgether": {
+   "at": "2026-11-26T03:12:32.665Z",
+   "id": null,
+   "us": false
+  },
+  "Destination Knot": {
+   "at": "2026-11-26T03:12:32.665Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-26T00:21:05.206Z",
-  "remoteok": "2026-11-26T00:21:05.206Z",
-  "workingnomads": "2026-11-26T00:21:05.206Z",
-  "weworkremotely": "2026-11-26T00:21:05.206Z",
-  "nodesk": "2026-11-26T00:21:05.206Z",
+  "remoteok": "2026-11-26T03:12:32.665Z",
+  "workingnomads": "2026-11-26T03:12:32.665Z",
+  "weworkremotely": "2026-11-26T03:12:32.665Z",
+  "nodesk": "2026-11-26T03:12:32.665Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-26T00:21:05.206Z",
- "arbeitnowAt": "2026-11-26T00:21:05.206Z"
+ "jobicyAt": "2026-11-26T03:12:32.665Z",
+ "arbeitnowAt": "2026-11-26T03:12:32.665Z"
 }
