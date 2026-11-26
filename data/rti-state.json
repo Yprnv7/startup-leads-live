@@ -4393,6 +4393,14 @@
   "nodesk:veeva-systems": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-26T15:54:10.904Z"
+  },
+  "arbeitnow:s-pro": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-26T18:54:07.051Z"
+  },
+  "nodesk:freenome": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-26T18:54:07.051Z"
   }
  },
  "wikidata": {
@@ -11270,16 +11278,51 @@
    "at": "2026-11-26T15:54:10.904Z",
    "id": null,
    "us": false
+  },
+  "ANY Marketing GmbH": {
+   "at": "2026-11-26T18:54:07.051Z",
+   "id": null,
+   "us": false
+  },
+  "Strive Nutrition GmbH": {
+   "at": "2026-11-26T18:54:07.051Z",
+   "id": null,
+   "us": false
+  },
+  "S-Akquise GmbH": {
+   "at": "2026-11-26T18:54:07.051Z",
+   "id": null,
+   "us": false
+  },
+  "Dufour Aerospace": {
+   "at": "2026-11-26T18:54:07.051Z",
+   "id": null,
+   "us": false
+  },
+  "Jobtome": {
+   "at": "2026-11-26T18:54:07.051Z",
+   "id": null,
+   "us": false
+  },
+  "S-PRO": {
+   "at": "2026-11-26T18:54:07.051Z",
+   "id": "Q109518390",
+   "us": true
+  },
+  "Freenome": {
+   "at": "2026-11-26T18:54:07.051Z",
+   "id": "Q107518314",
+   "us": true
   }
  },
  "othersAt": {
-  "remotive": "2026-11-26T12:55:21.022Z",
-  "remoteok": "2026-11-26T15:54:10.904Z",
-  "workingnomads": "2026-11-26T15:54:10.904Z",
-  "weworkremotely": "2026-11-26T15:54:10.904Z",
-  "nodesk": "2026-11-26T15:54:10.904Z",
+  "remotive": "2026-11-26T18:54:07.051Z",
+  "remoteok": "2026-11-26T18:54:07.051Z",
+  "workingnomads": "2026-11-26T18:54:07.051Z",
+  "weworkremotely": "2026-11-26T18:54:07.051Z",
+  "nodesk": "2026-11-26T18:54:07.051Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-26T15:54:10.904Z",
- "arbeitnowAt": "2026-11-26T15:54:10.904Z"
+ "jobicyAt": "2026-11-26T18:54:07.051Z",
+ "arbeitnowAt": "2026-11-26T18:54:07.051Z"
 }
