@@ -4336,6 +4336,18 @@
   "nodesk:sumo-logic": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-25T18:22:05.065Z"
+  },
+  "arbeitnow:divio": {
+   "reason": "Recruitment agency (posts for unnamed clients)",
+   "at": "2026-11-26T00:21:05.206Z"
+  },
+  "weworkremotely:metamask": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-26T00:21:05.206Z"
+  },
+  "remoteok:abnormal": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-26T00:21:05.206Z"
   }
  },
  "wikidata": {
@@ -11008,16 +11020,36 @@
    "at": "2026-11-25T18:22:05.065Z",
    "id": null,
    "us": false
+  },
+  "Junto Education GmbH": {
+   "at": "2026-11-26T00:21:05.206Z",
+   "id": null,
+   "us": false
+  },
+  "Clipboard": {
+   "at": "2026-11-26T00:21:05.206Z",
+   "id": null,
+   "us": false
+  },
+  "Divio": {
+   "at": "2026-11-26T00:21:05.206Z",
+   "id": null,
+   "us": false
+  },
+  "Steward Web Development": {
+   "at": "2026-11-26T00:21:05.206Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-25T15:21:33.438Z",
-  "remoteok": "2026-11-25T18:22:05.065Z",
-  "workingnomads": "2026-11-25T18:22:05.065Z",
-  "weworkremotely": "2026-11-25T18:22:05.065Z",
-  "nodesk": "2026-11-25T18:22:05.065Z",
+  "remotive": "2026-11-26T00:21:05.206Z",
+  "remoteok": "2026-11-26T00:21:05.206Z",
+  "workingnomads": "2026-11-26T00:21:05.206Z",
+  "weworkremotely": "2026-11-26T00:21:05.206Z",
+  "nodesk": "2026-11-26T00:21:05.206Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-25T18:22:05.065Z",
- "arbeitnowAt": "2026-11-25T18:22:05.065Z"
+ "jobicyAt": "2026-11-26T00:21:05.206Z",
+ "arbeitnowAt": "2026-11-26T00:21:05.206Z"
 }
