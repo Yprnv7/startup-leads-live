@@ -4401,6 +4401,18 @@
   "nodesk:freenome": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-26T18:54:07.051Z"
+  },
+  "remoteok:coupa": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-27T04:36:12.010Z"
+  },
+  "nodesk:clickup": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-27T04:36:12.010Z"
+  },
+  "nodesk:paxos": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-27T04:36:12.010Z"
   }
  },
  "wikidata": {
@@ -11323,16 +11335,36 @@
    "at": "2026-11-27T01:35:40.456Z",
    "id": null,
    "us": false
+  },
+  "Global Survivors Fund": {
+   "at": "2026-11-27T04:36:12.010Z",
+   "id": null,
+   "us": false
+  },
+  "Coupa": {
+   "at": "2026-11-27T04:36:12.010Z",
+   "id": "Q5177980",
+   "us": true
+  },
+  "3Y Health": {
+   "at": "2026-11-27T04:36:12.010Z",
+   "id": null,
+   "us": false
+  },
+  "Paxos": {
+   "at": "2026-11-27T04:36:12.010Z",
+   "id": "Q104844715",
+   "us": true
   }
  },
  "othersAt": {
   "remotive": "2026-11-27T01:35:40.456Z",
-  "remoteok": "2026-11-27T01:35:40.456Z",
-  "workingnomads": "2026-11-27T01:35:40.456Z",
-  "weworkremotely": "2026-11-27T01:35:40.456Z",
-  "nodesk": "2026-11-27T01:35:40.456Z",
+  "remoteok": "2026-11-27T04:36:12.010Z",
+  "workingnomads": "2026-11-27T04:36:12.010Z",
+  "weworkremotely": "2026-11-27T04:36:12.010Z",
+  "nodesk": "2026-11-27T04:36:12.010Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-27T01:35:40.456Z",
- "arbeitnowAt": "2026-11-27T01:35:40.456Z"
+ "jobicyAt": "2026-11-27T04:36:12.010Z",
+ "arbeitnowAt": "2026-11-27T04:36:12.010Z"
 }
