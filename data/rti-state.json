@@ -4465,6 +4465,14 @@
   "remoteok:clickup": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-27T16:51:11.210Z"
+  },
+  "hn:coder": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-27T23:01:07.527Z"
+  },
+  "weworkremotely:6sense": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-27T23:01:07.527Z"
   }
  },
  "wikidata": {
@@ -11552,16 +11560,26 @@
    "at": "2026-11-27T16:51:11.210Z",
    "id": null,
    "us": false
+  },
+  "celebrate company GmbH": {
+   "at": "2026-11-27T23:01:07.527Z",
+   "id": null,
+   "us": false
+  },
+  "Respond.io": {
+   "at": "2026-11-27T23:01:07.527Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-27T13:52:52.084Z",
-  "remoteok": "2026-11-27T16:51:11.210Z",
-  "workingnomads": "2026-11-27T16:51:11.210Z",
-  "weworkremotely": "2026-11-27T16:51:11.210Z",
-  "nodesk": "2026-11-27T16:51:11.210Z",
+  "remotive": "2026-11-27T23:01:07.527Z",
+  "remoteok": "2026-11-27T23:01:07.527Z",
+  "workingnomads": "2026-11-27T23:01:07.527Z",
+  "weworkremotely": "2026-11-27T23:01:07.527Z",
+  "nodesk": "2026-11-27T23:01:07.527Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-27T16:51:11.210Z",
- "arbeitnowAt": "2026-11-27T16:51:11.210Z"
+ "jobicyAt": "2026-11-27T23:01:07.527Z",
+ "arbeitnowAt": "2026-11-27T23:01:07.527Z"
 }
