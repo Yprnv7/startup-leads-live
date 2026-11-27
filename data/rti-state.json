@@ -4449,6 +4449,22 @@
   "remoteok:livekit": {
    "reason": "US headquarters (config)",
    "at": "2026-11-27T13:52:52.084Z"
+  },
+  "jobicy:elation-health": {
+   "reason": "Hires in the US",
+   "at": "2026-11-27T16:51:11.210Z"
+  },
+  "weworkremotely:tilt": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-27T16:51:11.210Z"
+  },
+  "weworkremotely:vultr": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-27T16:51:11.210Z"
+  },
+  "remoteok:clickup": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-27T16:51:11.210Z"
   }
  },
  "wikidata": {
@@ -11521,16 +11537,31 @@
    "at": "2026-11-27T13:52:52.084Z",
    "id": null,
    "us": false
+  },
+  "Tech-Recruiting.de": {
+   "at": "2026-11-27T16:51:11.210Z",
+   "id": null,
+   "us": false
+  },
+  "Snowflake": {
+   "at": "2026-11-27T16:51:11.210Z",
+   "id": null,
+   "us": false
+  },
+  "Socket": {
+   "at": "2026-11-27T16:51:11.210Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-27T13:52:52.084Z",
-  "remoteok": "2026-11-27T13:52:52.084Z",
-  "workingnomads": "2026-11-27T13:52:52.084Z",
-  "weworkremotely": "2026-11-27T13:52:52.084Z",
-  "nodesk": "2026-11-27T13:52:52.084Z",
+  "remoteok": "2026-11-27T16:51:11.210Z",
+  "workingnomads": "2026-11-27T16:51:11.210Z",
+  "weworkremotely": "2026-11-27T16:51:11.210Z",
+  "nodesk": "2026-11-27T16:51:11.210Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-27T13:52:52.084Z",
- "arbeitnowAt": "2026-11-27T13:52:52.084Z"
+ "jobicyAt": "2026-11-27T16:51:11.210Z",
+ "arbeitnowAt": "2026-11-27T16:51:11.210Z"
 }

@@ -7095,6 +7095,22 @@
   "remoteok:livekit": {
    "reason": "US headquarters (config)",
    "at": "2026-11-27T13:51:22.372Z"
+  },
+  "jobicy:elation-health": {
+   "reason": "Hires in the US",
+   "at": "2026-11-27T16:50:48.552Z"
+  },
+  "weworkremotely:tilt": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-27T16:50:48.552Z"
+  },
+  "weworkremotely:vultr": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-27T16:50:48.552Z"
+  },
+  "remoteok:clickup": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-27T16:50:48.552Z"
   }
  },
  "wikidata": {
@@ -15977,14 +15993,29 @@
    "at": "2026-11-27T13:51:22.372Z",
    "id": null,
    "us": false
+  },
+  "Tech-Recruiting.de": {
+   "at": "2026-11-27T16:50:48.552Z",
+   "id": null,
+   "us": false
+  },
+  "Snowflake": {
+   "at": "2026-11-27T16:50:48.552Z",
+   "id": null,
+   "us": false
+  },
+  "Socket": {
+   "at": "2026-11-27T16:50:48.552Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-27T13:51:22.372Z",
-  "remoteok": "2026-11-27T13:51:22.372Z",
-  "workingnomads": "2026-11-27T13:51:22.372Z",
-  "weworkremotely": "2026-11-27T13:51:22.372Z",
-  "nodesk": "2026-11-27T13:51:22.372Z",
+  "remoteok": "2026-11-27T16:50:48.552Z",
+  "workingnomads": "2026-11-27T16:50:48.552Z",
+  "weworkremotely": "2026-11-27T16:50:48.552Z",
+  "nodesk": "2026-11-27T16:50:48.552Z",
   "himalayas": "2026-11-27T15:50:47.089Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -16037,8 +16068,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-27T13:51:22.372Z",
- "arbeitnowAt": "2026-11-27T13:51:22.372Z",
+ "jobicyAt": "2026-11-27T16:50:48.552Z",
+ "arbeitnowAt": "2026-11-27T16:50:48.552Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
