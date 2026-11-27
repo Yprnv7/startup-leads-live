@@ -4413,6 +4413,42 @@
   "nodesk:paxos": {
    "reason": "US headquarters (Wikidata)",
    "at": "2026-11-27T04:36:12.010Z"
+  },
+  "remoteok:vultr": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-27T13:52:52.084Z"
+  },
+  "weworkremotely:trm-labs": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-27T13:52:52.084Z"
+  },
+  "weworkremotely:paxos": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-27T13:52:52.084Z"
+  },
+  "weworkremotely:one": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-27T13:52:52.084Z"
+  },
+  "remoteok:datadog": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-27T13:52:52.084Z"
+  },
+  "nodesk:rearc": {
+   "reason": "Recruitment agency (posts for unnamed clients)",
+   "at": "2026-11-27T13:52:52.084Z"
+  },
+  "remoteok:protective-life": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-27T13:52:52.084Z"
+  },
+  "nodesk:zapier": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-27T13:52:52.084Z"
+  },
+  "remoteok:livekit": {
+   "reason": "US headquarters (config)",
+   "at": "2026-11-27T13:52:52.084Z"
   }
  },
  "wikidata": {
@@ -11355,16 +11391,146 @@
    "at": "2026-11-27T04:36:12.010Z",
    "id": "Q104844715",
    "us": true
+  },
+  "secupay AG": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "DPT - Deutsche Prüftechnik GmbH": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "DWWA Personalberatung GmbH": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "SimScale GmbH": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "WE:MARQ GmbH": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "Gamma Communications GmbH": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": "Q122912986",
+   "us": false
+  },
+  "scaleyo HR GmbH": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "Dreamlight Labs GmbH": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "Eva Travel": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "cyberunity AG": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "ClariLab GmbH & Co.KG": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "Creative Force": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": "Q135981865",
+   "us": false
+  },
+  "Vultr": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "Outmarket AI": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "Protective Life": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": "Q7251369",
+   "us": true
+  },
+  "Raya": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "Warner Music Group": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "TTEC Digital": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "aduna": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "Netomi": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "Oscilar": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "Rearc": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "The Global Talent Co.": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "Hopper": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
+  },
+  "Zapier": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": "Q27150165",
+   "us": true
+  },
+  "TRM Labs": {
+   "at": "2026-11-27T13:52:52.084Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-27T01:35:40.456Z",
-  "remoteok": "2026-11-27T04:36:12.010Z",
-  "workingnomads": "2026-11-27T04:36:12.010Z",
-  "weworkremotely": "2026-11-27T04:36:12.010Z",
-  "nodesk": "2026-11-27T04:36:12.010Z",
+  "remotive": "2026-11-27T13:52:52.084Z",
+  "remoteok": "2026-11-27T13:52:52.084Z",
+  "workingnomads": "2026-11-27T13:52:52.084Z",
+  "weworkremotely": "2026-11-27T13:52:52.084Z",
+  "nodesk": "2026-11-27T13:52:52.084Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-27T04:36:12.010Z",
- "arbeitnowAt": "2026-11-27T04:36:12.010Z"
+ "jobicyAt": "2026-11-27T13:52:52.084Z",
+ "arbeitnowAt": "2026-11-27T13:52:52.084Z"
 }
