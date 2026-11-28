@@ -7127,6 +7127,18 @@
   "weworkremotely:coder-technologies-inc": {
    "reason": "US headquarters (We Work Remotely)",
    "at": "2026-11-28T04:59:49.944Z"
+  },
+  "weworkremotely:talkspace": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-28T08:08:30.378Z"
+  },
+  "remoteok:intuitive": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-28T08:08:30.378Z"
+  },
+  "remoteok:abbvie": {
+   "reason": "US headquarters (Wikidata)",
+   "at": "2026-11-28T08:08:30.378Z"
   }
  },
  "wikidata": {
@@ -16074,14 +16086,54 @@
    "at": "2026-11-28T04:59:49.944Z",
    "id": null,
    "us": false
+  },
+  "QuBit Consulting & Solutions AG": {
+   "at": "2026-11-28T08:08:30.378Z",
+   "id": null,
+   "us": false
+  },
+  "LocalPoint": {
+   "at": "2026-11-28T08:08:30.378Z",
+   "id": null,
+   "us": false
+  },
+  "Intuitive": {
+   "at": "2026-11-28T08:08:30.378Z",
+   "id": "Q2743863",
+   "us": true
+  },
+  "AbbVie": {
+   "at": "2026-11-28T08:08:30.378Z",
+   "id": "Q14662364",
+   "us": true
+  },
+  "EVERSANA": {
+   "at": "2026-11-28T08:08:30.378Z",
+   "id": "Q108737326",
+   "us": false
+  },
+  "SGS": {
+   "at": "2026-11-28T08:08:30.378Z",
+   "id": "Q669620",
+   "us": false
+  },
+  "Sibylline Ltd": {
+   "at": "2026-11-28T08:08:30.378Z",
+   "id": null,
+   "us": false
+  },
+  "Version 1": {
+   "at": "2026-11-28T08:08:30.378Z",
+   "id": "Q22031885",
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-28T04:59:49.944Z",
-  "remoteok": "2026-11-28T04:59:49.944Z",
-  "workingnomads": "2026-11-28T04:59:49.944Z",
-  "weworkremotely": "2026-11-28T04:59:49.944Z",
-  "nodesk": "2026-11-28T04:59:49.944Z",
+  "remoteok": "2026-11-28T08:08:30.378Z",
+  "workingnomads": "2026-11-28T08:08:30.378Z",
+  "weworkremotely": "2026-11-28T08:08:30.378Z",
+  "nodesk": "2026-11-28T08:08:30.378Z",
   "himalayas": "2026-11-28T07:46:24.794Z",
   "jobfound": "2026-10-31T12:50:19.025Z"
  },
@@ -16134,8 +16186,8 @@
   }
  },
  "zb": {},
- "jobicyAt": "2026-11-28T04:59:49.944Z",
- "arbeitnowAt": "2026-11-28T04:59:49.944Z",
+ "jobicyAt": "2026-11-28T08:08:30.378Z",
+ "arbeitnowAt": "2026-11-28T08:08:30.378Z",
  "discovery": {
   "page": 29,
   "totalPages": 29,
