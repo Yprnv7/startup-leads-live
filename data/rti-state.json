@@ -4473,6 +4473,10 @@
   "weworkremotely:6sense": {
    "reason": "US headquarters (We Work Remotely)",
    "at": "2026-11-27T23:01:07.527Z"
+  },
+  "remoteok:coder-technologies-inc": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-28T02:02:48.489Z"
   }
  },
  "wikidata": {
@@ -11570,16 +11574,31 @@
    "at": "2026-11-27T23:01:07.527Z",
    "id": null,
    "us": false
+  },
+  "Coder Technologies Inc.": {
+   "at": "2026-11-28T02:02:48.489Z",
+   "id": null,
+   "us": false
+  },
+  "Loopio Inc.": {
+   "at": "2026-11-28T02:02:48.489Z",
+   "id": null,
+   "us": false
+  },
+  "Truelogic Software": {
+   "at": "2026-11-28T02:02:48.489Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
   "remotive": "2026-11-27T23:01:07.527Z",
-  "remoteok": "2026-11-27T23:01:07.527Z",
-  "workingnomads": "2026-11-27T23:01:07.527Z",
-  "weworkremotely": "2026-11-27T23:01:07.527Z",
-  "nodesk": "2026-11-27T23:01:07.527Z",
+  "remoteok": "2026-11-28T02:02:48.489Z",
+  "workingnomads": "2026-11-28T02:02:48.489Z",
+  "weworkremotely": "2026-11-28T02:02:48.489Z",
+  "nodesk": "2026-11-28T02:02:48.489Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-27T23:01:07.527Z",
- "arbeitnowAt": "2026-11-27T23:01:07.527Z"
+ "jobicyAt": "2026-11-28T02:02:48.489Z",
+ "arbeitnowAt": "2026-11-28T02:02:48.489Z"
 }
