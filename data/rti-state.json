@@ -4477,6 +4477,10 @@
   "remoteok:coder-technologies-inc": {
    "reason": "US headquarters (We Work Remotely)",
    "at": "2026-11-28T02:02:48.489Z"
+  },
+  "weworkremotely:coder-technologies-inc": {
+   "reason": "US headquarters (We Work Remotely)",
+   "at": "2026-11-28T05:01:06.515Z"
   }
  },
  "wikidata": {
@@ -11589,16 +11593,41 @@
    "at": "2026-11-28T02:02:48.489Z",
    "id": null,
    "us": false
+  },
+  "NielsenIQ": {
+   "at": "2026-11-28T05:01:06.515Z",
+   "id": null,
+   "us": false
+  },
+  "Experian": {
+   "at": "2026-11-28T05:01:06.515Z",
+   "id": "Q692157",
+   "us": false
+  },
+  "Wiser Solutions": {
+   "at": "2026-11-28T05:01:06.515Z",
+   "id": null,
+   "us": false
+  },
+  "Sutherland": {
+   "at": "2026-11-28T05:01:06.515Z",
+   "id": null,
+   "us": false
+  },
+  "Nooks": {
+   "at": "2026-11-28T05:01:06.515Z",
+   "id": null,
+   "us": false
   }
  },
  "othersAt": {
-  "remotive": "2026-11-27T23:01:07.527Z",
-  "remoteok": "2026-11-28T02:02:48.489Z",
-  "workingnomads": "2026-11-28T02:02:48.489Z",
-  "weworkremotely": "2026-11-28T02:02:48.489Z",
-  "nodesk": "2026-11-28T02:02:48.489Z",
+  "remotive": "2026-11-28T05:01:06.515Z",
+  "remoteok": "2026-11-28T05:01:06.515Z",
+  "workingnomads": "2026-11-28T05:01:06.515Z",
+  "weworkremotely": "2026-11-28T05:01:06.515Z",
+  "nodesk": "2026-11-28T05:01:06.515Z",
   "jobfound": "2026-10-31T12:51:16.268Z"
  },
- "jobicyAt": "2026-11-28T02:02:48.489Z",
- "arbeitnowAt": "2026-11-28T02:02:48.489Z"
+ "jobicyAt": "2026-11-28T05:01:06.515Z",
+ "arbeitnowAt": "2026-11-28T05:01:06.515Z"
 }
